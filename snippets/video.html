@@ -1,0 +1,21 @@
+{{#if (and (isFalsey video) (isTruthy external_video))}}
+  {{#if external_video.host '===' 'youtube' }}
+    <iframe
+      src="https://www.youtube.com/embed/{{external_video.external_id}}?enablejsapi=1"
+      class="js-youtube"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      title="{{ video_alt }}"
+    ></iframe>
+  {{else if external_video.host '===' 'vimeo' }}
+    <iframe
+      src="https://player.vimeo.com/video/{{external_video.external_id}}"
+      class="js-vimeo"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      title="{{ video_alt }}"
+    ></iframe>
+  {{/if}}
+{{else}}
+  {{ video_tag video controls=true controlslist="nodownload"}}
+{{/if}}

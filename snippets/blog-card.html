@@ -1,0 +1,157 @@
+{{#comment}}
+  Renders a blog card
+
+  Accepts:
+  - info: {Object} Blogs Item object.
+  - show_author: {Boolean} Show article authors.
+  - show_date: {Boolean} Show article date.
+  - show_cover: {Boolean} Show cover image.
+  - cover_ratio: {String} Article cover image height.
+  - show_desc: {Boolean} Show article summary.
+  - btn_text: {String} Blog button copy.
+  - placeholder: {Boolean} For placeholder
+
+  Usage:
+  {{snippet
+    "blog-card"
+    info=Object
+    show_author=true
+    show_date=true
+    show_cover=true
+    cover_ratio="medium"
+    show_desc=true
+    btn_text=(t "blog.read_more")
+    placeholder=false
+  }}
+{{/comment}}
+
+
+
+{{assign "show_desc" (default show_desc true)}}
+{{assign "cover_ratio" (default cover_ratio "medium")}}
+
+{{#with this as |global|}}
+  {{#with info}}
+    {{assign "link_url" ""}}
+    {{assign "link_ele" "span"}}
+    {{#if (isTruthy id)}}
+      {{assign "link_url" url}}
+      {{assign "link_ele" "a"}}
+    {{/if}}
+
+    {{#if global.placeholder}}
+      <div {{{global.shopline_attributes}}} class="simple-blog">
+        {{#if global.show_cover}}
+          <{{link_ele}} class="simple-blog__image-wrapper global-blog-card-border-shadow" {{#if link_url}}href="{{link_url}}"{{/if}}>
+            <div
+              class="simple-blog__image-box
+                {{#if global.cover_ratio '==' 'auto'}}simple-blog__image-auto {{#if (isFalsey image.src)}}simple-blog__noimage-auto{{/if}}{{else}}simple-blog__image-{{global.cover_ratio}}{{/if}}"
+            >
+              <div class="simple-blog__empty-img">
+                {{placeholder_svg_tag "image"}}
+              </div>
+            </div>
+          </{{link_ele}}>
+        {{/if}}
+        <div class="simple-blog__main">
+          <div class="simple-blog__info">
+            <{{link_ele}} class="simple-blog__title-wrap" {{#if link_url}}href="{{link_url}}"{{/if}}>
+              <h4 class="simple-blog__title">
+                <span>Blog post</span>
+              </h4>
+            </{{link_ele}}>
+            {{#if (or global.show_date global.show_author)}}
+              <p class="simple-blog__extra-info body4">
+                {{assign "show_date" global.show_date}}
+                {{assign "show_author" global.show_author}}
+                {{#if show_date}}
+                  <span class="text">
+                    <{{link_ele}} {{#if link_url}}href="{{link_url}}"{{/if}}>
+                      {{date 1685624554752 "abbreviated_date"}}
+                    </{{link_ele}}>
+                  </span>
+                {{/if}}
+                {{#if (and show_date show_author)}}
+                  <span class="separator">·</span>
+                {{/if}}
+                {{#if show_author}}
+                  <span class="text">
+                    <{{link_ele}} {{#if link_url}}href="{{link_url}}"{{/if}}>
+                      author
+                    </{{link_ele}}>
+                  </span>
+                {{/if}}
+              </p>
+            {{/if}}
+          </div>
+          {{#and global.show_desc}}
+            <{{link_ele}} {{#if link_url}}href="{{link_url}}"{{/if}}>
+              <p class="simple-blog__description body3">
+                Give your customers a summary of your blog post
+              </p>
+            </{{link_ele}}>
+          {{/and}}
+        </div>
+      </div>
+    {{else}}
+      <div {{{global.shopline_attributes}}} class="simple-blog">
+        {{#if global.show_cover}}
+          <{{link_ele}} class="simple-blog__image-wrapper global-blog-card-border-shadow" {{#if link_url}}href="{{link_url}}"{{/if}} title="{{title}}">
+            <div
+              class="simple-blog__image-box
+                {{#if global.cover_ratio '==' 'auto'}}simple-blog__image-auto {{#if (isFalsey image.src)}}simple-blog__noimage-auto{{/if}}{{else}}simple-blog__image-{{global.cover_ratio}}{{/if}}"
+            >
+              {{#if image.src}}
+                {{snippet "image" class="simple-blog__image" data=image lazy=true}}
+              {{else}}
+                <div class="simple-blog__empty-img">
+                  {{placeholder_svg_tag "image"}}
+                </div>
+              {{/if}}
+            </div>
+          </{{link_ele}}>
+        {{/if}}
+        <div class="simple-blog__main">
+          <div class="simple-blog__info">
+            <{{link_ele}} class="simple-blog__title-wrap" {{#if link_url}}href="{{link_url}}"{{/if}} title="{{title}}">
+              <h4 class="simple-blog__title">
+                <span>{{title}}</span>
+              </h4>
+            </{{link_ele}}>
+            {{#if (and (or published_at author) (or global.show_date global.show_author))}}
+              <p class="simple-blog__extra-info body4">
+                {{assign "show_date" (and published_at global.show_date)}}
+                {{assign "show_author" (and author global.show_author)}}
+                {{#if show_date}}
+                  <span class="text">
+                    <{{link_ele}} {{#if link_url}}href="{{link_url}}"{{/if}} title="{{title}}">
+                      {{date published_at "abbreviated_date"}}
+                    </{{link_ele}}>
+                  </span>
+                {{/if}}
+                {{#if (and show_date show_author)}}
+                  <span class="separator">·</span>
+                {{/if}}
+                {{#if show_author}}
+                  <span class="text">
+                    <{{link_ele}} {{#if link_url}}href="{{link_url}}"{{/if}} title="{{title}}">
+                      {{author}}
+                    </{{link_ele}}>
+                  </span>
+                {{/if}}
+              </p>
+            {{/if}}
+          </div>
+          {{#and global.show_desc excerpt}}
+            <{{link_ele}} {{#if link_url}}href="{{link_url}}"{{/if}} title="{{title}}">
+              <p class="simple-blog__description body3">
+                {{excerpt}}
+              </p>
+            </{{link_ele}}>
+          {{/and}}
+        </div>
+      </div>
+    {{/if}}
+
+  {{/with}}
+{{/with}}

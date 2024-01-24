@@ -1,0 +1,53 @@
+
+
+
+{{assign 'media_count' (size product.media)}}
+
+{{#if product.selected_or_first_available_variant.featured_media}}
+  {{assign 'media_count' (plus media_count 1)}}
+{{/if}}
+
+{{assign "video_mute" 0}}
+{{#if section.settings.video_autoplay}}
+  {{assign 'video_mute' 1}}
+{{/if}}
+
+{{#with this as |global|}}
+  <product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
+    <div
+      class="product-media-modal__dialog"
+      tabindex="-1"
+    >
+      <button id="ModalClose-{{ section.id }}" type="button" class="product-media-modal__toggle">
+        {{snippet 'icon-close'}}
+      </button>
+
+      <div
+        class="product-media-modal__content"
+        role="document"
+        tabindex="0"
+      > 
+        {{#if product.selected_or_first_available_variant.featured_media}}
+          {{assign 'media' product.selected_or_first_available_variant.featured_media}}
+          {{snippet 'product-media' section=section media=media loop=section.settings.video_loop}}
+        {{/if}}
+
+        {{#each product.media as |media|}}
+          {{assign 'variant_image' false}}
+
+          {{#contains variant_images media.src}}
+            {{assign 'variant_image' true}}
+          {{/contains}}
+
+          {{#contains variant_images media.id}}
+            {{assign 'variant_image' true}}
+          {{/contains}}
+
+          {{#unless (if media.id '==' global.product.selected_or_first_available_variant.featured_media.id)}}
+            {{snippet 'product-media' section=global.section media=media loop=global.section.settings.video_loop variant_image=variant_image video_mute=../video_mute}}
+          {{/unless}}
+        {{/each}}
+      </div>
+    </div>
+  </product-modal>
+{{/with}}

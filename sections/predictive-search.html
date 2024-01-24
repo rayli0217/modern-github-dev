@@ -1,0 +1,40 @@
+<div class="predictive-search-results">
+  {{#if (size predictive_search.products)}}
+    <h2 class="predictive-search__head body5">
+      {{ t 'search.product_list.title' }}
+      <span class="predictive-search__rusults">
+        {{t "products.product_search.ount_results" count=(size predictive_search.products)}}
+      </span>
+      <span class="predictive-search__spinner">
+        {{ snippet 'icon-loading'}}
+      </span>
+    </h2>
+  {{/if}}
+
+  <ul class="predictive-search__results-list list-unstyled" data-predictive-search>
+    {{#each predictive_search.products}}
+      <li class="predictive-search__list-item">
+        <a class="predictive-search__item link" href="{{ url }}">
+          {{#if featured_image}}
+            {{ snippet 'image' data=featured_image class="predictive-search__item-image" }}
+          {{else}}
+            {{ placeholder_svg_tag 'image' 'predictive-search__item-image' }}
+          {{/if}}
+          <div class="predictive-search__item-content">
+            <p class="predictive-search__item-head body3">{{ title }}</p>
+          </div>
+        </a>
+      </li>
+    {{/each}}
+    <li class="predictive-search__list-item">
+      <button class="predictive-search__term body3">
+        {{ t "general.search.search_hint" key="__QUERY_KEY__" }}
+        <span class="predictive-search__term-icon">
+          <svg viewBox="0 0 14 10" fill="none" class="icon icon-arrow" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor"></path>
+          </svg>
+        </span>
+      </button>
+    </li>
+  </ul>
+</div>

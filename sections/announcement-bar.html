@@ -1,0 +1,125 @@
+{{assign "show_announcement" false}}
+{{assign "should_display_with_slider_ids" (JSONparse '["2", "3", "4"]')}}
+{{assign "should_display_with_slider" false}}
+
+{{#contains should_display_with_slider_ids section.settings.display_mode}}
+  {{assign "should_display_with_slider" true}}
+{{/contains}}
+
+{{#with this as |global|}}
+  {{#each section.blocks}}
+    {{#if (trim settings.notice_link_text)}}
+      {{#with global}}
+        {{assign "show_announcement" true}}
+      {{/with}}
+    {{/if}}
+  {{/each}}
+{{/with}}
+
+<link rel="stylesheet" href="{{asset_url 'section-announcement-bar.css'}}" />
+
+{{#and show_announcement section.settings.enable_sticky}}
+  <script src="{{asset_url 'section-announcement-bar-sticky-top.js'}}" defer></script>
+{{/and}}
+
+{{#if should_display_with_slider}}
+  {{stylesheet_tag (asset_url "lib-splide.min.css")}}
+  <script src="{{asset_url 'lib-splide.min.js'}}" defer></script>
+  <script src="{{asset_url 'section-announcement-bar-slider.js'}}" defer></script>
+{{/if}}
+
+{{#with this as |global|}}
+  {{#if show_announcement}}
+    {{#if should_display_with_slider}}<announcement-bar-slider
+        data-display-mode="{{section.settings.display_mode}}"
+      >{{/if}}
+    {{#if section.settings.enable_sticky}}<announcement-bar-sticky-top>{{/if}}
+    <div class="announcement-bar--container {{#if should_display_with_slider}}splide{{/if}}">
+      {{#if should_display_with_slider}}
+        <div class="splide__track">
+      {{/if}}
+      <div class="announcement-bar--list {{#if should_display_with_slider}}splide__list{{/if}}">
+        {{#each section.blocks}}
+          {{~#if (isTruthy settings.notice_link_text)}}
+            <div
+              class="announcement-bar--item {{#if global.should_display_with_slider}}splide__slide{{/if}}"
+              {{{shopline_attributes}}}
+            >
+              {{assign "ele" (ternary (if settings.notice_link) "a" "div")}}
+              <{{ele}}
+                {{#if settings.notice_link}}href="{{settings.notice_link}}"{{/if}}
+                class="body4 announcement--text"
+              >
+                {{~settings.notice_link_text~}}
+              </{{ele}}>
+            </div>
+          {{~/if}}
+        {{/each}}
+      </div>
+      {{#if should_display_with_slider}}
+        </div>
+      {{/if}}
+    </div>
+    {{#if section.settings.enable_sticky}}</announcement-bar-sticky-top>{{/if}}
+    {{#if should_display_with_slider}}</announcement-bar-slider>{{/if}}
+  {{/if}}
+{{/with}}
+
+{{#schema}}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "switch",
+      "id": "enable_sticky",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.enable_sticky.label"
+    },
+    {
+      "id": "display_mode",
+      "type": "select",
+      "label": "t:sections.announcement-bar.settings.display_mode.label",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.announcement-bar.settings.display_mode.options__0.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.announcement-bar.settings.display_mode.options__1.label"
+        },
+        {
+          "value": "3",
+          "label": "t:sections.announcement-bar.settings.display_mode.options__2.label"
+        },
+        {
+          "value": "4",
+          "label": "t:sections.announcement-bar.settings.display_mode.options__3.label"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "icon": "normal",
+      "name": "t:sections.announcement-bar.blocks.item.name",
+      "settings": [
+        {
+          "id": "notice_link_text",
+          "type": "text",
+          "label": "t:sections.announcement-bar.blocks.item.settings.notice_link_text.label",
+          "default": "30-day postage paid returns"
+        },
+        {
+          "type": "url",
+          "id": "notice_link",
+          "label": "t:sections.announcement-bar.blocks.item.settings.notice_link.label"
+        }
+      ]
+    }
+  ]
+}
+{{/schema}}

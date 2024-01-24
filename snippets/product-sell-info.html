@@ -1,0 +1,57 @@
+{{ assign "salesIndexArr" (JSONparse '["1", "2", "3", "4"]' )}}
+
+
+{{assign 'num' '0'}}
+
+{{#with this as |global|}}
+{{#each salesIndexArr}}
+  {{#if (trim (get (append 'product_sales_point_' this) ../settings)) }}
+    {{#with global}}
+      {{assign 'num' (plus global.num 1)}}
+    {{/with}}
+  {{/if}}
+{{/each}}
+{{/with}}
+
+{{#capture 'gridNum'}}
+  {{~#if num '==' '1'}}onlyOne
+  {{~else if num '==' '2'}}onlyTwo
+  {{~else if num '>' '2'}}overThree
+  {{~else}}overThree
+  {{/if}}
+{{/capture}}
+<div class="product__sell-info {{gridNum}} product__sell-info-{{settings.layout}}">
+  {{#each salesIndexArr}}
+    {{#if (trim (get (append 'product_sales_point_' this) ../settings)) }}
+      <div class="product__sell-box">
+        <div class="product__sell-icon">
+          {{#if (get (append 'product_sales_point_' this '_custom_icon') ../settings)}}
+            {{snippet 'image' style="width: 24px;height: 24px;object-fit: cover" class="product__sell-info__custom-icon" data=(get (append 'product_sales_point_' this '_custom_icon') ../settings) lazy=true}}
+          {{else}}
+            {{#if (get (append 'product_sales_point_' this '_icon') ../settings) '==' 'checkmark'}}
+              {{snippet 'icon-sell-checkmark' }}
+            {{/if}}
+            {{#if (get (append 'product_sales_point_' this '_icon') ../settings) '==' 'globe'}}
+              {{snippet 'icon-sell-globe' }}
+            {{/if}}
+            {{#if (get (append 'product_sales_point_' this '_icon') ../settings) '==' 'leaf'}}
+              {{snippet 'icon-sell-leaf' }}
+            {{/if}}
+            {{#if (get (append 'product_sales_point_' this '_icon') ../settings) '==' 'lock'}}
+              {{snippet 'icon-sell-lock' }}
+            {{/if}}
+            {{#if (get (append 'product_sales_point_' this '_icon') ../settings) '==' 'package'}}
+              {{snippet 'icon-sell-package' }}
+            {{/if}}
+            {{#if (get (append 'product_sales_point_' this '_icon') ../settings) '==' 'truck'}}
+              {{snippet 'icon-sell-truck' }}
+            {{/if}}
+          {{/if}}
+        </div>
+        <div class="product__sell-text body3">
+          {{{ get (append 'product_sales_point_' this) ../settings }}}
+        </div>
+      </div>
+    {{/if}}
+  {{/each}}
+</div>

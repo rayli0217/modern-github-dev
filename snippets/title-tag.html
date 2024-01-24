@@ -1,0 +1,6 @@
+<title>
+  {{page_title}}
+  {{~#if current_tags}} &ndash; tagged "{{join current_tags ','}}"{{~/if}}
+  {{~#if current_page "!=" 1}} &ndash; Page {{current_page}}{{~/if}}
+  {{~#not (contains page_title shop.name)}} &ndash; {{shop.name}}{{~/not}}
+</title>

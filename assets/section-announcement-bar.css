@@ -1,0 +1,59 @@
+.shopline-section-announcement-bar-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  animation: modalSlideInTop 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#shopline-section-announcement-bar:not(
+    .shopline-section-announcement-bar-sticky
+  ) {
+  position: relative;
+  z-index: 20;
+}
+
+.announcement-bar--list {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+}
+
+.announcement-bar--list:not(.splide__list) {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (min-width: 960px) {
+  announcement-bar-slider[data-display-mode="2"] .announcement-bar--list {
+    display: flex !important;
+    flex-direction: row;
+  }
+
+  announcement-bar-slider[data-display-mode="2"]
+    .announcement-bar--list
+    .announcement-bar--item {
+    flex: 1 1 auto;
+  }
+}
+
+.announcement-bar--item {
+  width: 100%;
+  color: rgb(var(--color-announcement-bar-text));
+  background-color: rgb(var(--color-announcement-bar-background));
+  --color-text: var(--color-announcement-bar-text);
+}
+
+.announcement--text {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+/* The ipad end responds to the mobile end in vertical screen */
+
+/* @custom-media --tablet (max-width: 959px); */
+
+/* @custom-media --gt-mobile (min-width: 751px); */
+
+/* detectingScreen need to consider the configuration of the tablet */

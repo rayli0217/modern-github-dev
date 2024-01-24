@@ -1,0 +1,58 @@
+<div class="card-container">
+  <div class="body2 card__title">
+    <p class="fw-bold">{{t 'general.address.address'}} 1</p>
+  </div>
+
+  <div class="card__detail">
+    <div class="address">
+      {{#if (lengthEqual customer.addresses 0)}}
+        <div class="address--empty">
+          {{snippet 'icon-location'}}
+          <p class="body4">{{t 'customer.address.no_address_data'}}</p>
+          <a href="{{routes.account_address_new_url}}" class="button">
+            {{ snippet 'icon-plus' }}
+            <span>{{ t 'customer.address.add_address' }}</span>
+          </a>
+        </div>
+      {{else}}
+        
+        {{#if (gte (length customer.addresses) 50)}}
+          <p class="address--max">{{t 'customer.address.address_full_tip'}}</p>
+        {{else}}
+          <a href="{{routes.account_address_new_url}}" class="body4">
+            {{ snippet 'icon-plus' }}
+            <span>{{ t 'customer.address.add_address' }}</span>
+          </a>
+        {{/if}}
+        <div class="address__list">
+          {{#each customer.addresses}}
+            <div class="address__item">
+              <div class="address__header">
+                <p class="address__title">
+                  {{#if id '==' ../customer.default_address.id}}
+                    <span class="address--default">{{t 'customer.address.default'}}</span>
+                  {{/if}}
+                  <span class="body3 fw-bold address__name">{{ last_name }}{{ ternary first_name (append (ternary last_name ', ' '') first_name) '' }}</span>
+                </p>
+                <div class="address__btns">
+                  <a href="{{url}}" class="address__btn">{{snippet 'icon-edit'}}</a>
+                  {{#form "customer_address" address_seq=this.id return_to=../../routes.account_url id=(append 'address-form-' this.id)}}
+                    <button class="address__btn address__btn--remove" type="button" data-form-id="{{append 'address-form-' this.id}}" data-confirm-message="{{ t 'customer.address.delete__address' }}">{{snippet 'icon-delete'}}</button>
+                  {{/form}}
+                </div>
+              </div>
+
+              <div class="body4 address__phone">{{ phone }}</div>
+
+              <div class="body4 address__detail">
+                {{ assign 'address' (format_address this) }}
+                <div class="pay-info__content">{{{ replace address.string '<br>' ', ' }}}</div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+
+      {{/if}}
+    </div>
+  </div>
+</div>

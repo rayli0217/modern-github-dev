@@ -1,0 +1,53 @@
+{{#comment}}
+  Render img tag
+
+  Accepts:
+  - data: {Object} Select image data.
+  - class: {String} Tag class attr.
+  - style: {String} Tag style attr.
+  - sizes: {String} Customize img tag size attr.
+  - pc_size: {String} Customize the specifications used on the pc side，like "20px" "100vw" "100%" "2/3"
+  - mobile_size: {String} Customize the specifications used on the mobile side，like "20px" "100vw" "100%" "2/3"
+  - lazy: {Boolean} Set whether to use lazy loading.
+
+  Usage:
+  {{ snippet 'image' data=selectedImage pc_size="1/3" mobile_size="200px" lazy=true }}
+{{/comment}}
+
+{{assign 'sizes' (default sizes 'auto')}}
+
+{{#or pc_size mobile_size}}
+  {{assign 'pc_size_breakpoint' '100vw' }}
+  {{assign 'mobile_size_breakpoint' '100vw'}}
+
+  {{#if pc_size}}
+    {{#if (or (has pc_size 'px') (has pc_size 'vw') (has pc_size '%'))}}
+      {{assign 'pc_size_breakpoint' pc_size}}
+    {{else}}
+      {{assign 'pc_size_breakpoint' (append 'calc(100vw * ' pc_size ')')}}
+    {{/if}}
+  {{/if}}
+
+  {{#if mobile_size}}
+    {{#if (or (has mobile_size 'px') (has mobile_size 'vw') (has mobile_size '%'))}}
+      {{assign 'mobile_size_breakpoint' mobile_size}}
+    {{else}}
+      {{assign 'mobile_size_breakpoint' (append 'calc(100vw * ' mobile_size ')')}}
+    {{/if}}
+  {{/if}}
+
+  {{assign 'sizes' (append '(max-width: 959px) ' mobile_size_breakpoint ',(min-width: 960px) ' pc_size_breakpoint)}}
+{{/or}}
+
+{{
+  image_tag (image_url data)
+  class=(default class '')
+  style=(default style '')
+  widths=(default breakpoints '375, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2160, 2660, 2960, 3260, 3860')
+  loading=(ternary lazy 'lazy' 'eager')
+  sizes=sizes
+  data-scale="hover-scale"
+  alt=(default data.alt '')
+  decoding="async"
+  fetchpriority=(default fetchpriority 'auto')
+}}

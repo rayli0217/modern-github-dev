@@ -1,0 +1,16 @@
+
+
+<div class="quick-add {{classes}}">
+  <modal-opener data-modal="#QuickAdd-{{product_data.id}}">
+    <button
+      id="{{id}}"
+      type="submit"
+      name="add"
+      class="quick-add__opener"
+      data-product-url="{{product_data.url}}"
+    >
+      <i class="loading-hidden">{{snippet "icon-quick-add"}}</i>
+      {{snippet "loading-overlay-spinner"}}
+    </button>
+  </modal-opener>
+</div>
