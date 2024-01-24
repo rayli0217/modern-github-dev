@@ -12,7 +12,7 @@
           </div>
           <div class="cart__warnings">
             <h2 class="cart__empty-text body3">{{t "cart.item.empty_cart"}}</h2>
-            <a href="{{#if settings.cart_continue_url}}{{settings.cart_continue_url}}{{else}}{{routes.all_products_collection_url}}{{/if}}" class="button body3 fw-bold">
+            <a href="{{routes.all_products_collection_url}}" class="button body3 fw-bold">
               {{t "cart.checkout_proceeding.continue_shopping"}}
             </a>
           </div>

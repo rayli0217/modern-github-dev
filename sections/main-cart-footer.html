@@ -9,7 +9,7 @@
   data-id="{{section.id}}"
   data-show-fixed-checkout="{{and (isFalsey cart.empty) (if cart.total_discount '>' 0)}}"
 >
-  <div class="cart__checkout-container">
+  <div class="cart__checkout-container" data-blocks="{{json section}}">
     {{#with this as |global|}}
       {{#each section.blocks}}
         {{#if type "===" "subtotal"}}

@@ -21,25 +21,6 @@ defineCustomElement(
 );
 
 defineCustomElement(
-  'cart-item-quantity',
-  () =>
-    class CartItemQuantity extends HTMLElement {
-      constructor() {
-        super();
-        this.volumePricingPopover = this.querySelector('.cart-item__volume-pricing-wrapper summary');
-        if (this.volumePricingPopover) {
-          this.volumePricingPopover.addEventListener('focusout', this.closePopover.bind(this));
-        }
-      }
-
-      closePopover(event) {
-        event.preventDefault();
-        this.volumePricingPopover.parentElement.removeAttribute('open');
-      }
-    },
-);
-
-defineCustomElement(
   'cart-items',
   () =>
     class CartItems extends HTMLElement {
@@ -88,11 +69,6 @@ defineCustomElement(
             selector: '#cart-icon-bubble-wrapper',
           },
           {
-            id: 'cart-icon-bubble-mobile',
-            section: 'cart-icon-bubble-mobile',
-            selector: '#cart-icon-bubble-wrapper-mobile',
-          },
-          {
             id: 'main-cart-footer',
             section: document.getElementById('main-cart-footer').dataset.id,
             selectors: [
@@ -105,7 +81,6 @@ defineCustomElement(
       }
 
       updateQuantity(id, quantity) {
-        if (!id) return;
         this.enableLoading(id);
         const body = JSON.stringify({
           id,
@@ -125,15 +100,8 @@ defineCustomElement(
           })
           .then((state) => {
             const parsedState = JSON.parse(state);
-            const quantityElement =
-              document.getElementById(`Quantity-${id}`) || document.getElementById(`Drawer-quantity-${id}`);
+            // this.classList.toggle('cart-empty', parsedState.item_count === 0);
             const cartItems = document.querySelector('cart-items');
-
-            if (parsedState.message) {
-              quantityElement.value = quantityElement.getAttribute('value');
-              this.updateLiveRegions(id, parsedState.message);
-              return;
-            }
             const cartFooter = document.getElementById('main-cart-footer');
             if (cartItems) cartItems.classList.toggle('cart-empty', parsedState.item_count === 0);
             if (cartFooter) cartFooter.classList.toggle('cart-empty', parsedState.item_count === 0);
@@ -157,34 +125,39 @@ defineCustomElement(
                 replaceElement(section, section.selector);
               }
             });
-            let message = '';
-            // over stock case
-            if (this.currentItemCount === parsedState.item_count) {
-              message = window.t('cart.cart_quantity_error_html', {
-                quantity: quantityElement.getAttribute('value'),
-              });
-              this.updateLiveRegions(id, message);
-            }
-            this.currentItemCount = parsedState.item_count;
+            this.updateLiveRegions(id, parsedState.item_count);
+            this.disableLoading();
           })
           .catch((err) => {
             console.log('catch', err);
             this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.remove('loading'));
             const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
             errors.textContent = window.t('cart.cart_error');
-          })
-          .finally(() => {
-            this.disableLoading(id);
+            this.disableLoading();
           });
       }
 
-      updateLiveRegions(id, message) {
-        const lineItemError =
-          document.getElementById(`Line-item-error-${id}`) ||
-          document.getElementById(`Line-item-error-CartDrawer-${id}`);
+      updateLiveRegions(id, itemCount) {
+        if (this.currentItemCount === itemCount) {
+          const lineItemError =
+            document.getElementById(`Line-item-error-${id}`) ||
+            document.getElementById(`Line-item-error-CartDrawer-${id}`);
+          const quantityElement =
+            document.getElementById(`Quantity-${id}`) || document.getElementById(`Drawer-quantity-${id}`);
+          const cartItemErrorText = lineItemError.querySelector('.cart-item__error-text');
+          cartItemErrorText.innerHTML = window.t('cart.cart_quantity_error_html', {
+            quantity: quantityElement.value,
+          });
 
-        const cartItemErrorText = lineItemError.querySelector('.cart-item__error-text');
-        cartItemErrorText.innerHTML = message;
+          detectingScreen(({ isMobileScreen }) => {
+            if (isMobileScreen) {
+              cartItemErrorText.classList.remove('display-none-tablet');
+            }
+          });
+          lineItemError.style.marginTop = '10px';
+        }
+
+        this.currentItemCount = itemCount;
       }
 
       getSectionInnerHTML(html, selector) {
@@ -201,14 +174,10 @@ defineCustomElement(
         [...cartItemElements].forEach((overlay) => overlay.classList.add('loading'));
       }
 
-      disableLoading(id) {
+      disableLoading() {
         const mainCartItems =
           document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
         mainCartItems.classList.remove('cart__items--disabled');
-
-        const cartItemElements = this.querySelectorAll(`.cart-item[data-key="${id}"] .loading-overlay`);
-
-        [...cartItemElements].forEach((overlay) => overlay.classList.remove('loading'));
       }
     },
 );

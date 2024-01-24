@@ -39,13 +39,8 @@
       {{/if}}
       {{#if type "===" "share"}}
         <div class="article-template__social-sharing page-width" {{{shopline_attributes}}}>
-          {{snippet
-            "share-card"
-            theme_settings=global.settings
-            share_type="article_detail"
-            share_data=global.article
-            domain=global.request.host
-          }}
+          {{assign "share_url" (append global.request.origin global.article.url)}}
+          {{snippet "share-button" share_link=share_url}}
         </div>
       {{/if}}
     {{/each}}
@@ -200,7 +195,7 @@
       ],
     {{/if}}
     "datePublished": "{{ date article.published_at '%Y-%m-%dT%H:%M:%SZ' }}",
-    "dateCreated": "{{ date article.created_at '%Y-%m-%dT%H:%M:%SZ' }}",
+    "dateCreated": "{{ date  article.created_at '%Y-%m-%dT%H:%M:%SZ' }}",
     "author": {
       "@type": "Person",
       "name": "{{ article.author }}"

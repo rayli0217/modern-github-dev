@@ -53,11 +53,11 @@ defineCustomElement(
         const prevBtn = this.querySelector('.featured-control__arrow-button[name=previous]');
         const nextBtn = this.querySelector('.featured-control__arrow-button[name=next]');
         prevBtn?.addEventListener('click', () => {
-          this.splide?.go('<');
+          this?.splide?.go('<');
         });
 
         nextBtn?.addEventListener('click', () => {
-          this.splide?.go('>');
+          this?.splide?.go('>');
         });
       }
     },

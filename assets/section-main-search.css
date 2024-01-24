@@ -10,7 +10,6 @@
   border-top: none;
   border-radius: 0 0 var(--menu-modal-border-radius)
     var(--menu-modal-border-radius);
-  z-index: 1;
 }
 
 .predictive-search__head {
@@ -19,7 +18,7 @@
   justify-content: space-between;
   padding: calc(var(--predictive-search-result-padding) / 2)
     var(--predictive-search-result-padding);
-  color: rgb(var(--color-text));
+  color: rgb(var(--color-light-text));
   text-transform: uppercase;
 }
 
@@ -317,7 +316,6 @@ predictive-search[data-focus][loading]
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(var(--color-text));
 }
 
 .search__collection-card {

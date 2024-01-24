@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "La minima quantità all'ingrosso per questo prodotto è di {{num}} pezzi"
-        },
-        "most": {
-          "desc": "La massima quantità all'ingrosso per questo prodotto è di {{num}} pezzi"
-        },
-        "noIncrement": {
-          "desc": "La quantità in aumento di questo prodotto di {{num}} pezzi"
-        }
-      }
-    },
     "cart": {
       "buy_now": "Acquista ora",
       "cancel": "Annulla",
@@ -254,7 +241,7 @@
       "copy_success": "Coupon copiato",
       "discount_title": "Attiva l'account e ottieni il codice di sconto",
       "normal_title": "Attiva l'account",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Attiva l'account e ottieni un codice di sconto",
       "subscription_text": "Iscriviti alle e-mail per ricevere aggiornamenti, accedi a offerte esclusive e molto altro ancora",
       "success_title": "Congratulazioni per ottenere uno sconto",
       "token_expired": "Il tuo link è stato scaduto"
@@ -515,9 +502,6 @@
       "form_error": "Richiesta non riuscita",
       "orderId": "ID ordine",
       "orderId_error": "L'ID ordine non può essere vuoto",
-      "other_email": "Email",
-      "other_phone": "Numero di cellulare",
-      "phone": "Cellulare",
       "query_illegal": "l'ordine non esiste",
       "risk_black_user": "Questo conto è a rischio",
       "risk_interception": "l'ordine non esiste",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Nessun dato sul prodotto attuale, riprova più tardi",
       "sold_out": "Venduto",
-      "load_more": "Carica più articoli",
+      "added_to_cart_successfully": "Acquisto aggiuntivo riuscito",
       "load_more_items": "Caricamento di {{current_offset}} ~ {{last_current_offset}} di {{total}} elementi",
-      "unavailable": "Indisponibile",
-      "variant_property_color": "Colore"
+      "unavailable": "Indisponibile"
     },
     "product_details": {
       "activity_toast_price_limit": "Con il prezzo promozionale dell'articolo puoi acquistare solo solo {{num}} pezzi",
@@ -659,7 +642,6 @@
       "country_region": "Paese/regione",
       "default_placeholder": "Seleziona {{attrName}}",
       "description": "Descrizione",
-      "each_price": "{{price}}/ciascuno",
       "email": "Email",
       "enter_email_address": "Inserisci la tua email",
       "enter_valid_email_address": "Inserisci l'email corretto",
@@ -681,26 +663,14 @@
       "load_more": "Mostra di più",
       "maximum_length_of_message": "La lunghezza del messaggio non supera le 1500 parole",
       "message": "Messaggio",
-      "moq_increment": "Multipli di {{num}}",
-      "moq_increment_tips": "La quantità di acquisto aggiuntiva supporta solo multipli di {{num}}",
-      "moq_max_tips": "Questa specifica richiede un acquisto di {{num}} pezzi al massimo",
-      "moq_maximum": "Acquisto massimo di {{num}}",
-      "moq_min_tips": "Questa specifica richiede un acquisto di {{num}} pezzi al minimo",
-      "moq_minimum": "Acquisto minimo di {{num}}",
       "more_payment_options": "Altre opzioni di pagamento",
       "name": "Nome",
       "optional": "Opzionale",
       "phone_number": "Numero di telefono",
-      "price": "Prezzo",
-      "price_break_title": "Prezzo all'ingrosso",
-      "price_breaks_view_less": "Chiudi",
-      "price_breaks_view_more": "Vedi di più",
       "product_enquiry": "Domanda sul prodotto",
       "submission_failed": "Impossibile inviare, riprova per favore",
       "submission_successfully": "Inviato con successo",
       "submit": "Invia",
-      "table_each_price": "{{price}}ciascuno",
-      "table_each_price_ssr": "{{{priceDom}}}ciascuno",
       "tax_included": "tasse incluse",
       "view_product_detail": "Vedi i dettagli del prodotto",
       "copy_button_text": "Copia",
@@ -722,7 +692,6 @@
       "new_arrivals": "Ultimi arrivi",
       "new_products": "In base al tempo di creazione da vicino a lontano",
       "no_product": "Non ci sono prodotti in questa categoria",
-      "price_break_tag": "È possibile il prezzo all'ingrosso",
       "price_high_to_low": "Prezzo decrescente",
       "price_low_to_high": "Prezzo crescente",
       "product_has_been_removed": "Il prodotto attuale è stato rimosso",
@@ -736,7 +705,10 @@
       "save_ratio": "Sconto di {{price}}%",
       "select_product_all_options": "La variante di prodotto selezionata è incompleta o non disponibile. Si prega di scegliere di nuovo",
       "sort_button": "Ordina",
-      "top_sellers": "Più venduti"
+      "top_sellers": "Più venduti",
+      "more__product_num": "{{num}} Prodotti",
+      "one_product_num": "{{num}} Prodotto",
+      "show": "Mostrare"
     },
     "product_search": {
       "back_to_home": "Torna alla pagina iniziale",

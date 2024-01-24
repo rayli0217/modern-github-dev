@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Tato položka se prodává pouze při startu s množstvím {{num}}"
-        },
-        "most": {
-          "desc": "Tato položka se prodává pouze s množstvím {{num}} nanejvýš"
-        },
-        "noIncrement": {
-          "desc": "Tato položka se prodává pouze s přírůstkem {{num}}"
-        }
-      }
-    },
     "cart": {
       "buy_now": "KOUPIT TEĎ",
       "cancel": "Zrušení",
@@ -254,7 +241,7 @@
       "copy_success": "Kód kupónu zkopírován",
       "discount_title": "Aktivujte účet a získejte slevový kód",
       "normal_title": "Aktivovat účet",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Aktivujte svůj účet a získejte slevový kód",
       "subscription_text": "Přihlaste se k odběru e-mailů a získejte aktualizace, přístup k exkluzivním nabídkám, a více.",
       "success_title": "Gratulujeme k získání skvělou slevu",
       "token_expired": "Platnost odkazu vypršela"
@@ -515,9 +502,6 @@
       "form_error": "Dotaz se nezdařil",
       "orderId": "číslo objednávky",
       "orderId_error": "ID objednávky nemůže být prázdné",
-      "other_email": "E-mailová adresa",
-      "other_phone": "Číslo mobilního telefonu",
-      "phone": "Mobilní Telefon",
       "query_illegal": "řád neexistuje",
       "risk_black_user": "Tento účet je ohrožen",
       "risk_interception": "řád neexistuje",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Nebyly nalezeny žádné údaje o produktu. Zkuste to prosím později",
       "sold_out": "Vyprodáno",
-      "load_more": "Načítání dalších položek",
+      "added_to_cart_successfully": "Přidáno do košíku úspěšně",
       "load_more_items": "Načítání {{current_offset}} ~ {{last_current_offset}} z {{total}} položek",
-      "unavailable": "nedostupný",
-      "variant_property_color": "Barva"
+      "unavailable": "nedostupný"
     },
     "product_details": {
       "activity_toast_price_limit": "Maximální povolené množství pro tento omezený produkt je {{num}}",
@@ -659,7 +642,6 @@
       "country_region": "Země / Region",
       "default_placeholder": "Vyberte prosím {{attrName}}",
       "description": "Popis",
-      "each_price": "{{price}} / Každý",
       "email": "Mail",
       "enter_email_address": "Zadejte prosím svou e-mailovou adresu",
       "enter_valid_email_address": "Zadejte prosím platnou e-mailovou adresu",
@@ -681,26 +663,14 @@
       "load_more": "Načíst více",
       "maximum_length_of_message": "Maximální délka zprávy by neměla být větší než 1500 slov",
       "message": "Vaše zpráva",
-      "moq_increment": "Násobky {{num}}",
-      "moq_increment_tips": "Množství dalších nákupů podporuje pouze násobky {{num}}",
-      "moq_max_tips": "Tato specifikace může zakoupit až {{num}} kusů",
-      "moq_maximum": "Maximální nákupy {{num}}",
-      "moq_min_tips": "Tato specifikace vyžaduje nákup {{num}} výše uvedeného",
-      "moq_minimum": "Minimální nákup{{num}}",
       "more_payment_options": "více platebních možností",
       "name": "Název",
       "optional": "Volitelný",
       "phone_number": "Telefonní číslo",
-      "price": "Cena",
-      "price_break_title": "Hromadné ceny",
-      "price_breaks_view_less": "Skrýt",
-      "price_breaks_view_more": "Zobrazit více",
       "product_enquiry": "Dotaz na produkt",
       "submission_failed": "Odeslání se nezdařilo, zkuste to prosím znovu",
       "submission_successfully": "Úspěšně odesláno",
       "submit": "Odeslat",
-      "table_each_price": "{{price}}  Každý",
-      "table_each_price_ssr": "{{{priceDom}}}  Každý",
       "tax_included": "inclusief belasting",
       "view_product_detail": "Zobrazit podrobnosti o produktu",
       "copy_button_text": "Kopie",
@@ -722,7 +692,6 @@
       "new_arrivals": "Nový příjezd",
       "new_products": "Od nejnovějšího k nejstaršímu podle času výroby",
       "no_product": "v této sbírce bohužel není žádný produkt",
-      "price_break_tag": "Dostupné hromadné ceny",
       "price_high_to_low": "Cena od vysoké až nízké",
       "price_low_to_high": "Cena od nízké až vysoké",
       "product_has_been_removed": "Produkt je odstraněn z polic",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% ze ceny",
       "select_product_all_options": "Vybraná variant produktu je neúplná nebo nedostupná. Prosím, vyberte znovu",
       "sort_button": "Seřadit",
-      "top_sellers": "Nejprodávanější"
+      "top_sellers": "Nejprodávanější",
+      "more__product_num": "{{num}} výrobků",
+      "one_product_num": "{{num}} výrobek",
+      "show": "Ukázat"
     },
     "product_search": {
       "back_to_home": "Zpět na domovskou stránku",

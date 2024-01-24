@@ -5,18 +5,6 @@
 {{stylesheet_tag (asset_url "section-multi-media-splicing.css")}}
 {{stylesheet_tag (asset_url "component-card.css")}}
 {{stylesheet_tag (asset_url "component-price.css")}}
-<link rel="stylesheet" href="{{asset_url 'snippet-collection-card.css'}}" />
-
-{{#if theme_settings.enabled_color_swatch}}
-  <link rel="stylesheet" href="{{asset_url 'component-color-swatches.css'}}" media="all" />
-  <script src="{{asset_url 'component-color-swatch.js'}}" defer="defer"></script>
-  <script src="{{asset_url 'component-color-swatch-radios.js'}}" defer="defer"></script>
-  <script src="{{asset_url 'component-product-form.js'}}" defer="defer"></script>
-{{/if}}
-{{#if theme_settings.enable_quick_view}}
-  <link rel="stylesheet" href="{{asset_url 'component-quick-add.css'}}" media="print" onload="this.media='all'" />
-  <script src="{{asset_url 'component-quick-add.js'}}" defer="defer"></script>
-{{/if}}
 
 {{snippet
   "section-padding-creator"
@@ -48,14 +36,14 @@
                   class="multi-media-splicing__card card-wrapper multi-media-splicing-image
                     multi-media-splicing-image__{{settings.image_padding}}
                     {{card_class}}
-                    global-card-border-shadow"
+                    global-card-border-shadow hover-effect-container"
                 >
                   <div class="media media--transparent ratio" style="--ratio-percent: 100%">
                     {{#if settings.image}}
                       {{#capture "sizes"}}(min-width: {{global.theme_settings.page_width}}px) {{#if (size global.section.blocks) 1}}calc({{global.theme_settings.page_width}}px - 100px){{else}}{{round (times (minus global.theme_settings.page_width 100) 0.67)}}px{{/if}}, calc(100vw - 30px){{/capture}}
                       {{image_tag
                         (image_url settings.image width=3000)
-                        class="multi-media-splicing__image"
+                        class="multi-media-splicing__image hover-effect-target"
                         loading="lazy"
                         sizes=sizes
                         widths="550, 720, 990, 1100, 1500, 2200, 3000"
@@ -98,7 +86,7 @@
                           {{assign "cover_image_aspect_ratio" 100}}
                         {{/if}}
                         <div
-                          class="media media--transparent ratio"
+                          class="media media--transparent ratio hover-effect-container"
                           style="--ratio-percent: {{cover_image_aspect_ratio}}%"
                         >
                           {{#if (or video external_video)}}
@@ -110,6 +98,7 @@
                           {{#if settings.cover_image}}
                             {{snippet
                               "image"
+                              class="hover-effect-target"
                               data=settings.cover_image
                               lazy=true
                               sizes=sizes
@@ -150,6 +139,7 @@
 {
   "name": "t:sections.multi-media-splicing.name",
   "icon": "video",
+  "type": "multi-media-splicing",
   "max_blocks": 3,
   "class": "section",
   "blocks": [

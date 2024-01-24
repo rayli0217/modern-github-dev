@@ -48,18 +48,17 @@
       >
     </button>
     <template>
-      {{assign 'video_mute' (default video_mute 0)}}
       {{#case media.media_type}}
         {{#when 'external_video'}}
           {{assign 'video_class' (append 'js-' media.host)}}
           {{#if media.host 'youtube'}}
-            {{ external_video_tag (external_video_url media autoplay=1 loop=loop playlist=media.external_id mute=video_mute) class=video_class loading="lazy" frameborder="0" }}
+            {{ external_video_tag (external_video_url media autoplay=true loop=loop playlist=media.external_id) class=video_class loading="lazy" frameborder="0" }}
           {{else}}
-            {{ external_video_tag (external_video_url media autoplay=1 loop=loop mute=video_mute) class=video_class loading="lazy" frameborder="0" }}
+            {{ external_video_tag (external_video_url media autoplay=true loop=loop) class=video_class loading="lazy" frameborder="0" }}
           {{/if}}
         {{/when}}
         {{#when 'video'}}
-          {{ video_tag media autoplay=true loop=loop controls=true preload="none" muted=(ternary (if video_mute '==' 1) true false) onloadeddata="this.play();" }}
+          {{ video_tag media autoplay=true loop=loop controls=true preload="none" }}
         {{/when}}
       {{/case}}
     </template>

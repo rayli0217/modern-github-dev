@@ -137,11 +137,6 @@ defineCustomElement('cart-coupon', () => {
           selector: '#cart-icon-bubble-wrapper',
         },
         {
-          id: 'cart-icon-bubble-mobile',
-          section: 'cart-icon-bubble-mobile',
-          selector: '#cart-icon-bubble-wrapper-mobile',
-        },
-        {
           id: 'cart-drawer',
           section: 'cart-drawer',
           selectors: ['.cart-drawer__inner', '.cart-fixed-checkout'],

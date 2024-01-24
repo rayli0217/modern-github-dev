@@ -69,7 +69,7 @@
 }
 .splide {
   position: relative;
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 .splide.is-initialized,
 .splide.is-rendered {

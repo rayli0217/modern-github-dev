@@ -1,16 +1,6 @@
 <script src="{{asset_url 'section-product-recommendations.js'}}" defer></script>
 <link rel="stylesheet" href="{{asset_url 'component-price.css'}}" />
 <link rel="stylesheet" href="{{asset_url 'component-card.css'}}" media="all" />
-{{#if settings.enabled_color_swatch}}
-  <link rel="stylesheet" href="{{asset_url 'component-color-swatches.css'}}" media="all" />
-  <script src="{{asset_url 'component-color-swatch.js'}}" defer="defer"></script>
-  <script src="{{asset_url 'component-color-swatch-radios.js'}}" defer="defer"></script>
-  <script src="{{asset_url 'component-product-form.js'}}" defer="defer"></script>
-{{/if}}
-{{#if settings.enable_quick_view}}
-  <link rel="stylesheet" href="{{asset_url 'component-quick-add.css'}}" media="print" onload="this.media='all'" />
-  <script src="{{asset_url 'component-quick-add.js'}}" defer="defer"></script>
-{{/if}}
 
 {{snippet
   "section-padding-creator"

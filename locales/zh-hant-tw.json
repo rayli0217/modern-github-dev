@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "此商品的起批量為 {{num}} 件"
-        },
-        "most": {
-          "desc": "此商品的最大批發量為 {{num}} 件"
-        },
-        "noIncrement": {
-          "desc": "此商品的增量必須為 {{num}} 件"
-        }
-      }
-    },
     "cart": {
       "buy_now": "立即購買",
       "cancel": "取消",
@@ -254,7 +241,7 @@
       "copy_success": "優惠券已復制",
       "discount_title": "激活賬號並獲取折扣碼",
       "normal_title": "激活賬號",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "啟動帳號並取得折扣碼",
       "subscription_text": "訂閱電子郵件以接收更新、訪問獨家優惠等。",
       "success_title": "恭喜您獲得折扣",
       "token_expired": "您的鏈接已失效"
@@ -515,9 +502,6 @@
       "form_error": "查詢失敗",
       "orderId": "Order ID",
       "orderId_error": "訂單編號不能為空",
-      "other_email": "電子郵件地址",
-      "other_phone": "行動電話號碼",
-      "phone": "行動電話",
       "query_illegal": "訂單不存在",
       "risk_black_user": "此帳號存在風險",
       "risk_interception": "訂單不存在",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "找不到產品資料。請稍後再試",
       "sold_out": "已售罄",
-      "load_more": "加載更多項目",
+      "added_to_cart_successfully": "加購成功",
       "load_more_items": "加載 {{current_offset}} ~ {{last_current_offset}} / {{total}} 項目",
-      "unavailable": "不可用的",
-      "variant_property_color": "顏色"
+      "unavailable": "不可用的"
     },
     "product_details": {
       "activity_toast_price_limit": "此商品優惠價僅支持購買{{num}}件",
@@ -659,7 +642,6 @@
       "country_region": "國家/地區",
       "default_placeholder": "請選擇{{attrName}}",
       "description": "說明",
-      "each_price": "{{price}}/每項",
       "email": "郵箱",
       "enter_email_address": "請填寫郵箱",
       "enter_valid_email_address": "請填寫正確的郵箱",
@@ -668,12 +650,12 @@
       "go_to_rakuten_by_link": "前往 LOTTE",
       "go_to_yahoo_by_link": "前往 Yahoo",
       "in_stock": "有貨",
-      "inventory_in_stock": "有貨",
+      "inventory_in_stock": "現貨",
       "inventory_in_stock_show_count": "庫存：剩餘 {{ quantity }}",
       "inventory_low_stock": "低庫存",
       "inventory_low_stock_show_count": "低庫存：剩餘 {{ quantity }}",
       "inventory_out_of_stock": "缺貨",
-      "inventory_out_of_stock_continue_selling": "有貨",
+      "inventory_out_of_stock_continue_selling": "現貨",
       "inventory_quantity": "庫存數",
       "leave_us_message": "請填寫留言",
       "leave_us_message_get_back": "請留言你的諮詢內容，我們將會盡快與你聯繫",
@@ -681,26 +663,14 @@
       "load_more": "展示更多",
       "maximum_length_of_message": "留言長度不超過1500個字",
       "message": "留言",
-      "moq_increment": "{{num}}的倍數",
-      "moq_increment_tips": "加購的數量僅支持{{num}}的倍數",
-      "moq_max_tips": "此規格最多可購買 {{num}}件",
-      "moq_maximum": "最多購買 {{num}}",
-      "moq_min_tips": "該規格必須購買 {{num}}以上",
-      "moq_minimum": "最小購買{{num}}",
       "more_payment_options": "更多支付選項",
       "name": "姓名",
       "optional": "非必填",
       "phone_number": "電話號碼",
-      "price": "價格",
-      "price_break_title": "批量定價",
-      "price_breaks_view_less": "收起",
-      "price_breaks_view_more": "查看更多",
       "product_enquiry": "諮詢商品",
       "submission_failed": "提交失敗，請重試",
       "submission_successfully": "提交成功",
       "submit": "提交",
-      "table_each_price": "{{price}} 每項",
-      "table_each_price_ssr": "{{{priceDom}}} 每項",
       "tax_included": "內含稅費",
       "view_product_detail": "查看商品詳情",
       "copy_button_text": "複製",
@@ -722,7 +692,6 @@
       "new_arrivals": "新品",
       "new_products": "創建時間新-舊",
       "no_product": "分類下無商品",
-      "price_break_tag": "可批量定價",
       "price_high_to_low": "價格：由高至低",
       "price_low_to_high": "價格：由低至高",
       "product_has_been_removed": "產品已從貨架上移除",
@@ -736,7 +705,10 @@
       "save_ratio": "優惠 {{price}}%",
       "select_product_all_options": "選擇的商品規格不完整或不可用，請重新選擇",
       "sort_button": "排序",
-      "top_sellers": "熱賣商品"
+      "top_sellers": "熱賣商品",
+      "more__product_num": "{{num}} 商品",
+      "one_product_num": "{{num}} 商品",
+      "show": "顯示"
     },
     "product_search": {
       "back_to_home": "返回首頁",

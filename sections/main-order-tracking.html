@@ -2,6 +2,11 @@
 <script src="{{asset_url 'component-phone-input.js'}}" defer></script>
 <script src="{{asset_url 'section-main-order-tracking.js'}}" defer></script>
 
+<script>
+  window.__I18N__ = window.__I18N__ || {};
+  window.__I18N__['customer'] = window.__I18N__['customer'] || {};
+  window.__I18N__['customer']['general'] = window.__I18N__['customer']['general'] || {{{ json (t 'customer.general') }}};
+</script>
 
 {{snippet
   "section-padding-creator"
@@ -18,10 +23,10 @@
     <order-tracking>
       <div class="tab" id="order-tracking-tab">
         <a class="body3 active" data-type="email">
-          {{t "general.order_tracking.email"}}
+          {{t "customer.account.email"}}
         </a>
         <a class="body3" data-type="mobile">
-          {{t "general.order_tracking.phone"}}
+          {{t "customer.account.phone"}}
         </a>
       </div>
       <div class="field" data-type="email">
@@ -31,10 +36,10 @@
           input_id="order_tracking[email]"
           input_name="order_tracking[email]"
           input_required=true
-          input_placeholder=(t "general.order_tracking.other_email")
+          input_placeholder=(t "customer.general.email")
         }}
         <label for="order_tracking[email]" class="field__label body3">
-          {{t "general.order_tracking.other_email"}}
+          {{t "customer.general.email"}}
         </label>
       </div>
       <phone-input class="field display-none" data-type="mobile">
@@ -58,10 +63,10 @@
             id="order_number"
             name="order_tracking[order_number]"
             required
-            placeholder='{{ t "general.order_tracking.orderId"}}'
+            placeholder="Order ID"
           />
           <label for="order_number" class="field__label body3">
-            {{ t "general.order_tracking.orderId"}}
+            Order ID
           </label>
         </div>
       </div>

@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Este item apenas é vendido com uma quantidade de {{num}}"
-        },
-        "most": {
-          "desc": "Este item apenas é vendido com uma quantidade de {{num}} no máximo"
-        },
-        "noIncrement": {
-          "desc": "Este item apenas é vendido com um aumento de {{num}}"
-        }
-      }
-    },
     "cart": {
       "buy_now": "Comprar agora",
       "cancel": "Cancelar",
@@ -254,7 +241,7 @@
       "copy_success": "O cupão de oferta foi copiado",
       "discount_title": "Activar a conta e obter o código de desconto",
       "normal_title": "Activar a conta",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Ative a conta e obtenha o código de desconto",
       "subscription_text": "Realize a subscrição para receber actualizações por correio electrónico, aceder a ofertas exclusivas e muito mais.",
       "success_title": "Parabéns pelo seu desconto",
       "token_expired": "A ligação expirou"
@@ -515,9 +502,6 @@
       "form_error": "Falha na consulta",
       "orderId": "Código do pedido",
       "orderId_error": "O ID do pedido não pode estar vazio",
-      "other_email": "Caixa de correio",
-      "other_phone": "Número de telemóvel",
-      "phone": "Telemóvel",
       "query_illegal": "ordem não existe",
       "risk_black_user": "Esta conta está em risco",
       "risk_interception": "ordem não existe",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Sem dados actuais do item, por favor tente novamente mais tarde",
       "sold_out": "Vendido",
-      "load_more": "Carregando mais itens",
+      "added_to_cart_successfully": "",
       "load_more_items": "Carregando {{current_offset}} ~ {{last_current_offset}} de {{total}} itens",
-      "unavailable": "indisponível",
-      "variant_property_color": "Cor"
+      "unavailable": "indisponível"
     },
     "product_details": {
       "activity_toast_price_limit": "Este preço com desconto do item suporta apenas a compra de {{num}} pcs",
@@ -659,7 +642,6 @@
       "country_region": "País/região",
       "default_placeholder": "Por favor seleccione {{attrName}}",
       "description": "Descrição",
-      "each_price": "{{price}}/ cada",
       "email": "Caixa de correio",
       "enter_email_address": "Por favor preencha o seu endereço de correio electrónico",
       "enter_valid_email_address": "Por favor preencha o endereço de correio electrónico correcto",
@@ -681,26 +663,14 @@
       "load_more": "Mostrar mais",
       "maximum_length_of_message": "O comprimento da mensagem não deve exceder 1500 caracteres",
       "message": "Deixar mensagem",
-      "moq_increment": "Múltiplo de {{num}}",
-      "moq_increment_tips": "A quantidade comprada adicionalmente só é suportada em múltiplos de {{num}}",
-      "moq_max_tips": "Pode ser comprado um máximo de {{num}} peças para a especificação",
-      "moq_maximum": "Compra máxima {{num}}",
-      "moq_min_tips": "A especificação deve ser comprada mais de {{num}}",
-      "moq_minimum": "Compra mínima {{num}}",
       "more_payment_options": "Mais opções de pagamento",
       "name": "Nome",
       "optional": "Opcional",
       "phone_number": "Número de telemóvel",
-      "price": "Preço",
-      "price_break_title": "Cálculo do preço por volume",
-      "price_breaks_view_less": "Esconder",
-      "price_breaks_view_more": "Mostrar mais",
       "product_enquiry": "Consulta de itens",
       "submission_failed": "Falha ao enviar, por favor tente novamente",
       "submission_successfully": "Envio realizado",
       "submit": "Enviar",
-      "table_each_price": "{{price}} cada",
-      "table_each_price_ssr": "{{{priceDom}}} cada",
       "tax_included": "Imposto incluído",
       "view_product_detail": "Ver detalhes do produto",
       "copy_button_text": "Copiar",
@@ -722,7 +692,6 @@
       "new_arrivals": "Novas chegadas",
       "new_products": "Do mais próximo ao mais distante por tempo de criação",
       "no_product": "Nenhum item na categoria",
-      "price_break_tag": "Ser capaz de efetuar o cálculo do preço por volume",
       "price_high_to_low": "Preço de alto para baixo",
       "price_low_to_high": "Preço de baixo para alto",
       "product_has_been_removed": "O item actual foi removido",
@@ -736,7 +705,10 @@
       "save_ratio": "Oferta {{price}}% ",
       "select_product_all_options": "A variante do produto selecionada está incompleta ou indisponível. Por favor, escolha novamente",
       "sort_button": "Classificá",
-      "top_sellers": "Populares"
+      "top_sellers": "Populares",
+      "more__product_num": "{{num}} itens",
+      "one_product_num": "{{num}} itens",
+      "show": "Mostrar"
     },
     "product_search": {
       "back_to_home": "Retornar ao topo",

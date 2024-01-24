@@ -1,10 +1,4 @@
 {{assign "show_announcement" false}}
-{{assign "should_display_with_slider_ids" (JSONparse '["2", "3", "4"]')}}
-{{assign "should_display_with_slider" false}}
-
-{{#contains should_display_with_slider_ids section.settings.display_mode}}
-  {{assign "should_display_with_slider" true}}
-{{/contains}}
 
 {{#with this as |global|}}
   {{#each section.blocks}}
@@ -16,35 +10,23 @@
   {{/each}}
 {{/with}}
 
-<link rel="stylesheet" href="{{asset_url 'section-announcement-bar.css'}}" />
+{{#if show_announcement}}
+  <link rel="stylesheet" href="{{asset_url 'section-announcement-bar.css'}}" />
+  {{#if section.settings.display_mode "!==" "tiled"}}
+    <script src="{{asset_url 'component-slider.js'}}" defer></script>
+    <script src="{{asset_url 'section-announcement-bar.js'}}" defer></script>
+  {{/if}}
 
-{{#and show_announcement section.settings.enable_sticky}}
-  <script src="{{asset_url 'section-announcement-bar-sticky-top.js'}}" defer></script>
-{{/and}}
-
-{{#if should_display_with_slider}}
-  {{stylesheet_tag (asset_url "lib-splide.min.css")}}
-  <script src="{{asset_url 'lib-splide.min.js'}}" defer></script>
-  <script src="{{asset_url 'section-announcement-bar-slider.js'}}" defer></script>
-{{/if}}
-
-{{#with this as |global|}}
-  {{#if show_announcement}}
-    {{#if should_display_with_slider}}<announcement-bar-slider
-        data-display-mode="{{section.settings.display_mode}}"
-      >{{/if}}
-    {{#if section.settings.enable_sticky}}<announcement-bar-sticky-top>{{/if}}
-    <div class="announcement-bar--container {{#if should_display_with_slider}}splide{{/if}}">
-      {{#if should_display_with_slider}}
-        <div class="splide__track">
-      {{/if}}
-      <div class="announcement-bar--list {{#if should_display_with_slider}}splide__list{{/if}}">
+  <div class="announcement-bar--container">
+    {{#or (if section.settings.display_mode "===" "tiled") (if section.settings.display_mode "===" "compact")}}
+      <div
+        class="announcement-bar--list
+          announcement-bar--{{section.settings.display_mode}}
+          {{#if section.settings.display_mode '===' 'compact'}}display-none-tablet{{/if}}"
+      >
         {{#each section.blocks}}
           {{~#if (isTruthy settings.notice_link_text)}}
-            <div
-              class="announcement-bar--item {{#if global.should_display_with_slider}}splide__slide{{/if}}"
-              {{{shopline_attributes}}}
-            >
+            <div class="announcement-bar--item color-scheme-{{settings.notice_style}}" {{{shopline_attributes}}}>
               {{assign "ele" (ternary (if settings.notice_link) "a" "div")}}
               <{{ele}}
                 {{#if settings.notice_link}}href="{{settings.notice_link}}"{{/if}}
@@ -56,14 +38,39 @@
           {{~/if}}
         {{/each}}
       </div>
-      {{#if should_display_with_slider}}
+    {{/or}}
+
+    {{#if section.settings.display_mode "!==" "tiled"}}
+      {{assign "direction" (ternary (if section.settings.display_mode "===" "vertical") "vertical" "horizontal")}}
+      <announcement-bar-section
+        direction="{{direction}}"
+        class="{{#if section.settings.display_mode '===' 'compact'}}display-none-desktop{{/if}}"
+      >
+        <div id="Slider-{{section.id}}" class="announcement-bar__slider announcement-bar__slider--{{direction}} slider">
+          {{#each section.blocks}}
+            {{~#if (isTruthy settings.notice_link_text)}}
+              <div
+                id="Slide-{{id}}"
+                class="announcement-bar__slide slider__slide announcement-bar--item
+                  color-scheme-{{settings.notice_style}}"
+                {{{shopline_attributes}}}
+              >
+                {{assign "ele" (ternary (if settings.notice_link) "a" "div")}}
+                <{{ele}}
+                  {{#if settings.notice_link}}href="{{settings.notice_link}}"{{/if}}
+                  class="body4 announcement--text"
+                >
+                  {{~settings.notice_link_text~}}
+                </{{ele}}>
+              </div>
+            {{~/if}}
+          {{/each}}
         </div>
-      {{/if}}
-    </div>
-    {{#if section.settings.enable_sticky}}</announcement-bar-sticky-top>{{/if}}
-    {{#if should_display_with_slider}}</announcement-bar-slider>{{/if}}
-  {{/if}}
-{{/with}}
+      </announcement-bar-section>
+    {{/if}}
+
+  </div>
+{{/if}}
 
 {{#schema}}
 {
@@ -71,31 +78,25 @@
   "max_blocks": 12,
   "settings": [
     {
-      "type": "switch",
-      "id": "enable_sticky",
-      "default": false,
-      "label": "t:sections.announcement-bar.settings.enable_sticky.label"
-    },
-    {
       "id": "display_mode",
       "type": "select",
       "label": "t:sections.announcement-bar.settings.display_mode.label",
-      "default": "1",
+      "default": "tiled",
       "options": [
         {
-          "value": "1",
+          "value": "tiled",
           "label": "t:sections.announcement-bar.settings.display_mode.options__0.label"
         },
         {
-          "value": "2",
+          "value": "compact",
           "label": "t:sections.announcement-bar.settings.display_mode.options__1.label"
         },
         {
-          "value": "3",
+          "value": "horizontal",
           "label": "t:sections.announcement-bar.settings.display_mode.options__2.label"
         },
         {
-          "value": "4",
+          "value": "vertical",
           "label": "t:sections.announcement-bar.settings.display_mode.options__3.label"
         }
       ]
@@ -112,6 +113,30 @@
           "type": "text",
           "label": "t:sections.announcement-bar.blocks.item.settings.notice_link_text.label",
           "default": "30-day postage paid returns"
+        },
+        {
+          "id": "notice_style",
+          "type": "select",
+          "label": "t:sections.announcement-bar.blocks.item.settings.notice_style.label",
+          "default": "1",
+          "options": [
+            {
+              "value": "",
+              "label": "t:sections.announcement-bar.blocks.item.settings.notice_style.options__0.label"
+            },
+            {
+              "value": "1",
+              "label": "t:sections.announcement-bar.blocks.item.settings.notice_style.options__1.label"
+            },
+            {
+              "value": "2",
+              "label": "t:sections.announcement-bar.blocks.item.settings.notice_style.options__2.label"
+            },
+            {
+              "value": "3",
+              "label": "t:sections.announcement-bar.blocks.item.settings.notice_style.options__3.label"
+            }
+          ]
         },
         {
           "type": "url",

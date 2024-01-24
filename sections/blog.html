@@ -30,7 +30,7 @@
                   show_author=global.section.settings.is_show_author
                   show_date=global.section.settings.is_show_date
                   show_cover=global.section.settings.is_show_cover
-                  cover_ratio="large"
+                  cover_ratio="medium"
                   show_desc=global.section.settings.is_show_desc
                   btn_text=(t "blog.blog.read_more")
                 }}
@@ -45,7 +45,7 @@
                 show_author=global.section.settings.is_show_author
                 show_date=global.section.settings.is_show_date
                 show_cover=global.section.settings.is_show_cover
-                cover_ratio="large"
+                cover_ratio="medium"
                 show_desc=global.section.settings.is_show_desc
                 btn_text=(t "blog.blog.read_more")
               }}
@@ -68,6 +68,7 @@
 {{#schema}}
 {
   "name": "t:sections.blog.name",
+  "type": "blog",
   "class": "section",
   "settings": [
     {
@@ -77,7 +78,7 @@
       "default": "Blog"
     },
     {
-      "type": "blog",
+      "type": "blogs_picker",
       "id": "blog_collection",
       "label": "t:sections.blog.settings.blog_collection.label"
     },
@@ -85,7 +86,7 @@
       "type": "range",
       "id": "limit",
       "label": "t:sections.blog.settings.limit.label",
-      "default": 4,
+      "default": 3,
       "min": 1,
       "max": 6,
       "step": 1,
@@ -98,7 +99,7 @@
       "min": 1,
       "max": 4,
       "step": 1,
-      "default": 4
+      "default": 3
     },
     {
       "type": "switch",
@@ -185,8 +186,8 @@
       "settings": {
         "title": "Blogs",
         "blog_collection": "",
-        "limit": 4,
-        "pc_cols": 4,
+        "limit": 3,
+        "pc_cols": 3,
         "is_show_date": true,
         "is_show_author": true,
         "is_show_cover": true,

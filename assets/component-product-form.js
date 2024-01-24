@@ -8,11 +8,6 @@ defineCustomElement('product-form', () => {
         return;
       }
 
-      this.options = {
-        onErrorShowToast: this.dataset.onErrorShowToast || false,
-      };
-
-      this.fetchInstance = Promise.resolve();
       this.form.querySelector('[name=id]').disabled = false;
       this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer-entry');
       this.submitButton = this.querySelector('[type="submit"]');
@@ -27,7 +22,7 @@ defineCustomElement('product-form', () => {
     }
 
     onSubmitHandler() {
-      if (this.submitButton.classList.contains('disabled') || this.submitButton.classList.contains('loading')) return;
+      if (this.submitButton.classList.contains('disabled')) return;
 
       this.handleErrorMessage();
 
@@ -48,22 +43,21 @@ defineCustomElement('product-form', () => {
         formData.append('sections_url', window.location.pathname);
       }
       config.body = formData;
-      const fetchInstance = fetch(`${window.routes.cart_add_url}`, config).then((response) => response.json());
-      this.fetchInstance = fetchInstance;
-      fetchInstance
+      fetch(`${window.routes.cart_add_url}`, config)
+        .then((response) => response.json())
         .then((response) => {
           if (response.message) {
             this.handleErrorMessage(response.message);
             const isQuickAdd = this.submitButton.classList.contains('quick-add__submit');
-            if (!isQuickAdd) return response;
+            if (!isQuickAdd) return;
             this.submitButton.classList.add('disabled');
             this.submitButton.querySelector('span').classList.add('hidden');
             this.error = true;
-            return response;
+            return;
           }
           if (!this.cart) {
             window.location = window.routes.cart_url;
-            return response;
+            return;
           }
 
           this.error = false;
@@ -85,16 +79,13 @@ defineCustomElement('product-form', () => {
           } else {
             this.cart.renderContents(response);
           }
-          return response;
         })
-        .catch((err) => {
-          console.error('product form err', err);
+        .catch(() => {
           this.handleErrorMessage(this.getAttribute('data-default-error-message'));
         })
-        .finally((response) => {
+        .finally(() => {
           this.submitButton.classList.remove('loading');
           this.querySelector('.loading-overlay__spinner').classList.remove('display-flex');
-          return response;
         });
     }
 
@@ -105,11 +96,6 @@ defineCustomElement('product-form', () => {
     }
 
     handleErrorMessage(errorMessage = false) {
-      if (this.options.onErrorShowToast && errorMessage) {
-        window.Shopline.utils.toast.open({
-          content: errorMessage,
-        });
-      }
       this.errorMessageWrapper = this.errorMessageWrapper || this.querySelector('.product-form__error-message-wrapper');
       if (!this.errorMessageWrapper) return;
       this.errorMessage = this.errorMessage || this.errorMessageWrapper.querySelector('.product-form__error-message');
@@ -122,17 +108,3 @@ defineCustomElement('product-form', () => {
     }
   };
 });
-
-window.Shopline.loadFeatures(
-  [
-    {
-      name: 'component-toast',
-      version: '0.1',
-    },
-  ],
-  function (error) {
-    if (error) {
-      throw error;
-    }
-  },
-);

@@ -21,7 +21,7 @@ defineCustomElement('count-down', () => {
     }
 
     formatDate() {
-      const targetTime = new Date(this.date).getTime();
+      const targetTime = new Date(this.deadline).getTime();
       const currentTime = new Date().getTime();
       const differenceVal = (targetTime - currentTime) / 1000;
       if (differenceVal <= 0) {

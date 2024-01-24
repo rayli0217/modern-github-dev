@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Denne vare sælges kun fra start med et beløb på {{num}}"
-        },
-        "most": {
-          "desc": "Denne vare sælges kun med et beløb på {{num}} højst"
-        },
-        "noIncrement": {
-          "desc": "Denne vare blev kun solgt med en forøgelse på {{num}}"
-        }
-      }
-    },
     "cart": {
       "buy_now": "KØB NU",
       "cancel": "Annuller",
@@ -254,7 +241,7 @@
       "copy_success": "Kopieret kuponkode",
       "discount_title": "Aktivér konto og få rabatkoden",
       "normal_title": "Aktivér konto",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Aktivér din konto og få en rabatkode",
       "subscription_text": "Abonner på e-mail for at modtage opdateringer, få adgang til eksklusive tilbud og meget mere.",
       "success_title": "Tillykke med at få en god rabat",
       "token_expired": "Linket er udløbet"
@@ -515,9 +502,6 @@
       "form_error": "Forespørgsel mislykkedes",
       "orderId": "Ordre ID",
       "orderId_error": "Ordre-id må ikke være tomt",
-      "other_email": "Mailadresse",
-      "other_phone": "Mobiltelefonnummer",
-      "phone": "Mobiltelefon",
       "query_illegal": "orden eksisterer ikke",
       "risk_black_user": "Denne konto er i fare",
       "risk_interception": "orden eksisterer ikke",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Ingen produktdata fundet. Prøv igen senere",
       "sold_out": "Solgt Ud",
-      "load_more": "Indlæser flere varer",
+      "added_to_cart_successfully": "Føjet til indkøbskurven med succes",
       "load_more_items": "Indlæser {{current_offset}} ~ {{last_current_offset}} af {{total}} elementer",
-      "unavailable": "Ikke tilgængelig",
-      "variant_property_color": "Farve"
+      "unavailable": "Ikke tilgængelig"
     },
     "product_details": {
       "activity_toast_price_limit": "Det maksimale tilladte antal for dette begrænsede produkt er {{num}}",
@@ -659,7 +642,6 @@
       "country_region": "Land/område",
       "default_placeholder": "Vælg {{attrName}}",
       "description": "Beskrivelse",
-      "each_price": "{{price}}/stk",
       "email": "Mail",
       "enter_email_address": "Angiv din mailadresse",
       "enter_valid_email_address": "Angiv en gyldig mailadresse",
@@ -681,26 +663,14 @@
       "load_more": "Læs mere",
       "maximum_length_of_message": "Den maksimale længde af din meddelelse må ikke være mere end 1.500 ord",
       "message": "Din besked",
-      "moq_increment": "Multipler af {{num}}",
-      "moq_increment_tips": "Den mængde, der tilføjes til indkøbskurven, understøtter kun multipla af {{num}}",
-      "moq_max_tips": "Maksimalt køb af {{num}} styk til denne specifikation",
-      "moq_maximum": "Maksimalt køb {{num}}",
-      "moq_min_tips": "Mere end {{num}} skal købes til denne specifikation",
-      "moq_minimum": "Minimumskøb {{num}}",
       "more_payment_options": "flere betalingsmuligheder",
       "name": "Navn",
       "optional": "Valgfrit",
       "phone_number": "Telefonnummer",
-      "price": "Pris",
-      "price_break_title": "Bulkpriser",
-      "price_breaks_view_less": "Skjul",
-      "price_breaks_view_more": "Vis mere",
       "product_enquiry": "Produktforespørgsel",
       "submission_failed": "Afsendelse mislykkedes. Prøv igen",
       "submission_successfully": "Sendt korrekt",
       "submit": "Send",
-      "table_each_price": "{{price}}stk",
-      "table_each_price_ssr": "{{{priceDom}}}stk",
       "tax_included": "moms inkluderet",
       "view_product_detail": "Vis produktoplysninger",
       "copy_button_text": "Kopie",
@@ -722,7 +692,6 @@
       "new_arrivals": "Ny ankomst",
       "new_products": "I faldende rækkefølge af skabelse",
       "no_product": "Beklager, der er ingen produkter i denne samling",
-      "price_break_tag": "Bulkpriser tilgængelig",
       "price_high_to_low": "Pris høj til lav",
       "price_low_to_high": "Prislav til høj",
       "product_has_been_removed": "Produktet fjernes fra hylderne",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% rabat",
       "select_product_all_options": "Den valgte produktvariant er ufuldstændig eller utilgængelig. Vælg venligst igen",
       "sort_button": "Sorter",
-      "top_sellers": "Mest populære sælgere"
+      "top_sellers": "Mest populære sælgere",
+      "more__product_num": "{{num}} Produkter",
+      "one_product_num": "{{num}} Produkt",
+      "show": "Vis"
     },
     "product_search": {
       "back_to_home": "Tilbage til startsiden",

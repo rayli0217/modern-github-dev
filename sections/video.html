@@ -1,7 +1,12 @@
 <link rel="stylesheet" href="{{asset_url 'section-video.css'}}" />
+<script src="{{asset_url 'section-video.js'}}" defer></script>
+
 
 {{assign 'video' section.settings.internal_video }}
 {{assign 'external_video' section.settings.external_video }}
+{{assign 'autoplay' section.settings.video_auto_play}}
+{{assign 'loop' section.settings.video_loop}}
+
 
 {{assign 'cover' section.settings.cover }}
 {{assign 'title' section.settings.title}}
@@ -17,52 +22,54 @@
   padding_bottom=section.settings.padding_bottom
 }}
 
-<div class="color-scheme-{{section.settings.color_scheme}}">
-  <div
-    class="video-section {{#unless section.settings.full_width }}page-width{{/unless}} section-padding"
-  >
-    <div {{#if section.settings.full_width }}class="page-width"{{/if}}>
-      {{#if title}}
-        <div class="video-section__title-wrapper">
-          <h2 class="{{title_size}} text-center text-uppercase">
-            {{title}}
-          </h2>
-        </div>
-      {{/if}}
-    </div>
-    <deferred-media
-      class="video-section__media deferred-media"
-      data-media-id="video-id"
-      {{#if cover }} style="padding-bottom: {{append (default (divide 100 cover.aspect_ratio) 56.25) '%'}}"{{/if}}
+<video-section data-auto-play="{{ autoplay }}">
+  <div class="color-scheme-{{section.settings.color_scheme}}">
+    <div
+      class="video-section {{#unless section.settings.full_width }}page-width{{/unless}} section-padding"
     >
-      {{#if (or video external_video) }}
-        <button
-          id="Deferred-Poster-Modal-video-id"
-          class="video-section__poster media deferred-media__poster"
-          type="button"
-        >
-          {{#if cover}}
+      <div {{#if section.settings.full_width }}class="page-width"{{/if}}>
+        {{#if title}}
+          <div class="video-section__title-wrapper">
+            <h2 class="{{title_size}} text-center text-uppercase">
+              {{title}}
+            </h2>
+          </div>
+        {{/if}}
+      </div>
+      <deferred-media
+        class="video-section__media deferred-media"
+        data-media-id="video-id"
+        {{#if cover }} style="padding-bottom: {{append (default (divide 100 cover.aspect_ratio) 56.25) '%'}}"{{/if}}
+      >
+        {{#if (or video external_video) }}
+          <button
+            id="Deferred-Poster-Modal-video-id"
+            class="video-section__poster media deferred-media__poster"
+            type="button"
+          >
+            {{#if cover }}
+              {{ snippet 'image' sizes=cover_sizes class="video-section__cover" data=section.settings.cover lazy=true}}
+            {{else}}
+              {{placeholder_svg_tag "image" "placeholder"}}
+            {{/if}}
+            <span class="deferred-media__poster-button">
+              {{snippet "icon-play"}}
+            </span>
+          </button>
+        {{else}}
+          {{#if cover.src }}
             {{ snippet 'image' sizes=cover_sizes class="video-section__cover" data=section.settings.cover lazy=true}}
           {{else}}
             {{placeholder_svg_tag "image" "placeholder"}}
           {{/if}}
-          <span class="deferred-media__poster-button">
-            {{snippet "icon-play"}}
-          </span>
-        </button>
-      {{else}}
-        {{#if cover}}
-          {{ snippet 'image' sizes=cover_sizes class="video-section__cover" data=section.settings.cover lazy=true}}
-        {{else}}
-          {{placeholder_svg_tag "image" "placeholder"}}
         {{/if}}
-      {{/if}}
-      <template>
-        {{ snippet "video" video=video external_video=external_video }}
-      </template>
-    </deferred-media>
+        <template>
+          {{ snippet "video" muted=(ternary (if autoplay) true false) autoplay=autoplay loop=loop video=video external_video=external_video }}
+        </template>
+      </deferred-media>
+    </div>
   </div>
-</div>
+</video-section>
 {{#schema}}
 {
   "name": "t:sections.video.name",
@@ -96,11 +103,6 @@
       "label": "t:sections.video.settings.title_size.label"
     },
     {
-      "type": "image_picker",
-      "id": "cover",
-      "label": "t:sections.video.settings.cover.label"
-    },
-    {
       "type": "video",
       "id": "internal_video",
       "label": "t:sections.video.settings.internal_video.label"
@@ -112,6 +114,23 @@
       "label": "t:sections.video.settings.external_video.label",
       "placeholder": "https://www.youtube.com/watch?v=V7BEzkRBp_g",
       "info": "t:sections.video.settings.external_video.info"
+    },
+    {
+      "type": "switch",
+      "id": "video_auto_play",
+      "label": "t:sections.video.settings.video_auto_play.label",
+      "default": false
+    },
+    {
+      "type": "switch",
+      "id": "video_loop",
+      "label": "t:sections.video.settings.video_loop.label",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "cover",
+      "label": "t:sections.video.settings.cover.label"
     },
     {
       "type": "switch",
@@ -180,6 +199,8 @@
         },
         "internal_video": "",
         "external_video": "",
+        "video_auto_play": false,
+        "video_loop": false,
         "full_width": true,
         "color_scheme": "none",
         "padding_top": 0,

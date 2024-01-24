@@ -59,7 +59,7 @@
               image-with-text__info--m-align-{{mobile_text_align}}"
           >
             {{#each section.blocks}}
-              {{#startsWith ../app_block_prefix type}}
+              {{#startsWith ../../app_block_prefix type}}
                 {{render this}}
               {{/startsWith}}
               {{#if (trim type) "===" "title"}}
@@ -77,7 +77,7 @@
                 >{{{settings.content}}}</div>
               {{/if}}
               {{#if (trim type) "===" "sub_title"}}
-                <div class="body3 image-with-text__sub-title image-with-text__sub-title--size-{{settings.text_size}}">{{{settings.text}}}</div>
+                <div class="body3 image-with-text__sub-title {{settings.text_size}}">{{{settings.text}}}</div>
               {{/if}}
               {{#if (trim type) "===" "button"}}
                 {{#if (trim settings.button_text)}}

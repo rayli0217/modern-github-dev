@@ -3,14 +3,13 @@
 
     Usage:
     {{#paginate results by=2 total=100}}
-      {{ paginate.items }}
+      {{ paginate }}
     {{/paginate}}
 
     Accepts:
     - paginate: {Object}
     - anchor: {String} (optional) This can be added so that on page reload it takes you to wherever you've placed your anchor tag.
 {{/comment}}
-
 <link rel="stylesheet" href="{{asset_url 'component-pagination.css'}}" media="print" onload="this.media='all'" />
 
 <div class="pagination-wrapper">

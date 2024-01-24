@@ -23,10 +23,6 @@
   margin-top: 30px;
 }
 
-.rich-text {
-  position: relative;
-}
-
 .rich-text .rich-text__buttons {
   display: flex;
   justify-content: center;
@@ -34,19 +30,6 @@
 
 .rich-text .rich-text__buttons > *:first-child {
   margin-right: 20px;
-}
-
-.rich-text .rich-text__decoration {
-  position: absolute;
-  top: 50%;
-  left: 0px;
-  transform: translateY(-50%);
-  color: rgb(var(--color-entry-line));
-}
-
-.rich-text .rich-text__decoration.rich-text__decoration--right {
-  right: 0px;
-  transform: translateY(-50%) rotate(180deg);
 }
 
 @media screen and (max-width: 959px) {

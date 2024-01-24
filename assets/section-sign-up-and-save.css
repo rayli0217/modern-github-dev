@@ -52,10 +52,6 @@
   width: 100%;
 }
 
-.section-newsletter .field__input {
-  background: rgba(var(--color-button-text), 0.5);
-}
-
 /* The ipad end responds to the mobile end in vertical screen */
 
 /* @custom-media --tablet (max-width: 959px); */

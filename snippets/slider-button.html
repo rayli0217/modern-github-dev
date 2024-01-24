@@ -1,44 +1,21 @@
-{{assign 'hide_pagination' (or (if product_mobile_thumbnail_image_hide '!==' 'hide') (if media_count '<=' 1))}}
-
-{{#case product_mobile_image_switch_style}}
-  {{#when 'progress'}}
-    <div class="product_mobile_thumbnail_pagination product-pagination__progress{{#if hide_pagination }} small-hide{{/if}}" style="--progress-percent: {{toFixed (times (divide 1 media_count) 100) 3}}%">
-      <div class="product-pagination__progress-inner">
-        <div class="product-pagination__progress-inner-bg"></div>
-      </div>
-    </div>
-  {{/when}}
-  {{#when 'dot' 'slider-bar'}}
-    <div class="product_mobile_thumbnail_pagination product-pagination__dot-slider {{#if product_mobile_image_switch_style '===' 'dot'}}product-pagination__dot{{else}}product-pagination__slider-bar{{/if}}{{#if hide_pagination }} small-hide{{/if}}">
-      {{#each media}}
-        <a href="javascript:void(0);" class="tap-area" {{#if @first}}data-current="true"{{/if}}></a>
-      {{/each}}
-    </div>
-  {{/when}}
-  {{#when 'hide'}}
-
-  {{/when}}
-  {{#when 'number'}}
-    <div class="slider-buttons product_mobile_thumbnail_pagination product-pagination__number {{#if hide_mobile_slider }} small-hide{{/if}} {{classes}}">
-      <button
-        type="button"
-        class="slider-button slider-button--prev"
-        name="previous"
-      >
-        {{snippet "icon-arrow"}}
-      </button>
-      <div class="slider-counter caption">
-        <span class="slider-counter--current">1</span>
-        <span> / </span>
-        <span class="slider-counter--total">{{ media_count }}</span>
-      </div>
-      <button
-        type="button"
-        class="slider-button slider-button--next"
-        name="next"
-      >
-        {{snippet "icon-arrow"}}
-      </button>
-    </div>
-  {{/when}}
-{{/case}}
+<div class="slider-buttons {{#if hide_mobile_slider }} small-hide{{/if}} {{classes}}">
+  <button
+    type="button"
+    class="slider-button slider-button--prev"
+    name="previous"
+  >
+    {{snippet "icon-arrow"}}
+  </button>
+  <div class="slider-counter caption">
+    <span class="slider-counter--current">1</span>
+    <span> / </span>
+    <span class="slider-counter--total">{{ media_count }}</span>
+  </div>
+  <button
+    type="button"
+    class="slider-button slider-button--next"
+    name="next"
+  >
+    {{snippet "icon-arrow"}}
+  </button>
+</div>

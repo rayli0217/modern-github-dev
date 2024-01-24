@@ -7,11 +7,6 @@
   {{assign 'media_count' (plus media_count 1)}}
 {{/if}}
 
-{{assign "video_mute" 0}}
-{{#if section.settings.video_autoplay}}
-  {{assign 'video_mute' 1}}
-{{/if}}
-
 {{#with this as |global|}}
   <product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
     <div
@@ -44,7 +39,7 @@
           {{/contains}}
 
           {{#unless (if media.id '==' global.product.selected_or_first_available_variant.featured_media.id)}}
-            {{snippet 'product-media' section=global.section media=media loop=global.section.settings.video_loop variant_image=variant_image video_mute=../video_mute}}
+            {{snippet 'product-media' section=global.section media=media loop=global.section.settings.video_loop variant_image=variant_image}}
           {{/unless}}
         {{/each}}
       </div>

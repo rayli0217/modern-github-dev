@@ -74,8 +74,8 @@
           {{/if}}
           {{#and (if type "===" "count_down") settings.deadline}}
             <div
-              class="count-down__timer-container {{#if ../section.settings.show_divider}}divider{{/if}}"
-              style="--count-down-color: {{../section.settings.count_down_color.red}}, {{../section.settings.count_down_color.green}}, {{../section.settings.count_down_color.blue}};"
+              class="count-down__timer-container {{#if ../../section.settings.show_divider}}divider{{/if}}"
+              style="--count-down-color: {{../../section.settings.count_down_color.red}}, {{../../section.settings.count_down_color.green}}, {{../../section.settings.count_down_color.blue}};"
             >
               <count-down
                 data-deadline="{{settings.deadline}}"

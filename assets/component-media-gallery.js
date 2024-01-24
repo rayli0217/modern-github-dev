@@ -9,11 +9,6 @@ defineCustomElement('media-gallery', () => {
         thumbnails: this.querySelector('[id^="GalleryThumbnails"]'),
       };
       this.mql = window.matchMedia('(min-width: 750px)');
-      this.mediaVideoAutoPlay = this.getAttribute('data-video-autoplay') === 'true';
-      this.paginationType = this.getAttribute('data-pagination-type');
-      this.handleVideoAutoPlay();
-      this.handleViewController();
-
       if (!this.elements.thumbnails) return;
 
       this.elements.viewer.addEventListener('slideChanged', window.debounce(this.onSlideChanged.bind(this), 500));
@@ -31,43 +26,6 @@ defineCustomElement('media-gallery', () => {
       this.setActiveThumbnail(thumbnail);
     }
 
-    handleViewController() {
-      const mobileQl = window.matchMedia('(max-width: 959px)');
-
-      if (this.elements.thumbnails || !mobileQl.matches) return;
-
-      const onSlideChanged = (currentPage = 1) => {
-        const { totalPage } = this.elements.viewer;
-
-        if (!totalPage || !currentPage) return;
-
-        if (this.paginationType === 'progress') {
-          const progressElement = this.querySelector('.product-pagination__progress');
-          const widthPercent = ((currentPage / totalPage) * 100).toFixed(3);
-
-          progressElement.style.setProperty('--progress-percent', `${widthPercent}%`);
-        } else if (this.paginationType === 'dot' || this.paginationType === 'slider-bar') {
-          const dotElements = this.querySelectorAll('.product-pagination__dot-slider .tap-area');
-
-          dotElements.forEach((element, index) => {
-            element.removeAttribute('data-current');
-
-            if (index === currentPage - 1) {
-              element.setAttribute('data-current', true);
-            }
-          });
-        }
-      };
-
-      onSlideChanged(this.elements.viewer.currentPage);
-
-      this.elements.viewer.addEventListener('slideChanged', (event) => {
-        const { currentPage } = event.detail;
-
-        onSlideChanged(currentPage);
-      });
-    }
-
     setActiveMedia(mediaId, prepend) {
       const activeMedia = this.elements.viewer.querySelector(`[data-media-id="${mediaId}"]`);
       const activeMediaIndex = Array.from(activeMedia.parentElement.children).indexOf(activeMedia);
@@ -76,6 +34,11 @@ defineCustomElement('media-gallery', () => {
         this.elements.viewer.currentPage = activeMediaIndex + 1;
         this.elements.viewer.updateView();
       }
+      // this.elements.viewer.slideTo(2);
+      // this.elements.viewer.querySelectorAll('[data-media-id]').forEach((element) => {
+      //   element.classList.remove('is-active');
+      // });
+      // activeMedia.classList.add('is-active');
 
       if (prepend) {
         activeMedia.parentElement.prepend(activeMedia);
@@ -89,6 +52,7 @@ defineCustomElement('media-gallery', () => {
         }
       }
 
+      this.preventStickyHeader();
       window.setTimeout(() => {
         if (this.elements.thumbnails) {
           activeMedia.parentElement.scrollTo({
@@ -96,14 +60,7 @@ defineCustomElement('media-gallery', () => {
           });
         }
         if (!this.elements.thumbnails || this.dataset.desktopLayout === 'flatten') {
-          const headerLayout = document.body.querySelector('header-layout');
-          window.scrollTo({
-            top:
-              window.scrollY +
-              activeMedia.getBoundingClientRect().top -
-              (headerLayout.isSticky ? headerLayout.headerLayout.clientHeight : 0),
-            behavior: 'smooth',
-          });
+          activeMedia.scrollIntoView({ behavior: 'smooth' });
         }
       });
       this.playActiveMedia(activeMedia);
@@ -122,11 +79,9 @@ defineCustomElement('media-gallery', () => {
 
       if (this.elements.thumbnails.isSlideVisible(thumbnail)) return;
 
-      this.elements.thumbnails.slider.scrollTo(
-        this.elements.thumbnails.direction === 'horizontal'
-          ? { top: thumbnail.offsetTop }
-          : { left: thumbnail.offsetLeft },
-      );
+      this.elements.thumbnails.slider.scrollTo({
+        left: thumbnail.offsetLeft,
+      });
     }
 
     announceLiveRegion(activeItem) {
@@ -143,50 +98,15 @@ defineCustomElement('media-gallery', () => {
     }
 
     playActiveMedia(activeItem) {
-      if (!this.mediaVideoAutoPlay) return;
       window.pauseAllMedia();
       const deferredMedia = activeItem.querySelector('.deferred-media');
-      if (deferredMedia) {
-        deferredMedia.loadContent(false);
-        deferredMedia.playVideo(false);
-      }
+      if (deferredMedia) deferredMedia.loadContent(false);
     }
 
-    handleVideoAutoPlay() {
-      const container = document.querySelector(this.getAttribute('data-parent-container'));
-
-      const isInViewPort = (element) => {
-        if (container) {
-          const cRect = container.getBoundingClientRect();
-          const eRect = element.getBoundingClientRect();
-
-          return eRect.height > 0 && eRect.width > 0 && eRect.bottom <= cRect.bottom && eRect.right <= cRect.right;
-        }
-
-        const viewWidth = window.innerWidth || document.documentElement.clientWidth;
-        const viewHeight = window.innerHeight || document.documentElement.clientHeight;
-        const { top, right, bottom, width, height } = element.getBoundingClientRect();
-
-        return width > 0 && height > 0 && top >= 0 && right <= viewWidth && bottom <= viewHeight;
-      };
-
-      const checkDeferredMedia = () => {
-        if (this.mediaVideoAutoPlay) {
-          const medias = this.elements.viewer.querySelectorAll('.deferred-media');
-
-          medias.forEach((el) => {
-            if (isInViewPort(el)) {
-              el.loadContent(false);
-            }
-          });
-        }
-      };
-
-      setTimeout(() => {
-        checkDeferredMedia();
-      }, 200);
-      (container || window).addEventListener('scroll', checkDeferredMedia);
-      this.elements.viewer.addEventListener('slideChanged', checkDeferredMedia);
+    preventStickyHeader() {
+      this.stickyHeader = this.stickyHeader || document.querySelector('sticky-header');
+      if (!this.stickyHeader) return;
+      this.stickyHeader.dispatchEvent(new Event('preventHeaderReveal'));
     }
   };
 });

@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-order-tracking",
+      "disabled": false,
+      "settings": {
+        "title": "Order Tracking",
+        "btn_text": "More Btn",
+        "padding_top": 0,
+        "padding_bottom": 2
+      },
+      "blocks": {},
+      "custom_css": []
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

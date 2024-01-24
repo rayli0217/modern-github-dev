@@ -13,7 +13,35 @@
 }}
 
 <div class="customer activate page-width section-padding">
-  <h1 class="title5 text-center customer-form-title">{{t "customer.activate.normal_title"}}</h1>
+  <h1 class="title5 text-center customer-form-title">
+    {{#if invite_activation_information.discount_enable}}
+      {{t "customer.activate.normal_title_with_discount_code"}}
+    {{else}}
+      {{t "customer.activate.normal_title"}}
+    {{/if}}
+  </h1>
+
+  {{#if invite_activation_information.discount_enable}}
+  <div class="marketing-discount-display" style="--background-color: {{invite_activation_information.discount_bg_color.rgba}}">
+    {{#if invite_activation_information.discount_banner_image}}
+    <div class="marketing-banner-image">
+      {{snippet "image" data=invite_activation_information.discount_banner_image lazy=true}}
+    </div>
+    {{/if}}
+    <div class="marketing-banner-body">
+      <div class="marketing-banner-title">
+        {{snippet 'icon-star'}}
+        <span class="marketing-banner-title-text">Gift For Avtivation</span>
+        {{snippet 'icon-star'}}
+      </div>
+      <div class="marketing-banner-text">
+        <div class="marketing-banner-text--inner body3">
+          {{invite_activation_information.discount_dec}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
 
   {{#form "activate_customer_password" id="activate-account-form"}}
     <div class="field">

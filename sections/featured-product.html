@@ -1,4 +1,3 @@
-{{assign "theme_settings" settings}}
 {{assign "product" section.settings.product}}
 {{assign "product_form_id" (append "product-form-" section.id)}}
 {{assign "variant_images" (map (where product.images "attached_to_variant" true) "src")}}
@@ -16,13 +15,6 @@
 <link rel="stylesheet" href="{{asset_url 'section-main-product.css'}}" />
 <link rel="stylesheet" href="{{asset_url 'section-main-product-media-gallery.css'}}" />
 <link rel="stylesheet" href="{{asset_url 'component-price.css'}}" />
-{{#if product.quantity_price_breaks_configured }}
-  <link rel="stylesheet" href="{{asset_url 'component-volume-pricing.css'}}" />
-  <script src="{{asset_url 'price-per-item.js'}}" defer="defer"></script>
-  <script src="{{asset_url 'component-show-more.js'}}" defer="defer"></script>
-{{/if}}
-<script src="{{asset_url 'product-info.js'}}" defer="defer"></script>
-
 <script src="{{asset_url 'component-product-form.js'}}" defer="defer"></script>
 <script src="{{asset_url 'component-quantity-input.js'}}" defer></script>
 
@@ -65,112 +57,18 @@
         {{snippet "product-media-gallery" variant_images=variant_images}}
       </div>
       <div class="product__info-wrapper">
-        <product-info id="ProductInfo-{{section.id}}" data-section="{{ section.id }}" class="product__info-container">
+        <div id="ProductInfo-{{section.id}}" class="product__info-container">
           {{#with this as |global|}}
             {{#each section.blocks}}
               {{#startsWith "shopline://apps" type}}
                 {{render this}}
               {{/startsWith}}
               {{#if type "===" "quantity_selector"}}
-                {{assign 'selected_or_first_available_variant' (default global.product.selected_or_first_available_variant (first global.product.variants))}}
-                {{assign "volume_pricing_array" selected_or_first_available_variant.quantity_price_breaks }}
-                {{assign "current_qty_for_volume_pricing" selected_or_first_available_variant.quantity_rule.min}}
-
-                <div id="Quantity-Form-{{global.section.id}}"  class="product__info-item product__info-item--quantity-input" {{{shopline_attributes}}}>
+                <div class="product__info-item" {{{shopline_attributes}}}>
                   <div class="quantity-input-label body3 fw-bold">
                     {{t "order.order_details.products.quantity"}}
                   </div>
-                  {{snippet 
-                    "quantity-input" 
-                    id=global.section.id 
-                    form_id=global.product_form_id 
-                    min=selected_or_first_available_variant.quantity_rule.min
-                    max=selected_or_first_available_variant.quantity_rule.max
-                    step=selected_or_first_available_variant.quantity_rule.increment
-                    cart_qty=0
-                    value=selected_or_first_available_variant.quantity_rule.min
-                  }}
-                  <div class="volume-pricing-box">
-                    {{#if global.product.quantity_price_breaks_configured }}
-                      <price-per-item class="body4 fw-bold" id="Price-Per-Item-{{ global.section.id }}" data-section-id="{{ global.section.id }}" data-variant-id="{{ selected_or_first_available_variant.id }}">
-                        {{#if selected_or_first_available_variant.quantity_price_breaks.length '>' 0 }}
-                          <div class="price-per-item">
-                            {{#if current_qty_for_volume_pricing '<' (get 'minimum_quantity' (first volume_pricing_array)) }}
-                              {{assign 'variant_price' (money_with_currency selected_or_first_available_variant.price) }}
-                              <span class="price-per-item--current">{{{t "products.product_details.each_price" price=variant_price}}}</span>
-                            {{else}}
-                              {{assign 'price_break_price' ''}}
-                              {{#with this as |global|}}
-                                {{#each global.volume_pricing_array as |volume_price_item|}}
-                                  {{#if global.current_qty_for_volume_pricing '>=' volume_price_item.minimum_quantity}}
-                                    {{#with global}}
-                                    {{assign 'price_break_price' (money_with_currency volume_price_item.price)}}
-                                    {{/with}}
-                                  {{/if}}
-                                {{/each}}
-                              {{/with}}
-                              <span class="price-per-item--current">{{{t "products.product_details.each_price" price=price_break_price}}}</span>
-                            {{/if}}
-                          </div>
-                        {{else}}
-                          {{ assign "variant_price" (money_with_currency selected_or_first_available_variant.price) }}
-                          <div class="price-per-item">
-                            <span class="price-per-item--current">{{{t "products.product_details.each_price" price=variant_price}}}</span>
-                          </div>
-                        {{/if}}
-                      </price-per-item>
-                    {{/if}}
-                    <div class="quantity__rules body4">
-                      {{#if selected_or_first_available_variant.quantity_rule.increment '>' 1 }}
-                        <span class="divider">
-                          {{t "products.product_details.moq_increment" num=selected_or_first_available_variant.quantity_rule.increment}}
-                        </span>
-                      {{/if}}
-                      {{#if selected_or_first_available_variant.quantity_rule.min '>' 1 }}
-                        <span class="divider">
-                          {{t "products.product_details.moq_minimum" num=selected_or_first_available_variant.quantity_rule.min}}
-                        </span>
-                      {{/if}}
-                      {{#if selected_or_first_available_variant.quantity_rule.max }}
-                        <span class="divider">
-                          {{t "products.product_details.moq_maximum" num=selected_or_first_available_variant.quantity_rule.max}}
-                        </span>
-                      {{/if}}
-                    </div>
-                    {{#if global.product.quantity_price_breaks_configured}}
-                      <volume-pricing id="Volume-{{ global.section.id }}">
-                        {{#if selected_or_first_available_variant.quantity_price_breaks.length '>' 0}}
-                          <div class="body3 fw-bold volume-pricing-title">{{t "products.product_details.price_break_title"}}</div>
-                          <ul class="list-unstyled body3">
-                            <li>
-                              <span>{{ selected_or_first_available_variant.quantity_rule.min }}+</span>
-                              {{ assign "price" (money_with_currency selected_or_first_available_variant.price) }}
-                              <span data-text="{{{t "products.product_details.each_price" price=price}}}">{{{t "products.product_details.each_price" price=price}}}</span>
-                            </li>
-                            {{#each selected_or_first_available_variant.quantity_price_breaks as |price_break|}}
-                              {{assign "price_break_price" (money_with_currency price_break.price) }}
-                              <li class="{{#if @index '>=' 2 }}show-more-item display-none{{/if}}">
-                                <span>{{ price_break.minimum_quantity }}<span>+</span></span>
-                                <span data-text="{{{t "products.product_details.each_price" price=price_break_price}}}">{{{t "products.product_details.each_price" price=price_break_price}}}</span>
-                              </li>
-                            {{/each}}
-                          </ul>
-                          {{#if selected_or_first_available_variant.quantity_price_breaks.length '>=' 3 }}
-                            <show-more-button>
-                              <button
-                                class="button button--link"
-                                id="Show-More-{{ global.section.id }}"
-                                type="button"
-                              >
-                                <span class="show-more-expand">{{t "products.product_details.price_breaks_view_more"}}</span>
-                                <span class="show-more-fold display-none">{{t "products.product_details.price_breaks_view_less"}}</span>                              
-                              </button>
-                            </show-more-button>
-                          {{/if}}
-                          {{/if}}
-                      </volume-pricing>
-                    {{/if}}
-                  </div>
+                  {{snippet "quantity-input" id=global.section.id form_id=global.product_form_id}}
                 </div>
               {{else if type "===" "title"}}
                 <h2 class="product__info-item {{this.settings.heading_size}} fw-bold" {{{shopline_attributes}}}>
@@ -190,12 +88,7 @@
                 <div class="product__info-item" {{{shopline_attributes}}}>{{{settings.html}}}</div>
               {{else if type "===" "price"}}
                 <div class="product__info-item" id="price-{{global.section.id}}" {{{shopline_attributes}}}>
-                  {{snippet "price" product=global.product use_variant=true show_save=true}}
-                  {{#if global.product.quantity_price_breaks_configured }}
-                    <div class="volume-pricing-note">
-                      <span class="body4">{{t "products.product_list.price_break_tag"}}</span>
-                    </div>
-                  {{/if}}
+                  {{snippet "price" product=global.product use_variant=true}}
                   {{#or global.cart.taxes_included global.shop.shipping_policy.body}}
                     <div class="body6 rte">
                       {{#if global.cart.taxes_included}}
@@ -209,14 +102,8 @@
                 </div>
               {{else if type "===" "share"}}
                 <div class="product__info-item share" {{{shopline_attributes}}}>
-                  {{snippet
-                    "share-card"
-                    theme_settings=global.theme_settings
-                    share_type="product_detail"
-                    share_data=global.product
-                    id=global.section.id
-                    domain=global.request.host
-                  }}
+                  {{assign "share_url" (append global.request.origin global.product.url)}}
+                  {{snippet "share-button" share_link=share_url}}
                 </div>
               {{else if type "===" "variant_picker"}}
                 {{#if (isFalsey global.product.has_only_default_variant)}}
@@ -250,7 +137,7 @@
           >
             {{t "products.product_details.view_details"}}
           </a>
-        </product-info>
+        </div>
       </div>
 
       {{#if section.settings.product_image_pc_position "==" "right"}}

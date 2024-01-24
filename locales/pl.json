@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Minimalna ilość tego produktu to {{num}} sztuk"
-        },
-        "most": {
-          "desc": "Maksymalna ilość hurtowa tego artykułu to {{num}} sztuk"
-        },
-        "noIncrement": {
-          "desc": "Ten przedmiot musi być sprzedawany w ilościach co {{num}} sztuk"
-        }
-      }
-    },
     "cart": {
       "buy_now": "KUP TERAZ",
       "cancel": "Anuluj",
@@ -254,7 +241,7 @@
       "copy_success": "Skopiowano kod rabatowy.",
       "discount_title": "Aktywizować konto i uzyskać kod rabatowy.",
       "normal_title": "Aktywizować konto.",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Aktywuj konto i odbierz kod rabatowy",
       "subscription_text": "Subskrybuj e-mailem, żeby uzyskać nowe informacje i odwiedzić ekskluzywne rabaty.",
       "success_title": "Gratuluję, że uzyskałaś rabat.",
       "token_expired": "Twój link już jest nieważny"
@@ -515,9 +502,6 @@
       "form_error": "Zapytanie nie powiodło się",
       "orderId": "Identyfikator zamówienia",
       "orderId_error": "Identyfikator zamówienia nie może być pusty",
-      "other_email": "E-mail",
-      "other_phone": "Numer telefonu",
-      "phone": "Telefon",
       "query_illegal": "zamówienie nie istnieje",
       "risk_black_user": "To konto jest zagrożone",
       "risk_interception": "zamówienie nie istnieje",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Brak danych tego produktu, proszę spróbować później",
       "sold_out": "Wyprzedane",
-      "load_more": "Załaduj więcej projektów",
+      "added_to_cart_successfully": "Pomyślnie dodano",
       "load_more_items": "Załaduj projekt {{current_offset}} ~ {{last_current_offset}}/{{total}}",
-      "unavailable": "Niedostępne",
-      "variant_property_color": "kolor"
+      "unavailable": "Niedostępne"
     },
     "product_details": {
       "activity_toast_price_limit": "tylko wolno kupić {{num}} sztuk tego produktu za zniżkową cenę",
@@ -659,7 +642,6 @@
       "country_region": "Kraj/region",
       "default_placeholder": "Proszę wybrać {{attrName}}",
       "description": "Opis",
-      "each_price": "{{price}}/ za każdy",
       "email": "E-mail",
       "enter_email_address": "Proszę wpisać adres e-maila",
       "enter_valid_email_address": "Proszę napisać prawidłowy adres e-maila",
@@ -681,26 +663,14 @@
       "load_more": "Pokaż więcej",
       "maximum_length_of_message": "Długość komatarzy nie przekracza 1500 słów",
       "message": "Komentarz",
-      "moq_increment": "Wielokrotności {{num}}",
-      "moq_increment_tips": "Ilość dodana do koszyka jest zgodna tylko z wielokrotnościami {{num}}",
-      "moq_max_tips": "Należy zakupić do {{num}} sztuki z tej specyfikacji",
-      "moq_maximum": "Kup do {{num}}",
-      "moq_min_tips": "Należy zakupić co najmniej {{num}} sztuki z tej specyfikacji",
-      "moq_minimum": "Kup co najmniej {{num}}",
       "more_payment_options": "Więcej opcji zapłaty",
       "name": "Nazwisko i imię",
       "optional": "Do wyboru",
       "phone_number": "Numer telefonu",
-      "price": "Cena",
-      "price_break_title": "Wycena ilościowa",
-      "price_breaks_view_less": "Zwiń",
-      "price_breaks_view_more": "Rozwiń opis",
       "product_enquiry": "Konsultacje o produkcie",
       "submission_failed": "Nie udało się pomyślnie złożyć komentarze, proszę spróbować ponownie",
       "submission_successfully": "Złożono pomyślnie",
       "submit": "Złożyć",
-      "table_each_price": "{{price}} za każdy",
-      "table_each_price_ssr": "{{{priceDom}}} za każdy",
       "tax_included": "z wliczonym podatkiem",
       "view_product_detail": "Sprawdź szczegóły produktu",
       "copy_button_text": "Skopiuj",
@@ -722,7 +692,6 @@
       "new_arrivals": "Najnowsze towary",
       "new_products": "Od najbliższego do najdalszego według czasu stworzenia",
       "no_product": "Brak produktów w tym gatunku",
-      "price_break_tag": "Można ustalić cena za ilości",
       "price_high_to_low": "Cena od wysokiej do niskiej",
       "price_low_to_high": "Cena od niskiej do wysokiej",
       "product_has_been_removed": "Produkt jest usuwany z półek",
@@ -736,7 +705,10 @@
       "save_ratio": "Rabat {{price}}%",
       "select_product_all_options": "Wybrana wersja produktu jest niekompletna lub niedostępna. Proszę wybrać ponownie",
       "sort_button": "Sortować",
-      "top_sellers": "Bestseller"
+      "top_sellers": "Bestseller",
+      "more__product_num": "{{num}} Produktów",
+      "one_product_num": "{{num}} Prosuktu",
+      "show": "Pokazać"
     },
     "product_search": {
       "back_to_home": "Wróć do strony głównej",

@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Този артикул се продава с начално количество от {{num}}"
-        },
-        "most": {
-          "desc": "Този артикул се продава най-много до количество от {{num}}"
-        },
-        "noIncrement": {
-          "desc": "Този артикул се продава само с увеличение от {{num}}"
-        }
-      }
-    },
     "cart": {
       "buy_now": "КУПЕТЕ СЕГА",
       "cancel": "Отказ",
@@ -254,7 +241,7 @@
       "copy_success": "Кодът на купона е копиран",
       "discount_title": "Активирайте акаунт и получете код за отстъпка",
       "normal_title": "Активирайте акаунт",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Активирайте акаунта и получете код за отстъпка",
       "subscription_text": "Абонирайте се за имейли, за да получавате актуализации, достъп до изключителни оферти и много други.",
       "success_title": "Поздравления за получаването на страхотна отстъпка",
       "token_expired": "Вашият линк е изтекъл"
@@ -515,9 +502,6 @@
       "form_error": "Неуспешна заявка",
       "orderId": "ID на поръчката",
       "orderId_error": "ID на поръчката не може да бъде празен",
-      "other_email": "Имейл адрес",
-      "other_phone": "Номер за мобилен телефон",
-      "phone": "Мобилен телефон",
       "query_illegal": "ред не съществува",
       "risk_black_user": "Този акаунт е изложен на риск",
       "risk_interception": "ред не съществува",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Не е намерена информация за продукта. Моля, опитайте по-късно",
       "sold_out": "Продадено",
-      "load_more": "Зареждане на още елементи",
+      "added_to_cart_successfully": "Добавен в количката успешно",
       "load_more_items": "Зареждат се {{current_offset}} ~ {{last_current_offset}} от {{total}} артикула",
-      "unavailable": "недостъпен",
-      "variant_property_color": "Цвят"
+      "unavailable": "недостъпен"
     },
     "product_details": {
       "activity_toast_price_limit": "Максималното количество за този ограничен продукт е {{num}}",
@@ -659,7 +642,6 @@
       "country_region": "Страна/Регион",
       "default_placeholder": "Моля, изберете {{attrName}}",
       "description": "Описание",
-      "each_price": "{{price}}/всеки",
       "email": "Имейл",
       "enter_email_address": "Моля, въведете своя имейл адрес",
       "enter_valid_email_address": "Моля, въведете валиден имейл адрес",
@@ -681,26 +663,14 @@
       "load_more": "Покажи още",
       "maximum_length_of_message": "Максималната дължина на вашето съобщение не бива да надвишава 1500 думи",
       "message": "Вашето съобщение",
-      "moq_increment": "Кратни на {{num}}",
-      "moq_increment_tips": "Допълнителното количество за покупка поддържа само кратни на {{num}}",
-      "moq_max_tips": "Тази спецификация може да закупи до {{num}} бройки",
-      "moq_maximum": "Максимални покупки {{num}}",
-      "moq_min_tips": "Тази спецификация трябва да бъде закупена на {{num}} или повече",
-      "moq_minimum": "Минимална покупка{{num}}",
       "more_payment_options": "още опции за плащане",
       "name": "Име",
       "optional": "По желание",
       "phone_number": "Телефонен номер",
-      "price": "Цена",
-      "price_break_title": "Масово ценообразуване",
-      "price_breaks_view_less": "Скрий",
-      "price_breaks_view_more": "Покажи повече",
       "product_enquiry": "Запитване за продукта",
       "submission_failed": "Изпращането неуспешно, моля, опитайте отново",
       "submission_successfully": "Изпратено успешно",
       "submit": "Изпращане",
-      "table_each_price": "{{price}}всеки",
-      "table_each_price_ssr": "{{{priceDom}}}всеки",
       "tax_included": "включен данък",
       "view_product_detail": "Вижте подробности за продукта",
       "copy_button_text": "Копиране",
@@ -722,7 +692,6 @@
       "new_arrivals": "Нови продукти",
       "new_products": "От най-новите към най-старите по време на създаване",
       "no_product": "Няма продукти в тази серия",
-      "price_break_tag": "Предлага се групово ценообразуване",
       "price_high_to_low": "Цена висока към ниска",
       "price_low_to_high": "Цена ниска към висока",
       "product_has_been_removed": "Продуктът е премахнат от рафтовете",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% намаление",
       "select_product_all_options": "Избраната варианта на продукта е непълен или недостъпен. Моля, изберете отново",
       "sort_button": "сортиране",
-      "top_sellers": "Най-продавани"
+      "top_sellers": "Най-продавани",
+      "more__product_num": "{{num}} Продукти",
+      "one_product_num": "{{num}} Продукт",
+      "show": "Покажи"
     },
     "product_search": {
       "back_to_home": "Върни се на началната страница",

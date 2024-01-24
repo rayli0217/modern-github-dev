@@ -1,7 +1,11 @@
+{{assign 'loop' (ternary (if loop) 1 0)}}
+{{assign 'autoplay' (ternary (if autoplay) 1 0)}}
+{{assign 'muted' (ternary (if muted) 1 0)}}
+
 {{#if (and (isFalsey video) (isTruthy external_video))}}
   {{#if external_video.host '===' 'youtube' }}
     <iframe
-      src="https://www.youtube.com/embed/{{external_video.external_id}}?enablejsapi=1"
+      src="https://www.youtube.com/embed/{{external_video.external_id}}?enablejsapi=1&autoplay=1&loop={{loop}}&mute={{muted}}&playlist={{external_video.external_id}}"
       class="js-youtube"
       allow="autoplay; encrypted-media"
       allowfullscreen
@@ -9,7 +13,7 @@
     ></iframe>
   {{else if external_video.host '===' 'vimeo' }}
     <iframe
-      src="https://player.vimeo.com/video/{{external_video.external_id}}"
+      src="https://player.vimeo.com/video/{{external_video.external_id}}?autoplay=1&loop={{loop}}&muted={{muted}}"
       class="js-vimeo"
       allow="autoplay; encrypted-media"
       allowfullscreen
@@ -17,5 +21,5 @@
     ></iframe>
   {{/if}}
 {{else}}
-  {{ video_tag video controls=true controlslist="nodownload"}}
+  {{ video_tag video autoplay=true loop=(ternary (if loop '===' 1) true false) muted=(ternary (if muted '===' 1) true false) controls=true controlslist="nodownload"}}
 {{/if}}

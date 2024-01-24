@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "此商品的起批量为 {{num}} 件"
-        },
-        "most": {
-          "desc": "此商品的最大批发量为 {{num}} 件"
-        },
-        "noIncrement": {
-          "desc": "此商品的增量必须为 {{num}} 件"
-        }
-      }
-    },
     "cart": {
       "buy_now": "立即购买",
       "cancel": "取消",
@@ -221,8 +208,8 @@
       "last_name": "姓氏",
       "modify_email": "修改电子邮件",
       "modify_email_modal_title": "修改电子邮件",
-      "modify_phone": "手机",
-      "modify_phone_modal_title": "手机",
+      "modify_phone": "修改手机",
+      "modify_phone_modal_title": "修改手机",
       "name": "名称",
       "next": "下一步",
       "nickname_empty_error": "First Name 和 Last Name 不能都为空",
@@ -515,9 +502,6 @@
       "form_error": "查询失败",
       "orderId": "Order ID",
       "orderId_error": "订单id不能为空",
-      "other_email": "邮箱",
-      "other_phone": "手机号",
-      "phone": "手机",
       "query_illegal": "该订单不存在",
       "risk_black_user": "此帐号存在风险",
       "risk_interception": "该订单不存在",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "暂无当前商品数据，请稍后再试",
       "sold_out": "已售罄",
-      "load_more": "加载更多项目",
+      "added_to_cart_successfully": "加购成功",
       "load_more_items": "加载 {{current_offset}} ~ {{last_current_offset}} / {{total}} 项目",
-      "unavailable": "不可用的",
-      "variant_property_color": "颜色"
+      "unavailable": "不可用的"
     },
     "product_details": {
       "activity_toast_price_limit": "此商品优惠价仅支持购买{{num}}件",
@@ -659,7 +642,6 @@
       "country_region": "国家/地区",
       "default_placeholder": "请选择{{attrName}}",
       "description": "描述",
-      "each_price": "{{price}}/每项",
       "email": "邮箱",
       "enter_email_address": "请填写邮箱",
       "enter_valid_email_address": "请填写正确的邮箱",
@@ -668,12 +650,12 @@
       "go_to_rakuten_by_link": "去乐天购物",
       "go_to_yahoo_by_link": "去雅虎购物",
       "in_stock": "有货",
-      "inventory_in_stock": "有货",
+      "inventory_in_stock": "现货",
       "inventory_in_stock_show_count": "库存：剩余 {{ quantity }}",
       "inventory_low_stock": "低库存",
       "inventory_low_stock_show_count": "低库存：剩余 {{ quantity }}",
       "inventory_out_of_stock": "缺货",
-      "inventory_out_of_stock_continue_selling": "有货",
+      "inventory_out_of_stock_continue_selling": "现货",
       "inventory_quantity": "库存数",
       "leave_us_message": "请填写留言",
       "leave_us_message_get_back": "请留言你的咨询内容，我们将会尽快与你联系",
@@ -681,26 +663,14 @@
       "load_more": "展示更多",
       "maximum_length_of_message": "留言长度不超过1500个字",
       "message": "留言",
-      "moq_increment": "{{num}}的倍数",
-      "moq_increment_tips": "加购的数量仅支持{{num}}的倍数",
-      "moq_max_tips": "该规格最多可购买 {{num}}件",
-      "moq_maximum": "最多购买 {{num}}",
-      "moq_min_tips": "该规格必须购买 {{num}}以上",
-      "moq_minimum": "最小购买{{num}}",
       "more_payment_options": "更多支付选项",
       "name": "姓名",
       "optional": "可选",
       "phone_number": "电话号码",
-      "price": "价格",
-      "price_break_title": "批量定价",
-      "price_breaks_view_less": "收起",
-      "price_breaks_view_more": "查看更多",
       "product_enquiry": "咨询商品",
       "submission_failed": "提交失败，请重试",
       "submission_successfully": "提交成功",
       "submit": "提交",
-      "table_each_price": "{{price}} 每项",
-      "table_each_price_ssr": "{{{priceDom}}} 每项",
       "tax_included": "内含税费",
       "view_product_detail": "查看商品详情",
       "copy_button_text": "复制",
@@ -722,7 +692,6 @@
       "new_arrivals": "最新上架",
       "new_products": "创建时间新-旧",
       "no_product": "分类下无商品",
-      "price_break_tag": "可批量定价",
       "price_high_to_low": "价格从高到低",
       "price_low_to_high": "价格从低到高",
       "product_has_been_removed": "当前商品已下架",
@@ -736,7 +705,10 @@
       "save_ratio": "优惠 {{price}}%",
       "select_product_all_options": "选择的商品规格不完整或不可用，请重新选择",
       "sort_button": "排序",
-      "top_sellers": "热销"
+      "top_sellers": "热销",
+      "more__product_num": "{{num}} 商品",
+      "one_product_num": "{{num}} 商品",
+      "show": "显示"
     },
     "product_search": {
       "back_to_home": "返回首页",

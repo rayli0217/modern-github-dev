@@ -33,10 +33,6 @@ defineCustomElement(
             id: 'cart-icon-bubble',
             selector: '#cart-icon-bubble-wrapper',
           },
-          {
-            id: 'cart-icon-bubble-mobile',
-            selector: '#cart-icon-bubble-wrapper-mobile',
-          },
         ];
       }
 
@@ -54,11 +50,7 @@ defineCustomElement(
         const cartDrawer = this.CartDrawer[0];
         cartDrawer.classList.remove('active');
         document.body.classList.remove('overflow-hidden');
-        const fixedCheckoutContainer = cartDrawer.querySelector('.cart-fixed-checkout');
-
-        if (fixedCheckoutContainer) {
-          fixedCheckoutContainer.classList.add('collapsed');
-        }
+        cartDrawer.querySelector('.cart-fixed-checkout').classList.add('collapsed');
       }
     },
 );
@@ -122,11 +114,6 @@ defineCustomElement(
             id: 'cart-icon-bubble',
             section: 'cart-icon-bubble',
             selector: '#cart-icon-bubble-wrapper',
-          },
-          {
-            id: 'cart-icon-bubble-mobile',
-            section: 'cart-icon-bubble-mobile',
-            selector: '#cart-icon-bubble-wrapper-mobile',
           },
         ];
       }

@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "This item only sold start with amount of {{num}}"
-        },
-        "most": {
-          "desc": "This item only sold with amount of {{num}} at most"
-        },
-        "noIncrement": {
-          "desc": "This item only sold with increment of {{num}}"
-        }
-      }
-    },
     "cart": {
       "buy_now": "Buy now",
       "cancel": "Cancel",
@@ -254,7 +241,7 @@
       "copy_success": "Coupon code copied",
       "discount_title": "Activate account and get discount code",
       "normal_title": "Activate account",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Activate account and get discount code",
       "subscription_text": "Subscribe for emails to receive updates, access to exclusive deals, and more.",
       "success_title": "Congratulations on getting a great discount",
       "token_expired": "The link has expired"
@@ -515,9 +502,6 @@
       "form_error": "Query failed",
       "orderId": "Order ID",
       "orderId_error": "Order id cannot be empty",
-      "other_email": "Email address",
-      "other_phone": "Phone",
-      "phone": "SMS",
       "query_illegal": "The order does not exist",
       "risk_black_user": "This account is at risk",
       "risk_interception": "The order does not exist",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "No product data found. Please try again later",
       "sold_out": "Sold Out",
-      "load_more": "Loading more items",
+      "added_to_cart_successfully": "Added to cart successfully",
       "load_more_items": "Loading {{current_offset}} ~ {{last_current_offset}} of {{total}} items",
-      "unavailable": "unavailable",
-      "variant_property_color": "color"
+      "unavailable": "unavailable"
     },
     "product_details": {
       "activity_toast_price_limit": "You can only buy {{num}} item(s) of this product with discount price",
@@ -659,7 +642,6 @@
       "country_region": "Country/Region",
       "default_placeholder": "Please select {{attrName}}",
       "description": "Description",
-      "each_price": "{{price}}/each",
       "email": "Email",
       "enter_email_address": "Please enter your email address",
       "enter_valid_email_address": "Please enter a valid email address",
@@ -681,26 +663,14 @@
       "load_more": "Load more",
       "maximum_length_of_message": "The maximum length of your message should be no more than 1500 characters",
       "message": "Your message",
-      "moq_increment": "Increments of {{num}}",
-      "moq_increment_tips": "Can only buy at an increment of {{num}}",
-      "moq_max_tips": "Maximum {{num}} orders",
-      "moq_maximum": "Maximum of {{num}}",
-      "moq_min_tips": "Minimum {{num}} orders",
-      "moq_minimum": "Minimum of {{num}}",
       "more_payment_options": "More payment options",
       "name": "Name",
       "optional": "Optional",
       "phone_number": "Phone",
-      "price": "Price",
-      "price_break_title": "Volume Pricing",
-      "price_breaks_view_less": "View less",
-      "price_breaks_view_more": "View more",
       "product_enquiry": "Product enquiry",
       "submission_failed": "Submission failed, please try again",
       "submission_successfully": "Submitted successfully",
       "submit": "Submit",
-      "table_each_price": "{{price}} each",
-      "table_each_price_ssr": "{{{priceDom}}} each",
       "tax_included": "tax included",
       "view_product_detail": "View product details",
       "copy_button_text": "copy",
@@ -722,7 +692,6 @@
       "new_arrivals": "New arrivals",
       "new_products": "New to old creation time",
       "no_product": "Sorry, there are no products in this category",
-      "price_break_tag": "Volume pricing available",
       "price_high_to_low": "Price high to low",
       "price_low_to_high": "Price low to high",
       "product_has_been_removed": "The product has been removed from shelves",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% OFF",
       "select_product_all_options": "The selected product variant is incomplete or unavailable. Please choose again.",
       "sort_button": "Sort",
-      "top_sellers": "Top sellers"
+      "top_sellers": "Top sellers",
+      "more__product_num": "{{num}} products",
+      "one_product_num": "{{num}} product",
+      "show": "Show"
     },
     "product_search": {
       "back_to_home": "Back to the home page",

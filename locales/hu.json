@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "A termék minimális értékesítési mennyisége {{num}} db"
-        },
-        "most": {
-          "desc": "A termék legnagyobb vásárolható mennyisége {{num}} db"
-        },
-        "noIncrement": {
-          "desc": "A termék értékesítése {{num}} darabonként lehetséges"
-        }
-      }
-    },
     "cart": {
       "buy_now": "VÁSÁRLÁS MOST",
       "cancel": "Mégse",
@@ -254,7 +241,7 @@
       "copy_success": "Kuponkód átmásolva",
       "discount_title": "Aktiválja fiókját és kedvezménykódot kap",
       "normal_title": "Fiók aktiválás",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Aktiválja fiókját és kedvezménykódot kap",
       "subscription_text": "Iratkozzon fel az e-mailekre és friss híreket kap, valamint hozzáfér az exkluzív ajánlatokhoz és még sok máshoz.",
       "success_title": "Gratulálunk, nagyszerű kedvezményt kapott",
       "token_expired": "Az Ön hivatkozása lejárt"
@@ -515,9 +502,6 @@
       "form_error": "A lekérdezés sikertelen",
       "orderId": "Rendelés azonosító",
       "orderId_error": "A rendelési azonosító nem lehet üres",
-      "other_email": "E-mail cím",
-      "other_phone": "Mobiltelefonszám",
-      "phone": "Mobiltelefon",
       "query_illegal": "sorrend nem létezik",
       "risk_black_user": "Ez a fiók veszélyben van",
       "risk_interception": "sorrend nem létezik",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Nem található termékadat. Kérjük, később próbálja újra",
       "sold_out": "Elfogyott",
-      "load_more": "További elemek betöltése",
+      "added_to_cart_successfully": "Sikeresen a kosárba",
       "load_more_items": "{{total}} tételből {{current_offset}} ~ {{last_current_offset}} betöltése",
-      "unavailable": "nem elérhető el",
-      "variant_property_color": "Szín"
+      "unavailable": "nem elérhető el"
     },
     "product_details": {
       "activity_toast_price_limit": "Ennél a korlátozott terméknél a megengedett maximális mennyiség {{num}}",
@@ -659,7 +642,6 @@
       "country_region": "Ország/Régió",
       "default_placeholder": "Kérjük, válassza ki a {{attrName}}",
       "description": "Leírás",
-      "each_price": "{{price}}/darab",
       "email": "E-mail",
       "enter_email_address": "Kérjük, adja meg e-mail címét",
       "enter_valid_email_address": "Kérjük, adjon meg egy érvényes e-mail címet",
@@ -681,26 +663,14 @@
       "load_more": "Mutass többet",
       "maximum_length_of_message": "Az üzenet maximális hossza nem haladhatja meg az 1500 szót",
       "message": "Az Ön üzenete",
-      "moq_increment": "{{num}} többszörösei",
-      "moq_increment_tips": "A további vásárlási mennyiség csak {{num}} többszörösét támogatja",
-      "moq_max_tips": "Ezzel a specifikációval legfeljebb {{num}} darab vásárolható meg",
-      "moq_maximum": "Maximális vásárlás {{num}}",
-      "moq_min_tips": "Ezt a specifikációt legalább {{num}} meg kell vásárolni",
-      "moq_minimum": "Minimális vásárlás {{num}}",
       "more_payment_options": "további fizetési lehetőségek",
       "name": "Név",
       "optional": "Opcionális",
       "phone_number": "Telefonszám",
-      "price": "Ár",
-      "price_break_title": "Tömeges árképzés",
-      "price_breaks_view_less": "Elrejtése",
-      "price_breaks_view_more": "Többet mutasson",
       "product_enquiry": "Terméklekérdezés",
       "submission_failed": "A beküldés sikertelen. Kérjük, próbálja újra.",
       "submission_successfully": "Sikeresen elküldve",
       "submit": "Elküldés",
-      "table_each_price": "{{price}}darab",
-      "table_each_price_ssr": "{{{priceDom}}}darab",
       "tax_included": "tartalmazza az adót",
       "view_product_detail": "Termékadatok megtekintése",
       "copy_button_text": "Másolás",
@@ -722,7 +692,6 @@
       "new_arrivals": "Újonnan érkezett",
       "new_products": "A legújabbit a legrégebbitől létrehozási idő szerint",
       "no_product": "Ebben a gyüjteményben nincsnek termékek",
-      "price_break_tag": "Tömeges árazás elérhető",
       "price_high_to_low": "Ár magastól alacsonyig",
       "price_low_to_high": "Ár alacsonytól magasig",
       "product_has_been_removed": "A terméket levették a polcokról",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% kedvezmény",
       "select_product_all_options": "A kiválasztott termékvariáns hiányos vagy nem elérhető. Kérjük, válasszon újra",
       "sort_button": "Változat",
-      "top_sellers": "Legfelkapottabb"
+      "top_sellers": "Legfelkapottabb",
+      "more__product_num": "{{num}} Termékek",
+      "one_product_num": "{{num}} Termék",
+      "show": "Mutasd"
     },
     "product_search": {
       "back_to_home": "Vissza a kezdőlapra",

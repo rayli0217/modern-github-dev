@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "كمية الطلب لهذا المنتج يبدأ من {{num}} قطعة"
-        },
-        "most": {
-          "desc": "الحد الأقصى لكمية الطلب لهذا المنتج هو {{num}} قطعة"
-        },
-        "noIncrement": {
-          "desc": "كمية الزيادة لهذا المنتج يجب أن تكون {{num}} قطعة"
-        }
-      }
-    },
     "cart": {
       "buy_now": "اشتر الآن",
       "cancel": "إلغاء",
@@ -515,9 +502,6 @@
       "form_error": "فشل الاستعلام",
       "orderId": "رقم التعريف الخاص بالطلب",
       "orderId_error": "لا يمكن ترك معرّف الطلب فارغًا",
-      "other_email": "البريد الإلكتروني",
-      "other_phone": "رقم الهاتف",
-      "phone": "الهاتف",
       "query_illegal": "الطلب غير موجود",
       "risk_black_user": "هذا الحساب في خطر",
       "risk_interception": "الطلب غير موجود",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "لا توجد بيانات للمنتج الحالي ، يرجى المحاولة مرة أخرى في وقت لاحق",
       "sold_out": "نفدت",
-      "load_more": "تحميل المزيد من العناصر",
+      "added_to_cart_successfully": "تمت الإضافة إلى سلة التسوق بنجاح",
       "load_more_items": "تحميل {{current_offset}} ~ {{last_current_offset}} / {{total}} العناصر",
-      "unavailable": "غير متوفر",
-      "variant_property_color": "اللون"
+      "unavailable": "غير متوفر"
     },
     "product_details": {
       "activity_toast_price_limit": "يدعم فقط شراء {{num}} عنصر من المنتجات المخفضة",
@@ -659,7 +642,6 @@
       "country_region": "الدولة / المنطقة",
       "default_placeholder": "يرجى تحديد {{attrName}}",
       "description": "الوصف",
-      "each_price": "{{price}}/كل",
       "email": "البريد",
       "enter_email_address": "الرجاء إدخال البريد الإلكتروني",
       "enter_valid_email_address": "الرجاء إدخال البريد الإلكتروني الصحيح",
@@ -681,26 +663,14 @@
       "load_more": "عرض المزيد",
       "maximum_length_of_message": "لا يتجاوز طول الرسالة 1500 حرف",
       "message": "رسالة",
-      "moq_increment": "{{num}} مضاعفة",
-      "moq_increment_tips": "كمية الشراء الإضافية تدعم فقط {{num}} مضاعفة",
-      "moq_max_tips": "يمكن شراء ما يصل إلى {{num}} قطعة من هذه المواصفات",
-      "moq_maximum": "الحد الأقصى للشراء {{num}}",
-      "moq_min_tips": "يجب شراء {{num}} أو أكثر من هذه المواصفات",
-      "moq_minimum": "الحد الأدنى للشراء {{num}}",
       "more_payment_options": "المزيد من خيارات الدفع",
       "name": "الاسم",
       "optional": "اختياري",
       "phone_number": "رقم الهاتف",
-      "price": "السعر",
-      "price_break_title": "التسعير بالجملة",
-      "price_breaks_view_less": "طي",
-      "price_breaks_view_more": "عرض المزيد",
       "product_enquiry": "الاستفسار عن المنتج",
       "submission_failed": "فشل الإرسال ، يرجى المحاولة مرة أخرى",
       "submission_successfully": "تم الإرسال بنجاح",
       "submit": "إرسال",
-      "table_each_price": "{{price}}كل",
-      "table_each_price_ssr": "{{{priceDom}}}كل",
       "tax_included": "شامل الضريبة",
       "view_product_detail": "عرض تفاصيل المنتج",
       "copy_button_text": "نسخ",
@@ -722,7 +692,6 @@
       "new_arrivals": "أحدث المنتجات",
       "new_products": "تاريخ الإنشاء من الأحدث إلى الأقدم",
       "no_product": "لا توجد منتجات تحت الفئة",
-      "price_break_tag": "يمكن التسعير بالجملة",
       "price_high_to_low": "السعر من الأعلى للأدنى",
       "price_low_to_high": "السعر من الأدنى إلى الأعلى",
       "product_has_been_removed": "تمت إزالة المنتج الحالي",
@@ -736,7 +705,10 @@
       "save_ratio": "خصم {{price}}%",
       "select_product_all_options": "النوع المحدد للمنتج غير مكتمل أو غير متوفر. يرجى اختيار مرة أخرى",
       "sort_button": "فرز",
-      "top_sellers": "الأكثر بيعاً"
+      "top_sellers": "الأكثر بيعاً",
+      "more__product_num": "{{num}} منتج",
+      "one_product_num": "{{num}} منتج",
+      "show": "عرض"
     },
     "product_search": {
       "back_to_home": "رجوع إلى الصفحة الرئيسية",

@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="{{asset_url 'section-rich-text.css'}}" />
+<link rel="stylesheet" href="{{asset_url 'components/rte/index.css'}}" />
 
 {{assign "settings" section.settings}}
 
@@ -10,14 +11,6 @@
 }}
 
 <div class="rich-text section-padding {{#if settings.color_scheme}}color-scheme-{{settings.color_scheme}}{{/if}} ">
-  {{#if settings.show_decoration}}
-    <div class="rich-text__decoration rich-text__decoration--left">
-      {{snippet "icon-rich-text-decoration"}}
-    </div>
-    <div class="rich-text__decoration rich-text__decoration--right">
-      {{snippet "icon-rich-text-decoration"}}
-    </div>
-  {{/if}}
   <div
     class="page-width
       {{#unless settings.normal_width}}rich-text__layout--normal-width{{/unless}}
@@ -113,12 +106,6 @@
       "label": "t:sections.rich-text.settings.normal_width.label"
     },
     {
-      "type": "switch",
-      "id": "show_decoration",
-      "default": false,
-      "label": "t:sections.rich-text.settings.show_decoration.label"
-    },
-    {
       "type": "group_header",
       "label": "t:sections.rich-text.settings.group_header__0.label"
     },
@@ -126,7 +113,7 @@
       "type": "range",
       "id": "padding_top",
       "label": "t:sections.rich-text.settings.padding_top.label",
-      "default": 60,
+      "default": 80,
       "max": 100,
       "min": 0,
       "step": 2,
@@ -136,7 +123,7 @@
       "type": "range",
       "id": "padding_bottom",
       "label": "t:sections.rich-text.settings.padding_bottom.label",
-      "default": 60,
+      "default": 80,
       "max": 100,
       "min": 0,
       "step": 2,
@@ -242,9 +229,8 @@
         "desktop_content_position": "center",
         "color_scheme": "none",
         "normal_width": true,
-        "show_decoration": false,
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 80,
+        "padding_bottom": 80
       },
       "blocks": [
         {

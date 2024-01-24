@@ -66,27 +66,7 @@ input {
 .image-with-text__title--size-large {
   font-size: calc(var(--title-font-size) * 1.2);
 }
-.image-with-text__sub-title--size-small {
-  font-size: calc(var(--body-font-size) * 1 * 0.8);
-}
-.image-with-text__sub-title--size-medium {
-  font-size: calc(var(--body-font-size) * 1);
-}
-.image-with-text__sub-title--size-large {
-  font-size: calc(var(--body-font-size) * 1 * 1.2);
-}
 @media (min-width: 960px) {
-  .image-with-text__sub-title--size-small {
-    font-size: calc(var(--body-font-size) * 1.142857 * 0.8);
-  }
-
-  .image-with-text__sub-title--size-medium {
-    font-size: calc(var(--body-font-size) * 1.142857);
-  }
-
-  .image-with-text__sub-title--size-large {
-    font-size: calc(var(--body-font-size) * 1.142857 * 1.2);
-  }
   .image-with-text--stretch .image-with-text__img-wrap--high,
   .image-with-text--stretch .image-with-text__img-wrap--low {
     height: auto;

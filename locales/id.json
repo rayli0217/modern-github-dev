@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Jumlah minimal grosir untuk produk ini adalah {{num}} unit"
-        },
-        "most": {
-          "desc": "Jumlah maksimal grosir untuk produk ini adalah {{num}} unit"
-        },
-        "noIncrement": {
-          "desc": "Peningkatan pesanan untuk produk ini harus dalam kelipatan {{num}} unit"
-        }
-      }
-    },
     "cart": {
       "buy_now": "Beli segera",
       "cancel": "Batal",
@@ -254,7 +241,7 @@
       "copy_success": "Kupon telah disalin",
       "discount_title": "Aktifkan akun dan dapatkan kode diskon",
       "normal_title": "Aktifkan akun",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Aktifkan akun Anda dan dapatkan kode diskon",
       "subscription_text": "Berlangganan email untuk menerima pembaruan, mengakses diskon eksklusif, dll.",
       "success_title": "Selamat Anda dapatkan diskon",
       "token_expired": "Link Anda sudah mati"
@@ -515,9 +502,6 @@
       "form_error": "Kueri gagal",
       "orderId": "Id pemesanan",
       "orderId_error": "ID pesanan tidak boleh kosong",
-      "other_email": "Email",
-      "other_phone": "nomor telepon",
-      "phone": "HP",
       "query_illegal": "pesanan tidak ada",
       "risk_black_user": "Akun ini dalam bahaya",
       "risk_interception": "pesanan tidak ada",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Tidak ada data produk saat ini, silakan coba lagi nanti",
       "sold_out": "Terjual habis",
-      "load_more": "और आइटम लोड किए जा रहे हैं",
+      "added_to_cart_successfully": "कार्ट में सफलतापूर्वक जोड़ा गया",
       "load_more_items": "Memuat item {{current_offset}} ~ {{last_current_offset}} / {{total}}",
-      "unavailable": "Tidak tersedia",
-      "variant_property_color": "रंग"
+      "unavailable": "Tidak tersedia"
     },
     "product_details": {
       "activity_toast_price_limit": "Kupon produk ini hanya mendukung beli {{num}} buah",
@@ -658,8 +641,7 @@
       "cancel": "Batal",
       "country_region": "Negara/wilayah",
       "default_placeholder": "Silakan pilih {{attrName}}",
-      "description": "Deskripsi",
-      "each_price": "{{price}}/setiap",
+      "description": "विवरण",
       "email": "Email",
       "enter_email_address": "Silakan isi email",
       "enter_valid_email_address": "Silakan isi email yang benar",
@@ -681,26 +663,14 @@
       "load_more": "Tampilkan lebih banyak",
       "maximum_length_of_message": "Panjang pesan tidak boleh lebih dari 1,500kata",
       "message": "Pesan",
-      "moq_increment": "Kelipatan {{num}}",
-      "moq_increment_tips": "Jumlah pembelian tambahan yang dapat dibeli hanya dalam kelipatan {{num}}",
-      "moq_max_tips": "Maksimal dapat membeli {{num}} untuk spesifikasi ini",
-      "moq_maximum": "Pembelian maksimum {{num}}",
-      "moq_min_tips": "Harus membeli setidaknya {{num}} untuk spesifikasi ini",
-      "moq_minimum": "Pembelian minimum {{num}}",
       "more_payment_options": "Opsi pembayaran lainnya",
       "name": "Nama",
       "optional": "Bisa dipilih",
       "phone_number": "Nomor telepon",
-      "price": "Harga",
-      "price_break_title": "Harga grosir",
-      "price_breaks_view_less": "Simpan",
-      "price_breaks_view_more": "Lihat lebih banyak",
       "product_enquiry": "Konsultasi produk",
       "submission_failed": "Gagal kirim, silakan coba lagi",
       "submission_successfully": "Sukses kirim",
       "submit": "Kirim",
-      "table_each_price": "{{price}}setiap",
-      "table_each_price_ssr": "{{{priceDom}}}setiap",
       "tax_included": "termasuk pajak",
       "view_product_detail": "Lihat detail produk",
       "copy_button_text": "Salin",
@@ -722,7 +692,6 @@
       "new_arrivals": "Unggah produk terbaru",
       "new_products": "Waktu pembuatan: Baru-lama",
       "no_product": "Tidak ada produk di bawah kategori",
-      "price_break_tag": "Dapat dikenakan harga grosir",
       "price_high_to_low": "Harga dari tinggi ke rendah",
       "price_low_to_high": "Harga dari rendah ke tinggi",
       "product_has_been_removed": "Produk ini telah dihapus",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% Diskon",
       "select_product_all_options": "Pilihan varian produk yang dipilih tidak lengkap atau tidak tersedia. Silakan pilih kembali.",
       "sort_button": "Urutkan",
-      "top_sellers": "Penjualan baik"
+      "top_sellers": "Penjualan baik",
+      "more__product_num": "{{num}} उत्पादों",
+      "one_product_num": "{{num}} उत्पाद",
+      "show": "दिखाएं"
     },
     "product_search": {
       "back_to_home": "Kembali ke halaman pertama",

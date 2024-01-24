@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Tämä tuote myydään vain aluksi määrällä {{num}}"
-        },
-        "most": {
-          "desc": "Tämä tuote myydään vain enintään {{num}}:n määrällä"
-        },
-        "noIncrement": {
-          "desc": "Tätä tuotetta myydään vain {{num}}:n suuruisella lisäyksellä"
-        }
-      }
-    },
     "cart": {
       "buy_now": "OSTA NYT",
       "cancel": "Peruuta",
@@ -254,7 +241,7 @@
       "copy_success": "Kuponkikoodi kopioitu",
       "discount_title": "Aktivoi tili ja hanki alennuskoodi",
       "normal_title": "Aktivoi tili",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Aktivoi tilisi ja saat alennuskoodin",
       "subscription_text": "Tilaa sähköposteja saadaksesi päivityksiä, käyttääksesi eksklusiivisia tarjouksia ja paljon muuta.",
       "success_title": "Onnittelut suuren alennuksen saamisesta",
       "token_expired": "Linkki on vanhentunut"
@@ -515,9 +502,6 @@
       "form_error": "Kysely epäonnistui",
       "orderId": "tilausnumero",
       "orderId_error": "Tilaustunnus ei voi olla tyhjä",
-      "other_email": "Sähköpostiosoite",
-      "other_phone": "Matkapuhelinnumero",
-      "phone": "Matkapuhelinnumero",
       "query_illegal": "järjestystä ei ole olemassa",
       "risk_black_user": "Tämä tili on vaarassa",
       "risk_interception": "järjestystä ei ole olemassa",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Tuotetietoja ei löytynyt Yritä myöhemmin uudelleen",
       "sold_out": "Loppuunmyyty",
-      "load_more": "Ladataan lisää kohteita",
+      "added_to_cart_successfully": "Lisätty onnistuneesti ostoskoriin",
       "load_more_items": "Ladataan {{current_offset}} ~ {{last_current_offset}} kohdetta {{total}}",
-      "unavailable": "ei ole saatavilla",
-      "variant_property_color": "Väri"
+      "unavailable": "ei ole saatavilla"
     },
     "product_details": {
       "activity_toast_price_limit": "Tämän rajoitetun tuotteen sallittu enimmäismäärä on {{num}}",
@@ -659,7 +642,6 @@
       "country_region": "Maa/Alue",
       "default_placeholder": "Valitse {{attrName}}",
       "description": "Kuvaus",
-      "each_price": "{{price}}/kpl",
       "email": "Sähköposti",
       "enter_email_address": "Kirjoita tähän sähköpostiosoite",
       "enter_valid_email_address": "Kirjoita tähän käytössä oleva sähköpostiosoite",
@@ -681,26 +663,14 @@
       "load_more": "Lataa lisää",
       "maximum_length_of_message": "Viestin pituus saa olla enintään 1500 sanaa.",
       "message": "Viestisi",
-      "moq_increment": "Useita {{num}}:sta",
-      "moq_increment_tips": "Ostoskoriin lisätty määrä tukee vain {{num}}:n kerrannaisia",
-      "moq_max_tips": "Enintään {{num}} kappaleen osto tällä eritelmällä",
-      "moq_maximum": "Enimmäisosto {{num}}",
-      "moq_min_tips": "Yli {{num}} on ostettava tätä määritystä varten",
-      "moq_minimum": "Vähimmäisosto {{num}}",
       "more_payment_options": "Lisää maksutapavaihtoehtoja",
       "name": "Nimi",
       "optional": "Valinnainen",
       "phone_number": "Puhelinnumero",
-      "price": "Hinta",
-      "price_break_title": "Joukkohinnoittelu",
-      "price_breaks_view_less": "Piilota",
-      "price_breaks_view_more": "Näytä lisää",
       "product_enquiry": "Tuotekysely",
       "submission_failed": "Lähetys epäonnistui, yritä uudelleen",
       "submission_successfully": "Lähetetty onnistuneesti",
       "submit": "Lähetä",
-      "table_each_price": "{{price}}kpl",
-      "table_each_price_ssr": "{{{priceDom}}}kpl",
       "tax_included": "sisältäen verot",
       "view_product_detail": "Näytä tuotteen tarkemmat tiedot",
       "copy_button_text": "Kopioida",
@@ -722,7 +692,6 @@
       "new_arrivals": "Uusimmat",
       "new_products": "Alenevassa luomisjärjestyksessä",
       "no_product": "Valitettavasti tässä kokoelmassa ei ole tuotteita",
-      "price_break_tag": "Saatavilla joukkohinnoittelu",
       "price_high_to_low": "Kalleimmat ensin",
       "price_low_to_high": "Halvimmat ensin",
       "product_has_been_removed": "Tuote on poistunut valikoimasta",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% alennus",
       "select_product_all_options": "Valittu tuotevaihtoehto on puutteellinen tai ei ole saatavilla. Valitse uudelleen",
       "sort_button": "Lajittelu",
-      "top_sellers": "Myydyimmät"
+      "top_sellers": "Myydyimmät",
+      "more__product_num": "{{num}} Tuotteet",
+      "one_product_num": "{{num}} Tuote",
+      "show": "Näytä"
     },
     "product_search": {
       "back_to_home": "Takaisin etusivulle",

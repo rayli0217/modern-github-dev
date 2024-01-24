@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Seda toodet müüakse ainult algusega {{num}}"
-        },
-        "most": {
-          "desc": "See toode on müüdud ainult summas {{num}} maksimaalselt"
-        },
-        "noIncrement": {
-          "desc": "Seda toodet müüakse ainult juurdekasvuga {{num}}"
-        }
-      }
-    },
     "cart": {
       "buy_now": "OSTA KOHE",
       "cancel": "Tühista",
@@ -254,7 +241,7 @@
       "copy_success": "Kupongi kood kopeeritud",
       "discount_title": "Aktiveerige konto ja saate sooduskoodi",
       "normal_title": "Aktiveerige konto",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Aktiveerige oma konto ja saate sooduskoodi",
       "subscription_text": "Liituge e-kirjadega, et saada värskendusi, pääseda juurde eksklusiivsetele pakkumistele ja muule.",
       "success_title": "Palju õnne suurepärase allahindluse saamise puhul",
       "token_expired": "Link on aegunud"
@@ -515,9 +502,6 @@
       "form_error": "Päring ebaõnnestus",
       "orderId": "Tellimuse ID",
       "orderId_error": "Tellimuse ID ei tohi olla tühi",
-      "other_email": "E-posti aadress",
-      "other_phone": "Mobiiltelefoni number",
-      "phone": "Mobiiltelefon",
       "query_illegal": "tellimust pole olemas",
       "risk_black_user": "See konto on ohus",
       "risk_interception": "tellimust pole olemas",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Tooteandmeid ei leitud. Proovi hiljem uuesti",
       "sold_out": "Välja müüdud",
-      "load_more": "Rohkemate üksuste laadimine",
+      "added_to_cart_successfully": "Lisatud ostukorvi edukalt",
       "load_more_items": "Laadimine {{current_offset}} ~ {{last_current_offset}} st {{total}} esemed",
-      "unavailable": "mitte saadaval",
-      "variant_property_color": "Värvus"
+      "unavailable": "mitte saadaval"
     },
     "product_details": {
       "activity_toast_price_limit": "Selle piiratud toote maksimaalne lubatud kogus on {{num}}",
@@ -659,7 +642,6 @@
       "country_region": "Riik/piirkond",
       "default_placeholder": "Vali {{attrName}}",
       "description": "Kirjeldus",
-      "each_price": "{{price}}/tk",
       "email": "E-post",
       "enter_email_address": "Sisesta e-posti aadress",
       "enter_valid_email_address": "Sisesta kehtiv e-posti aadress",
@@ -681,26 +663,14 @@
       "load_more": "Laadige rohkem",
       "maximum_length_of_message": "Sinu sõnumi maksimaalne pikkus ei tohi ületada 1500 sõna",
       "message": "Sinu sõnum",
-      "moq_increment": "{{num}} mitmekordsed",
-      "moq_increment_tips": "Ostukorvi lisatud kogus toetab ainult {{num}} kordajaid",
-      "moq_max_tips": "Selle spetsifikatsiooni jaoks saab osta maksimaalselt {{num}} tükki",
-      "moq_maximum": "Maksimaalne ost {{num}}",
-      "moq_min_tips": "Selle spetsifikatsiooni jaoks tuleb osta üle {{num}}",
-      "moq_minimum": "Minimaalne ost {{num}}",
       "more_payment_options": "rohkem maksevõimalusi",
       "name": "Nimi",
       "optional": "Valikuline",
       "phone_number": "Telefoninumber",
-      "price": "Hind",
-      "price_break_title": "Hulgihind",
-      "price_breaks_view_less": "Peida",
-      "price_breaks_view_more": "Näita rohkem",
       "product_enquiry": "Tootepäring",
       "submission_failed": "Esitamine ebaõnnestus, proovi uuesti",
       "submission_successfully": "Esitamine õnnestus",
       "submit": "Esita",
-      "table_each_price": "{{price}}tk",
-      "table_each_price_ssr": "{{{priceDom}}}tk",
       "tax_included": "käibemaks",
       "view_product_detail": "Vaadake toote üksikasju",
       "copy_button_text": "Koopia",
@@ -722,7 +692,6 @@
       "new_arrivals": "Uus kaup",
       "new_products": "Loomise kahanevas järjestuses",
       "no_product": "Vabandust, selles kollektsioonis ei ole tooted",
-      "price_break_tag": "Saadaval on hulgihinnad",
       "price_high_to_low": "Hind kallimatest madalamateni",
       "price_low_to_high": "Hind madalamatest kõrgemateni",
       "product_has_been_removed": "Toode eemaldatakse müügilt",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% allahindlus",
       "select_product_all_options": "Valitud tootevariant on puudulik või pole saadaval. Palun valige uuesti",
       "sort_button": "Sorteeri",
-      "top_sellers": "Müügihitid"
+      "top_sellers": "Müügihitid",
+      "more__product_num": "{{num}} Tooted",
+      "one_product_num": "{{num}} Toote",
+      "show": "Näita"
     },
     "product_search": {
       "back_to_home": "Tagasi avalehele",

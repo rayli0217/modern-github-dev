@@ -2,39 +2,6 @@ if (typeof window.Shopline === 'undefined') {
   window.Shopline = {};
 }
 
-// pubsub event
-
-
-const PUB_SUB_EVENTS = {
-  quantityUpdate: 'quantity-update',
-  variantChange: 'variant-change',
-};
-
-const subscribers = {};
-
-function subscribe(eventName, callback) {
-  if (subscribers[eventName] === undefined) {
-    subscribers[eventName] = [];
-  }
-
-  subscribers[eventName] = [...subscribers[eventName], callback];
-
-  return function unsubscribe() {
-    subscribers[eventName] = subscribers[eventName].filter((cb) => {
-      return cb !== callback;
-    });
-  };
-}
-
-function publish(eventName, data) {
-  if (subscribers[eventName]) {
-    subscribers[eventName].forEach((callback) => {
-      callback(data);
-    });
-  }
-}
-;
-
 // init cart related
 function initCartDrawerBySectionRender(mountEntry) {
   fetch(`${window.location.pathname}?section_id=cart-drawer`)
@@ -54,12 +21,8 @@ function initCartBubbleByCount() {
       const cartBubbleNum =
         document.getElementById('cart-icon-bubble') &&
         document.getElementById('cart-icon-bubble').querySelector('.header__cart-point');
-      const cartBubbleNumMobile =
-        document.getElementById('cart-icon-bubble-mobile') &&
-        document.getElementById('cart-icon-bubble-mobile').querySelector('.header__cart-point');
       if (count > 0) {
         cartBubbleNum.innerText = count;
-        cartBubbleNumMobile.innerText = count;
       }
     });
 }
@@ -156,18 +119,6 @@ function changeURLArg(urlStr, args) {
 /**
  * @global
  */
-function removeURLArg(urlStr, argArr) {
-  const url = new URL(urlStr);
-
-  argArr.forEach((arg) => {
-    url.searchParams.delete(arg);
-  });
-  return url;
-}
-
-/**
- * @global
- */
 function observeElementVisible(elm, fn, options) {
   const visibleObserver = new IntersectionObserver(
     (entrys) => {
@@ -199,76 +150,6 @@ window.Shopline.addListener = function (target, eventName, callback) {
     ? target.addEventListener(eventName, callback, false)
     : target.attachEvent(`on${eventName}`, callback);
 };
-;
-class Parallax {
-  constructor() {
-    this.parallaxContainers = document.querySelectorAll('.global-parallax-container');
-    this.parallaxListener = false;
-
-    this.bindEvent();
-  }
-
-  init() {
-    this.parallaxContainers = document.querySelectorAll('.global-parallax-container');
-    if (!this.parallaxListener) {
-      window.addEventListener('scroll', () => this.onScroll());
-      this.parallaxListener = true;
-    }
-    this.scrollHandler();
-  }
-
-  bindEvent() {
-    window.document.addEventListener('shopline:section:load', () => {
-      this.init();
-    });
-
-    window.document.addEventListener('shopline:section:reorder', () => {
-      this.init();
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      if (this.parallaxContainers.length > 0) {
-        this.scrollHandler();
-        window.addEventListener('scroll', () => this.onScroll());
-      }
-    });
-  }
-
-  scrollHandler() {
-    const viewPortHeight = window.innerHeight;
-
-    this.parallaxContainers.forEach((el) => {
-      const parallaxImage = el.querySelectorAll('.global-parallax');
-      const hasClass = el.classList.contains('global-parallax-container--loaded');
-
-      if (parallaxImage.length === 0) {
-        return;
-      }
-
-      const { top, height } = el.getBoundingClientRect();
-      if (top > viewPortHeight || top <= -height) return;
-
-      const speed = 2;
-      const range = 30;
-      const movableDistance = viewPortHeight + height;
-      const currentDistance = viewPortHeight - top;
-      const percent = ((currentDistance / movableDistance) * speed * range).toFixed(2);
-      const num = range - Number(percent);
-      parallaxImage.forEach((image) => {
-        image.style.transform = `translate3d(0 , ${-num}% , 0)`;
-      });
-      if (!hasClass) {
-        el.classList.add('global-parallax-container--loaded');
-      }
-    });
-  }
-
-  onScroll() {
-    requestAnimationFrame(this.scrollHandler.bind(this));
-  }
-}
-
-window.parallaxInstance = new Parallax();
 ;
 
 // Global util
@@ -355,10 +236,10 @@ class ModalDialog extends HTMLElement {
   }
 
   close() {
-    window.pauseAllMedia();
     document.body.classList.remove('overflow-hidden');
     document.body.dispatchEvent(new CustomEvent('modalClosed'));
     this.removeAttribute('open');
+    window.pauseAllMedia();
   }
 }
 customElements.define('modal-dialog', ModalDialog);
@@ -428,47 +309,6 @@ function fetchConfig(type = 'json') {
   };
 }
 ;
-function initWhenVisible(options) {
-  const threshold = options.threshold ? options.threshold : 0;
-
-  const observer = new IntersectionObserver(
-    (entries, _observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (typeof options.callback === 'function') {
-            options.callback();
-            _observer.unobserve(entry.target);
-          }
-        }
-      });
-    },
-    { rootMargin: `0px 0px ${threshold}px 0px` },
-  );
-
-  observer.observe(options.element);
-}
-
-const init = () => {
-  document.querySelectorAll('.animation-delay-show-container').forEach((element) => {
-    initWhenVisible({
-      element,
-      callback: () => {
-        element.classList && element.classList.add('come-into-view');
-      },
-      threshold: -20,
-    });
-  });
-};
-
-init();
-
-window.document.addEventListener('shopline:section:load', () => {
-  init();
-});
-window.document.addEventListener('shopline:section:reorder', () => {
-  init();
-});
-;
 
 // Global component
 /**
@@ -481,31 +321,16 @@ class DetailsModal extends BaseElement {
     this.detailsContainer = this.querySelector('details');
     this.summaryToggle = this.querySelector('summary');
     this.contentElement = this.detailsContainer.querySelector('.modal__content');
+
+    this.detailsContainer.addEventListener('keyup', (event) => event.code.toUpperCase() === 'ESCAPE' && this.close());
+    const closeBtn = this.querySelector('button[name="close"]');
     if (this.summaryToggle) {
       this.summaryToggle.addEventListener('click', this.onSummaryClick.bind(this));
       this.summaryToggle.setAttribute('role', 'button');
     }
-  }
-
-  connectedCallback() {
-    this.bodyContainer = this.createBodyContainer();
-    this.bodyContainer.addEventListener('keyup', (event) => event.code.toUpperCase() === 'ESCAPE' && this.close());
-    const closeBtn = this.bodyContainer.querySelector('button[name="close"]');
     if (closeBtn) {
       closeBtn.addEventListener('click', this.close.bind(this));
     }
-  }
-
-  disconnectedCallback() {
-    const { bodyContainer, detailsContainer } = this;
-    if (bodyContainer !== detailsContainer) {
-      bodyContainer.parentNode.removeChild(this.bodyContainer);
-    }
-  }
-
-  get container() {
-    const selector = this.getAttribute('container');
-    return selector ? document.querySelector(selector) : undefined;
   }
 
   get isOpen() {
@@ -522,10 +347,7 @@ class DetailsModal extends BaseElement {
   }
 
   onBodyClick(event) {
-    if (
-      !(this.bodyContainer.contains(event.target) || this.detailsContainer.contains(event.target)) ||
-      event.target.classList.contains('modal__overlay')
-    ) {
+    if (!this.contains(event.target) || event.target.classList.contains('modal__overlay')) {
       this.close(event);
     }
   }
@@ -554,36 +376,15 @@ class DetailsModal extends BaseElement {
     });
   }
 
-  createBodyContainer() {
-    const { container, detailsContainer, summaryToggle } = this;
-
-    if (!container) return detailsContainer;
-
-    const bodyContainer = detailsContainer.cloneNode(false);
-    const summary = document.createElement('summary');
-    bodyContainer.appendChild(summary);
-    Array.from(detailsContainer.children).forEach((node) => {
-      if (node !== summaryToggle) {
-        detailsContainer.removeChild(node);
-        bodyContainer.appendChild(node);
-      }
-    });
-    bodyContainer.setAttribute('data-clone', true);
-    container.appendChild(bodyContainer);
-
-    return bodyContainer;
-  }
-
   open() {
     this.onBodyClickEvent = this.onBodyClickEvent || this.onBodyClick.bind(this);
     this.detailsContainer.setAttribute('open', true);
-    this.bodyContainer.setAttribute('open', true);
     if (!this.disabledBodyClickClose) {
       document.body.addEventListener('click', this.onBodyClickEvent);
     }
     document.body.classList.add('overflow-hidden');
 
-    const focusTarget = this.bodyContainer.querySelector('input[autofocus]:not([type="hidden"])');
+    const focusTarget = this.detailsContainer.querySelector('input[autofocus]:not([type="hidden"])');
     if (focusTarget) focusTarget.focus();
 
     return this.doAnimate();
@@ -594,7 +395,6 @@ class DetailsModal extends BaseElement {
 
     return this.doAnimate(true).then((res) => {
       this.detailsContainer.removeAttribute('open');
-      this.bodyContainer.removeAttribute('open');
       if (!this.disabledBodyClickClose) {
         document.body.removeEventListener('click', this.onBodyClickEvent);
       }
@@ -621,7 +421,6 @@ class AccordionComponent extends HTMLElement {
   }
 
   onSummaryClick(event) {
-    if (event.target.tagName.toLocaleUpperCase() === 'A') return;
     event.preventDefault();
     const summary = event.currentTarget;
     const detailsContainer = summary.closest('details');
@@ -669,42 +468,6 @@ class AccordionComponent extends HTMLElement {
 
 customElements.define('accordion-component', AccordionComponent);
 ;
-defineCustomElement('expand-component', () => {
-  return class ExpandComponent extends HTMLElement {
-    constructor() {
-      super();
-      this.maxHeight = this.getAttribute('max-height') || 150;
-    }
-
-    connectedCallback() {
-      this.init();
-    }
-
-    init() {
-      const expandWrapper = this.querySelector('.expand-wrapper');
-      const needExpandEle = expandWrapper.firstElementChild;
-      const viewMoreBox = expandWrapper.nextElementSibling;
-      if (!needExpandEle || !viewMoreBox) return;
-      const needExpandEleHeight = needExpandEle.offsetHeight;
-      const viewMoreBtn = viewMoreBox.querySelector('.expand-view-more-button');
-      const viewLessBtn = viewMoreBox.querySelector('.expand-view-less-button');
-      viewMoreBtn.addEventListener('click', () => {
-        viewMoreBox.setAttribute('open', true);
-        this.classList.remove('expand-limit-height');
-      });
-      viewLessBtn.addEventListener('click', () => {
-        viewMoreBox.removeAttribute('open');
-        this.classList.add('expand-limit-height');
-      });
-      if (needExpandEleHeight > this.maxHeight) {
-        viewMoreBox.style.display = 'block';
-      } else {
-        this.classList.remove('expand-limit-height');
-      }
-    }
-  };
-});
-;
 // deferred load media (eg: video)
 defineCustomElement(
   'deferred-media',
@@ -718,37 +481,14 @@ defineCustomElement(
       }
 
       loadContent(focus = true) {
+        window.pauseAllMedia();
         if (!this.getAttribute('loaded')) {
-          window.pauseAllMedia();
           const content = document.createElement('div');
           content.appendChild(this.querySelector('template').content.firstElementChild.cloneNode(true));
 
           this.setAttribute('loaded', true);
           const deferredElement = this.appendChild(content.querySelector('video, iframe'));
           if (focus) deferredElement.focus();
-
-          const { tagName } = deferredElement;
-          if (tagName === 'VIDEO') {
-            deferredElement.addEventListener('loadeddata', this.playVideo.bind(this), { once: true });
-          } else if (tagName === 'IFRAME') {
-            deferredElement.addEventListener('load', this.playVideo.bind(this), { once: true });
-          }
-        }
-      }
-
-      playVideo() {
-        const deferredElement = this.querySelector('video, iframe');
-        const { tagName } = deferredElement;
-        if (tagName === 'VIDEO') {
-          deferredElement.play();
-        } else if (tagName === 'IFRAME') {
-          // Autoplay video
-          // Require links to be carried enablejsapi=1
-          if (deferredElement.classList.contains('js-youtube')) {
-            deferredElement.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-          } else if (deferredElement.classList.contains('js-vimeo')) {
-            deferredElement.contentWindow.postMessage('{"method":"play"}', '*');
-          }
         }
       }
     },
@@ -779,35 +519,24 @@ class VariantSelects extends HTMLElement {
     super();
     this.addEventListener('change', this.onVariantChange);
     this.getVariantStrings();
-    this.updateOptions();
-    this.updateMasterId();
-    this.setAvailability();
   }
 
   onVariantChange() {
     this.updateOptions();
     this.updateMasterId();
     this.removeErrorMessage();
+
     if (!this.currentVariant) {
       this.toggleAddButton(true, '');
       this.setUnavailable();
-      this.setAvailability();
     } else {
       this.updateMedia();
       this.renderProductInfo();
-      this.setAvailability();
-      this.updateSku();
     }
 
     this.updateURL();
     this.updateVariantInput();
     this.updateShareUrl();
-  }
-
-  updateSku() {
-    if (document.getElementById('variant_sku_no') && this.currentVariant.sku) {
-      document.getElementById('variant_sku_no').textContent = this.currentVariant.sku;
-    }
   }
 
   updateOptions() {
@@ -891,7 +620,9 @@ class VariantSelects extends HTMLElement {
       .then((responseText) => {
         const html = new DOMParser().parseFromString(responseText, 'text/html');
         const destination = document.getElementById(`price-${this.dataset.section}`);
-        const source = html.getElementById(`price-${sectionId}`);
+        const source = html.getElementById(
+          `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`,
+        );
         if (source && destination) destination.innerHTML = source.innerHTML;
 
         const price = document.getElementById(`price-${this.dataset.section}`);
@@ -900,31 +631,12 @@ class VariantSelects extends HTMLElement {
 
         this.updateProductInfo(
           document.getElementById(`inventory-${this.dataset.section}`),
-          html.getElementById(`inventory-${sectionId}`),
+          html.getElementById(
+            `inventory-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`,
+          ),
         );
 
-        // moq
-        const volumePricingDestination = document.getElementById(`Volume-${this.dataset.section}`);
-        const volumePricingSource = html.getElementById(`Volume-${sectionId}`);
-        const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
-        const pricePerItemSource = html.getElementById(`Price-Per-Item-${sectionId}`);
-        if (volumePricingSource && volumePricingDestination) {
-          volumePricingDestination.innerHTML = volumePricingSource.innerHTML;
-        }
-
-        if (pricePerItemSource && pricePerItemDestination) {
-          pricePerItemDestination.innerHTML = pricePerItemSource.innerHTML;
-        }
-
         this.toggleAddButton(!this.currentVariant.available, this.variantStrings.soldOut);
-
-        publish(PUB_SUB_EVENTS.variantChange, {
-          data: {
-            sectionId,
-            html,
-            variant: this.currentVariant,
-          },
-        });
       });
   }
 
@@ -959,131 +671,6 @@ class VariantSelects extends HTMLElement {
     if (price) price.classList.add('visibility-hidden');
   }
 
-  setAvailability() {
-    this.querySelectorAll('.variant-input-wrapper').forEach((group) => {
-      this.disableVariantGroup(group);
-    });
-
-    const currentlySelectedValues = this.options.map((value, index) => {
-      return { value, index: `option${index + 1}` };
-    });
-    const initialOptions = this.createAvailableOptionsTree(this.variantData, currentlySelectedValues);
-    console.log('createAvailableOptionsTree_result', initialOptions);
-
-    Object.entries(initialOptions).forEach(([option, values]) => {
-      this.manageOptionState(option, values);
-    });
-  }
-
-  disableVariantGroup(group) {
-    group.querySelectorAll('option').forEach((option) => {
-      option.disabled = true;
-    });
-  }
-
-  createAvailableOptionsTree(variants, currentlySelectedValues) {
-    console.log('createAvailableOptionsTree_variant', variants);
-    console.log('createAvailableOptionsTree_currentlySelectedValues', currentlySelectedValues);
-    // Reduce variant array into option availability tree
-    return variants.reduce(
-      (options, variant) => {
-        // Check each option group (e.g. option1, option2, option3) of the variant
-        Object.keys(options).forEach((index) => {
-          if (variant[index] === null) return;
-          let entry = options[index].find((option) => option.value === variant[index]);
-          if (typeof entry === 'undefined') {
-            // If option has yet to be added to the options tree, add it
-            entry = { value: variant[index], soldOut: true };
-            options[index].push(entry);
-          }
-
-          const currentOption1 = currentlySelectedValues.find((selectedValue) => {
-            return selectedValue.index === 'option1';
-          });
-          const currentOption2 = currentlySelectedValues.find((selectedValue) => {
-            return selectedValue.index === 'option2';
-          });
-          const currentOption3 = currentlySelectedValues.find((selectedValue) => {
-            return selectedValue.index === 'option3';
-          });
-          const currentOption4 = currentlySelectedValues.find((selectedValue) => {
-            return selectedValue.index === 'option4';
-          });
-
-          switch (index) {
-            case 'option1':
-              // Option1 inputs should always remain enabled based on all available variants
-              entry.soldOut = entry.soldOut && variant.available ? false : entry.soldOut;
-              break;
-            case 'option2':
-              // Option2 inputs should remain enabled based on available variants that match first option group
-              if (currentOption1 && variant.option1 === currentOption1.value) {
-                entry.soldOut = entry.soldOut && variant.available ? false : entry.soldOut;
-              }
-              break;
-            case 'option3':
-              // Option 3 inputs should remain enabled based on available variants that match first and second option group
-              if (
-                currentOption1 &&
-                variant.option1 === currentOption1.value &&
-                currentOption2 &&
-                variant.option2 === currentOption2.value
-              ) {
-                entry.soldOut = entry.soldOut && variant.available ? false : entry.soldOut;
-              }
-              break;
-            case 'option4':
-              // Option 4 inputs should remain enabled based on available variants that match first and second and third option group
-              if (
-                currentOption1 &&
-                variant.option1 === currentOption1.value &&
-                currentOption2 &&
-                variant.option2 === currentOption2.value &&
-                currentOption3 &&
-                variant.option3 === currentOption3.value
-              ) {
-                entry.soldOut = entry.soldOut && variant.available ? false : entry.soldOut;
-              }
-              break;
-            case 'option5':
-              // Option 5 inputs should remain enabled based on available variants that match first and second and third and fourth option group
-              if (
-                currentOption1 &&
-                variant.option1 === currentOption1.value &&
-                currentOption2 &&
-                variant.option2 === currentOption2.value &&
-                currentOption3 &&
-                variant.option3 === currentOption3.value &&
-                currentOption4 &&
-                variant.option4 === currentOption4.value
-              ) {
-                entry.soldOut = entry.soldOut && variant.available ? false : entry.soldOut;
-              }
-              break;
-            default:
-          }
-        });
-
-        return options;
-      },
-      { option1: [], option2: [], option3: [], option4: [], option5: [] },
-    );
-  }
-
-  enableVariantOption(group, obj) {
-    
-    const value = obj.value.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
-    group.querySelector(`option[value="${value}"]`).disabled = false;
-  }
-
-  manageOptionState(option, values) {
-    const group = this.querySelector(`.variant-input-wrapper[data-option-index="${option}"]`);
-    // Loop through each option value
-    values.forEach((obj) => {
-      this.enableVariantOption(group, obj);
-    });
-  }
-
   getVariantData() {
     const jsonStr = this.querySelector('.variant-data[type="application/json"]')?.textContent.trim() || '[]';
     this.variantData = this.variantData || JSON.parse(jsonStr);
@@ -1101,24 +688,6 @@ class VariantRadios extends VariantSelects {
     const fieldsets = Array.from(this.querySelectorAll('fieldset'));
     this.options = fieldsets.map((fieldset) => {
       return Array.from(fieldset.querySelectorAll('input')).find((radio) => radio.checked).value;
-    });
-  }
-
-  enableVariantOption(group, obj) {
-    
-    const value = obj.value.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
-    const input = group.querySelector(`input[data-option-value="${value}"]`);
-    // Variant exists - enable & show variant
-    input.removeAttribute('disabled');
-    // Variant sold out - cross out option (remains selectable)
-    if (obj.soldOut) {
-      input.setAttribute('disabled', '');
-    }
-  }
-
-  disableVariantGroup(group) {
-    group.querySelectorAll('input').forEach((input) => {
-      input.setAttribute('disabled', '');
     });
   }
 }

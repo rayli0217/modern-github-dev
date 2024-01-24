@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="{{asset_url 'section-slideshow.css'}}" />
 <script src="{{asset_url 'component-slider.js'}}" defer></script>
+<script src="{{asset_url 'section-slideshow.js'}}" defer></script>
 
 {{assign "pc_height" section.settings.section_height}}
 {{assign "mobile_height" section.settings.mobile_height}}
@@ -61,8 +62,8 @@
           >
             
             <a
-              class="slideshow-slide__media {{#if @index '>' 0}}slideshow-slide__media--adapt{{/if}} "
               href="{{#if firstLinkInImage}}{{this.settings.link}}{{else}}javascript:;{{/if}}"
+              class="slideshow-slide__media {{#if @index '>' 0}}slideshow-slide__media--adapt{{/if}} "
             >
               
               {{#if this.settings.image}}
@@ -106,25 +107,24 @@
                   {{/if}}
                 {{/if}}
 
-                {{#if this.settings.sub_title}}
-                  <p class="slideshow-slide__sub-title body3" data-animation>{{this.settings.sub_title}}</p>
-                {{/if}}
-                {{#if this.settings.title}}
-                  <h2 class="slideshow-slide__title title1" data-animation>{{newline_to_br this.settings.title}}</h2>
-                {{/if}}
-                {{#if this.settings.subheading}}
-                  <p class="slideshow-slide__desc body3" data-animation>{{this.settings.subheading}}</p>
-                {{/if}}
+                <div class="slideshow-slide__text-nobtn">
+                  {{#if this.settings.sub_title}}
+                    <p class="slideshow-slide__sub-title body3" data-animation>{{this.settings.sub_title}}</p>
+                  {{/if}}
+                  {{#if this.settings.title}}
+                    <h2 class="slideshow-slide__title title1" data-animation>{{newline_to_br this.settings.title}}</h2>
+                  {{/if}}
+                  {{#if this.settings.subheading}}
+                    <p class="slideshow-slide__desc body3" data-animation>{{this.settings.subheading}}</p>
+                  {{/if}}
+                </div>
+
                 <div class="slideshow-slide__buttons">
                   {{#if this.settings.link_text}}
                     <a
                       class="button slideshow-slide__button
-                        {{#if this.settings.is_profile_link}}button--secondary{{/if}}
-                        {{this.settings.button_style}}"
-                      style="{{#if this.settings.is_profile_link}}background-color: transparent;{{/if}}
-                        --slideshow-btn-text-color: {{this.settings.btn_text_color.red}}, {{this.settings.btn_text_color.green}}, {{this.settings.btn_text_color.blue}};
-                        --slideshow-btn-bg-color: {{this.settings.btn_bg_color.red}}, {{this.settings.btn_bg_color.green}}, {{this.settings.btn_bg_color.blue}};
-                        --slideshow-btn-border-color: {{this.settings.btn_border_color.red}}, {{this.settings.btn_border_color.green}}, {{this.settings.btn_border_color.blue}};"
+                        {{#if this.settings.is_profile_link}}button--secondary{{/if}}"
+                      style="{{#if this.settings.is_profile_link}}background-color: transparent;{{/if}}"
                       title="{{this.settings.link_text}}"
                       href="{{#if this.settings.link}}{{this.settings.link}}{{else}}javascript:;{{/if}}"
                     >
@@ -134,12 +134,8 @@
                   {{#if this.settings.link_text_2}}
                     <a
                       class="button slideshow-slide__button
-                        {{#if this.settings.is_profile_link2}}button--secondary{{/if}}
-                        {{this.settings.button_style2}}"
-                      style="{{#if this.settings.is_profile_link2}}background-color: transparent;{{/if}} 
-                          --slideshow-btn-text-color: {{this.settings.btn_text_color2.red}}, {{this.settings.btn_text_color2.green}}, {{this.settings.btn_text_color2.blue}};
-                          --slideshow-btn-bg-color: {{this.settings.btn_bg_color2.red}}, {{this.settings.btn_bg_color2.green}}, {{this.settings.btn_bg_color2.blue}};
-                          --slideshow-btn-border-color: {{this.settings.btn_border_color2.red}}, {{this.settings.btn_border_color2.green}}, {{this.settings.btn_border_color2.blue}};"
+                        {{#if this.settings.is_profile_link2}}button--secondary{{/if}}"
+                      style="{{#if this.settings.is_profile_link2}}background-color: transparent;{{/if}}"
                       title="{{this.settings.link_text_2}}"
                       href="{{#if this.settings.link_2}}{{this.settings.link_2}}{{else}}javascript:;{{/if}}"
                     >
@@ -366,7 +362,7 @@
               "label": "t:sections.slideshow.blocks.image.settings.pc_text_position.options__3.label"
             },
             {
-              "value": "flex-end center",
+              "value": "flex-end flex-center",
               "label": "t:sections.slideshow.blocks.image.settings.pc_text_position.options__4.label"
             },
             {
@@ -463,42 +459,10 @@
           "label": "t:sections.slideshow.blocks.image.settings.link.label"
         },
         {
-          "type": "select",
-          "id": "button_style",
-          "label": "t:sections.slideshow.blocks.image.settings.button_style.label",
-          "default": "button",
-          "options": [
-            {
-              "value": "button",
-              "label": "t:sections.slideshow.blocks.image.settings.button_style.options__0.label"
-            },
-            {
-              "value": "button--secondary",
-              "label": "t:sections.slideshow.blocks.image.settings.button_style.options__1.label"
-            },
-            {
-              "value": "button--link",
-              "label": "t:sections.slideshow.blocks.image.settings.button_style.options__2.label"
-            }
-          ]
-        },
-        {
-          "label": "t:sections.slideshow.blocks.image.settings.btn_bg_color.label",
-          "type": "color",
-          "id": "btn_bg_color",
-          "default": "#000000"
-        },
-        {
-          "label": "t:sections.slideshow.blocks.image.settings.btn_text_color.label",
-          "type": "color",
-          "id": "btn_text_color",
-          "default": "#FFFFFF"
-        },
-        {
-          "label": "t:sections.slideshow.blocks.image.settings.btn_border_color.label",
-          "type": "color",
-          "id": "btn_border_color",
-          "default": "#000000"
+          "type": "switch",
+          "id": "is_profile_link",
+          "label": "t:sections.slideshow.blocks.image.settings.is_profile_link.label",
+          "default": false
         },
         {
           "type": "text",
@@ -512,42 +476,10 @@
           "label": "t:sections.slideshow.blocks.image.settings.link_2.label"
         },
         {
-          "type": "select",
-          "id": "button_style2",
-          "label": "t:sections.slideshow.blocks.image.settings.button_style2.label",
-          "default": "button",
-          "options": [
-            {
-              "value": "button",
-              "label": "t:sections.slideshow.blocks.image.settings.button_style2.options__0.label"
-            },
-            {
-              "value": "button--secondary",
-              "label": "t:sections.slideshow.blocks.image.settings.button_style2.options__1.label"
-            },
-            {
-              "value": "button--link",
-              "label": "t:sections.slideshow.blocks.image.settings.button_style2.options__2.label"
-            }
-          ]
-        },
-        {
-          "label": "t:sections.slideshow.blocks.image.settings.btn_bg_color2.label",
-          "type": "color",
-          "id": "btn_bg_color2",
-          "default": "#000000"
-        },
-        {
-          "label": "t:sections.slideshow.blocks.image.settings.btn_text_color2.label",
-          "type": "color",
-          "id": "btn_text_color2",
-          "default": "#FFFFFF"
-        },
-        {
-          "label": "t:sections.slideshow.blocks.image.settings.btn_border_color2.label",
-          "type": "color",
-          "id": "btn_border_color2",
-          "default": "#000000"
+          "type": "switch",
+          "id": "is_profile_link2",
+          "label": "t:sections.slideshow.blocks.image.settings.is_profile_link2.label",
+          "default": false
         }
       ]
     }

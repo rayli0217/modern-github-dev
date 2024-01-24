@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Item ini hanya dijual bermula dengan harga {{num}}"
-        },
-        "most": {
-          "desc": "Item ini hanya dijual dengan harga tertinggi sebanyak {{num}}"
-        },
-        "noIncrement": {
-          "desc": "Item ini hanya dijual dengan kenaikan harga sebanyak {{num}}"
-        }
-      }
-    },
     "cart": {
       "buy_now": "BELI SEKARANG",
       "cancel": "Batal",
@@ -254,7 +241,7 @@
       "copy_success": "Kod kupon disalin",
       "discount_title": "Aktifkan akaun dan dapatkan kod diskaun",
       "normal_title": "Aktifkan akaun",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Aktifkan akaun dan dapatkan kod diskaun",
       "subscription_text": "Langgan e-mel untuk menerima kemas kini, akses kepada tawaran eksklusif dan pelbagai lagi.",
       "success_title": "Tahniah kerana mendapat jumlah diskaun yang hebat",
       "token_expired": "Pautan telah tamat tempoh"
@@ -515,9 +502,6 @@
       "form_error": "Pertanyaan gagal",
       "orderId": "ID Pesanan",
       "orderId_error": "Id pesanan tidak boleh kosong",
-      "other_email": "Alamat E-mel",
-      "other_phone": "Nombor telefon bimbit",
-      "phone": "Telefon Bimbit",
       "query_illegal": "perintah tidak wujud",
       "risk_black_user": "Akaun ini berisiko",
       "risk_interception": "perintah tidak wujud",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Tiada data produk ditemui. Sila cuba lagi kemudian",
       "sold_out": "Habis Dijual",
-      "load_more": "Memuat lebih banyak item",
+      "added_to_cart_successfully": "Berjaya ditambahkan pada troli",
       "load_more_items": "Sedang memuat {{current_offset}} ~ {{last_current_offset}} daripada {{total}} item",
-      "unavailable": "tidak tersedia",
-      "variant_property_color": "Warna"
+      "unavailable": "tidak tersedia"
     },
     "product_details": {
       "activity_toast_price_limit": "Kuantiti maksimum dibenarkan untuk produk terhad ini ialah {{num}}",
@@ -659,7 +642,6 @@
       "country_region": "Negara/Rantau",
       "default_placeholder": "Sila pilih {{attrName}}",
       "description": "Perihalan",
-      "each_price": "{{price}}/sebuah",
       "email": "E-mel",
       "enter_email_address": "Sila masukkan alamat e-mel anda",
       "enter_valid_email_address": "Sila masukkan alamat e-mel yang sah",
@@ -681,26 +663,14 @@
       "load_more": "Muatkan lebih banyak",
       "maximum_length_of_message": "Panjang maksimum mesej anda hendaklah tidak melebihi 1500 perkataan",
       "message": "Mesej anda",
-      "moq_increment": "Gandaan {{num}}",
-      "moq_increment_tips": "Kuantiti pembelian tambahan hanya menyokong gandaan {{num}}",
-      "moq_max_tips": "Spesifikasi ini boleh dibeli sehingga {{num}} keping",
-      "moq_maximum": "Beli maksimum {{num}}",
-      "moq_min_tips": "Spesifikasi ini mesti dibeli di atas {{num}}",
-      "moq_minimum": "Beli minimum {{num}}",
       "more_payment_options": "lebih banyak opsyen bayaran",
       "name": "Nama",
       "optional": "Pilihan",
       "phone_number": "Nombor telefon",
-      "price": "Harga",
-      "price_break_title": "Tetap harga secara kumpulan",
-      "price_breaks_view_less": "Sembunyi",
-      "price_breaks_view_more": "Tunjukkan lagi",
       "product_enquiry": "Pertanyaan produk",
       "submission_failed": "Penyerahan gagal, sila cuba lagi",
       "submission_successfully": "Berjaya diserahkan",
       "submit": "Serahkan",
-      "table_each_price": "{{price}}sebuah",
-      "table_each_price_ssr": "{{{priceDom}}}sebuah",
       "tax_included": "termasuk cukai",
       "view_product_detail": "Lihat butiran produk",
       "copy_button_text": "Salinan",
@@ -722,7 +692,6 @@
       "new_arrivals": "Ketibaan baharu",
       "new_products": "Cipta masa baru-lama",
       "no_product": "maaf, tidak terdapat produk dalam koleksi ini",
-      "price_break_tag": "Boleh menetap harga secara kumpulan",
       "price_high_to_low": "Harga tinggi hingga rendah",
       "price_low_to_high": "Harga rendah hingga tinggi",
       "product_has_been_removed": "Produk dialih keluar daripada rak",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% diskaun",
       "select_product_all_options": "Varian produk yang dipilih tidak lengkap atau tidak tersedia. Sila pilih semula.",
       "sort_button": "Susun",
-      "top_sellers": "Produk yang laris"
+      "top_sellers": "Produk yang laris",
+      "more__product_num": "{{num}} produk-produk",
+      "one_product_num": "{{num}} produk",
+      "show": "Tunjukkan"
     },
     "product_search": {
       "back_to_home": "Kembali ke laman Utama",

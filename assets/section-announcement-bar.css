@@ -1,53 +1,56 @@
-.shopline-section-announcement-bar-sticky {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  animation: modalSlideInTop 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-#shopline-section-announcement-bar:not(
-    .shopline-section-announcement-bar-sticky
-  ) {
-  position: relative;
-  z-index: 20;
-}
-
 .announcement-bar--list {
   text-align: center;
   font-size: 18px;
   display: flex;
-}
-
-.announcement-bar--list:not(.splide__list) {
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-@media (min-width: 960px) {
-  announcement-bar-slider[data-display-mode="2"] .announcement-bar--list {
-    display: flex !important;
-    flex-direction: row;
-  }
-
-  announcement-bar-slider[data-display-mode="2"]
-    .announcement-bar--list
-    .announcement-bar--item {
-    flex: 1 1 auto;
-  }
+.announcement-bar--list .announcement-bar--item {
+  width: 100%;
 }
 
-.announcement-bar--item {
-  width: 100%;
-  color: rgb(var(--color-announcement-bar-text));
-  background-color: rgb(var(--color-announcement-bar-background));
-  --color-text: var(--color-announcement-bar-text);
+.announcement-bar--list.announcement-bar--compact {
+  flex-direction: row;
+}
+
+.announcement-bar--list.announcement-bar--compact .announcement-bar--item {
+  width: auto;
+  padding: 0px 10px;
+  flex: 1 1 auto;
 }
 
 .announcement--text {
   padding-top: 8px;
   padding-bottom: 8px;
   display: inline-block;
+}
+
+.announcement-bar__slider {
+  text-align: center;
+  display: flex;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  height: auto;
+}
+
+.announcement-bar__slider .announcement-bar__slide {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.announcement-bar__slider.announcement-bar__slider--vertical {
+  display: block;
+}
+
+.announcement-bar__slider.announcement-bar__slider--vertical
+  .announcement-bar__slide {
+  height: auto;
 }
 
 /* The ipad end responds to the mobile end in vertical screen */

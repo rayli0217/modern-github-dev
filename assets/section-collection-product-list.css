@@ -45,30 +45,6 @@
   display: block;
 }
 
-.infinite-scroll-loading {
-  display: none;
-  color: rgb(var(--color-text));
-  margin-top: 48px;
-}
-
-.infinite-scroll-loading.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.infinite-scroll-loading .infinite-scroll-loading-tip {
-  margin-left: 18px;
-}
-
-@media (max-width: 959px) {
-  .infinite-scroll-loading {
-    margin-top: 20px;
-  }
-}
-
 /* The ipad end responds to the mobile end in vertical screen */
 
 /* @custom-media --tablet (max-width: 959px); */

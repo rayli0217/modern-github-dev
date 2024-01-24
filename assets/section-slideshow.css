@@ -117,11 +117,11 @@ a.slideshow-slide__media {
 }
 
 .slideshow-slide__text {
+  position: relative;
   width: auto;
   max-width: 54.5rem;
   text-align: var(--slideshow-pc-text-align, "center");
   padding: 45px 0;
-  position: relative;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -166,29 +166,6 @@ a.slideshow-slide__media {
   animation-timing-function: ease;
   animation-delay: 1s;
   animation-fill-mode: forwards;
-  --color-button-text: var(--slideshow-btn-text-color);
-}
-
-.slideshow-slide__button.button--secondary {
-  background-color: transparent;
-}
-
-.slideshow-slide__button:not(.button--link) {
-  --color-button-background: var(--slideshow-btn-bg-color);
-}
-
-.slideshow-slide__button:not(.button--link)::after {
-  box-shadow: 0 0 0 var(--btn-border-thickness)
-      rgba(var(--slideshow-btn-border-color), var(--border-opacity)),
-    0 0 0 var(--btn-border-thickness)
-      rgba(var(--color-button-background), var(--alpha-button-background));
-}
-
-.slideshow-slide__button:hover:not(.button--link)::after {
-  box-shadow: 0 0 0 calc(var(--btn-border-thickness) + 1px)
-      rgba(var(--slideshow-btn-border-color), var(--border-opacity)),
-    0 0 0 calc(var(--btn-border-thickness) + 1px)
-      rgba(var(--color-button-background), var(--alpha-button-background));
 }
 
 .slideshow-slide__button + .slideshow-slide__button {
@@ -390,6 +367,10 @@ a.slideshow-slide__media {
 .control__dot:target,
 .control__dot.is-active {
   background-color: #fff;
+}
+
+.slideshow-slide__text-nobtn {
+  position: relative;
 }
 
 .slideshow-slide__text-mask {

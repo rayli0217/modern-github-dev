@@ -7,89 +7,30 @@
 
 {{assign "theme_settings" settings}}
 {{assign "settings" section.settings}}
-{{assign "col" section.settings.blocks_col}}
-{{#if (length section.blocks) "<" col}}
-  {{assign "col" (length section.blocks)}}
-{{/if}}
-{{assign "align_type" (append "footer_content_" (default section.settings.align_type "left"))}}
-{{assign "show_social_logos" section.settings.show_social_media}}
-{{assign "show_letter" section.settings.show_letter_subscribe}}
-{{assign "letter_is_block_up" false}}
-{{#if section.settings.letter_show_type "===" "up"}}
-  {{assign "letter_is_block_up" true}}
-{{/if}}
-{{assign "media_is_block_up" false}}
-{{#if section.settings.media_show_type "===" "up"}}
-  {{assign "media_is_block_up" true}}
-{{/if}}
-{{assign "m-col" col}}
-{{#with this as |global|}}
-  {{#each section.blocks}}
-    {{#and (if type "===" "image") settings.image_full_width}}
-      {{#with global}}
-        {{assign "m_col" (minus (length section.blocks) 1)}}
-        {{#if m_col "<" col}}
-        {{assign 'col' m_col}}
-        {{/if}}
-      {{/with}}
-    {{/and}}
-  {{/each}}
-{{/with}}
-{{assign "has_social_logos" false}}
-{{#or
-  theme_settings.social_facebook_link
-  theme_settings.social_twitter_link
-  theme_settings.social_pinterest_link
-  theme_settings.social_instagram_link
-  theme_settings.social_snapchat_link
-  theme_settings.social_tiktok_link
-  theme_settings.social_youtube_link
-  theme_settings.social_linkedin_link
-}}
-  {{assign "has_social_logos" true}}
-{{/or}}
-{{#unless has_social_logos}}
-  {{assign "show_social_logos" false}}
-{{/unless}}
-{{assign "is_db_col" false}}
-{{#and (isFalsey section.settings.letter_pc_show_row) (isFalsey section.settings.media_pc_show_row)}}
-  {{assign "is_db_col" true}}
-{{/and}}
-{{assign "is_db_show" false}}
-{{#and show_letter show_social_logos}}
-  {{assign "is_db_show" true}}
-{{/and}}
-<footer
-  class="footer section-footer-padding color-scheme-{{settings.color_scheme}} {{align_type}}"
-  style="--padding-top:{{default (append section.settings.padding_top 'px') '40px'}};--padding-bottom:{{default
-    (append section.settings.padding_bottom 'px')
-    '40px'
-  }};--padding-left:{{default (append section.settings.padding_left 'px') '30px'}};--padding-right:{{default
-    (append section.settings.padding_right 'px')
-    '30px'
-  }};--media-icon-width:{{section.settings.media_icon_width}}px;--media-icon-padding:{{section.settings.media_icon_padding}}px;"
->
+
+{{#style}}
+  .section-{{ section.id }}-padding {
+    margin-top: var(--section-vertical-gap);
+    padding-top: {{ settings.padding_top }}px;
+    padding-bottom: {{ settings.padding_bottom }}px;
+  }
+  {{#and (isFalsey settings.show_letter_subscribe) (isFalsey settings.show_social_media)}}
+    .section-{{ section.id }}-padding .footer-block--newsletter {
+      margin-top: 0;
+    }
+  {{/and}}
+{{/style}}
+
+<footer class="footer section-{{section.id}}-padding color-scheme-{{settings.color_scheme}}">
   <div class="footer__content-top page-width">
-    {{#or letter_is_block_up media_is_block_up}}
-      {{assign "align_class" "content-align-row"}}
-      {{#and letter_is_block_up media_is_block_up}}
-        {{#and is_db_col is_db_show}}
-          {{assign "align_class" "content-align-col"}}
-        {{/and}}
-      {{/and}}
-      <div class="footer-block--newsletter footer-letter-media-up {{align_class}}">
-        {{#and show_letter letter_is_block_up}}
-          {{snippet "footer-newsletter" data=section}}
-        {{/and}}
-        {{#and show_social_logos media_is_block_up}}
-          {{snippet "footer-social"}}
-        {{/and}}
-      </div>
-    {{/or}}
-    <div class="footer__blocks-wrapper grid grid-cols-{{col}} grid-cols-1-tablet">
+    {{assign "footer_grid_class" (append "grid-cols-" (length section.blocks))}}
+    {{#if (length section.blocks) ">" 4}}
+      {{assign "footer_grid_class" "grid-cols-4"}}
+    {{/if}}
+    <div class="footer__blocks-wrapper grid {{footer_grid_class}} grid-cols-1-tablet">
       {{#each section.blocks}}
         {{#if type "===" "menu"}}
-          <footer-menu class="footer-block grid__item footer-block--list" {{{shopline_attributes}}} {{#if settings.default_fold}}open{{/if}}>
+          <footer-menu class="footer-block grid__item footer-block--list" {{{shopline_attributes}}}>
             {{#if settings.title}}
               <div class="footer-block__heading body3">
                 {{settings.title}}
@@ -113,31 +54,6 @@
             </ul>
           </footer-menu>
         {{/if}}
-        
-        {{#if type "===" "conact"}}
-          <footer-menu class="footer-block grid__item footer-block--list" {{{shopline_attributes}}} {{#if settings.default_fold}}open{{/if}}>
-            {{#if settings.title}}
-              <div class="footer-block__heading body3">
-                {{settings.title}}
-                {{snippet "icon-arrow"}}
-                {{snippet "icon-minus"}}
-              </div>
-            {{/if}}
-            {{snippet "footer-conact"}}
-          </footer-menu>
-        {{/if}}
-        {{#if type "===" "logo_list"}}
-          <footer-menu class="footer-block grid__item footer-block--list" {{{shopline_attributes}}} {{#if settings.default_fold}}open{{/if}}>
-            {{#if settings.title}}
-              <div class="footer-block__heading body3">
-                {{settings.title}}
-                {{snippet "icon-arrow"}}
-                {{snippet "icon-minus"}}
-              </div>
-            {{/if}}
-            {{snippet "footer-logo-list"}}
-          </footer-menu>
-        {{/if}}
         {{#if type "===" "custom"}}
           <div class="footer-block grid__item" {{{shopline_attributes}}}>
             {{#if settings.title}}
@@ -150,31 +66,7 @@
             {{/if}}
           </div>
         {{/if}}
-        
-        {{#if type "===" "newsletter"}}
-          <div class="footer-block grid__item" {{{shopline_attributes}}}>
-            {{#if settings.title}}
-              <div class="footer-block__heading body3">{{settings.title}}</div>
-            {{/if}}
-            {{snippet "footer-newsletter" data=this}}
-          </div>
-        {{/if}}
-        {{#if type "===" "social_media"}}
-          <div
-            class="footer-block grid__item"
-            {{{shopline_attributes}}}
-            style="--block-media-icon-width:{{default
-              (append settings.block_media_icon_width 'px')
-              '28px'
-            }};--block-media-icon-padding:{{default (append settings.block_media_icon_padding 'px') '8px'}};"
-          >
-            {{#if settings.title}}
-              <div class="footer-block__heading body3">{{settings.title}}</div>
-            {{/if}}
-            {{snippet "footer-social" data=this}}
-          </div>
-        {{/if}}
-        {{#and (if type "===" "image") (isFalsey settings.image_full_width)}}
+        {{#if type "===" "image"}}
           <div class="footer-block grid__item" {{{shopline_attributes}}}>
             {{#capture "img_style"}}width:{{settings.image_width}}px;height:{{settings.image_width}}px;{{/capture}}
             {{#if settings.image}}
@@ -183,123 +75,193 @@
               </div>
             {{/if}}
           </div>
-        {{/and}}
+        {{/if}}
       {{/each}}
     </div>
-    {{#or (isFalsey letter_is_block_up) (isFalsey media_is_block_up)}}
-      {{assign "align_class" "content-align-row"}}
-      {{#and (isFalsey letter_is_block_up) (isFalsey media_is_block_up)}}
-        {{#and is_db_col is_db_show}}
-          {{assign "align_class" "content-align-col"}}
-        {{/and}}
-      {{/and}}
-      <div class="footer-block--newsletter footer-letter-media-down {{align_class}}">
-        {{#and show_letter (isFalsey letter_is_block_up)}}
-          {{snippet "footer-newsletter" data=section}}
-        {{/and}}
-
-        {{#and show_social_logos (isFalsey media_is_block_up)}}
-          {{snippet "footer-social"}}
-        {{/and}}
-      </div>
-    {{/or}}
-  </div>
-  {{#each section.blocks}}
-    {{#and (if type "===" "image") settings.image_full_width}}
-      <div class="footer-block--full page-width" {{{shopline_attributes}}}>
-        {{#if settings.image.url}}
-          <div class="footer-block__details-content footer-block-image">
-            {{snippet "image" data=settings.image lazy=true}}
-          </div>
+    <div class="footer-block--newsletter">
+      <div class="footer-block--subscribe">
+        {{#if settings.show_letter_subscribe}}
+          {{#if settings.subscribe_letter_title}}
+            <div class="footer-block__heading body3 rte">{{{settings.subscribe_letter_title}}}</div>
+          {{/if}}
+          {{#form "customer"}}
+            <div class="field">
+              <div class="field__container">
+                {{snippet
+                  "input-email"
+                  input_class="field__input"
+                  input_id="NewsletterForm"
+                  input_required=true
+                  input_name="contact[email]"
+                  input_placeholder=settings.subscribe_letter_placeholder
+                }}
+                <label for="NewsletterForm" class="field__label body3">
+                  {{settings.subscribe_letter_placeholder}}
+                </label>
+              </div>
+              <div class="field__suffix">
+                <button type="submit" class="button button--link newsletter-form__button">
+                  {{snippet "icon-mail"}}
+                </button>
+              </div>
+            </div>
+            {{#if form.posted_successfully}}
+              {{snippet "tips-card" type="success" text=(t "general.footer.subscribe_success")}}
+            {{/if}}
+            {{#if form.errors.messages}}
+                {{snippet "tips-card" type="error" text=form.errors.messages}}
+            {{/if}}
+          {{/form}}
         {{/if}}
       </div>
-    {{/and}}
-  {{/each}}
-  <div
-    class="footer__content-bottom page-width
-      {{#if section.settings.copyright_show_type '===' 'vertical'}}content_vertical{{/if}}"
-  >
-
-    <div
-      class="footer__copyright body6
-        {{#if section.settings.copyright_menu_type '===' 'copyright_left'}}corner-content__left{{/if}}"
-    >
-      <div class="copyright-menu-box">
-        {{#each section.settings.copyright_menu.links}}
-          {{#if @index ">" 0}}
-            <div class="line body5">|</div>
-          {{/if}}
-          <div class="footer-menu--item body5">
-            <a href="{{default url 'javascript:;'}}" class="link link--text list-menu__item list-menu__item--link">
-              {{title}}
-            </a>
-          </div>
-        {{/each}}
-      </div>
-      {{#capture "storeName"}}
-        <a href="{{routes.root_url}}">{{shop.name}}</a>
-      {{/capture}}
-      <small class="copyright__content">{{{t "general.footer.copyright" year=(date 'now' '%Y') storeName=storeName}}}</small>
+      <ul class="footer__list-social list-unstyled list-social">
+        {{#if settings.show_social_media}}
+          {{#with theme_settings}}
+            {{#if social_facebook_link}}
+              <li>
+                <a href="{{social_facebook_link}}" target="_blank">
+                  {{#if show_official_icon}}
+                    {{snippet "icon-official-fb"}}
+                  {{else}}
+                    {{snippet "icon-social-fb"}}
+                  {{/if}}
+                </a>
+              </li>
+            {{/if}}
+            {{#if social_twitter_link}}
+              <li>
+                <a href="{{social_twitter_link}}" target="_blank">
+                  {{#if show_official_icon}}
+                    {{snippet "icon-official-twitter"}}
+                  {{else}}
+                    {{snippet "icon-social-twitter"}}
+                  {{/if}}
+                </a>
+              </li>
+            {{/if}}
+            {{#if social_pinterest_link}}
+              <li>
+                <a href="{{social_pinterest_link}}" target="_blank">
+                  {{#if show_official_icon}}
+                    {{snippet "icon-official-pin"}}
+                  {{else}}
+                    {{snippet "icon-social-pin"}}
+                  {{/if}}
+                </a>
+              </li>
+            {{/if}}
+            {{#if social_instagram_link}}
+              <li>
+                <a href="{{social_instagram_link}}" target="_blank">
+                  {{#if show_official_icon}}
+                    {{snippet "icon-official-ig"}}
+                  {{else}}
+                    {{snippet "icon-social-ig"}}
+                  {{/if}}
+                </a>
+              </li>
+            {{/if}}
+            {{#if social_snapchat_link}}
+              <li>
+                <a href="{{social_snapchat_link}}" target="_blank">
+                  {{#if show_official_icon}}
+                    {{snippet "icon-official-snapchat"}}
+                  {{else}}
+                    {{snippet "icon-social-snapchat"}}
+                  {{/if}}
+                </a>
+              </li>
+            {{/if}}
+            {{#if social_tiktok_link}}
+              <li>
+                <a href="{{social_tiktok_link}}" target="_blank">
+                  {{#if show_official_icon}}
+                    {{snippet "icon-official-tiktok"}}
+                  {{else}}
+                    {{snippet "icon-social-tiktok"}}
+                  {{/if}}
+                </a>
+              </li>
+            {{/if}}
+            {{#if social_youtube_link}}
+              <li>
+                <a href="{{social_youtube_link}}" target="_blank">
+                  {{#if show_official_icon}}
+                    {{snippet "icon-official-youtube"}}
+                  {{else}}
+                    {{snippet "icon-social-youtube"}}
+                  {{/if}}
+                </a>
+              </li>
+            {{/if}}
+            {{#if social_linkedin_link}}
+              <li>
+                <a href="{{social_linkedin_link}}" target="_blank">
+                  {{#if show_official_icon}}
+                    {{snippet "icon-official-linkedin"}}
+                  {{else}}
+                    {{snippet "icon-social-linkedin"}}
+                  {{/if}}
+                </a>
+              </li>
+            {{/if}}
+          {{/with}}
+        {{/if}}
+      </ul>
     </div>
-    <div class="footer__content-bottom-wrapper">
-      {{#and settings.show_locale_selector (gt (length localization.available_languages) 1)}}
-        {{ assign 'show_locale_selector' true}}
-      {{/and}}
-      {{#and settings.show_country_selector (gt (length localization.available_countries) 1)}}
-        {{ assign 'show_country_selector' true}}
-      {{/and}}
-      {{#or show_locale_selector show_country_selector}}
-        <div class="footer__column footer__localization">
-          <localization-form>
-            {{#form "localization" id="localization-form" enctype="multipart/form-data" accept-charset="UTF-8"}}
-              {{#if show_locale_selector}}
-                <dropdown-menu>
-                  <div class="dropdown-menu">
-                    <input type="hidden" name="locale_code" value="{{localization.language.iso_code}}" />
-                    <button class="button button--secondary dropdown-menu__button" type="button">
-                      <span data-label>{{localization.language.endonym_name}}</span>
-                      {{snippet "icon-arrow"}}
-                    </button>
-                    <div class="dropdown-menu__list-wrapper top global-modal-border-shadow body4" hidden>
-                      <ul class="dropdown-menu__list list-unstyled">
-                        {{#each localization.available_languages}}
-                          <li>
-                            <a href="javascript:;" data-value="{{iso_code}}">{{endonym_name}}</a>
-                          </li>
-                        {{/each}}
-                      </ul>
-                    </div>
+  </div>
+  <div class="footer__content-bottom">
+    <div class="footer__content-bottom-wrapper page-width">
+      <div class="footer__column footer__localization">
+        <localization-form>
+          {{#form "localization" id="localization-form" enctype="multipart/form-data" accept-charset="UTF-8"}}
+            {{#and settings.show_locale_selector (gt (length localization.available_languages) 1)}}
+              <dropdown-menu>
+                <div class="dropdown-menu">
+                  <input type="hidden" name="locale_code" value="{{localization.language.iso_code}}" />
+                  <button class="button button--secondary dropdown-menu__button" type="button">
+                    <span data-label>{{localization.language.endonym_name}}</span>
+                    {{snippet "icon-arrow"}}
+                  </button>
+                  <div class="dropdown-menu__list-wrapper top global-modal-border-shadow body4" hidden>
+                    <ul class="dropdown-menu__list list-unstyled">
+                      {{#each localization.available_languages}}
+                        <li>
+                          <a href="javascript:;" data-value="{{iso_code}}">{{endonym_name}}</a>
+                        </li>
+                      {{/each}}
+                    </ul>
                   </div>
-                </dropdown-menu>
-              {{/if}}
-              {{#if show_country_selector}}
-                <dropdown-menu>
-                  <div class="dropdown-menu">
-                    <input type="hidden" name="country_code" value="{{localization.country.iso_code}}" />
-                    <button class="button button--secondary dropdown-menu__button" type="button">
-                      <span data-label>{{localization.country.name}}（{{localization.country.currency.iso_code}}
-                        {{localization.country.currency.symbol}}）</span>
-                      {{snippet "icon-arrow"}}
-                    </button>
-                    <div class="dropdown-menu__list-wrapper top global-modal-border-shadow body4" hidden>
-                      <ul class="dropdown-menu__list list-unstyled">
-                        {{#each localization.available_countries}}
-                          <li>
-                            <a href="javascript:;" data-value="{{iso_code}}">
-                              {{name}}（{{currency.iso_code}}
-                              {{currency.symbol}}）
-                            </a>
-                          </li>
-                        {{/each}}
-                      </ul>
-                    </div>
+                </div>
+              </dropdown-menu>
+            {{/and}}
+            {{#and settings.show_country_selector (gt (length localization.available_contries) 1)}}
+              <dropdown-menu>
+                <div class="dropdown-menu">
+                  <input type="hidden" name="country_code" value="{{localization.country.iso_code}}" />
+                  <button class="button button--secondary dropdown-menu__button" type="button">
+                    <span data-label>{{localization.country.name}}（{{localization.country.currency.iso_code}}
+                      {{localization.country.currency.symbol}}）</span>
+                    {{snippet "icon-arrow"}}
+                  </button>
+                  <div class="dropdown-menu__list-wrapper top global-modal-border-shadow body4" hidden>
+                    <ul class="dropdown-menu__list list-unstyled">
+                      {{#each localization.available_contries}}
+                        <li>
+                          <a href="javascript:;" data-value="{{iso_code}}">
+                            {{name}}（{{currency.iso_code}}
+                            {{currency.symbol}}）
+                          </a>
+                        </li>
+                      {{/each}}
+                    </ul>
                   </div>
-                </dropdown-menu>
-              {{/if}}
-            {{/form}}
-          </localization-form>
-        </div>
-      {{/or}}
+                </div>
+              </dropdown-menu>
+            {{/and}}
+          {{/form}}
+        </localization-form>
+      </div>
       <div class="footer__column footer__column--info">
         {{#if settings.show_pay_channel.show}}
           <div class="footer__payment">
@@ -308,6 +270,12 @@
             {{/each}}
           </div>
         {{/if}}
+        <div class="footer__copyright body6">
+          {{#capture "storeName"}}
+            <a href="{{routes.root_url}}">{{shop.name}}</a>
+          {{/capture}}
+          <small class="copyright__content">{{{t "general.footer.copyright" year=(date 'now' '%Y') storeName=storeName}}}</small>
+        </div>
       </div>
     </div>
   </div>
@@ -319,38 +287,79 @@
   "max_blocks": 16,
   "settings": [
     {
+      "type": "select",
+      "id": "color_scheme",
+      "default": "2",
+      "label": "t:sections.footer.settings.color_scheme.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.footer.settings.color_scheme.options__0.label"
+        },
+        {
+          "value": "1",
+          "label": "t:sections.footer.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.footer.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "3",
+          "label": "t:sections.footer.settings.color_scheme.options__3.label"
+        }
+      ]
+    },
+    {
       "type": "group_header",
       "label": "t:sections.footer.settings.group_header__0.label"
     },
     {
-      "type": "range",
-      "id": "blocks_col",
-      "label": "t:sections.footer.settings.blocks_col.label",
-      "default": 4,
-      "min": 3,
-      "max": 5,
-      "step": 1,
-      "unit": "t:sections.footer.settings.blocks_col.unit"
+      "type": "switch",
+      "id": "show_letter_subscribe",
+      "label": "t:sections.footer.settings.show_letter_subscribe.label",
+      "default": true
     },
     {
-      "type": "select",
-      "id": "align_type",
-      "label": "t:sections.footer.settings.align_type.label",
-      "default": "left",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.footer.settings.align_type.options__0.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.footer.settings.align_type.options__1.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.footer.settings.align_type.options__2.label"
-        }
-      ]
+      "type": "richtext",
+      "id": "subscribe_letter_title",
+      "label": "t:sections.footer.settings.subscribe_letter_title.label",
+      "default": "Subscribe today and get 10% off your first purchase"
+    },
+    {
+      "type": "text",
+      "id": "subscribe_letter_placeholder",
+      "label": "t:sections.footer.settings.subscribe_letter_placeholder.label",
+      "default": "Enter your email"
+    },
+    {
+      "type": "group_header",
+      "label": "t:sections.footer.settings.group_header__1.label"
+    },
+    {
+      "type": "switch",
+      "id": "show_social_media",
+      "label": "t:sections.footer.settings.show_social_media.label",
+      "default": true
+    },
+    {
+      "type": "choose_payment_icons",
+      "id": "show_pay_channel",
+      "label": "t:sections.footer.settings.show_pay_channel.label",
+      "default": false
+    },
+    {
+      "type": "switch",
+      "id": "show_country_selector",
+      "label": "t:sections.footer.settings.show_country_selector.label",
+      "default": false
+    },
+    {
+      "type": "switch",
+      "id": "show_locale_selector",
+      "label": "t:sections.footer.settings.show_locale_selector.label",
+      "info": "t:sections.footer.settings.show_locale_selector.info",
+      "default": false
     },
     {
       "type": "range",
@@ -371,260 +380,9 @@
       "unit": "px",
       "label": "t:sections.footer.settings.padding_bottom.label",
       "default": 40
-    },
-    {
-      "type": "range",
-      "id": "padding_left",
-      "label": "t:sections.footer.settings.padding_left.label",
-      "default": 30,
-      "max": 400,
-      "min": 10,
-      "step": 2,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_right",
-      "label": "t:sections.footer.settings.padding_right.label",
-      "default": 30,
-      "max": 400,
-      "min": 10,
-      "step": 2,
-      "unit": "px"
-    },
-    {
-      "type": "group_header",
-      "label": "t:sections.footer.settings.group_header__1.label"
-    },
-    {
-      "type": "switch",
-      "id": "show_letter_subscribe",
-      "label": "t:sections.footer.settings.show_letter_subscribe.label",
-      "default": true
-    },
-    {
-      "type": "switch",
-      "id": "letter_pc_show_row",
-      "label": "t:sections.footer.settings.letter_pc_show_row.label",
-      "default": false
-    },
-    {
-      "type": "select",
-      "id": "letter_show_type",
-      "label": "t:sections.footer.settings.letter_show_type.label",
-      "options": [
-        {
-          "value": "up",
-          "label": "t:sections.footer.settings.letter_show_type.options__0.label"
-        },
-        {
-          "value": "down",
-          "label": "t:sections.footer.settings.letter_show_type.options__1.label"
-        }
-      ],
-      "default": "down"
-    },
-    {
-      "type": "select",
-      "id": "letter_show_size",
-      "label": "t:sections.footer.settings.letter_show_size.label",
-      "options": [
-        {
-          "value": "small",
-          "label": "t:sections.footer.settings.letter_show_size.options__0.label"
-        },
-        {
-          "value": "middle",
-          "label": "t:sections.footer.settings.letter_show_size.options__1.label"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.footer.settings.letter_show_size.options__2.label"
-        }
-      ],
-      "default": "small"
-    },
-    {
-      "type": "richtext",
-      "id": "subscribe_letter_title",
-      "label": "t:sections.footer.settings.subscribe_letter_title.label",
-      "default": "Subscribe today and get 10% off your first purchase"
-    },
-    {
-      "type": "text",
-      "id": "subscribe_letter_placeholder",
-      "label": "t:sections.footer.settings.subscribe_letter_placeholder.label",
-      "default": "Enter your email"
-    },
-    {
-      "type": "group_header",
-      "label": "t:sections.footer.settings.group_header__2.label"
-    },
-    {
-      "type": "switch",
-      "id": "show_social_media",
-      "label": "t:sections.footer.settings.show_social_media.label",
-      "default": true
-    },
-    {
-      "type": "switch",
-      "id": "media_pc_show_row",
-      "label": "t:sections.footer.settings.media_pc_show_row.label",
-      "default": false
-    },
-    {
-      "type": "select",
-      "id": "media_show_type",
-      "label": "t:sections.footer.settings.media_show_type.label",
-      "options": [
-        {
-          "value": "up",
-          "label": "t:sections.footer.settings.media_show_type.options__0.label"
-        },
-        {
-          "value": "down",
-          "label": "t:sections.footer.settings.media_show_type.options__1.label"
-        }
-      ],
-      "default": "down"
-    },
-    {
-      "type": "range",
-      "id": "media_icon_width",
-      "label": "t:sections.footer.settings.media_icon_width.label",
-      "default": 28,
-      "max": 88,
-      "min": 24,
-      "step": 1,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "media_icon_padding",
-      "label": "t:sections.footer.settings.media_icon_padding.label",
-      "default": 8,
-      "max": 40,
-      "min": 8,
-      "step": 1,
-      "unit": "px"
-    },
-    {
-      "type": "group_header",
-      "label": "t:sections.footer.settings.group_header__3.label"
-    },
-    {
-      "type": "select",
-      "id": "copyright_show_type",
-      "label": "t:sections.footer.settings.copyright_show_type.label",
-      "options": [
-        {
-          "value": "flatten",
-          "label": "t:sections.footer.settings.copyright_show_type.options__0.label"
-        },
-        {
-          "value": "vertical",
-          "label": "t:sections.footer.settings.copyright_show_type.options__1.label"
-        }
-      ],
-      "default": "flatten"
-    },
-    {
-      "type": "choose_payment_icons",
-      "id": "show_pay_channel",
-      "label": "t:sections.footer.settings.show_pay_channel.label",
-      "default": false
-    },
-    {
-      "type": "switch",
-      "id": "show_country_selector",
-      "label": "t:sections.footer.settings.show_country_selector.label",
-      "info": "t:sections.footer.settings.show_country_selector.info",
-      "default": false
-    },
-    {
-      "type": "switch",
-      "id": "show_locale_selector",
-      "label": "t:sections.footer.settings.show_locale_selector.label",
-      "info": "t:sections.footer.settings.show_locale_selector.info",
-      "default": false
-    },
-    {
-      "type": "menu_picker",
-      "id": "copyright_menu",
-      "label": "t:sections.footer.settings.copyright_menu.label"
-    },
-    {
-      "type": "select",
-      "id": "copyright_menu_type",
-      "label": "t:sections.footer.settings.copyright_menu_type.label",
-      "options": [
-        {
-          "value": "copyright_top",
-          "label": "t:sections.footer.settings.copyright_menu_type.options__0.label"
-        },
-        {
-          "value": "copyright_left",
-          "label": "t:sections.footer.settings.copyright_menu_type.options__1.label"
-        }
-      ],
-      "default": "copyright_top"
     }
   ],
   "blocks": [
-    {
-      "limit": 1,
-      "type": "newsletter",
-      "icon": "email",
-      "name": "t:sections.footer.blocks.newsletter.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "t:sections.footer.blocks.newsletter.settings.title.label",
-          "default": "Sign up and save"
-        },
-        {
-          "type": "richtext",
-          "id": "subscribe_letter_title",
-          "label": "t:sections.footer.blocks.newsletter.settings.subscribe_letter_title.label",
-          "default": "Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals."
-        }
-      ]
-    },
-    {
-      "limit": 1,
-      "type": "social_media",
-      "icon": "normal",
-      "name": "t:sections.footer.blocks.social_media.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "t:sections.footer.blocks.social_media.settings.title.label",
-          "default": "Follow us"
-        },
-        {
-          "type": "range",
-          "id": "block_media_icon_width",
-          "label": "t:sections.footer.blocks.social_media.settings.block_media_icon_width.label",
-          "default": 28,
-          "max": 88,
-          "min": 24,
-          "step": 1,
-          "unit": "px"
-        },
-        {
-          "type": "range",
-          "id": "block_media_icon_padding",
-          "label": "t:sections.footer.blocks.social_media.settings.block_media_icon_padding.label",
-          "default": 8,
-          "max": 40,
-          "min": 8,
-          "step": 1,
-          "unit": "px"
-        }
-      ]
-    },
     {
       "type": "menu",
       "icon": "normal",
@@ -640,12 +398,6 @@
           "id": "menu",
           "label": "t:sections.footer.blocks.menu.settings.menu.label",
           "default": "footer"
-        },
-        {
-          "type": "switch",
-          "id": "default_fold",
-          "label": "默认展开",
-          "default": false
         }
       ]
     },
@@ -689,12 +441,6 @@
           "default": 100
         },
         {
-          "id": "image_full_width",
-          "type": "switch",
-          "label": "t:sections.footer.blocks.image.settings.image_full_width.label",
-          "default": false
-        },
-        {
           "type": "select",
           "id": "align",
           "label": "t:sections.footer.blocks.image.settings.align.label",
@@ -715,388 +461,6 @@
           "default": "center"
         }
       ]
-    },
-    {
-      "limit": 5,
-      "type": "conact",
-      "icon": "image",
-      "name": "t:sections.footer.blocks.conact.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "t:sections.footer.blocks.conact.settings.title.label",
-          "default": "Contact us"
-        },
-        {
-          "type": "select",
-          "id": "conact_icon_1",
-          "default": "address",
-          "label": "t:sections.footer.blocks.conact.settings.conact_icon_1.label",
-          "options": [
-            {
-              "value": "address",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_1.options__0.label"
-            },
-            {
-              "value": "tel",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_1.options__1.label"
-            },
-            {
-              "value": "phone",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_1.options__2.label"
-            },
-            {
-              "value": "wechat",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_1.options__3.label"
-            },
-            {
-              "value": "email",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_1.options__4.label"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "id": "conact_text_1",
-          "label": "t:sections.footer.blocks.conact.settings.conact_text_1.label",
-          "default": "235 Fake St. London, UK"
-        },
-        {
-          "type": "select",
-          "id": "conact_icon_2",
-          "default": "tel",
-          "label": "t:sections.footer.blocks.conact.settings.conact_icon_2.label",
-          "options": [
-            {
-              "value": "address",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_2.options__0.label"
-            },
-            {
-              "value": "tel",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_2.options__1.label"
-            },
-            {
-              "value": "phone",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_2.options__2.label"
-            },
-            {
-              "value": "wechat",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_2.options__3.label"
-            },
-            {
-              "value": "email",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_2.options__4.label"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "id": "conact_text_2",
-          "label": "t:sections.footer.blocks.conact.settings.conact_text_2.label",
-          "default": "44 020 34473471"
-        },
-        {
-          "type": "select",
-          "id": "conact_icon_3",
-          "default": "email",
-          "label": "t:sections.footer.blocks.conact.settings.conact_icon_3.label",
-          "options": [
-            {
-              "value": "address",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_3.options__0.label"
-            },
-            {
-              "value": "tel",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_3.options__1.label"
-            },
-            {
-              "value": "phone",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_3.options__2.label"
-            },
-            {
-              "value": "wechat",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_3.options__3.label"
-            },
-            {
-              "value": "email",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_3.options__4.label"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "id": "conact_text_3",
-          "label": "t:sections.footer.blocks.conact.settings.conact_text_3.label",
-          "default": "info@chanrolapparel.com"
-        },
-        {
-          "type": "select",
-          "id": "conact_icon_4",
-          "default": "",
-          "label": "t:sections.footer.blocks.conact.settings.conact_icon_4.label",
-          "options": [
-            {
-              "value": "address",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_4.options__0.label"
-            },
-            {
-              "value": "tel",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_4.options__1.label"
-            },
-            {
-              "value": "phone",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_4.options__2.label"
-            },
-            {
-              "value": "wechat",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_4.options__3.label"
-            },
-            {
-              "value": "email",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_4.options__4.label"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "id": "conact_text_4",
-          "label": "t:sections.footer.blocks.conact.settings.conact_text_4.label",
-          "default": ""
-        },
-        {
-          "type": "select",
-          "id": "conact_icon_5",
-          "default": "",
-          "label": "t:sections.footer.blocks.conact.settings.conact_icon_5.label",
-          "options": [
-            {
-              "value": "address",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_5.options__0.label"
-            },
-            {
-              "value": "tel",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_5.options__1.label"
-            },
-            {
-              "value": "phone",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_5.options__2.label"
-            },
-            {
-              "value": "wechat",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_5.options__3.label"
-            },
-            {
-              "value": "email",
-              "label": "t:sections.footer.blocks.conact.settings.conact_icon_5.options__4.label"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "id": "conact_text_5",
-          "label": "t:sections.footer.blocks.conact.settings.conact_text_5.label",
-          "default": ""
-        },
-        {
-          "type": "switch",
-          "id": "default_fold",
-          "label": "默认展开",
-          "default": false
-        }
-      ]
-    },
-    {
-      "limit": 5,
-      "type": "logo_list",
-      "icon": "image",
-      "name": "t:sections.footer.blocks.logo_list.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "t:sections.footer.blocks.logo_list.settings.title.label",
-          "default": "Service"
-        },
-        {
-          "type": "select",
-          "id": "icon_1",
-          "default": "van",
-          "label": "t:sections.footer.blocks.logo_list.settings.icon_1.label",
-          "options": [
-            {
-              "value": "checkbox",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_1.options__0.label"
-            },
-            {
-              "value": "earth",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_1.options__1.label"
-            },
-            {
-              "value": "green",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_1.options__2.label"
-            },
-            {
-              "value": "package",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_1.options__3.label"
-            },
-            {
-              "value": "safe",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_1.options__4.label"
-            },
-            {
-              "value": "van",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_1.options__5.label"
-            }
-          ]
-        },
-        {
-          "type": "image_picker",
-          "id": "image_1",
-          "label": "t:sections.footer.blocks.logo_list.settings.image_1.label"
-        },
-        {
-          "type": "richtext",
-          "id": "text_1",
-          "label": "t:sections.footer.blocks.logo_list.settings.text_1.label",
-          "default": "Fast and free delivery"
-        },
-        {
-          "type": "select",
-          "id": "icon_2",
-          "default": "package",
-          "label": "t:sections.footer.blocks.logo_list.settings.icon_2.label",
-          "options": [
-            {
-              "value": "checkbox",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_2.options__0.label"
-            },
-            {
-              "value": "earth",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_2.options__1.label"
-            },
-            {
-              "value": "green",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_2.options__2.label"
-            },
-            {
-              "value": "package",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_2.options__3.label"
-            },
-            {
-              "value": "safe",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_2.options__4.label"
-            },
-            {
-              "value": "van",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_2.options__5.label"
-            }
-          ]
-        },
-        {
-          "type": "image_picker",
-          "id": "image_2",
-          "label": "t:sections.footer.blocks.logo_list.settings.image_2.label"
-        },
-        {
-          "type": "richtext",
-          "id": "text_2",
-          "label": "t:sections.footer.blocks.logo_list.settings.text_2.label",
-          "default": "30 day refund guarantee"
-        },
-        {
-          "type": "select",
-          "id": "icon_3",
-          "default": "safe",
-          "label": "t:sections.footer.blocks.logo_list.settings.icon_3.label",
-          "options": [
-            {
-              "value": "checkbox",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_3.options__0.label"
-            },
-            {
-              "value": "earth",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_3.options__1.label"
-            },
-            {
-              "value": "green",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_3.options__2.label"
-            },
-            {
-              "value": "package",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_3.options__3.label"
-            },
-            {
-              "value": "safe",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_3.options__4.label"
-            },
-            {
-              "value": "van",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_3.options__5.label"
-            }
-          ]
-        },
-        {
-          "type": "image_picker",
-          "id": "image_3",
-          "label": "t:sections.footer.blocks.logo_list.settings.image_3.label"
-        },
-        {
-          "type": "richtext",
-          "id": "text_3",
-          "label": "t:sections.footer.blocks.logo_list.settings.text_3.label",
-          "default": "Worry free guarantee"
-        },
-        {
-          "type": "select",
-          "id": "icon_4",
-          "default": "checkbox",
-          "label": "t:sections.footer.blocks.logo_list.settings.icon_4.label",
-          "options": [
-            {
-              "value": "checkbox",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_4.options__0.label"
-            },
-            {
-              "value": "earth",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_4.options__1.label"
-            },
-            {
-              "value": "green",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_4.options__2.label"
-            },
-            {
-              "value": "package",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_4.options__3.label"
-            },
-            {
-              "value": "safe",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_4.options__4.label"
-            },
-            {
-              "value": "van",
-              "label": "t:sections.footer.blocks.logo_list.settings.icon_4.options__5.label"
-            }
-          ]
-        },
-        {
-          "type": "image_picker",
-          "id": "image_4",
-          "label": "t:sections.footer.blocks.logo_list.settings.image_4.label"
-        },
-        {
-          "type": "richtext",
-          "id": "text_4",
-          "label": "t:sections.footer.blocks.logo_list.settings.text_4.label",
-          "default": "Lifetime customer support"
-        },
-        {
-          "type": "switch",
-          "id": "default_fold",
-          "label": "默认展开",
-          "default": false
-        }
-      ]
     }
   ],
   "default": {
@@ -1105,7 +469,6 @@
         "type": "menu",
         "settings": {
           "menu": "footer",
-          "default_fold": false,
           "title": "Menu title"
         }
       },
@@ -1125,7 +488,7 @@
     ],
     "settings": {
       "show_locale_selector": false,
-      "show_country_selector": false,
+      "show_currency_selector": false,
       "show_social_media": true,
       "show_pay_channel": {
         "show": false,
@@ -1172,19 +535,12 @@
           }
         ]
       },
-      "show_letter_subscribe": false,
+      "color_scheme": "2",
+      "show_letter_subscribe": true,
       "subscribe_letter_title": "Subscribe today and get 10% off your first purchase",
       "subscribe_letter_placeholder": "Enter your email",
-      "blocks_col": 4,
-      "align_type": "left",
-      "padding_left": 30,
-      "padding_right": 30,
       "padding_top": 40,
-      "padding_bottom": 40,
-      "letter_show_type": "down",
-      "media_show_type": "down",
-      "letter_pc_show_row": false,
-      "media_pc_show_row": false
+      "padding_bottom": 40
     }
   }
 }

@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Denne solgte tingen starter med mengden {{num}}"
-        },
-        "most": {
-          "desc": "Denne solgte tingen bare med et maksimalt beløp på {{num}}"
-        },
-        "noIncrement": {
-          "desc": "Denne solgte tingen bare i trinn på {{num}}"
-        }
-      }
-    },
     "cart": {
       "buy_now": "KJØP NÅ",
       "cancel": "Annullere",
@@ -254,7 +241,7 @@
       "copy_success": "Kopiert kupongkode",
       "discount_title": "Aktiver konto og få rabattkoden",
       "normal_title": "Aktiver konto",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Aktiver kontoen din og få en rabattkode",
       "subscription_text": "Abonner på e-post for å motta oppdateringer, få tilgang til eksklusive tilbud og mer.",
       "success_title": "Gratulerer med å få en god rabatt",
       "token_expired": "Linken er utløpt"
@@ -515,9 +502,6 @@
       "form_error": "Søket mislyktes",
       "orderId": "Bestillings ID",
       "orderId_error": "Bestillings-ID kan ikke være tom",
-      "other_email": "E-postadresse",
-      "other_phone": "Mobiltelefonnummer",
-      "phone": "Mobiltelefon",
       "query_illegal": "rekkefølgen eksisterer ikke",
       "risk_black_user": "Denne kontoen er i faresonen",
       "risk_interception": "rekkefølgen eksisterer ikke",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Finner ingen produktdata. Prøv på nytt senere",
       "sold_out": "Utsolgt",
-      "load_more": "Laster inn flere varer",
+      "added_to_cart_successfully": "Lagt til i handlekurven vellykket",
       "load_more_items": "Lasting {{current_offset}} ~ {{last_current_offset}} av {{total}} varer",
-      "unavailable": "utilgjengelig",
-      "variant_property_color": "Farge"
+      "unavailable": "utilgjengelig"
     },
     "product_details": {
       "activity_toast_price_limit": "Maksimalt antall tillatt for dette begrensede produktet er {{num}}",
@@ -659,7 +642,6 @@
       "country_region": "Land/område",
       "default_placeholder": "Velg {{attrName}}",
       "description": "Beskrivelse",
-      "each_price": "{{price}}/ Hver",
       "email": "E-post",
       "enter_email_address": "Skriv inn e-postadressen din",
       "enter_valid_email_address": "Skriv inn en gyldig e-postadresse",
@@ -681,26 +663,14 @@
       "load_more": "Last mer",
       "maximum_length_of_message": "Den maksimale lengden på meldingen bør ikke inneholde mer enn 1500 ord",
       "message": "Meldingen din",
-      "moq_increment": "Multipler av {{num}}",
-      "moq_increment_tips": "Det ekstra inköp er bare kompatibelt med multipler av {{num}}",
-      "moq_max_tips": "Denne spesifikasjonen kan kjøp opptil {{num}} stykker",
-      "moq_maximum": "Maksimalt inköp {{num}}",
-      "moq_min_tips": "Denne spesifikasjonen krever kjøp av {{num}} ovenfor",
-      "moq_minimum": "Minimum kjøp {{num}}",
       "more_payment_options": "flere betalingsalternativer",
       "name": "Navn",
       "optional": "Valgfri",
       "phone_number": "Telefonnummer",
-      "price": "Pris",
-      "price_break_title": "Partipriser",
-      "price_breaks_view_less": "Skjul",
-      "price_breaks_view_more": "Vis mer",
       "product_enquiry": "Forespørsel om produkt",
       "submission_failed": "Innsending mislyktes",
       "submission_successfully": "Sendt inn",
       "submit": "Forelegge",
-      "table_each_price": "{{price}} Hver",
-      "table_each_price_ssr": "{{{priceDom}}} Hver",
       "tax_included": "avgift inkludert",
       "view_product_detail": "Vis produktdetaljer",
       "copy_button_text": "Kopiere",
@@ -722,7 +692,6 @@
       "new_arrivals": "Nyankomne",
       "new_products": "Fra det nærmeste til det fjerneste fra skapelses øyeblikket",
       "no_product": "dessverre er det ikke noe produkt i denne samlingen",
-      "price_break_tag": "Partipriser tilgjengelig",
       "price_high_to_low": "Pris høy til lav",
       "price_low_to_high": "Pris lav til høy",
       "product_has_been_removed": "Produktet fjernes fra hyller",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% avslag",
       "select_product_all_options": "Den valgte produktvarianten er ufullstendig eller utilgjengelig. Vennligst velg på nytt",
       "sort_button": "Sorter",
-      "top_sellers": "Bestselgere"
+      "top_sellers": "Bestselgere",
+      "more__product_num": "{{num}} Produkter",
+      "one_product_num": "{{num}} produkt",
+      "show": "Vise"
     },
     "product_search": {
       "back_to_home": "Tilbake til hjemmesiden",

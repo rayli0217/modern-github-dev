@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Die Mindestbestellmenge für diesen Artikel bei Großhandel beträgt {{num}} Stück"
-        },
-        "most": {
-          "desc": "Die maximale Bestellmenge für diesen Artikel bei Großhandel beträgt {{num}} Stück"
-        },
-        "noIncrement": {
-          "desc": "Die zunehmende Menge dieses Artikels muss {{num}} Stück betragen"
-        }
-      }
-    },
     "cart": {
       "buy_now": "Jetzt kaufen",
       "cancel": "Abbrechen",
@@ -254,7 +241,7 @@
       "copy_success": "Gutschein bereits kopiert",
       "discount_title": "Aktivieren Sie Ihr Konto und erhalten Sie einen Rabattcode",
       "normal_title": "Aktivieren Sie Ihr Konto",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Aktivieren Sie Ihr Konto und erhalten Sie einen Rabattcode",
       "subscription_text": "Abonnieren Sie unseren Newsletter, um E-Mail-Updates zu exklusiven Angeboten und vielem mehr zu erhalten.",
       "success_title": "Herzlichen Glückwunsch zum Erhalt des Rabatts",
       "token_expired": "Ihr Link ist nicht mehr gültig"
@@ -515,9 +502,6 @@
       "form_error": "Anfrage fehlgeschlagen",
       "orderId": "Auftragsnummer",
       "orderId_error": "Bestell-ID darf nicht leer sein",
-      "other_email": "E-Mail-Adresse",
-      "other_phone": "Mobiltelefonnummer",
-      "phone": "Mobiltelefon",
       "query_illegal": "Ordnung existiert nicht",
       "risk_black_user": "Dieses Konto ist gefährdet",
       "risk_interception": "Ordnung existiert nicht",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Keine Produktdaten gefunden. Bitte später erneut versuchen.",
       "sold_out": "Ausverkauft",
-      "load_more": "Weitere Artikel laden",
+      "added_to_cart_successfully": "Erfolgreicher Zukauf",
       "load_more_items": "Laden von {{current_offset}} ~ {{last_current_offset}} / {{total}} Elementen",
-      "unavailable": "Nicht verfügbar",
-      "variant_property_color": "Farbe"
+      "unavailable": "Nicht verfügbar"
     },
     "product_details": {
       "activity_toast_price_limit": "Der Aktionspreis dieses Artikels gilt nur für den Kauf von {{num}} Stück",
@@ -659,7 +642,6 @@
       "country_region": "Land/Region",
       "default_placeholder": "Wählen Sie bitte {{attrName}}",
       "description": "Beschreibung",
-      "each_price": "{{price}}/Stück",
       "email": "E-Mail",
       "enter_email_address": "E-Mail-Adresse eingeben",
       "enter_valid_email_address": "Geben Sie bitte eine gültige E-Mail-Adresse",
@@ -681,26 +663,14 @@
       "load_more": "Mehr anzeigen",
       "maximum_length_of_message": "Ihre Nachricht darf nicht größer als 1500 Zeichen sein",
       "message": "Nachricht",
-      "moq_increment": "Vielfache von {{num}}",
-      "moq_increment_tips": "Die zusätzliche Kaufmenge wird nur in Vielfachen von {{num}} unterstützt",
-      "moq_max_tips": "Diese Spezifikation kann bis zu {{num}} Stück erworben werden",
-      "moq_maximum": "Maximal {{num}} kaufen",
-      "moq_min_tips": "Für diese Spezifikation müssen Sie mindestens {{num}} kaufen",
-      "moq_minimum": "Mindestens {{num}} kaufen",
       "more_payment_options": "Weitere Zahlungsoptionen",
       "name": "Name",
       "optional": "Optional",
       "phone_number": "Mobiltelefonnummer",
-      "price": "Preis",
-      "price_break_title": "Staffelpreise",
-      "price_breaks_view_less": "Weniger ansehen",
-      "price_breaks_view_more": "Mehr ansehen",
       "product_enquiry": "Nach Produkten fragen",
       "submission_failed": "Übermittlung fehlgeschlagen, bitte versuchen Sie es erneut",
       "submission_successfully": "Erfolgreich abgeschickt",
       "submit": "Bestätigen",
-      "table_each_price": "{{price}}Stück",
-      "table_each_price_ssr": "{{{priceDom}}}Stück",
       "tax_included": "Steuern inklusive",
       "view_product_detail": "Produktdetails anzeigen",
       "copy_button_text": "Kopieren",
@@ -722,7 +692,6 @@
       "new_arrivals": "Neu",
       "new_products": "In absteigender Reihenfolge nach Erstellungsdatum",
       "no_product": "Keine Produkte unter dieser Kategorie",
-      "price_break_tag": "Staffelpreise verfügbar",
       "price_high_to_low": "Preis absteigend",
       "price_low_to_high": "Preis aufsteigend",
       "product_has_been_removed": "Das Produkt wurde aus den Regalen entfernt",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% Rabatt",
       "select_product_all_options": "Die ausgewählte Produktvariante ist unvollständig oder nicht verfügbar. Bitte wählen Sie erneut",
       "sort_button": "Sortieren",
-      "top_sellers": "Top-Verkäufer"
+      "top_sellers": "Top-Verkäufer",
+      "more__product_num": "{{num}} produkte",
+      "one_product_num": "{{num}} produkt",
+      "show": "Zeigen"
     },
     "product_search": {
       "back_to_home": "Zurück zur Homepage",

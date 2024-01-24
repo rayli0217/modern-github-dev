@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Ta izdelek se na začetku prodaja le z zneskom {{num}}"
-        },
-        "most": {
-          "desc": "Ta izdelek se prodaja le z najvišjim zneskom {{num}}"
-        },
-        "noIncrement": {
-          "desc": "Ta izdelek se prodaja le s prirastkom {{num}}"
-        }
-      }
-    },
     "cart": {
       "buy_now": "KUPITE ZDAJ",
       "cancel": "Prekliči",
@@ -254,7 +241,7 @@
       "copy_success": "Kopirana koda kupona",
       "discount_title": "Aktivirajte račun in prejmite kodo za popust",
       "normal_title": "Aktivirajte račun",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Aktivirajte račun in pridobite kodo za popust",
       "subscription_text": "Naročite se na e-poštna sporočila za prejemanje posodobitev, dostop do ekskluzivnih ponudb in še več.",
       "success_title": "Čestitamo, da ste dobili odličen popust",
       "token_expired": "Povezava je potekla"
@@ -515,9 +502,6 @@
       "form_error": "Poizvedba ni uspela",
       "orderId": "Številka naročila",
       "orderId_error": "ID naročila ne sme biti prazen",
-      "other_email": "Elektronski naslov",
-      "other_phone": "Številka mobilnega telefona",
-      "phone": "Mobilni telefon",
       "query_illegal": "naročilo ne obstaja",
       "risk_black_user": "Ta račun je ogrožen",
       "risk_interception": "naročilo ne obstaja",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Ni najdenih podatkov o izdelku. Poskusite znova pozneje",
       "sold_out": "Razprodano",
-      "load_more": "Nalaganje več predmetov",
+      "added_to_cart_successfully": "Uspešno dodan v košarico",
       "load_more_items": "Nalaganje {{current_offset}} ~ {{last_current_offset}} iz {{total}} predmetov",
-      "unavailable": "ni na voljo",
-      "variant_property_color": "Barva"
+      "unavailable": "ni na voljo"
     },
     "product_details": {
       "activity_toast_price_limit": "Največja dovoljena količina za ta omejeni izdelek je {{num}}",
@@ -659,7 +642,6 @@
       "country_region": "Država/Regija",
       "default_placeholder": "Prosim izberite {{attrName}}",
       "description": "Opis",
-      "each_price": "{{price}}/kos",
       "email": "Elektronski",
       "enter_email_address": "Vnesite vaš elektronski naslov",
       "enter_valid_email_address": "Vnesite veljaven elektronski naslov",
@@ -681,26 +663,14 @@
       "load_more": "Pokaži več",
       "maximum_length_of_message": "Dolžina vašega sporočila ne sme preseči več kot 1.500 besed",
       "message": "Vaše sporočilo",
-      "moq_increment": "Večkratnik {{num}}",
-      "moq_increment_tips": "Dodatno kupljena količina je podprta le v večkratnikih {{num}}",
-      "moq_max_tips": "Za specifikacijo je mogoče kupiti največ {{num}} kosov",
-      "moq_maximum": "Največji nakup {{num}}",
-      "moq_min_tips": "Specifikacijo je treba kupiti več kot {{num}}",
-      "moq_minimum": "Najmanjši nakup {{num}}",
       "more_payment_options": "več možnosti plačila",
       "name": "Ime",
       "optional": "Neobvezno",
       "phone_number": "Telefonska številka",
-      "price": "Cena",
-      "price_break_title": "Določanje cen po količini",
-      "price_breaks_view_less": "Skrij",
-      "price_breaks_view_more": "Pokaži več",
       "product_enquiry": "Povpraševanje po izdelku",
       "submission_failed": "Neuspešna oddaja, prosim poskusite znova",
       "submission_successfully": "Uspešno oddano",
       "submit": "Oddajte",
-      "table_each_price": "{{price}}kos",
-      "table_each_price_ssr": "{{{priceDom}}}kos",
       "tax_included": "vključen davek",
       "view_product_detail": "Oglejte si podrobnosti o izdelku",
       "copy_button_text": "Kopiraj",
@@ -722,7 +692,6 @@
       "new_arrivals": "Pravkar prispelo",
       "new_products": "Od najbližjega do najbolj oddaljenega po času ustvarjanja",
       "no_product": "V kategoriji ni izdelkov",
-      "price_break_tag": "Biti sposoben izvesti količinsko oblikovanje cen",
       "price_high_to_low": "Cena od najvišje do najnižje",
       "price_low_to_high": "Cena od najnižje do najvišje",
       "product_has_been_removed": "Izdelek je odstranjen s polic",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% popusta",
       "select_product_all_options": "Izbrana različica izdelka je nepopolna ali ni na voljo. Prosimo, izberite znova",
       "sort_button": "Razvrščanje",
-      "top_sellers": "Najbolje prodajani izdelki"
+      "top_sellers": "Najbolje prodajani izdelki",
+      "more__product_num": "{{num}} izdelki",
+      "one_product_num": "{{num}} izdelek",
+      "show": "Prikaži"
     },
     "product_search": {
       "back_to_home": "Nazaj na domačo stran",

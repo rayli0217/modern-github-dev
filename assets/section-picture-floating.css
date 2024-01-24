@@ -26,8 +26,6 @@
   font-weight: 700;
   margin-bottom: 12px;
   color: inherit;
-  font-family: var(--title-font);
-  font-style: var(--title-font-style);
 }
 
 @media (min-width: 960px) {

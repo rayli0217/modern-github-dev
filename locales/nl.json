@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "De initiële groothandelshoeveelheid voor dit artikel is {{num}} stuks"
-        },
-        "most": {
-          "desc": "De maximale groothandelshoeveelheid van dit product is {{num}} stuks"
-        },
-        "noIncrement": {
-          "desc": "De extra hoeveelheid van dit artikel is {{num}} stuks"
-        }
-      }
-    },
     "cart": {
       "buy_now": "Nu kopen",
       "cancel": "Annuleren",
@@ -254,7 +241,7 @@
       "copy_success": "De bon is gekopieerd",
       "discount_title": "Activeer account en ontvang een kortingscode",
       "normal_title": "Activeer account",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Activeer account en ontvang de kortingscode",
       "subscription_text": "Meld u aan voor e-mails om updates te ontvangen, toegang tot exclusieve aanbiedingen en meer.",
       "success_title": "Gefeliciteerd met het krijgen van een korting",
       "token_expired": "Uw link is verlopen"
@@ -515,9 +502,6 @@
       "form_error": "Zoekopdracht mislukt",
       "orderId": "Order ID",
       "orderId_error": "Bestel-ID mag niet leeg zijn",
-      "other_email": "E-mailadres",
-      "other_phone": "Telefoonnummer",
-      "phone": "Telefoon",
       "query_illegal": "bestelling bestaat niet",
       "risk_black_user": "Dit account loopt risico",
       "risk_interception": "bestelling bestaat niet",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Geen gegevens van dit artikel, probeer het later nog eens",
       "sold_out": "Niet op voorraad",
-      "load_more": "Meer artikelen laden",
+      "added_to_cart_successfully": "Succesvol toegevoegd aan winkelwagen",
       "load_more_items": "Laden {{current_offset}} ~ {{last_current_offset}} van {{total}} items",
-      "unavailable": "Niet beschikbaar",
-      "variant_property_color": "Kleur"
+      "unavailable": "Niet beschikbaar"
     },
     "product_details": {
       "activity_toast_price_limit": "Slechts {{num}} artikelen kunnen worden gekocht voor deze voorkeursprijs",
@@ -659,7 +642,6 @@
       "country_region": "Land/regio",
       "default_placeholder": "Kies {{attrName}} a.u. b.",
       "description": "Beschrijving",
-      "each_price": "{{price}}/per stuk",
       "email": "E-mail",
       "enter_email_address": "Vul uw e-mailadres in",
       "enter_valid_email_address": "Vul het juiste e-mailadres in",
@@ -681,26 +663,14 @@
       "load_more": "Meer tonen",
       "maximum_length_of_message": "Berichtlengte niet meer dan 1500 tekens",
       "message": "Berichten",
-      "moq_increment": "Veelvouden van {{num}}",
-      "moq_increment_tips": "Het aantal aankopen wordt alleen ondersteund in veelvouden van {{num}}",
-      "moq_max_tips": "Maximale aankoop van {{num}} stuks van deze specificatie",
-      "moq_maximum": "Maximale aankoop van {{num}}",
-      "moq_min_tips": "Er moet meer dan {{num}} worden gekocht voor deze specificatie",
-      "moq_minimum": "Minimale aankoop van {{num}}",
       "more_payment_options": "Meer betalingsmogelijkheden",
       "name": "Naam",
       "optional": "Optioneel",
       "phone_number": "Telefoonnummer",
-      "price": "Prijs",
-      "price_break_title": "Bulkprijzen",
-      "price_breaks_view_less": "Opbergen",
-      "price_breaks_view_more": "Meer bekijken",
       "product_enquiry": "Het artikel aanvragen",
       "submission_failed": "Indiening mislukt, probeer het opnieuw.",
       "submission_successfully": "Succesvol ingediend",
       "submit": "Indienen",
-      "table_each_price": "{{price}}per stuk",
-      "table_each_price_ssr": "{{{priceDom}}}per stuk",
       "tax_included": "inclusief belasting",
       "view_product_detail": "De productdetails bekijken",
       "copy_button_text": "Kopiëren",
@@ -722,7 +692,6 @@
       "new_arrivals": "Nieuwe releases",
       "new_products": "Volgens aanmaaktijd van dichtbij tot veraf",
       "no_product": "Sorry, er zijn geen producten in deze categorie",
-      "price_break_tag": "Bulkprijzen beschikbaar",
       "price_high_to_low": "Prijs van hoog tot laag",
       "price_low_to_high": "Prijs van laag tot hoog",
       "product_has_been_removed": "Het artikel is huidig uit de schappen gehaald",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% korting",
       "select_product_all_options": "De geselecteerde productvariant is onvolledig of niet beschikbaar. Kies alstublieft opnieuw",
       "sort_button": "Sorteren",
-      "top_sellers": "Bestseller"
+      "top_sellers": "Bestseller",
+      "more__product_num": "{{num}} Producten",
+      "one_product_num": "{{num}} Product",
+      "show": "Laten zien"
     },
     "product_search": {
       "back_to_home": "Terug naar homepage",

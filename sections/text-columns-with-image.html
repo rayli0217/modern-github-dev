@@ -10,7 +10,6 @@
 {{assign "no_spacing" "false"}}
 
 {{assign "pc_cols" section.settings.pc_cols}}
-
 {{#if (if (length section.blocks) "==" 1)}}
   {{assign "pc_cols" 1}}
 {{/if}}
@@ -31,7 +30,6 @@
 {{#if (if settings.content_shadow_opacity ">=" 1)}}
   {{assign "no_spacing" "false"}}
 {{/if}}
-<script src="{{asset_url 'component-slider.js'}}" defer></script>
 <script src="{{asset_url 'section-text-columns-with-image.js'}}" defer></script>
 <link rel="stylesheet" href="{{asset_url 'section-text-columns-with-image.css'}}" />
 {{snippet
@@ -63,20 +61,19 @@
       style="{{#if (if pc_cols '==' 1)}}justify-content:center;{{/if}}"
     >
       {{#each section.blocks}}
-        <div class="text-columns-with-images__inner {{../container-wrapper-cls}}">
+        <div class="text-columns-with-images__inner {{../../container-wrapper-cls}}">
           {{snippet
             "text-columns-with-image-card"
-            image_style=../image_style
-            image_width=../image_width
-            image_ratio=../image_ratio
-            no_spacing=../no_spacing
-            show_mask=../show_block_bg
-            color_scheme=../color_scheme
-            text_align=../text_align
-            pc_cols=../pc_cols
-            jump_link=../jump_link
+            image_style=../../image_style
+            image_width=../../image_width
+            image_ratio=../../image_ratio
+            no_spacing=../../no_spacing
+            show_mask=../../show_block_bg
+            color_scheme=../../color_scheme
+            text_align=../../text_align
+            pc_cols=../../pc_cols
+            jump_link=../../jump_link
             shopline_attributes=this.shopline_attributes
-            theme_settings=../settings
           }}
         </div>
       {{/each}}
@@ -94,17 +91,15 @@
               <li id="Slide-{{id}}" class="slider__slide">
                 {{snippet
                   "text-columns-with-image-card"
-                  image_style=../image_style
-                  image_width=../image_width
-                  image_ratio=../image_ratio
-                  no_spacing=../no_spacing
-                  show_mask=../show_block_bg
-                  color_scheme=../color_scheme
-                  text_align=../text_align
-                  jump_link=../jump_link
-                  pc_cols=../pc_cols
+                  image_style=../../image_style
+                  image_width=../../image_width
+                  image_ratio=../../image_ratio
+                  no_spacing=../../no_spacing
+                  show_mask=../../show_block_bg
+                  color_scheme=../../color_scheme
+                  text_align=../../text_align
+                  jump_link=../../jump_link
                   shopline_attributes=this.shopline_attributes
-                  theme_settings=../settings
                 }}
               </li>
             {{/each}}
@@ -138,6 +133,7 @@
 {
   "name": "t:sections.text-columns-with-image.name",
   "max_blocks": 16,
+  "type": "text-columns-with-images",
   "class": "section",
   "settings": [
     {
@@ -269,7 +265,7 @@
       "type": "select",
       "id": "color_scheme",
       "label": "t:sections.text-columns-with-image.settings.color_scheme.label",
-      "default": "2",
+      "default": "none",
       "options": [
         {
           "value": "none",
@@ -400,7 +396,7 @@
         "button_text": "Button",
         "jump_link": "",
         "show_touch": false,
-        "color_scheme": "2",
+        "color_scheme": "none",
         "pc_cols": 3,
         "padding_bottom": 80,
         "padding_top": 80

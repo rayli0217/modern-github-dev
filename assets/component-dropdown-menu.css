@@ -31,10 +31,6 @@ dropdown-menu[open] .dropdown-menu__button svg {
   top: unset;
 }
 
-.dropdown-menu__list-wrapper.bottom {
-  top: 100%;
-}
-
 .dropdown-menu__list {
   position: relative;
   max-height: 60vh;

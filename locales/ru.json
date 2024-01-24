@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Минимальное количество заказа этого товара составляет {{num}} штук"
-        },
-        "most": {
-          "desc": "Максимальный оптовый объем этого товара составляет {{num}} штук"
-        },
-        "noIncrement": {
-          "desc": "Приращение этого товара должно быть {{num}} штук"
-        }
-      }
-    },
     "cart": {
       "buy_now": "Немедленная покупка",
       "cancel": "Отмена",
@@ -254,7 +241,7 @@
       "copy_success": "Купон скопирован",
       "discount_title": "Активируйте аккаунт и получите код скидки",
       "normal_title": "Активируйте аккаунт",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Активируйте аккаунт и получите код скидки",
       "subscription_text": "Подпишитесь на электронные письма, чтобы получать обновления, получать доступ к эксклюзивным льготам и т.д..",
       "success_title": "Поздравляю, что вы получили скидку",
       "token_expired": "Срок действия вашей сслыки истек"
@@ -515,9 +502,6 @@
       "form_error": "Ошибка запроса",
       "orderId": "номер заказа",
       "orderId_error": "Идентификатор заказа не может быть пустым",
-      "other_email": "Почта",
-      "other_phone": "Номер мобильного телефона",
-      "phone": "Мобильный телефон",
       "query_illegal": "порядок не существует",
       "risk_black_user": "Этот аккаунт находится под угрозой",
       "risk_interception": "порядок не существует",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Пока нет данных о текущим продукте. Повторите попытку позже.",
       "sold_out": "Распродано",
-      "load_more": "Загрузите больше проектов",
+      "added_to_cart_successfully": "Успешная покупка",
       "load_more_items": "Загрузка {{current_offset}} ~ {{last_current_offset}} / {{total}} проектов",
-      "unavailable": "Не доступно",
-      "variant_property_color": "Цвет"
+      "unavailable": "Не доступно"
     },
     "product_details": {
       "activity_toast_price_limit": "Льготная цена этого продукта только поддерживает покупку {{num}} штук.",
@@ -659,7 +642,6 @@
       "country_region": "Страна / регион",
       "default_placeholder": "Пожалуйста, выберите {{attrName}}",
       "description": "Описание",
-      "each_price": "{{price}}/каждый",
       "email": "Электронная почта",
       "enter_email_address": "Пожалуйста, введите электронную почту",
       "enter_valid_email_address": "Пожалуйста, заполните правильную электронную почту",
@@ -681,26 +663,14 @@
       "load_more": "Загрузите больше",
       "maximum_length_of_message": "Длина сообщения не превышает 1500 слов.",
       "message": "Оставление записки",
-      "moq_increment": "Кратное {{num}}",
-      "moq_increment_tips": "Добавленное в корзину количество поддерживает только кратное {{num}}",
-      "moq_max_tips": "Спецификация максимально покупать до {{num}} штук",
-      "moq_maximum": "Максимальная покупка {{num}}",
-      "moq_min_tips": "Спецификация должна быть куплена выше {{num}}",
-      "moq_minimum": "Минимальная покупка {{num}}",
       "more_payment_options": "Другие варианты оплаты",
       "name": "Имя и фамилия",
       "optional": "Можно выбрать",
       "phone_number": "Номер телефона",
-      "price": "Цена",
-      "price_break_title": "Массовое ценообразование",
-      "price_breaks_view_less": "Уберите",
-      "price_breaks_view_more": "Просмотрите больше",
       "product_enquiry": "Консультативные товары",
       "submission_failed": "Не удалось предоставить, попробуйте еще раз",
       "submission_successfully": "Успешное представление",
       "submit": "Представление",
-      "table_each_price": "{{price}}каждый",
-      "table_each_price_ssr": "{{{priceDom}}}каждый",
       "tax_included": "включая налоги",
       "view_product_detail": "Просмотрите подробности о товаре",
       "copy_button_text": "Копирование",
@@ -722,7 +692,6 @@
       "new_arrivals": "Новейшие продукты на полках",
       "new_products": "По времени создания от ближнего до дальнего",
       "no_product": "В категории нет товаров",
-      "price_break_tag": "Цена может быть массово образована",
       "price_high_to_low": "Цена от высокой к низкой",
       "price_low_to_high": "Цена от низкой к высокой",
       "product_has_been_removed": "Текущие продукты сняты с полок",
@@ -736,7 +705,10 @@
       "save_ratio": "Скидка {{price}}%",
       "select_product_all_options": "Выбранный вариант товара неполный или недоступен. Пожалуйста, выберите снова",
       "sort_button": "Сортировка",
-      "top_sellers": "С широким сбытом"
+      "top_sellers": "С широким сбытом",
+      "more__product_num": "{{num}} Продукты",
+      "one_product_num": "{{num}} Продукт",
+      "show": "Показать"
     },
     "product_search": {
       "back_to_home": "Вернуться на главную страницу",

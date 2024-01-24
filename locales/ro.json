@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Acest obiect s-a vândut la început doar cu suma de {{num}}"
-        },
-        "most": {
-          "desc": "Acest obiect s-a vândut doar cu suma de {{num}} cel mult"
-        },
-        "noIncrement": {
-          "desc": "Acest obiect s-a vândut doar cu un increment de {{num}}"
-        }
-      }
-    },
     "cart": {
       "buy_now": "CUMPĂRĂ ACUM",
       "cancel": "Anulează",
@@ -254,7 +241,7 @@
       "copy_success": "Codul cupon copiat",
       "discount_title": "Activează contul și primește cod de reducere",
       "normal_title": "Activează contul",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Activați contul și primiți cod reducere",
       "subscription_text": "Înregistrați-vă pentru e-mailuri pentru a primi actualizări, acces la oferte exclusive, și mai multe.",
       "success_title": "Felicitări pentru primirea reducerii",
       "token_expired": "Link-ul tău a expirat"
@@ -515,9 +502,6 @@
       "form_error": "Interogarea a eșuat",
       "orderId": "Comanda ID",
       "orderId_error": "ID-ul comenzii nu poate fi gol",
-      "other_email": "Adresă de e-mail",
-      "other_phone": "Număr de telefon mobil",
-      "phone": "Telefon mobil",
       "query_illegal": "ordinea nu există",
       "risk_black_user": "Acest cont este în pericol",
       "risk_interception": "ordinea nu există",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Nu a fost găsită nicio informație despre produs. Vă rugăm să încercați din nou mai târziu",
       "sold_out": "Vândut",
-      "load_more": "Se încarcă mai multe articole",
+      "added_to_cart_successfully": "Adăugat în coș cu succes",
       "load_more_items": "Încărcare {{current_offset}} ~ {{last_current_offset}} din {{total}} obiecte",
-      "unavailable": "indisponibil",
-      "variant_property_color": "Culoare"
+      "unavailable": "indisponibil"
     },
     "product_details": {
       "activity_toast_price_limit": "Cantitatea maximă pentru produsul limitat este de {{num}}",
@@ -659,7 +642,6 @@
       "country_region": "Țară/Regiune",
       "default_placeholder": "Selectați {{attrName}}",
       "description": "Descriere",
-      "each_price": "{{price}}/fiecare",
       "email": "E-mail",
       "enter_email_address": "Introduceți adresa de e-mail",
       "enter_valid_email_address": "Introduceți o adresă de e-mail validă",
@@ -681,26 +663,14 @@
       "load_more": "Arată mai mult",
       "maximum_length_of_message": "Lungimea maximă a mesajului dvs. nu trebuie să fie mai mare de 1500 de cuvinte",
       "message": "Mesajul dvs.",
-      "moq_increment": "Multiplu de {{num}}",
-      "moq_increment_tips": "Cantitatea adițională achiziționată are doar multiplii de {{num}}",
-      "moq_max_tips": "Această specificație poate achiziționa până la {{num}} bucăți",
-      "moq_maximum": "Achiziție maximă de {{num}}",
-      "moq_min_tips": "Această specificație trebuie achiziționată {{num}} sau mai mult",
-      "moq_minimum": "Achiziție minimă de {{num}}",
       "more_payment_options": "mai multe opțiuni de plată",
       "name": "Nume",
       "optional": "Opțional",
       "phone_number": "Număr de telefon",
-      "price": "Preț",
-      "price_break_title": "Preț vrac",
-      "price_breaks_view_less": "Ascundeți",
-      "price_breaks_view_more": "Arată mai mult",
       "product_enquiry": "Solicitare produs",
       "submission_failed": "Trimitere nereușită, încercați din nou",
       "submission_successfully": "Trimitere reușită",
       "submit": "Trimite",
-      "table_each_price": "{{price}}fiecare",
-      "table_each_price_ssr": "{{{priceDom}}}fiecare",
       "tax_included": "taxă inclusă",
       "view_product_detail": "Vizualizați detalii produs",
       "copy_button_text": "Copiază",
@@ -722,7 +692,6 @@
       "new_arrivals": "Noutăți",
       "new_products": "De la cel mai aproape până la cel mai departe în funcție de timpul de creație",
       "no_product": "Nu există produse în această colecție",
-      "price_break_tag": "Preț vrac disponibil",
       "price_high_to_low": "De la prețul cel mai mare la cel mai mic",
       "price_low_to_high": "De la prețul cel mai mic la cel mai mare",
       "product_has_been_removed": "Produsul a fost eliminat de pe rafturi",
@@ -736,7 +705,10 @@
       "save_ratio": "Reducere {{price}}%",
       "select_product_all_options": "Varianta de produs selectată este incompletă sau indisponibilă. Vă rugăm să alegeți din nou",
       "sort_button": "Evaluare",
-      "top_sellers": "Top vânzări"
+      "top_sellers": "Top vânzări",
+      "more__product_num": "{{num}} Produse",
+      "one_product_num": "{{num}} Produs",
+      "show": "Afişează"
     },
     "product_search": {
       "back_to_home": "Înapoi la prima pagină",

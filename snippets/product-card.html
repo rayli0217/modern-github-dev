@@ -7,6 +7,7 @@
   - section_id: {String} The ID of the section that contains this card.
   - image_ratio: {String} Size of the product image card. Default: 100
   - image_fill_type {String} Product image filling method
+  - show_quick_add: {Boolean} Show the quick add button.
   - desktop_grid_cols: {Number}
   - mobile_grid_cols: {Number}
   - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
@@ -22,353 +23,121 @@
 
 
 
-{{assign "lazy_load" (default lazy_load true)}}
-{{assign "image_ratio" (default image_ratio 100)}}
+{{assign 'lazy_load' (default lazy_load true)}}
+{{assign 'image_ratio' (default image_ratio 100) }}
 
-{{assign "color_regex" (toRegex (t "products.general.variant_property_color") flags="i")}}
-{{assign "has_color_sku_option" false}}
-{{assign "product_form_id" (append "quick-add-" section_id "__" product_data.id)}}
-
-{{#and (if image_ratio "===" "adapt") product_data.featured_media}}
-  {{assign
-    "image_ratio"
-    (ternary product_data.featured_media.aspect_ratio (divide 100 product_data.featured_media.aspect_ratio) 100)
-  }}
-{{else}}{{#if (if image_ratio "===" "adapt")}}
-    
-    {{assign "image_ratio" 100}}
-  {{/if}}{{/and}}
+{{#and (if image_ratio '===' 'adapt') product_data.featured_media}}
+  {{assign 'image_ratio' (ternary product_data.featured_media.aspect_ratio (divide 100 product_data.featured_media.aspect_ratio) 100)}}
+{{else if (if image_ratio '===' 'adapt')}}
+  
+  {{assign 'image_ratio' 100}}
+{{/and}}
 
 
 {{#unless product_data}}
-  {{assign "image_ratio" 100}}
+  {{assign 'image_ratio' 100}}
 {{/unless}}
 
-{{assign "jump_link" product_data.url}}
+{{assign 'jump_link' product_data.url}}
 
-<div class="product-card-wrapper card card-wrapper" data-product-form-id="{{product_form_id}}">
-  <div>
-    <a {{#if jump_link}}href="{{jump_link}}"{{else}}href="javascript:;"{{/if}} class="full-unstyled-link">
-      <span class="visually-hidden">
-        {{#if product_data}}
-          {{product_data.title}}
-        {{else}}
-          {{t "onboarding.product_title"}}
-        {{/if}}
-      </span>
-    </a>
-    <div
-      class="card__inner ratio global-product-card-border-shadow"
-      style="--ratio-percent: {{image_ratio}}%; --image-fill-type: {{image_fill_type}}; --badge-border-radius: {{theme_settings.product_discount_radius}}px;"
-    >
-      <a {{#if jump_link}}href="{{jump_link}}"{{else}}href="javascript:;"{{/if}} class="card__media media--hover-effect">
+<div class="product-card-wrapper card card-wrapper">
+  <a {{#if jump_link}}href="{{ jump_link }}"{{else}}href="javascript:;"{{/if}}>
+    <div class="card__inner ratio global-product-card-border-shadow"  style="--ratio-percent: {{ image_ratio }}%; --image-fill-type: {{image_fill_type}}; --badge-border-radius: {{theme_settings.product_discount_radius}}px;">
+      <div class="card__media media--hover-effect">
+        {{assign 'first_image_pc_size' }}
         {{#if product_data.featured_media}}
-          {{snippet
-            "image"
-            data=product_data.featured_media
-            lazy=lazy_load
-            pc_size=(append "1/" desktop_grid_cols)
-            mobile_size=(append "1/" mobile_grid_cols)
-            class="collection-hero__image"
-          }}
+          {{snippet 'image' data=product_data.featured_media lazy=lazy_load pc_size=(append '1/' desktop_grid_cols ) mobile_size=(append '1/' mobile_grid_cols ) class="collection-hero__image"}}
           {{#and product_data.media.[1] show_secondary_image}}
-            {{snippet
-              "image"
-              data=product_data.media.[1]
-              lazy=lazy_load
-              pc_size=(append "1/" desktop_grid_cols)
-              mobile_size=(append "1/" mobile_grid_cols)
-              class="collection-hero__image"
-            }}
+            {{snippet 'image' data=product_data.media.[1] lazy=lazy_load pc_size=(append '1/' desktop_grid_cols ) mobile_size=(append '1/' mobile_grid_cols ) class="collection-hero__image"}}
           {{/and}}
         {{else}}
-          
-          <div class="placeholder">
-            {{placeholder_svg_tag "image"}}
-          </div>
+        
+        <div class="placeholder">
+         {{placeholder_svg_tag 'image'}}
+        </div>
         {{/if}}
-      </a>
-      <div
-        class="card__badge
-          {{theme_settings.product_discount_position}}
-          {{#unless product_data.available}}sold-out-message{{/unless}}"
-      >
-        {{~#unless product_data.available}}
-          <span class="body4 fw-bold">
-            {{t "transaction.item.sold_out"}}
-          </span>
-        {{/unless~}}
-        {{~#and
-          product_data.available
-          (if product_data.compare_at_price ">" product_data.price)
-          theme_settings.product_discount
-        }}
-          <span class="body4 fw-bold">
-            {{t "products.product_list.save"}}
-          </span>
-        {{/and~}}
       </div>
-      {{#and theme_settings.enable_quick_view product_data product_data.available}}
-        {{assign "button_id" (append "quick-add-" section_id "__" product_data.id "-submit")}}
-        {{assign
-          "classes"
-          (ternary (if theme_settings.quick_view_mobile_position "===" "below") "display-none-tablet" "")
-        }}
-        {{snippet "quick-add-button" product_data=product_data id=button_id classes=classes}}
+      <div class="card__badge {{theme_settings.product_discount_position}} {{#unless product_data.available}}sold-out-message{{/unless}}">
+        {{~#unless product_data.available}}
+          <span class=" body4 fw-bold">
+            {{t 'transaction.item.sold_out'}}
+          </span>
+        {{/unless ~}}
+        {{~#and product_data.available (if product_data.compare_at_price '>' product_data.price) theme_settings.product_discount}}
+          <span class=" body4 fw-bold">
+            {{t 'products.product_list.save'}}
+          </span>
+        {{/and ~}}
+      </div>
+      {{#and show_quick_add product_data product_data.available}}
+        <div class="quick-add hover-effect-container">
+          {{ assign 'product_form_id' (append 'quick-add-' section_id '__' product_data.id) }}
+          {{#if (length product_data.variants) '===' 1}}
+          <product-form>
+            {{#form "product" product_data id=product_form_id}}
+              <input
+                type="hidden"
+                name="id"
+                value="{{ product_data.first_available_variant.id }}"
+              >
+              <input type="hidden" required name="quantity" value='1'/>
+              <button
+                id="{{ product_form_id }}-submit"
+                type="submit"
+                class="quick-add__submit hover-effect-target"
+                data-sold-out-message="true"
+                {{#unless product_data.first_available_variant.available }}
+                  disabled
+                {{/unless}}
+              >
+               {{snippet 'icon-cart'}}
+               {{snippet "loading-overlay-spinner"}}
+              </button>
+            {{/form}}
+          </product-form>
+          {{else}}
+          <modal-opener data-modal="#QuickAdd-{{ product_data.id }}">
+            <button
+              id="{{ product_form_id }}-submit"
+              type="submit"
+              name="add"
+              class="quick-add__submit hover-effect-target"
+              data-product-url="{{ product_data.url }}"
+            >
+              {{snippet 'icon-cart'}}
+              {{snippet "loading-overlay-spinner"}}
+            </button>
+          </modal-opener>
+          {{/if}}
+        </div>
       {{/and}}
     </div>
-    <div
-      class="card__content"
-      style="--swatch-gap: {{#if theme_settings.swatch_size '==' 18}}6px{{/if}}{{#if theme_settings.swatch_size '==' 16}}8px{{/if}}{{#if theme_settings.swatch_size '==' 14}}8px{{/if}}"
-    >
-      {{#if theme_settings.enabled_color_swatch}}
-        {{#with this as |global|}}
-          {{assign "is_slide_swatch" (if global.theme_settings.swatch_show_style "==" "horizontal_slide")}}
-          {{#each product_data.options_with_values as |option_info|}}
-            {{#if (test option_info.name ../color_regex)}}
-              {{#with global}}
-                {{assign "has_color_sku_option" true}}
-                {{assign "product_color_option" option_info}}
-              {{/with}}
-              <slider-component>
-                {{#if global.theme_settings.swatch_show_style "==" "horizontal_slide"}}
-                  <button class="control__arrow-button" name="previous" disabled="disabled">
-                    <div class="control__arrow-button-bg"></div>
-                    {{snippet "icon-arrow"}}
-                  </button>
-                {{/if}}
-
-                <ul
-                  {{#if global.theme_settings.swatch_show_style "==" "horizontal_slide"}}id="Slider-swatch"{{/if}}
-                  class="card__colors
-                    {{global.theme_settings.swatch_style}}
-                    {{#if global.theme_settings.swatch_show_style '==' 'horizontal_slide'}}slider{{/if}}"
-                  data-property-number="{{length global.product_data.options}}"
-                  {{#if global.theme_settings.product_card_content_align "==" "center"}}
-                    style="column-gap:calc(var(--swatch-gap) + 4px);display:flex;{{#unless
-                      ../is_slide_swatch
-                    }}justify-content:center;{{/unless}}{{#unless
-                      global.theme_settings.swatch_show_style
-                      "=="
-                      "horizontal_slide"
-                    }}flex-wrap:wrap;{{/unless}}"{{/if}}
-                >
-                  {{#each option_info.values as |option|}}
-                    {{#if global.theme_settings.swatch_show_style "==" "show_one_row"}}
-                      {{#if @index "<" global.theme_settings.swatch_max_show}}
-                        {{#with global}}
-                          {{assign
-                            "current_option_first_sku"
-                            (itemAt
-                              (where
-                                global.product_data.variants (append "option" (plus option_info.position 1)) option
-                              )
-                              0
-                            )
-                          }}
-                        {{/with}}
-                        <color-swatch
-                          class="color-swatch"
-                          title="{{option}}"
-                          style="--swatch-background-color:{{option}}"
-                          {{#if
-                            (length global.product_data.options)
-                            "<="
-                            2
-                          }}data-variant-id="{{global.current_option_first_sku.id}}"{{/if}}
-                        >
-                          {{#if global.current_option_first_sku.featured_media}}
-                            {{snippet
-                              "image"
-                              data=global.current_option_first_sku.featured_media
-                              lazy=true
-                              pc_size=(append "1/" global.desktop_grid_cols)
-                              mobile_size=(append "1/" global.mobile_grid_cols)
-                              class="display-none"
-                            }}
-                          {{else if global.product_data.featured_media}}
-                            {{snippet
-                              "image"
-                              data=global.product_data.featured_media
-                              lazy=true
-                              pc_size=(append "1/" global.desktop_grid_cols)
-                              mobile_size=(append "1/" global.mobile_grid_cols)
-                              class="display-none"
-                            }}
-                          {{/if}}
-                          <a class="color-swatch__inner" {{#if global.current_option_first_sku.url}}href="{{global.current_option_first_sku.url}}"{{else}}href="javascript:;"{{/if}}><span
-                              class="visibility-hidden"
-                            >{{option}}</span></a>
-                        </color-swatch>
-                      {{/if}}
-                    {{/if}}
-
-                    {{#if global.theme_settings.swatch_show_style "==" "horizontal_slide"}}
-                      {{#with global}}
-                        {{assign
-                          "current_option_first_sku"
-                          (itemAt
-                            (where global.product_data.variants (append "option" (plus option_info.position 1)) option)
-                            0
-                          )
-                        }}
-                      {{/with}}
-
-                      <li id="Slide-swatch{{add @index 1}}" class="slider__slide">
-                        <color-swatch
-                          class="color-swatch"
-                          title="{{option}}"
-                          style="--swatch-background-color:{{option}}"
-                          {{#if
-                            (length global.product_data.options)
-                            "<="
-                            2
-                          }}data-variant-id="{{global.current_option_first_sku.id}}"{{/if}}
-                        >
-                          {{#if global.current_option_first_sku.featured_media}}
-                            {{snippet
-                              "image"
-                              data=global.current_option_first_sku.featured_media
-                              lazy=true
-                              pc_size=(append "1/" global.desktop_grid_cols)
-                              mobile_size=(append "1/" global.mobile_grid_cols)
-                              class="display-none"
-                            }}
-                          {{else if global.product_data.featured_media}}
-                            {{snippet
-                              "image"
-                              data=global.product_data.featured_media
-                              lazy=true
-                              pc_size=(append "1/" global.desktop_grid_cols)
-                              mobile_size=(append "1/" global.mobile_grid_cols)
-                              class="display-none"
-                            }}
-                          {{/if}}
-                          <a class="color-swatch__inner" {{#if global.current_option_first_sku.url}}href="{{global.current_option_first_sku.url}}"{{else}}href="javascript:;"{{/if}}><span
-                              class="visibility-hidden"
-                            >{{option}}</span></a>
-                        </color-swatch>
-                      </li>
-                    {{/if}}
-
-                    {{#if global.theme_settings.swatch_show_style "==" "tiling"}}
-                      {{#with global}}
-                        {{assign
-                          "current_option_first_sku"
-                          (itemAt
-                            (where global.product_data.variants (append "option" (plus option_info.position 1)) option)
-                            0
-                          )
-                        }}
-                      {{/with}}
-                      <color-swatch
-                        class="color-swatch"
-                        title="{{option}}"
-                        style="--swatch-background-color:{{option}}"
-                        {{#if
-                          (length global.product_data.options)
-                          "<="
-                          2
-                        }}data-variant-id="{{global.current_option_first_sku.id}}"{{/if}}
-                      >
-                        {{#if global.current_option_first_sku.featured_media}}
-                          {{snippet
-                            "image"
-                            data=global.current_option_first_sku.featured_media
-                            lazy=true
-                            pc_size=(append "1/" global.desktop_grid_cols)
-                            mobile_size=(append "1/" global.mobile_grid_cols)
-                            class="display-none"
-                          }}
-                        {{else if global.product_data.featured_media}}
-                          {{snippet
-                            "image"
-                            data=global.product_data.featured_media
-                            lazy=true
-                            pc_size=(append "1/" global.desktop_grid_cols)
-                            mobile_size=(append "1/" global.mobile_grid_cols)
-                            class="display-none"
-                          }}
-                        {{/if}}
-                        <a class="color-swatch__inner" {{#if global.current_option_first_sku.url}}href="{{global.current_option_first_sku.url}}"{{else}}href="javascript:;"{{/if}}><span
-                            class="visibility-hidden"
-                          >{{option}}</span></a>
-                      </color-swatch>
-                    {{/if}}
-                  {{/each}}
-
-                  {{#if global.theme_settings.swatch_show_style "==" "show_one_row"}}
-                    {{#gt (length option_info.values) global.theme_settings.swatch_max_show}}
-                      <a class="color-swatch__remain body3" {{#if ../product_data.url}}href="{{../product_data.url}}"{{else}}href="javascript:;"{{/if}}>
-                        +{{minus (length option_info.values) global.theme_settings.swatch_max_show}}
-                      </a>
-                    {{/gt}}
-                  {{/if}}
-                </ul>
-
-                {{#if global.theme_settings.swatch_show_style "==" "horizontal_slide"}}
-                  <button class="control__arrow-button" name="next" disabled="disabled">
-                    <div class="control__arrow-button-bg"></div>
-                    {{snippet "icon-arrow"}}
-                  </button>
-                {{/if}}
-              </slider-component>
-            {{/if}}
-          {{/each}}
-        {{/with}}
+    <div class="card__content text-center">
+      <h3 class="product__title body3 text-center {{theme_settings.product_title_show_type}} {{#unless theme_settings.product_mobile_title_show}}display-none-tablet{{/unless}}">
+      {{#if product_data}}
+        {{product_data.title}}
+      {{else}}
+        {{t 'onboarding.product_title'}}
       {{/if}}
-
-      <h3
-        class="product__title body3
-          {{theme_settings.product_title_show_type}}
-          {{#unless theme_settings.product_mobile_title_show}}display-none-tablet{{/unless}}"
-      >
-        {{#if product_data}}
-          {{product_data.title}}
-        {{else}}
-          {{t "onboarding.product_title"}}
-        {{/if}}
-        {{#and has_color_sku_option theme_settings.enabled_color_swatch}}
-          <span class="color-suffix"></span>
-        {{/and}}
       </h3>
-
-      {{assign
-        "show_quick_add_btn_mobile"
-        (and
-          theme_settings.enable_quick_view
-          product_data
-          product_data.available
-          (if theme_settings.quick_view_mobile_position "===" "below")
-        )
-      }}
-
-      <div
-        class="card__content-bottom
-          {{#and (isFalsey show_quick_add_btn_mobile) (if theme_settings.product_card_content_align '==' 'center')}}card__content-bottom-center{{/and}}
-          {{#if theme_settings.product_card_content_align '==' 'left'}}card__content-bottom-left{{/if}}"
-      >
-        {{snippet "price" product=product_data}}
-        {{#if show_quick_add_btn_mobile}}
-          {{assign "button_id" (append "quick-add-" section_id "-mobile__" product_data.id "-submit")}}
-          {{assign "classes" "quick-add--tiled display-none-desktop"}}
-          {{snippet "quick-add-button" product_data=product_data id=button_id classes=classes}}
-        {{/if}}
-      </div>
-
-      <div class="card__button"></div>
+      {{snippet 'price' product=product_data}}
     </div>
-  </div>
-  {{#and theme_settings.enable_quick_view}}
-    <quick-add-modal id="QuickAdd-{{product_data.id}}">
+  </a>
+  {{#and show_quick_add (gt (length product_data.variants) 1) }}
+    <quick-add-modal id="QuickAdd-{{ product_data.id }}">
       <details>
         <summary class="display-none"></summary>
         <div class="modal__overlay"></div>
         <div class="modal__content quick-add-modal__content">
-          <button id="ModalClose-{{product_data.id}}" type="button" class="quick-add-modal__toggle" name="close">
-            {{snippet "icon-close"}}
-          </button>
-          <div id="QuickAddInfo-{{product_data.id}}" class="quick-add-modal__content-info"></div>
+        <button
+            id="ModalClose-{{ product_data.id }}"
+            type="button"
+            class="quick-add-modal__toggle"
+            name="close"
+        >
+            {{ snippet 'icon-close' }}
+        </button>
+        <div id="QuickAddInfo-{{ product_data.id }}" class="quick-add-modal__content-info"></div>
         </div>
       </details>
     </quick-add-modal>

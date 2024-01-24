@@ -15,25 +15,9 @@ class DropdownMenu extends HTMLElement {
     this.focusoutTimer = null;
   }
 
-  get isOpen() {
-    return this.hasAttribute('open');
-  }
-
-  emitOpenChange(isOpen) {
-    this.dispatchEvent(
-      new CustomEvent('openChange', {
-        detail: isOpen,
-        bubbles: true,
-      }),
-    );
-  }
-
   hidePanel() {
     this.elements.panel.setAttribute('hidden', true);
-    if (this.hasAttribute('open')) {
-      this.removeAttribute('open');
-      this.emitOpenChange(false);
-    }
+    this.removeAttribute('open');
   }
 
   onContainerKeyUp(event) {
@@ -58,7 +42,6 @@ class DropdownMenu extends HTMLElement {
     this.elements.button.focus();
     this.elements.panel.toggleAttribute('hidden');
     this.toggleAttribute('open');
-    this.emitOpenChange(this.hasAttribute('open'));
     if (this.focusoutTimer) {
       clearTimeout(this.focusoutTimer);
       this.focusoutTimer = null;
@@ -69,9 +52,8 @@ class DropdownMenu extends HTMLElement {
     // https://github.com/angular/angular/issues/25899
     // safari bug
     this.focusoutTimer = setTimeout(() => {
-      const isChild =
-        this.elements.panel.contains(event.relatedTarget) || this.elements.button.contains(event.relatedTarget);
-      if (!event.relatedTarget || !isChild) {
+      const shouldClose = event.relatedTarget && event.relatedTarget.nodeName === 'BUTTON';
+      if (event.relatedTarget === null || shouldClose) {
         this.hidePanel();
       }
     }, 150);

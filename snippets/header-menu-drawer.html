@@ -1,15 +1,15 @@
 {{#comment}}
-    Render header menu drawer
+     Render header tools
 
     Accepts:
-    - section: {Object} header section config
-    - menu: {Object} menu
+    - show_user_entry: {Boolean}
+    - menu: {Object} Linklist object
     - class: {String} Custom classes
 
     Usage:
     {{snippet
       "header-menu-drawer"
-      section=section
+      show_user_entry=section.settings.show_user_entry
       menu=menu
       class="display-none-tablet header__drawer-nav"
     }}
@@ -30,10 +30,9 @@
 
       <div class="drawer__head drawer__head--divider">
         <h5 class="drawer__title">
-          {{#if section.settings.show_user_entry}}
+          {{#if show_user_entry}}
             <a
-              class="header__user-center-button body3 fw-bold
-                {{#if section.settings.user_mobile_layout '===' 'home'}}display-none-tablet{{/if}}"
+              class="header__user-center-button body3 fw-bold"
               href="{{#if customer}}{{routes.account_url}}{{else}}{{routes.account_login_url}}{{/if}}"
             >
               {{snippet "icon-user"}}
@@ -54,53 +53,45 @@
                 {{#if (length links) ">" 0}}
                   <li>
                     <details>
-                      <summary class="body3">
-                        <div class="drawer-menus__item">
-                          <a
-                            class="body3 fw-bold"
-                            {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
-                          >{{title}}</a>
-                          <span class="drawer-menus__item-icon drawer-menus__item-icon-on">
-                            {{snippet "icon-arrow"}}
-                          </span>
-                          <span class="drawer-menus__item-icon drawer-menus__item-icon-off">
-                            {{snippet "icon-minus"}}
-                          </span>
-                        </div>
+                      <summary class="drawer-menus__item body3 fw-bold">
+                        {{title}}
+                        <span class="drawer-menus__item-icon drawer-menus__item-icon-on">
+                          {{snippet "icon-arrow"}}
+                        </span>
+                        <span class="drawer-menus__item-icon drawer-menus__item-icon-off">
+                          {{snippet "icon-minus"}}
+                        </span>
                       </summary>
                       <ul class="drawer-menus__sub-menus list-unstyled">
                         {{#each links}}
                           {{#if (length links) ">" 0}}
                             <details>
-                              <summary class="body5">
-                                <div class="drawer-menus__sub-item">
-
-                                  <a
-                                    class="body5"
-                                    {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
-                                  >{{title}}</a>
-                                  <span class="drawer-menus__item-icon drawer-menus__item-icon-on">
-                                    {{snippet "icon-arrow"}}
-                                  </span>
-                                  <span class="drawer-menus__item-icon drawer-menus__item-icon-off">
-                                    {{snippet "icon-minus"}}
-                                  </span>
-                                </div>
+                              <summary class="drawer-menus__sub-item body5">
+                                {{title}}
+                                <span class="drawer-menus__item-icon drawer-menus__item-icon-on">
+                                  {{snippet "icon-arrow"}}
+                                </span>
+                                <span class="drawer-menus__item-icon drawer-menus__item-icon-off">
+                                  {{snippet "icon-minus"}}
+                                </span>
                               </summary>
                               <ul class="drawer-menus__sub-menus list-unstyled">
                                 {{#each links}}
-                                  <li class="drawer-menus__sub-item">
+                                  <li>
                                     <a
-                                      class="body5"
-                                      {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
+                                      class="drawer-menus__sub-item body5"
+                                      {{#if url}}href="{{url}}"{{else}}href="javascript:;" role="link"{{/if}}
                                     >{{title}}</a>
                                   </li>
                                 {{/each}}
                               </ul>
                             </details>
                           {{else}}
-                            <li class="drawer-menus__sub-item">
-                              <a class="body5" {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}>{{title}}</a>
+                            <li>
+                              <a
+                                class="drawer-menus__sub-item body5"
+                                {{#if url}}href="{{url}}"{{else}}href="javascript:;" role="link"{{/if}}
+                              >{{title}}</a>
                             </li>
                           {{/if}}
                         {{/each}}
@@ -108,74 +99,17 @@
                     </details>
                   </li>
                 {{else}}
-                  <li class="drawer-menus__sub-item">
-                    <a class="body4 fw-bold" {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}>{{title}}</a>
+                  <li>
+                    <a
+                      class="drawer-menus__item body3 fw-bold"
+                      {{#if url}}href="{{url}}"{{else}}href="javascript:;" role="link"{{/if}}
+                    >{{title}}</a>
                   </li>
                 {{/if}}
               {{/each}}
-              
-              {{#each section.blocks}}
-                {{#if type "===" "menuGallery"}}
-                  {{snippet "header-gallery" settings=this.settings}}
-                {{/if}}
-              {{/each}}
-              
             </ul>
           </nav>
         </accordion-component>
-      </div>
-
-      <div class="drawer_footer">
-        <div class="header__localization header-drawer__localization display-none-desktop">
-          <localization-form>
-            {{#form "localization" id="localization-form" enctype="multipart/form-data" accept-charset="UTF-8"}}
-              {{#and section.settings.show_locale_selector (gt (length localization.available_languages) 1)}}
-                <dropdown-menu>
-                  <div class="dropdown-menu">
-                    <input type="hidden" name="locale_code" value="{{localization.language.iso_code}}" />
-                    <button class="dropdown-menu__button body5" type="button">
-                      <span data-label>{{localization.language.endonym_name}}</span>
-                      {{snippet "icon-arrow"}}
-                    </button>
-                    <div class="dropdown-menu__list-wrapper top body4" hidden>
-                      <ul class="dropdown-menu__list list-unstyled">
-                        {{#each localization.available_languages}}
-                          <li>
-                            <a href="javascript:;" data-value="{{iso_code}}">{{endonym_name}}</a>
-                          </li>
-                        {{/each}}
-                      </ul>
-                    </div>
-                  </div>
-                </dropdown-menu>
-              {{/and}}
-              {{#and section.settings.show_country_selector (gt (length localization.available_countries) 1)}}
-                <dropdown-menu>
-                  <div class="dropdown-menu">
-                    <input type="hidden" name="country_code" value="{{localization.country.iso_code}}" />
-                    <button class="dropdown-menu__button body5" type="button">
-                      <span data-label>{{localization.country.name}}（{{localization.country.currency.iso_code}}
-                        {{localization.country.currency.symbol}}）</span>
-                      {{snippet "icon-arrow"}}
-                    </button>
-                    <div class="dropdown-menu__list-wrapper top body4" hidden>
-                      <ul class="dropdown-menu__list list-unstyled">
-                        {{#each localization.available_countries}}
-                          <li>
-                            <a href="javascript:;" data-value="{{iso_code}}">
-                              {{name}}（{{currency.iso_code}}
-                              {{currency.symbol}}）
-                            </a>
-                          </li>
-                        {{/each}}
-                      </ul>
-                    </div>
-                  </div>
-                </dropdown-menu>
-              {{/and}}
-            {{/form}}
-          </localization-form>
-        </div>
       </div>
 
     </div>

@@ -105,7 +105,7 @@
   background: none;
   width: 100%;
   border: 1px solid rgb(var(--color-entry-line));
-  border-radius: var(--btn-border-radius);
+  border-radius: 4px;
   padding: 5px 12px;
 }
 
@@ -134,7 +134,6 @@
     display: block;
   }
   #account.editing .account-edit__name--wrapper > div {
-    width: 100%;
     margin-top: 16px;
   }
   #account.editing .account-edit__name--wrapper > div:first-of-type {

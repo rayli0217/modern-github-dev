@@ -83,7 +83,22 @@
       </div>
     </div>
     {{#if type '!==' 'drawer'}}
-      {{snippet 'cart-item-quantity' item=item namespace=namespace}}
+    <div class="cart-item__quantity">
+      <div class="cart-item__quantity-wrapper">
+        {{#if item.enable_quantity_adjust}}
+          {{snippet "quantity-input" namespace=namespace value=item.quantity id=item.key}}
+        {{else}}
+          {{snippet "quantity-input" namespace=namespace value=item.quantity id=item.key min=item.quantity max=item.quantity}}
+        {{/if}}
+        {{#if item.enable_delete}}
+          <cart-remove-button>{{snippet "icon-delete"}}</cart-remove-button>
+        {{/if}}
+      </div>
+      <div class="cart-item__error" id="Line-item-error-{{namespace}}{{item.key}}">
+        <span class="cart-item__error-text body6"></span>
+        {{snippet "icon-error"}}
+      </div>
+    </div>
     {{/if}}
     <div class="cart-item__totals display-none-tablet">
       <div class="loading-overlay">
@@ -104,7 +119,22 @@
       </div>
     </div>
     {{#if type '==' 'drawer'}}
-      {{snippet 'cart-item-quantity' item=item namespace=namespace}}
+    <div class="cart-item__quantity">
+      <div class="cart-item__quantity-wrapper">
+        {{#if item.enable_quantity_adjust}}
+          {{snippet "quantity-input" namespace=namespace value=item.quantity id=item.key}}
+        {{else}}
+          {{snippet "quantity-input" namespace=namespace value=item.quantity id=item.key min=item.quantity max=item.quantity}}
+        {{/if}}
+        {{#if item.enable_delete}}
+          <cart-remove-button>{{snippet "icon-delete"}}</cart-remove-button>
+        {{/if}}
+      </div>
+      <div class="cart-item__error display-none-tablet" id="Line-item-error-{{namespace}}{{item.key}}">
+        <span class="cart-item__error-text body6"></span>
+        {{snippet "icon-error"}}
+      </div>
+    </div>
     {{/if}}
   </div>
 </div>

@@ -24,16 +24,10 @@ accordion-component summary + * {
 }
 
 .accordion {
-  margin-top: 26px;
+  margin-top: 25px;
   margin-bottom: 0;
   border-top: 1px solid rgba(var(--color-text), 0.08);
   border-bottom: 1px solid rgba(var(--color-text), 0.08);
-}
-
-@media (max-width: 959px) {
-  .accordion {
-    margin-top: 20px;
-  }
 }
 
 .accordion__title {

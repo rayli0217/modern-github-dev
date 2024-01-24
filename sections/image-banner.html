@@ -20,9 +20,9 @@
     {{assign "banner_ratio" (append (default (divide 100 banner1.aspect_ratio) 100) "%")}}
   {{/if}}
   {{#if banner2}}
-    {{#unless banner_ratio}}
+    {{#if (isFalsey banner_ratio)}}
       {{assign "banner_ratio" (append (default (divide 100 banner2.aspect_ratio) 100) "%")}}
-    {{/unless}}
+    {{/if}}
   {{/if}}
 {{/if}}
 <div class="section section-padding section-image-banner">
@@ -128,7 +128,7 @@
       {{#if banner1}}
         <div
           class="banner-item-wrapper first-banner
-            banner-item-wrapper--size-{{#if override_banner_height}}none{{else}}{{banner_height_size}}{{/if}}"
+            banner-item-wrapper--size-{{#if (isFalsey override_banner_height)}}{{banner_height_size}}{{else}}none{{/if}}"
         >
           <div style="padding-bottom: {{banner_ratio}};">
             {{snippet "image" data=banner1 mobile_size="100%" class="banner-item banner-mobile-item" lazy=true}}
@@ -169,7 +169,7 @@
                   <div class="control">
                     {{~#if settings.button_text}}
                       <a
-                        href="{{settings.link}}"
+                        {{#if settings.link}}href="{{settings.link}}"{{else}}href="javascript:;"{{/if}}
                         class="button {{#if (isTruthy outline_button)}}button--secondary{{/if}}"
                       >
                         {{settings.button_text}}
@@ -177,7 +177,7 @@
                     {{~/if}}
                     {{~#if settings.link_text_2}}
                       <a
-                        href="{{settings.link_2}}"
+                        {{#if settings.link_2}}href="{{settings.link_2}}"{{else}}href="javascript:;"{{/if}}
                         class="button {{#if (isTruthy outline_button_2)}}button--secondary{{/if}}"
                       >
                         {{settings.link_text_2}}
@@ -327,7 +327,7 @@
       "id": "alpha_range",
       "label": "t:sections.image-banner.settings.alpha_range.label",
       "type": "range",
-      "default": 30,
+      "default": "30",
       "min": 0,
       "max": 100,
       "step": 1,

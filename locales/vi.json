@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Mặt hàng này chỉ được bán với số lượng từ {{num}}"
-        },
-        "most": {
-          "desc": "Mặt hàng này chỉ được bán với số lượng tối đa là {{num}}"
-        },
-        "noIncrement": {
-          "desc": "Mặt hàng này chỉ được bán với mức tăng thêm {{num}}"
-        }
-      }
-    },
     "cart": {
       "buy_now": "MUA NGAY",
       "cancel": "Hủy",
@@ -515,9 +502,6 @@
       "form_error": "Truy vấn không thành công",
       "orderId": "ID đặt hàng",
       "orderId_error": "Id đơn đặt hàng không được để trống",
-      "other_email": "Địa chỉ email",
-      "other_phone": "Số điện thoại di động",
-      "phone": "Số Điện Thoại cố Định",
       "query_illegal": "đơn đặt hàng không tồn tại",
       "risk_black_user": "Tài khoản này đang gặp rủi ro",
       "risk_interception": "đơn đặt hàng không tồn tại",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Không tìm thấy thông tin sản phẩm. Vui lòng thử lại sau.",
       "sold_out": "Hết hàng",
-      "load_more": "Đang tải thêm mục",
+      "added_to_cart_successfully": "Đã thêm vào giỏ hàng thành công",
       "load_more_items": "Đang tải {{current_offset}} ~ {{last_current_offset}} trong số {{total}} mục",
-      "unavailable": "không có sẵn",
-      "variant_property_color": "Màu sắc"
+      "unavailable": "không có sẵn"
     },
     "product_details": {
       "activity_toast_price_limit": "Bạn chỉ có thể mua {{num}} sản phẩm này với giá khuyến mãi",
@@ -659,7 +642,6 @@
       "country_region": "Quốc gia/Khu vực",
       "default_placeholder": "Vui lòng chọn {{attrName}}",
       "description": "Mô tả",
-      "each_price": "{{price}}/Mỗi sản phẩm",
       "email": "Email",
       "enter_email_address": "Vui lòng nhập địa chỉ email của bạn",
       "enter_valid_email_address": "Vui lòng nhập địa chỉ email hợp lệ",
@@ -681,26 +663,14 @@
       "load_more": "Tải thêm",
       "maximum_length_of_message": "Độ dài tin nhắn tối đa không quá 1500 ký tự",
       "message": "Nội dung tin nhắn",
-      "moq_increment": "Bội số của {{num}}",
-      "moq_increment_tips": "Số lượng mua thêm chỉ hỗ trợ bội số của {{num}}",
-      "moq_max_tips": "Quy cách này có thể mua tối đa {{num}} sản phẩm",
-      "moq_maximum": "Mua tối đa {{num}}",
-      "moq_min_tips": "Quy cách này phải mua từ {{num}} trở lên",
-      "moq_minimum": "Mua tối thiểu {{num}}",
       "more_payment_options": "Các phương thức thanh toán khác",
       "name": "Tên",
       "optional": "Không bắt buộc",
       "phone_number": "Số điện thoại",
-      "price": "Giá",
-      "price_break_title": "Định giá hàng loạt",
-      "price_breaks_view_less": "",
-      "price_breaks_view_more": "",
       "product_enquiry": "Yêu cầu về sản phẩm",
       "submission_failed": "Gửi tin nhắn thất bại, vui lòng gửi lại",
       "submission_successfully": "Đã gửi tin nhắn thành công",
       "submit": "Gửi",
-      "table_each_price": "{{price}}Mỗi sản phẩm",
-      "table_each_price_ssr": "{{{priceDom}}}Mỗi sản phẩm",
       "tax_included": "đã bao gồm thuế",
       "view_product_detail": "Xem thông tin chi tết của sản phẩm",
       "copy_button_text": "Sao chép",
@@ -722,7 +692,6 @@
       "new_arrivals": "Hàng mới về",
       "new_products": "Thời gian tạo mới-cũ",
       "no_product": "Xin lỗi, không có sản phẩm nào trong danh mục này",
-      "price_break_tag": "Có thể định giá hàng loạt",
       "price_high_to_low": "Giá từ cao tới thấp",
       "price_low_to_high": "Giá từ thấp tới cao",
       "product_has_been_removed": "Sản phẩm không còn bán",
@@ -736,7 +705,10 @@
       "save_ratio": "Giảm {{price}}%",
       "select_product_all_options": "Biến thể sản phẩm đã chọn không đầy đủ hoặc không khả dụng. Vui lòng chọn lại.",
       "sort_button": "Phân loại",
-      "top_sellers": "Sản phẩm bán chạy"
+      "top_sellers": "Sản phẩm bán chạy",
+      "more__product_num": "{{num}} sản phẩm",
+      "one_product_num": "{{num}} sản phẩm",
+      "show": "Hiển thị"
     },
     "product_search": {
       "back_to_home": "Quay lại trang chủ",

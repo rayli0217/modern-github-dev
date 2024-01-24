@@ -36,7 +36,6 @@ input {
   position: relative;
   transition: all 0.2s;
   z-index: 2;
-  overflow: hidden;
 }
 .text-columns-with-images-item__wrapper.no-border {
   border-radius: 0;

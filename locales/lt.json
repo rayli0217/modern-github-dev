@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Ši prekė parduodama tik nuo sumos {{num}}"
-        },
-        "most": {
-          "desc": "Ši prekė parduodama tik suma {{num}} ne daugiau kaip"
-        },
-        "noIncrement": {
-          "desc": "Ši prekė parduodama tik prieaugiu {{num}}"
-        }
-      }
-    },
     "cart": {
       "buy_now": "ĮSIGYKITE DABAR",
       "cancel": "Atšaukti",
@@ -254,7 +241,7 @@
       "copy_success": "Kupono kodas nukopijuotas",
       "discount_title": "Aktyvuokite paskyrą ir gaukite nuolaidos kodą",
       "normal_title": "Aktyvuokite paskyrą",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Aktyvuokite paskyrą ir gaukite nuolaidos kodą",
       "subscription_text": "Prenumeruokite el. pašto laiškus, kad gautumėte naujausią informaciją, prieigą prie išskirtinių sandorių ir dar daugiau.",
       "success_title": "Sveikiname, gavus didelę nuolaidą",
       "token_expired": "Jūsų nuoroda nebegalioja"
@@ -515,9 +502,6 @@
       "form_error": "Užklausa nepavyko",
       "orderId": "Užsakymo ID",
       "orderId_error": "Užsakymo ID laukas negali būti tuščias",
-      "other_email": "El. pašto adresas",
-      "other_phone": "Mobiliojo telefono numeris",
-      "phone": "Mobilusis telefonas",
       "query_illegal": "tvarka neegzistuoja",
       "risk_black_user": "Šiai paskyrai gresia pavojus",
       "risk_interception": "tvarka neegzistuoja",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Duomenų apie prekę nerasta Prašome bandyti dar kartą vėliau",
       "sold_out": "Išparduota",
-      "load_more": "Įkeliama daugiau elementų",
+      "added_to_cart_successfully": "Sėkmingai įdėta į krepšelį",
       "load_more_items": "{{total}} prekių krova {{current_offset}} ~ {{last_current_offset}}",
-      "unavailable": "neprieinama",
-      "variant_property_color": "Spalva"
+      "unavailable": "neprieinama"
     },
     "product_details": {
       "activity_toast_price_limit": "Maksimalus kiekis leidžiamas šiai ribotai prekei - {{num}}",
@@ -659,7 +642,6 @@
       "country_region": "Šalis / regionas",
       "default_placeholder": "Prašome pasirinkti {{attrName}}",
       "description": "Aprašymas",
-      "each_price": "{{price}}/kiekviena",
       "email": "El. paštas",
       "enter_email_address": "Prašome įvesti savo el. pašto adresą",
       "enter_valid_email_address": "Prašome įvesti galiojantį el. pašto adresą",
@@ -681,26 +663,14 @@
       "load_more": "Rodyti daugiau",
       "maximum_length_of_message": "Maksimalus jūsų pranešimų ilgis turi būti ne daugiau nei 1500 žodžių",
       "message": "Jūsų pranešimas",
-      "moq_increment": "{{num}} daugybė",
-      "moq_increment_tips": "Papildomas pirkinių kiekis palaiko tik didelį {{num}} skaičių",
-      "moq_max_tips": "Ši spefifikacija turi būti įsigyta iki {{num}} vnt.",
-      "moq_maximum": "Daugiausia prekių {{num}}",
-      "moq_min_tips": "Ši specifikacija turi būti įsigyta {{num}} ar daugiau",
-      "moq_minimum": "Mažiausiai prekių {{num}}",
       "more_payment_options": "daugiau mokėjimo parinkčių",
       "name": "Vardas ir pavardė",
       "optional": "Pasirinktinis",
       "phone_number": "Telefono Nr.",
-      "price": "Kaina",
-      "price_break_title": "Urminė kainodara",
-      "price_breaks_view_less": "Paslėpti",
-      "price_breaks_view_more": "Rodyti daugiau",
       "product_enquiry": "Prekės užklausa",
       "submission_failed": "Nepavyko pateikti, prašome bandyti dar kartą",
       "submission_successfully": "Pateikta sėkmingai",
       "submit": "Pateikti",
-      "table_each_price": "{{price}}kiekviena",
-      "table_each_price_ssr": "{{{priceDom}}}kiekviena",
       "tax_included": "mokesčiai įskaičiuoti",
       "view_product_detail": "Peržiūrėti prekės duomenis",
       "copy_button_text": "Kopija",
@@ -722,7 +692,6 @@
       "new_arrivals": "Naujos prekės",
       "new_products": "Nuo naujausio iki seniausio sukūrimo laiko",
       "no_product": "Šioje kategorijoje prekių nėra",
-      "price_break_tag": "Urminė kainodara prieinama",
       "price_high_to_low": "Kaina nuo aukščiausios iki mažiausios",
       "price_low_to_high": "Kaina nuo mažiausios iki didžiausios",
       "product_has_been_removed": "Prekė pašalinta iš lentynų",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% nuolaida",
       "select_product_all_options": "Pasirinkta produkto varianta yra nepilna arba nepasiekiama. Prašome pasirinkti dar kartą",
       "sort_button": "Klasifikacija",
-      "top_sellers": "Populiariausi pardavėjai"
+      "top_sellers": "Populiariausi pardavėjai",
+      "more__product_num": "{{num}} elementų skaičius yra daugiskaita",
+      "one_product_num": "{{num}} prekė",
+      "show": "Rodyti"
     },
     "product_search": {
       "back_to_home": "Atgal į pradžios puslapį",

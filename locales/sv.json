@@ -36,19 +36,6 @@
     }
   },
   "cart": {
-    "b2b": {
-      "amount": {
-        "increase": {
-          "desc": "Denna sålda sak börjar med mängden {{num}}"
-        },
-        "most": {
-          "desc": "Denna sak sålda endast med ett maximalt belopp på {{num}}"
-        },
-        "noIncrement": {
-          "desc": "Denna sak sålda endast i steg om {{num}}"
-        }
-      }
-    },
     "cart": {
       "buy_now": "KÖP NU",
       "cancel": "Avbryt",
@@ -254,7 +241,7 @@
       "copy_success": "Kopierad kupongkod",
       "discount_title": "Aktivera konto och få rabattkoden",
       "normal_title": "Aktivera konto",
-      "normal_title_with_discount_code": "",
+      "normal_title_with_discount_code": "Aktivera ditt konto och få en rabattkod",
       "subscription_text": "Prenumerera på mejl för att få uppdateringar, få tillgång till exklusiva erbjudanden och mer.",
       "success_title": "Grattis till att få en bra rabatt",
       "token_expired": "Länken har upphört att gälla"
@@ -515,9 +502,6 @@
       "form_error": "Frågan misslyckades",
       "orderId": "Beställnings-ID",
       "orderId_error": "Order-id får inte vara tomt",
-      "other_email": "E-postadress",
-      "other_phone": "Cellnummer",
-      "phone": "Mobiltelefon",
       "query_illegal": "ordning finns inte",
       "risk_black_user": "Detta konto är i riskzonen",
       "risk_interception": "ordning finns inte",
@@ -644,10 +628,9 @@
     "general": {
       "no_product_data_found": "Inga produktdata hittades. Försök igen senare",
       "sold_out": "Slutsålt",
-      "load_more": "Laddar fler objekt",
+      "added_to_cart_successfully": "Har lagts till i kundvagnen",
       "load_more_items": "Laddar {{current_offset}} ~ {{last_current_offset}} av {{total}} saker",
-      "unavailable": "inte tillgänglig",
-      "variant_property_color": "Färg"
+      "unavailable": "inte tillgänglig"
     },
     "product_details": {
       "activity_toast_price_limit": "Den maximala tillåtna mängden för denna begränsade produkt är {{num}}",
@@ -659,7 +642,6 @@
       "country_region": "Land / Region",
       "default_placeholder": "Välj {{attrName}}",
       "description": "Beskrivning",
-      "each_price": "{{price}}/ Varje",
       "email": "E-post",
       "enter_email_address": "Ange din e-postadress",
       "enter_valid_email_address": "Ange en giltig e-postadress",
@@ -681,26 +663,14 @@
       "load_more": "Ladda mer",
       "maximum_length_of_message": "Den maximala längden på ditt meddelande bör inte överstiga 1500 ord",
       "message": "Ditt meddelande",
-      "moq_increment": "Multiplar av {{num}}",
-      "moq_increment_tips": "Det extra inköpsbeloppet är endast kompatibel med multiplar av {{num}}",
-      "moq_max_tips": "Denna specifikation kan köp upp till {{num}} stycken",
-      "moq_maximum": "Maximalt inköp {{num}}",
-      "moq_min_tips": "Denna specifikation kräver köp av {{num}} ovan",
-      "moq_minimum": "Minimum köp {{num}}",
       "more_payment_options": "Fler betalningsalternativ",
       "name": "Efternamn",
       "optional": "Valfritt",
       "phone_number": "Telefonnummer",
-      "price": "Pris",
-      "price_break_title": "Partipriser",
-      "price_breaks_view_less": "Dölj",
-      "price_breaks_view_more": "Visa mer",
       "product_enquiry": "Produktundersökning",
       "submission_failed": "Inlämningen misslyckades, försök igen",
       "submission_successfully": "Framgångsrik underkastelse",
       "submit": "Att skicka",
-      "table_each_price": "{{price}} Varje",
-      "table_each_price_ssr": "{{{priceDom}}} Varje",
       "tax_included": "skatt ingår",
       "view_product_detail": "Se detaljerna om produkten",
       "copy_button_text": "Kopiera",
@@ -722,7 +692,6 @@
       "new_arrivals": "Ny ankomst",
       "new_products": "Från det närmaste till det mest avlägsna från skapelsens ögonblick",
       "no_product": "tyvärr finns det ingen produkt i den här kollektionen",
-      "price_break_tag": "Partipriser tillgängliga",
       "price_high_to_low": "Högt till lågt pris",
       "price_low_to_high": "Lågt till högt pris",
       "product_has_been_removed": "Produkten tas bort från hyllorna",
@@ -736,7 +705,10 @@
       "save_ratio": "{{price}}% reduktion",
       "select_product_all_options": "Den valda produktvarianten är ofullständig eller otillgänglig. Vänligen välj igen",
       "sort_button": "Sortera",
-      "top_sellers": "Bästsäljare"
+      "top_sellers": "Bästsäljare",
+      "more__product_num": "{{num}} Produkter",
+      "one_product_num": "{{num}} produkt",
+      "show": "Visa"
     },
     "product_search": {
       "back_to_home": "Tillbaka till hemsidan",
