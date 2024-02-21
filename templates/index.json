@@ -21,7 +21,7 @@
       "type": "blog",
       "settings": {
         "title": "Blogs",
-        "blog_collection": "65c470a4d3782d2c46b1810d",
+        "blog_collection": null,
         "limit": 4,
         "pc_cols": 4,
         "is_show_date": true,
@@ -44,7 +44,7 @@
         "title": "",
         "full_width": true,
         "title_size": "title3",
-        "cover": "shopline://shop_images/ccee2ca6-9690-4f34-9602-284744f37ed8.png",
+        "cover": null,
         "internal_video": "",
         "external_video": "",
         "color_scheme": "none",
