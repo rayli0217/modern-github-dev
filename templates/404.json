@@ -1,7 +1,10 @@
 {
   "sections": {
     "main": {
-      "type": "main-404"
+      "type": "main-404",
+      "disabled": false,
+      "settings": {},
+      "blocks": {}
     }
   },
   "order": [
