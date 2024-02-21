@@ -39,22 +39,21 @@
       "block_order": []
     },
     "video": {
-      "type": "video",
       "disabled": false,
+      "type": "video",
       "settings": {
         "title": "",
         "title_size": "title3",
+        "cover": "shopline://shop_images/a2404204-7446-4986-8993-79c2740c0323.png",
+        "internal_video": "",
         "external_video": "",
         "full_width": true,
         "color_scheme": "none",
         "padding_top": 0,
-        "padding_bottom": 0,
-        "cover": {
-          "url": ""
-        },
-        "internal_video": ""
+        "padding_bottom": 0
       },
-      "blocks": {}
+      "blocks": {},
+      "custom_css": []
     },
     "featured-collection-2": {
       "type": "featured-collection",
