@@ -1804,6 +1804,9 @@
             },
             "menu": {
               "label": "hướng dẫn trình đơn"
+            },
+            "default_fold": {
+              "label": "Mở rộng theo mặc định"
             }
           }
         },
@@ -1954,6 +1957,9 @@
             },
             "conact_text_5": {
               "label": "Chữ phương thức liên hệ 5"
+            },
+            "default_fold": {
+              "label": "Mở rộng theo mặc định"
             }
           }
         },
@@ -2070,6 +2076,9 @@
             },
             "text_4": {
               "label": "biểu tượng tuyên bố 4 văn bản"
+            },
+            "default_fold": {
+              "label": "Mở rộng theo mặc định"
             }
           }
         }
@@ -2125,6 +2134,30 @@
           },
           "options__3": {
             "label": "LOGO ở giữa, menu xuống dòng"
+          }
+        },
+        "body_pc_second_font_size": {
+          "label": "Kích thước phông chữ điều hướng phụ trên PC",
+          "options__0": {
+            "label": "to"
+          },
+          "options__1": {
+            "label": "vừa"
+          },
+          "options__2": {
+            "label": "nhỏ"
+          }
+        },
+        "body_pc_thirdly_font_size": {
+          "label": "Cỡ chữ của điều hướng cấp ba trên PC",
+          "options__0": {
+            "label": "to"
+          },
+          "options__1": {
+            "label": "vừa"
+          },
+          "options__2": {
+            "label": "nhỏ"
           }
         },
         "mobile_top_menu": {
@@ -2214,6 +2247,15 @@
             "menu_title": {
               "label": "Xuất hiện menu",
               "info": "Vui lòng điền tên của menu cấp một vào đầu trang, khi menu này có menu cấp thấp hơn thì hình ảnh có thể được hiển thị."
+            },
+            "menu_img_style": {
+              "label": "Phong cách hình ảnh thực đơn",
+              "options__0": {
+                "label": "phong cách 1"
+              },
+              "options__1": {
+                "label": "Phong cách 2"
+              }
             },
             "text_color": {
               "label": "Màu sắc văn bản"
@@ -2851,6 +2893,16 @@
             "label": "Xếp hàng"
           }
         },
+        "columns": {
+          "label": "Số cột đầu cuối máy tính",
+          "info": "Chỉ có hiệu lực trong bố cục lưới",
+          "options__0": {
+            "label": "2 cột"
+          },
+          "options__1": {
+            "label": "3 cột"
+          }
+        },
         "is_show_cover": {
           "label": "HIển thị hình nền"
         },
@@ -3377,6 +3429,30 @@
             "label": "nhỏ"
           }
         },
+        "product_thumbnail_image_size": {
+          "label": "Kích thước hình thu nhỏ của máy tính",
+          "options__0": {
+            "label": "to"
+          },
+          "options__1": {
+            "label": "vừa"
+          },
+          "options__2": {
+            "label": "nhỏ"
+          }
+        },
+        "product_mobile_thumbnail_image_size": {
+          "label": "Kích thước hình thu nhỏ trên thiết bị di động",
+          "options__0": {
+            "label": "to"
+          },
+          "options__1": {
+            "label": "vừa"
+          },
+          "options__2": {
+            "label": "nhỏ"
+          }
+        },
         "product_mobile_text_align": {
           "label": "Phương thức căn lề tổng thể trên đầu cuối thiết bị di động",
           "options__0": {
@@ -3490,6 +3566,9 @@
             "dividing_line_color": {
               "label": "Màu đường phân cách"
             },
+            "desktop_dividing_line_height": {
+              "label": "Độ dày của đường phân chia phía bên máy tính"
+            },
             "dividing_line_style": {
               "label": "Kiểu đường phân cách đầu thiết bị di động",
               "options__0": {
@@ -3572,6 +3651,18 @@
               "options__3": {
                 "label": "Siêu lớn"
               }
+            },
+            "save_style": {
+              "label": "Cung cấp phong cách nhãn",
+              "options__0": {
+                "label": "Kiểu nút nhấn"
+              },
+              "options__1": {
+                "label": "phong cách văn bản"
+              }
+            },
+            "save_radius": {
+              "label": "Bán kính góc tròn nhãn ưu đãi"
             },
             "font_size_flexible": {
               "label": "Cấu hình cỡ chữ linh hoạt",
@@ -5955,8 +6046,40 @@
     "product": {
       "name": "Sản phẩm",
       "settings": {
+        "group_header__0": {
+          "label": "Thẻ giảm giá thẻ sản phẩm",
+          "info": "Nó chỉ ảnh hưởng đến nhãn giảm giá của thẻ sản phẩm. Nhãn hiển thị trên trang chi tiết sản phẩm có thể được đặt trong \"Chi tiết sản phẩm-Giá\"."
+        },
         "product_discount": {
           "label": "Hiển thị ưu đãi"
+        },
+        "product_discount_tag_style": {
+          "label": "Nhãn ưu đãi",
+          "options__0": {
+            "label": "thẻ giảm giá"
+          },
+          "options__1": {
+            "label": "lưu thẻ"
+          }
+        },
+        "product_discount_style": {
+          "label": "Hình thức ưu đãi",
+          "info": "Nó có hiệu lực khi thẻ lưu được chọn cho thẻ ưu đãi.",
+          "options__0": {
+            "label": "Hiển thị số tiền ưu đãi"
+          },
+          "options__1": {
+            "label": "Hiển thị tỉ lệ ưu đãi"
+          }
+        },
+        "product_discount_size": {
+          "label": "Kích thước nhãn cung cấp",
+          "options__0": {
+            "label": "vừa"
+          },
+          "options__1": {
+            "label": "nhỏ"
+          }
         },
         "product_discount_position": {
           "label": "Vị trí nhãn ưu đãi",
@@ -5976,7 +6099,7 @@
         "product_discount_radius": {
           "label": "Bán kính góc tròn nhãn ưu đãi"
         },
-        "group_header__0": {
+        "group_header__1": {
           "label": "Danh sách sản phẩm"
         },
         "enable_quick_view": {
@@ -6015,7 +6138,7 @@
         "product_mobile_title_show": {
           "label": "bày ratiêu đề sản phẩm trên điện thoại di động"
         },
-        "group_header__1": {
+        "group_header__2": {
           "label": "Mua thêm nhanh bảng màu",
           "info": "[Bấm để biết](https://help.shopline.com/hc/zh-cn/articles/18291247740825-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%BB%BA%E7%AB%99%E7%BC%96%E8%BE%91%E5%99%A8%E8%89%B2%E6%9D%BF%E5%8A%9F%E8%83%BD) chi tiết chức năng mua thêm nhanh bảng màu"
         },
@@ -6068,6 +6191,9 @@
       "settings": {
         "cart_type": {
           "label": "Cách thêm vào giỏ hàng",
+          "options__0": {
+            "label": "giỏ hàng ngăn kéo"
+          },
           "options__1": {
             "label": "Vào trang giỏ hàng"
           },

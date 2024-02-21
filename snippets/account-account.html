@@ -237,6 +237,29 @@
           </details>
         </details-modal>
       </template>
+    {{#if customer.login_sources}}
+      <div class="info-item third">
+        <div class="body4 info-label">{{t 'customer.account.account_binding'}}</div>
+        <div class="body4 info-value">
+          {{#each customer.login_sources}}
+            <div class="bind-info">
+              {{#if login_source '===' 'facebook'}}
+                {{ snippet 'icon-account-facebook' }}
+              {{else if login_source '===' 'line'}}
+                {{ snippet 'icon-account-line' }}
+              {{else if login_source '===' 'google'}}
+                {{ snippet 'icon-account-google' }}
+              {{else if login_source '===' 'tiktok'}}
+                {{ snippet 'icon-account-tiktok' }}
+              {{else if login_source '===' 'apple'}}
+                {{ snippet 'icon-account-apple' }}
+              {{/if}}
+              <span>{{ ternary nickname nickname ../customer.name }}</span>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    {{/if}}
 
 
       {{#and (or customer.email customer.phone) shop.allow_cancel_account}}

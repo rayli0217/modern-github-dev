@@ -14,8 +14,6 @@
   {{ snippet 'image' data=selectedImage pc_size="1/3" mobile_size="200px" lazy=true }}
 {{/comment}}
 
-{{assign 'sizes' (default sizes 'auto')}}
-
 {{#or pc_size mobile_size}}
   {{assign 'pc_size_breakpoint' '100vw' }}
   {{assign 'mobile_size_breakpoint' '100vw'}}

@@ -1,3 +1,5 @@
+{{assign "scene" "cart-drawer"}}
+
 <cart-drawer id="cart-drawer" class="cart-drawer">
   <div id="CartDrawer" class="cart-drawer-container visible">
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
@@ -64,7 +66,8 @@
                 {{#if additional_checkout_buttons}}
                   {{{content_for_additional_checkout_buttons}}}
                 {{/if}}
-                {{#form "cart"}}
+                {{assign "form_id" (append 'cart-form--' scene)}}
+                {{#form "cart" id=form_id}}
                   <button type="submit" id="checkout" class="cart-drawer__checkout-button button" name="checkout">
                     {{t "cart.checkout_proceeding.checkout"}}
                   </button>
@@ -76,7 +79,7 @@
         </div>
       </div>
       {{#unless cart.empty}}
-      {{snippet 'cart-fixed-checkout' cart=cart shop=shop className="cart-drawer__fixed-checkout"}}
+      {{snippet 'cart-fixed-checkout' scene=scene cart=cart shop=shop className="cart-drawer__fixed-checkout"}}
       {{/unless}}
     </div>
   </div>

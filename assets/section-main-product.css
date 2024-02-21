@@ -20,11 +20,14 @@
 .product__info-container > * + * {
   margin: 10px 0;
 }
+.product__info-container .product__info-item:nth-of-type(1) {
+  margin-top: 0;
+}
 .product__info-container > * + .m-10 {
   margin: 10px 0;
 }
-.product__info-container > * + .m-20 {
-  margin: 20px 0;
+.product__info-container > * + .m-12 {
+  margin: 12px 0;
 }
 .product__info-container > * + .m-26 {
   margin: 26px 0;
@@ -44,8 +47,8 @@
     margin: 8px 0;
   }
 
-  .product__info-container > * + .m-20 {
-    margin: 16px 0;
+  .product__info-container > * + .m-12 {
+    margin: 10px 0;
   }
 
   .product__info-container > * + .m-26 {
@@ -66,29 +69,26 @@
     justify-content: center;
   }
 }
-.product__dividing-line {
-  display: block;
-  height: 1px;
-}
-@media screen and (max-width: 959px) {
-  .product__dividing-line {
-    margin-left: var(--product-dividing-line-style) !important;
-    margin-right: var(--product-dividing-line-style) !important;
-    height: var(--product-dividing-line-height);
-  }
-}
 @media screen and (min-width: 960px) {
+  .product__dividing-line {
+    display: block;
+    height: var(--product-desktop-dividing-line-height, 1px);
+  }
+
   .product__column-sticky {
     display: block;
     position: sticky;
     top: 20px;
     z-index: 2;
   }
+  .product:not(.product--columns) .product__media-wrapper {
+    padding-top: 40px;
+  }
 
   /* product_image_pc_position */
   .product--left .product__info-wrapper {
     padding-left: 60px;
-    padding-top: 60px;
+    padding-top: 40px;
   }
 
   .product--left .product__media-wrapper {
@@ -97,7 +97,7 @@
 
   .product--right .product__info-wrapper {
     padding-right: 60px;
-    padding-top: 60px;
+    padding-top: 40px;
   }
 
   .product--right .product__media-wrapper {
@@ -136,6 +136,11 @@
   }
 }
 @media screen and (max-width: 959px) {
+  .product__dividing-line {
+    margin-left: var(--product-dividing-line-style) !important;
+    margin-right: var(--product-dividing-line-style) !important;
+    height: var(--product-dividing-line-height);
+  }
   .product__media-wrapper {
     padding: 0;
     /* margin: 0 -10px; */
@@ -158,6 +163,9 @@
 }
 .product-form .product-form__buttons > * {
   margin-bottom: 10px;
+}
+.product-form .product-form__buttons .pay-button-buy-now {
+  overflow: unset;
 }
 .product__info-item--quantity-input {
   display: flex;

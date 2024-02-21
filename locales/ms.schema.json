@@ -1804,6 +1804,9 @@
             },
             "menu": {
               "label": "Menu navigasi"
+            },
+            "default_fold": {
+              "label": "Kembangkan secara lalai"
             }
           }
         },
@@ -1954,6 +1957,9 @@
             },
             "conact_text_5": {
               "label": "Teks cara perhubungan 5"
+            },
+            "default_fold": {
+              "label": "Kembangkan secara lalai"
             }
           }
         },
@@ -2070,6 +2076,9 @@
             },
             "text_4": {
               "label": "teks pernyataan 4 ikon"
+            },
+            "default_fold": {
+              "label": "Kembangkan secara lalai"
             }
           }
         }
@@ -2125,6 +2134,30 @@
           },
           "options__3": {
             "label": "LOGO di tengah, menu tukar silang"
+          }
+        },
+        "body_pc_second_font_size": {
+          "label": "Saiz fon navigasi sekunder pada PC",
+          "options__0": {
+            "label": "Besar"
+          },
+          "options__1": {
+            "label": "Tengah"
+          },
+          "options__2": {
+            "label": "Kecil"
+          }
+        },
+        "body_pc_thirdly_font_size": {
+          "label": "Saiz fon navigasi peringkat ketiga pada PC",
+          "options__0": {
+            "label": "Besar"
+          },
+          "options__1": {
+            "label": "Tengah"
+          },
+          "options__2": {
+            "label": "Kecil"
           }
         },
         "mobile_top_menu": {
@@ -2214,6 +2247,15 @@
             "menu_title": {
               "label": "Menu pencetus",
               "info": "Sila isikan nama menu peringakat pertama dalam pengepala, dan gambar boleh dipaparkan jika menu mempunyai menu peringkat bawah"
+            },
+            "menu_img_style": {
+              "label": "Gaya gambar menu",
+              "options__0": {
+                "label": "Gaya 1"
+              },
+              "options__1": {
+                "label": "Gaya 2"
+              }
             },
             "text_color": {
               "label": "Warna teks"
@@ -2851,6 +2893,16 @@
             "label": "Senarai"
           }
         },
+        "columns": {
+          "label": "Bilangan lajur pada bahagian komputer",
+          "info": "Hanya berkuat kuasa dalam susun atur grid",
+          "options__0": {
+            "label": "2 lajur"
+          },
+          "options__1": {
+            "label": "3 lajur"
+          }
+        },
         "is_show_cover": {
           "label": "Tunjuk imej muka depan"
         },
@@ -3377,6 +3429,30 @@
             "label": "Kecil"
           }
         },
+        "product_thumbnail_image_size": {
+          "label": "Saiz lakaran kecil komputer",
+          "options__0": {
+            "label": "Besar"
+          },
+          "options__1": {
+            "label": "Tengah"
+          },
+          "options__2": {
+            "label": "Kecil"
+          }
+        },
+        "product_mobile_thumbnail_image_size": {
+          "label": "Saiz lakaran kecil mudah alih",
+          "options__0": {
+            "label": "Besar"
+          },
+          "options__1": {
+            "label": "Tengah"
+          },
+          "options__2": {
+            "label": "Kecil"
+          }
+        },
         "product_mobile_text_align": {
           "label": "Kaedah penjajaran keseluruhan versi mudah alih",
           "options__0": {
@@ -3490,6 +3566,9 @@
             "dividing_line_color": {
               "label": "Warna garis pemisah"
             },
+            "desktop_dividing_line_height": {
+              "label": "Ketebalan garis pemisah pada bahagian komputer"
+            },
             "dividing_line_style": {
               "label": "Rekabentu garis pemisah versi mudah alih",
               "options__0": {
@@ -3572,6 +3651,18 @@
               "options__3": {
                 "label": "Besar super"
               }
+            },
+            "save_style": {
+              "label": "Menawarkan gaya label",
+              "options__0": {
+                "label": "Rekabentuk butang"
+              },
+              "options__1": {
+                "label": "gaya teks"
+              }
+            },
+            "save_radius": {
+              "label": "Menawarkan jejari sudut label"
             },
             "font_size_flexible": {
               "label": "Konfigurasi fleksibel saiz fon",
@@ -5955,8 +6046,40 @@
     "product": {
       "name": "Produk",
       "settings": {
+        "group_header__0": {
+          "label": "Tag diskaun kad produk",
+          "info": "Ia hanya menjejaskan label diskaun kad produk. Paparan label pada halaman butiran produk boleh ditetapkan dalam \"Butiran Produk-Harga\"."
+        },
         "product_discount": {
           "label": "Paparkan diskaun"
+        },
+        "product_discount_tag_style": {
+          "label": "Label promosi",
+          "options__0": {
+            "label": "tag jualan"
+          },
+          "options__1": {
+            "label": "simpan tag"
+          }
+        },
+        "product_discount_style": {
+          "label": "Gaya diskaun",
+          "info": "Ia berkuat kuasa apabila teg simpan dipilih untuk teg tawaran.",
+          "options__0": {
+            "label": "Paparkan nilai diskaun"
+          },
+          "options__1": {
+            "label": "Paparkan nisbah diskaun"
+          }
+        },
+        "product_discount_size": {
+          "label": "Saiz label tawaran",
+          "options__0": {
+            "label": "Tengah"
+          },
+          "options__1": {
+            "label": "Kecil"
+          }
         },
         "product_discount_position": {
           "label": "Lokasi label tawaran",
@@ -5976,7 +6099,7 @@
         "product_discount_radius": {
           "label": "Menawarkan jejari sudut label"
         },
-        "group_header__0": {
+        "group_header__1": {
           "label": "Senarai produk"
         },
         "enable_quick_view": {
@@ -6015,7 +6138,7 @@
         "product_mobile_title_show": {
           "label": "Paparkan tajuk produk pada versi mudah alih"
         },
-        "group_header__1": {
+        "group_header__2": {
           "label": "Pembelian cepat papan warna",
           "info": "[Klik untuk memahami](https://help.shopline.com/hc/zh-cn/articles/18291247740825-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%BB%BA%E7%AB%99%E7%BC%96%E8%BE%91%E5%99%A8%E8%89%B2%E6%9D%BF%E5%8A%9F%E8%83%BD) Butiran fungsi pembelian cepat papan warna"
         },
@@ -6068,6 +6191,9 @@
       "settings": {
         "cart_type": {
           "label": "Kaedah pembelian tambahan",
+          "options__0": {
+            "label": "keranjang belanja laci"
+          },
           "options__1": {
             "label": "Masuk ke halaman troli beli-belah"
           },

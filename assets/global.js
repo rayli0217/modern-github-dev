@@ -139,6 +139,18 @@ function debounce(fn, wait) {
 /**
  * @global
  */
+function jsonParse(val, normalValue) {
+  try {
+    const res = JSON.parse(val);
+    return res;
+  } catch {
+    return normalValue;
+  }
+}
+
+/**
+ * @global
+ */
 function changeURLArg(urlStr, args) {
   const url = new URL(urlStr);
 
@@ -490,9 +502,14 @@ class DetailsModal extends BaseElement {
   connectedCallback() {
     this.bodyContainer = this.createBodyContainer();
     this.bodyContainer.addEventListener('keyup', (event) => event.code.toUpperCase() === 'ESCAPE' && this.close());
-    const closeBtn = this.bodyContainer.querySelector('button[name="close"]');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', this.close.bind(this));
+    const closeBtns = this.bodyContainer.querySelectorAll('button[name="close"]');
+    if (closeBtns.length) {
+      closeBtns.forEach((btn) =>
+        btn.addEventListener('click', (event) => {
+          event.preventDefault();
+          this.close();
+        }),
+      );
     }
   }
 

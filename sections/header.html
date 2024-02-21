@@ -166,7 +166,8 @@
         {{/if}}
         <a
           id="cart-icon-bubble-mobile"
-          class="icon-button header__icon-button display-none-desktop {{#if (isFalsey section.settings.show_cart_entry)}}visibility-hidden{{/if}}"
+          class="icon-button header__icon-button display-none-desktop
+            {{#if (isFalsey section.settings.show_cart_entry)}}visibility-hidden{{/if}}"
           href="{{routes.cart_url}}"
         >
           {{snippet "cart-icon-bubble-mobile" not_show_count=true}}
@@ -397,7 +398,11 @@
           </div>
         {{/if}}
 
-        <a id="cart-icon-bubble" class="icon-button header__icon-button {{#if (isFalsey section.settings.show_cart_entry)}}display-none{{/if}}" href="{{routes.cart_url}}">
+        <a
+          id="cart-icon-bubble"
+          class="icon-button header__icon-button {{#if (isFalsey section.settings.show_cart_entry)}}display-none{{/if}}"
+          href="{{routes.cart_url}}"
+        >
           {{snippet "cart-icon-bubble" not_show_count=true}}
         </a>
       </div>
@@ -428,8 +433,12 @@
           class="header__inline-nav display-none-tablet
             {{#if section.settings.show_line_separator}}header__inline-nav--has-divider{{/if}}"
         >
-          <ul class="header__inline-menus list-unstyled">
+          <ul
+            class="header__inline-menus list-unstyled
+              {{#if section.settings.menu_img_style '===' 'normal'}}header__inline-menus--img-normal{{/if}}"
+          >
             {{#each main_menu.links}}
+              
               {{#with this as |topLink|}}
                 {{assign "is_megamenu" false}}
                 {{#each links}}
@@ -451,6 +460,7 @@
               <li
                 class="header-inline-menus__item
                   header-inline-menus__item--{{#if (length links) '>' 0}}has-submenu{{/if}}
+                  {{#if menu_block.settings.menu_img_style '===' 'normal'}}header__inline-menus--img-normal{{/if}}
                   {{#or is_megamenu has_img}}is-megamenu{{/or}}"
                 {{#if (length links) ">" 0}}
                   data-item-title="{{title}}"
@@ -473,25 +483,31 @@
                         {{#each links}}
                           <li class="megamenu-list__item">
                             {{#if (length links) ">" 0}}
+                              
                               <a
-                                class="megamenu-list__item-title menus__link body3"
+                                class="megamenu-list__item-title menus__link
+                                  {{../../section.settings.body_pc_second_font_size}}"
                                 {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
                               >
                                 {{title}}
                               </a>
                               <ul class="megamenu-list__submenu list-unstyled">
                                 {{#each links}}
+                                  
                                   <li class="megamenu-submenu__item">
                                     <a
-                                      class="menus__link body3"
+                                      class="menus__link header-inline-submenus__link--thirdly
+                                        {{../../../section.settings.body_pc_thirdly_font_size}}"
                                       {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
                                     >{{title}}</a>
                                   </li>
                                 {{/each}}
                               </ul>
                             {{else}}
+                              
                               <a
-                                class="menus__link megamenu-list__item-title body3"
+                                class="menus__link megamenu-list__item-title
+                                  {{../../section.settings.body_pc_second_font_size}}"
                                 {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
                               >
                                 {{title}}
@@ -504,7 +520,7 @@
                       {{#if has_img}}
                         <style>
                           .header__inline-submenus--{{menu_block.id}} .header__image_title,
-                          .header__inline-submenus--{{menu_block.id}} .header__image_button {
+                          .header__inline-submenus--{{menu_block.id}} .header__image--cover {
                             color: {{menu_block.settings.text_color}};
                           }
                         </style>
@@ -513,12 +529,24 @@
                             class="header__image"
                             style="order:{{ternary (if menu_block.settings.image_1_position '===' 'left') -1 1}}"
                           >
-                            {{snippet "image" data=show_img1 lazy=true}}
+                            <div
+                              class="header__image__content"
+                              style="
+                              {{#if menu_block.settings.menu_img_style '===' 'normal'}}
+                                padding-bottom:{{divide 100 show_img1.aspect_ratio}}%;
+                              {{/if}}
+                              "
+                            >
+                              {{snippet "image" data=show_img1 lazy=true}}
+                            </div>
                             <div class="header__image--cover">
-                              <p class="header__image_title body3">{{menu_block.settings.image_1_title}}</p>
+                              <p
+                                class="header__image_title
+                                  {{#if menu_block.settings.menu_img_style '===' 'normal'}}body4{{else}}body3{{/if}}"
+                              >{{menu_block.settings.image_1_title}}</p>
                               {{snippet
                                 "link"
-                                classes="header__image_button button button--link"
+                                classes="header__image_button body5 button--link"
                                 href=menu_block.settings.image_1_link
                                 text=menu_block.settings.image_1_link_text
                               }}
@@ -530,13 +558,25 @@
                             class="header__image image2"
                             style="order:{{ternary (if menu_block.settings.image_2_position '===' 'left') -1 1}}"
                           >
-                            {{snippet "image" data=show_img2 lazy=true}}
+                            <div
+                              class="header__image__content"
+                              style="
+                              {{#if menu_block.settings.menu_img_style '===' 'normal'}}
+                                padding-bottom:{{divide 100 show_img2.aspect_ratio}}%;
+                              {{/if}}
+                              "
+                            >
+                              {{snippet "image" data=show_img2 lazy=true}}
+                            </div>
 
                             <div class="header__image--cover">
-                              <p class="header__image_title body3">{{menu_block.settings.image_2_title}}</p>
+                              <p
+                                class="header__image_title
+                                  {{#if menu_block.settings.menu_img_style '===' 'normal'}}body4{{else}}body3{{/if}}"
+                              >{{menu_block.settings.image_2_title}}</p>
                               {{snippet
                                 "link"
-                                classes="header__image_button button button--link"
+                                classes="header__image_button body5 button--link"
                                 href=menu_block.settings.image_2_link
                                 text=menu_block.settings.image_2_link_text
                               }}
@@ -548,12 +588,23 @@
                             class="header__image image3"
                             style="order:{{ternary (if menu_block.settings.image_3_position '===' 'left') -1 1}}"
                           >
-                            {{snippet "image" data=show_img3 lazy=true}}
+                            <div
+                              class="header__image__content"
+                              style="
+                              {{#if menu_block.settings.menu_img_style '===' 'normal'}}
+                                padding-bottom:{{divide 100 show_img3.aspect_ratio}}%;
+                              {{/if}}"
+                            >
+                              {{snippet "image" data=show_img3 lazy=true}}
+                            </div>
                             <div class="header__image--cover">
-                              <p class="header__image_title body3">{{menu_block.settings.image_3_title}}</p>
+                              <p
+                                class="header__image_title
+                                  {{#if menu_block.settings.menu_img_style '===' 'normal'}}body4{{else}}body3{{/if}}"
+                              >{{menu_block.settings.image_3_title}}</p>
                               {{snippet
                                 "link"
-                                classes="header__image_button button button--link"
+                                classes="header__image_button body5 button--link"
                                 href=menu_block.settings.image_3_link
                                 text=menu_block.settings.image_3_link_text
                               }}
@@ -561,14 +612,15 @@
                           </div>
                         {{/if}}
                       {{/if}}
-
                     </div>
                   {{else}}
+                    
                     <ul class="header-dropdown-menu list-unstyled">
                       {{#each links}}
                         <li class="header-inline-submenus__item">
                           <a
-                            class="header-inline-submenus__link menus__link body3"
+                            class="header-inline-submenus__link menus__link
+                              {{../../section.settings.body_pc_thirdly_font_size}}"
                             {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
                           >{{title}}</a>
                         </li>
@@ -576,6 +628,7 @@
                     </ul>
                   {{/or}}
                 {{else}}
+                  
                   <a
                     class="header-inline-menus__link menus__link body4"
                     {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
@@ -735,6 +788,46 @@
         {
           "value": "middle-line",
           "label": "t:sections.header.settings.navigation_layout.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "body_pc_second_font_size",
+      "label": "t:sections.header.settings.body_pc_second_font_size.label",
+      "default": "body4",
+      "options": [
+        {
+          "value": "body2",
+          "label": "t:sections.header.settings.body_pc_second_font_size.options__0.label"
+        },
+        {
+          "value": "body3",
+          "label": "t:sections.header.settings.body_pc_second_font_size.options__1.label"
+        },
+        {
+          "value": "body4",
+          "label": "t:sections.header.settings.body_pc_second_font_size.options__2.label"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "body_pc_thirdly_font_size",
+      "label": "t:sections.header.settings.body_pc_thirdly_font_size.label",
+      "default": "body3",
+      "options": [
+        {
+          "value": "body3",
+          "label": "t:sections.header.settings.body_pc_thirdly_font_size.options__0.label"
+        },
+        {
+          "value": "body4",
+          "label": "t:sections.header.settings.body_pc_thirdly_font_size.options__1.label"
+        },
+        {
+          "value": "body5",
+          "label": "t:sections.header.settings.body_pc_thirdly_font_size.options__2.label"
         }
       ]
     },
@@ -909,6 +1002,22 @@
           "default": "",
           "label": "t:sections.header.blocks.menuImage.settings.menu_title.label",
           "info": "t:sections.header.blocks.menuImage.settings.menu_title.info"
+        },
+        {
+          "type": "select",
+          "id": "menu_img_style",
+          "default": "fill",
+          "label": "t:sections.header.blocks.menuImage.settings.menu_img_style.label",
+          "options": [
+            {
+              "value": "fill",
+              "label": "t:sections.header.blocks.menuImage.settings.menu_img_style.options__0.label"
+            },
+            {
+              "value": "normal",
+              "label": "t:sections.header.blocks.menuImage.settings.menu_img_style.options__1.label"
+            }
+          ]
         },
         {
           "type": "color",

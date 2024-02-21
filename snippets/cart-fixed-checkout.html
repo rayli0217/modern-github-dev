@@ -1,3 +1,4 @@
+{{assign "scene" (append scene '-fixed')}}
 
 {{#unless cart.empty}}
 <div class="cart-fixed-checkout {{className}} {{#if cart.total_discount ">" 0}}collapsed{{/if}}">
@@ -59,7 +60,8 @@
         </a>
 
         <div class="cart-fixed-checkout__buttons">
-          {{#form "cart"}}
+          {{assign "form_id" (append 'cart-form--' scene)}}
+          {{#form "cart" id=form_id}}
             <button type="submit" id="checkout" class="cart-drawer__checkout-button button" name="checkout">
               {{t "cart.checkout_proceeding.checkout"}}
             </button>

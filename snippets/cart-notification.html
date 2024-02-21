@@ -1,3 +1,5 @@
+{{assign "scene" "cart-notification"}}
+
 <cart-notification>
   <div class="cart-notification-wrapper page-width">
     <div id="cart-notification" class="cart-notification {{#if color_scheme }} color-scheme-{{ color_scheme }}{{/if}}">
@@ -16,7 +18,8 @@
         <div class="cart-notification-view">
           <a href="{{ routes.cart_url }}" id="cart-notification-button" class="button button--secondary"></a>
         </div>
-        {{#form 'cart'}}
+        {{assign "form_id" (append 'cart-form--' scene)}}
+        {{#form 'cart' id=form_id}}
           <button class="button" type="submit" name="checkout">{{ t 'cart.checkout_proceeding.checkout' }}</button>
         {{/form}}
       </div>

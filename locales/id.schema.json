@@ -1804,6 +1804,9 @@
             },
             "menu": {
               "label": "Menu navigasi"
+            },
+            "default_fold": {
+              "label": "Perluas secara default"
             }
           }
         },
@@ -1954,6 +1957,9 @@
             },
             "conact_text_5": {
               "label": "Teks Cara Kontak 5"
+            },
+            "default_fold": {
+              "label": "Perluas secara default"
             }
           }
         },
@@ -2070,6 +2076,9 @@
             },
             "text_4": {
               "label": "pernyataan ikon 4 teks"
+            },
+            "default_fold": {
+              "label": "Perluas secara default"
             }
           }
         }
@@ -2125,6 +2134,30 @@
           },
           "options__3": {
             "label": "LOGO berada di tengah, menu ganti baris"
+          }
+        },
+        "body_pc_second_font_size": {
+          "label": "Ukuran font navigasi sekunder di PC",
+          "options__0": {
+            "label": "Besar"
+          },
+          "options__1": {
+            "label": "Sedang"
+          },
+          "options__2": {
+            "label": "Kecil"
+          }
+        },
+        "body_pc_thirdly_font_size": {
+          "label": "Ukuran font navigasi tingkat ketiga di PC",
+          "options__0": {
+            "label": "Besar"
+          },
+          "options__1": {
+            "label": "Sedang"
+          },
+          "options__2": {
+            "label": "Kecil"
           }
         },
         "mobile_top_menu": {
@@ -2214,6 +2247,15 @@
             "menu_title": {
               "label": "Menu pemicu",
               "info": "Silakan isi nama menu tingkat pertama di header halaman. Ketika menu memiliki menu tingkat yang lebih rendah, gambar dapat ditampilkan"
+            },
+            "menu_img_style": {
+              "label": "Gaya gambar menu",
+              "options__0": {
+                "label": "Gaya 1"
+              },
+              "options__1": {
+                "label": "Gaya 2"
+              }
             },
             "text_color": {
               "label": "Warna teks"
@@ -2851,6 +2893,16 @@
             "label": "Daftar"
           }
         },
+        "columns": {
+          "label": "Jumlah kolom komputer",
+          "info": "Hanya berlaku pada tata letak grid",
+          "options__0": {
+            "label": "2 kolom"
+          },
+          "options__1": {
+            "label": "3 kolom"
+          }
+        },
         "is_show_cover": {
           "label": "Tampilkan Gambar Sampul"
         },
@@ -3377,6 +3429,30 @@
             "label": "Kecil"
           }
         },
+        "product_thumbnail_image_size": {
+          "label": "Ukuran thumbnail komputer",
+          "options__0": {
+            "label": "Besar"
+          },
+          "options__1": {
+            "label": "Sedang"
+          },
+          "options__2": {
+            "label": "Kecil"
+          }
+        },
+        "product_mobile_thumbnail_image_size": {
+          "label": "Ukuran thumbnail seluler",
+          "options__0": {
+            "label": "Besar"
+          },
+          "options__1": {
+            "label": "Sedang"
+          },
+          "options__2": {
+            "label": "Kecil"
+          }
+        },
         "product_mobile_text_align": {
           "label": "Penyelarasan keseluruhan perangkat port seluler",
           "options__0": {
@@ -3490,6 +3566,9 @@
             "dividing_line_color": {
               "label": "Warna garis pemisah"
             },
+            "desktop_dividing_line_height": {
+              "label": "Ketebalan garis pemisah pada sisi komputer"
+            },
             "dividing_line_style": {
               "label": "Gaya garis pemisah port seluler",
               "options__0": {
@@ -3572,6 +3651,18 @@
               "options__3": {
                 "label": "Ukuran super"
               }
+            },
+            "save_style": {
+              "label": "Tawarkan gaya label",
+              "options__0": {
+                "label": "Gaya tombol"
+              },
+              "options__1": {
+                "label": "gaya teks"
+              }
+            },
+            "save_radius": {
+              "label": "Radius sudut label diskon"
             },
             "font_size_flexible": {
               "label": "Ukuran font fleksibel",
@@ -5955,8 +6046,40 @@
     "product": {
       "name": "Produk",
       "settings": {
+        "group_header__0": {
+          "label": "Label diskon kartu produk",
+          "info": "Ini hanya mempengaruhi label diskon kartu produk. Tampilan label pada halaman detail produk dapat diatur di \"Detail Produk-Harga\"."
+        },
         "product_discount": {
           "label": "Tampilkan diskon"
+        },
+        "product_discount_tag_style": {
+          "label": "Label diskon",
+          "options__0": {
+            "label": "label penjualan"
+          },
+          "options__1": {
+            "label": "simpan tag"
+          }
+        },
+        "product_discount_style": {
+          "label": "Gaya diskon",
+          "info": "Ini berlaku ketika tag simpan dipilih untuk tag penawaran.",
+          "options__0": {
+            "label": "Tampilkan jumlah diskon"
+          },
+          "options__1": {
+            "label": "Tampilkan persentase diskon"
+          }
+        },
+        "product_discount_size": {
+          "label": "Ukuran label diskon",
+          "options__0": {
+            "label": "Sedang"
+          },
+          "options__1": {
+            "label": "Kecil"
+          }
         },
         "product_discount_position": {
           "label": "Posisi label diskon",
@@ -5976,7 +6099,7 @@
         "product_discount_radius": {
           "label": "Radius sudut label diskon"
         },
-        "group_header__0": {
+        "group_header__1": {
           "label": "Daftar barang"
         },
         "enable_quick_view": {
@@ -6015,7 +6138,7 @@
         "product_mobile_title_show": {
           "label": "Judul produk tampilan port seluler"
         },
-        "group_header__1": {
+        "group_header__2": {
           "label": "Pembelian tambahan cepat palet warna",
           "info": "[Klik untuk belajar](https://help.shopline.com/hc/zh-cn/articles/18291247740825-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%BB%BA%E7%AB%99%E7%BC%96%E8%BE%91%E5%99%A8%E8%89%B2%E6%9D%BF%E5%8A%9F%E8%83%BD) Palet warna detail fitur pembelian cepat"
         },
@@ -6068,6 +6191,9 @@
       "settings": {
         "cart_type": {
           "label": "Cara tambah beli",
+          "options__0": {
+            "label": "keranjang belanja laci"
+          },
           "options__1": {
             "label": "Masuki halaman troli"
           },

@@ -187,11 +187,6 @@ defineCustomElement('slider-component', () => {
       this._slideUpdate();
     }
 
-    // Compatibility issues caused by inconsistent decimal pixel values resulting from browser zooming.
-    _getPixel(value) {
-      return Math.floor(value);
-    }
-
     _slideUpdate() {
       const idx = this.slideItems.findIndex((slide) => this.isSlideVisible(slide));
 
@@ -228,13 +223,13 @@ defineCustomElement('slider-component', () => {
         const slide = this.slideItems[i];
 
         if (this.direction === 'horizontal') {
-          if (sliderScrollWidth - this._getPixel(slide.offsetLeft) > sliderWidth) {
+          if (sliderScrollWidth - slide.offsetLeft - sliderWidth > -1) {
             return this.slideItems.length - slideWithInScreenNum + 1;
           }
         }
 
         if (this.direction === 'vertical') {
-          if (sliderScrollHeight - this._getPixel(slide.offsetTop) > sliderHeight) {
+          if (sliderScrollHeight - slide.offsetTop - sliderHeight > -1) {
             return this.slideItems.length - slideWithInScreenNum + 1;
           }
         }
@@ -258,16 +253,14 @@ defineCustomElement('slider-component', () => {
 
     isSlideVisible(element) {
       if (this.direction === 'vertical') {
-        const lastVisibleSlide = this.slider.clientHeight + this._getPixel(this.slider.scrollTop);
         return (
-          element.offsetTop + element.clientHeight <= lastVisibleSlide &&
-          element.offsetTop >= this._getPixel(this.slider.scrollTop)
+          element.offsetTop - this.slider.scrollTop > -1 &&
+          this.slider.clientHeight + this.slider.scrollTop - (element.offsetTop + element.clientHeight) > -1
         );
       }
-      const lastVisibleSlide = this.slider.clientWidth + this._getPixel(this.slider.scrollLeft);
       return (
-        this._getPixel(element.offsetLeft) + element.clientWidth <= lastVisibleSlide &&
-        this._getPixel(element.offsetLeft) >= this._getPixel(this.slider.scrollLeft)
+        element.offsetLeft - this.slider.scrollLeft > -1 &&
+        this.slider.clientWidth + this.slider.scrollLeft - (element.offsetLeft + element.clientWidth) > -1
       );
     }
 

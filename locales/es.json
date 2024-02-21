@@ -233,12 +233,16 @@
       "phone": "Teléfono móvil",
       "reset_password_error_hint": "Primero vincula el correo electrónico o el teléfono móvil",
       "revoke": "Anular la cancelación",
+      "revoke_btn": "",
       "revoke_message": "La cuenta está en proceso de cancelación, los datos de la cuenta se borrarán a {{time}} y puede revocar este proceso de cancelación antes de esta fecha",
       "save_btn": "Guardar",
       "select__date": "Selecciona la fecha",
       "subscribe_confirm_tip": "Gracias por suscribirse.",
+      "subscribed": "",
       "timeout_tip": "Operación expirada, verifique de nuevo",
       "unknow_error_tip": "Error de servicio, inténtelo más tarde",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Nombre",
       "verify_email_message": "Necesitamos verificar su identidad antes de que pueda cancelar su cuenta.Su dirección de correo electrónico {{email}} recibirá un código de verificación",
       "verify_phone_message": "Necesitamos verificar su identidad antes de que pueda cancelar su cuenta.Su teléfono móvil {{phone}} recibirá un mensaje de texto de verificación",
@@ -649,6 +653,20 @@
       "unavailable": "No disponible",
       "variant_property_color": "Color"
     },
+    "giftcard": {
+      "seoTitle": "¡El saldo de su tarjeta de regalo de {{ shop }} es {{ value }}!",
+      "balance": "Valor nominal",
+      "buy_giftcard": "Comprar una tarjeta de regalo",
+      "description": "¡Aquí está tu tarjeta de regalo con valor nominal de {{price}} en {{shop}}!",
+      "expired_date": "Fecha de expiración",
+      "invalid_tip": "Tu tarjeta de regalo es inválida, compra la otra",
+      "permanent": "Permanente",
+      "receive_at": "Expirado a",
+      "receive_tip": "Recibe tu tarjeta de regalo",
+      "title": "Tu tarjeta de regalo",
+      "use_giftcard": "Usar la tarjeta de regalo",
+      "use_giftcard_tip": "Puedes introducir el número de tarjeta de regalo en la caja para la deducción"
+    },
     "product_details": {
       "activity_toast_price_limit": "El precio preferencial de este artículo solo admite comprar {{num}} piezas",
       "activity_toast_product__limit": "Puedes comprar simultáneamente {{stock}} artículos de precio preferencial como máximo",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Artículos que has visto"
-    },
-    "giftcard": {
-      "balance": "Valor nominal",
-      "buy_giftcard": "Comprar una tarjeta de regalo",
-      "description": "¡Aquí está tu tarjeta de regalo con valor nominal de {{price}} en {{shop}}!",
-      "expired_date": "Fecha de expiración",
-      "invalid_tip": "Tu tarjeta de regalo es inválida, compra la otra",
-      "permanent": "Permanente",
-      "receive_at": "Expirado a",
-      "receive_tip": "Recibe tu tarjeta de regalo",
-      "title": "Tu tarjeta de regalo",
-      "use_giftcard": "Usar la tarjeta de regalo",
-      "use_giftcard_tip": "Puedes introducir el número de tarjeta de regalo en la caja para la deducción"
     }
   },
   "reduction_code": {

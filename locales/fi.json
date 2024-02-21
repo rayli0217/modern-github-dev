@@ -233,12 +233,16 @@
       "phone": "Matkapuhelinnumero",
       "reset_password_error_hint": "Linkitä ensin sähköposti tai matkapuhelinnumero",
       "revoke": "Peruuta sulkeminen",
+      "revoke_btn": "",
       "revoke_message": "Tämä tili suljetaan parhaillaan, tilitiedot poistetaan {{time}} ja ennen sitä päivää voit peruuttaa sulkemisprosessin",
       "save_btn": "TALLENNA",
       "select__date": "Valitse päivämäärä",
       "subscribe_confirm_tip": "Kiitos tilaamisesta.",
+      "subscribed": "",
       "timeout_tip": "Operaatio aikakatkaistiinn, vahvista uudelleen",
       "unknow_error_tip": "Palvelupoikkeus, yritä myöhemmin uudelleen",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Nimi",
       "verify_email_message": "Ennen tilin sulkemista meidän on vahvistettava henkilöllisyytesi\nSaat sähköpostiisi {{email}} vahvistussähköpostin",
       "verify_phone_message": "Ennen tilin sulkemista meidän on vahvistettava henkilöllisyytesi\nSaat puhelimeesi {{phone}} vahvistusviestin",
@@ -649,6 +653,20 @@
       "unavailable": "ei ole saatavilla",
       "variant_property_color": "Väri"
     },
+    "giftcard": {
+      "seoTitle": "{{ shop }} -lahjakorttisi saldo on {{ value }}!",
+      "balance": "Tase",
+      "buy_giftcard": "Osta lahjakortti",
+      "description": "Tässä on {{price}} lahjakortti {{shop}}",
+      "expired_date": "New-osoite",
+      "invalid_tip": "Lahjakortti on virheellinen, osta uusi",
+      "permanent": "Vakituinen",
+      "receive_at": "Lisää osoite",
+      "receive_tip": "Hanki lahjakortti",
+      "title": "Lahjakortti",
+      "use_giftcard": "Tallenna lahjakortti",
+      "use_giftcard_tip": "Voit vähentää kirjoittamalla lahjakortti numeron ruutuun"
+    },
     "product_details": {
       "activity_toast_price_limit": "Tämän rajoitetun tuotteen sallittu enimmäismäärä on {{num}}",
       "activity_toast_product__limit": "Osto on rajoitettu {{stock}} kampanjatuotteeseen",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Äskeittäin katsotut tuotteet"
-    },
-    "giftcard": {
-      "balance": "Tase",
-      "buy_giftcard": "Osta lahjakortti",
-      "description": "Tässä on {{price}} lahjakortti {{shop}}",
-      "expired_date": "New-osoite",
-      "invalid_tip": "Lahjakortti on virheellinen, osta uusi",
-      "permanent": "Vakituinen",
-      "receive_at": "Lisää osoite",
-      "receive_tip": "Hanki lahjakortti",
-      "title": "Lahjakortti",
-      "use_giftcard": "Tallenna lahjakortti",
-      "use_giftcard_tip": "Voit vähentää kirjoittamalla lahjakortti numeron ruutuun"
     }
   },
   "reduction_code": {

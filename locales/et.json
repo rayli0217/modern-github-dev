@@ -233,12 +233,16 @@
       "phone": "Mobiiltelefon",
       "reset_password_error_hint": "Kõigepealt seo e-kiri või mobiiltelefon",
       "revoke": "Tühistamine",
+      "revoke_btn": "",
       "revoke_message": "See konto on suletud, konto andmed kustutatakse {{time}}, protseduuri saate enne seda kuupäeva tühistada",
       "save_btn": "SALVESTA",
       "select__date": "Vali kuupäev",
       "subscribe_confirm_tip": "Täname teid tellimus eest.",
+      "subscribed": "",
       "timeout_tip": "Toiming aegus, kinnitage uuesti",
       "unknow_error_tip": "Teenuse erand, proovige hiljem uuesti",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Nimi",
       "verify_email_message": "Enne konto sulgemist peame kontrollima teie identiteeti\nTeie e-posti aadress {{email}} saab kontrollimeili",
       "verify_phone_message": "Enne konto sulgemist peame kontrollima teie identiteeti\nTeie mobiiltelefon {{phone}} saab sõnumi",
@@ -649,6 +653,20 @@
       "unavailable": "mitte saadaval",
       "variant_property_color": "Värvus"
     },
+    "giftcard": {
+      "seoTitle": "Teie {{ shop }} kinkekaardi saldo on {{ value }}!",
+      "balance": "Tasakaal",
+      "buy_giftcard": "Osta kinkekaart",
+      "description": "Siin on teie kinkekaart {{price}} for {{shop}}",
+      "expired_date": "Kõlblikkusaeg",
+      "invalid_tip": "Kinkekaart ei kehti, osta uus",
+      "permanent": "Alaline",
+      "receive_at": "Aegunud aadressil",
+      "receive_tip": "Hankige oma kinkekaart",
+      "title": "Sinu kinkekaart",
+      "use_giftcard": "Kinkekaardi salvestamine",
+      "use_giftcard_tip": "Saate sisestada oma kinkekaardi numbri kassas, et maha arvata"
+    },
     "product_details": {
       "activity_toast_price_limit": "Selle piiratud toote maksimaalne lubatud kogus on {{num}}",
       "activity_toast_product__limit": "Ost on piiratud {{stock}} kampaaniatootega",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Hiljuti vaadatud tooted"
-    },
-    "giftcard": {
-      "balance": "Tasakaal",
-      "buy_giftcard": "Osta kinkekaart",
-      "description": "Siin on teie kinkekaart {{price}} for {{shop}}",
-      "expired_date": "Kõlblikkusaeg",
-      "invalid_tip": "Kinkekaart ei kehti, osta uus",
-      "permanent": "Alaline",
-      "receive_at": "Aegunud aadressil",
-      "receive_tip": "Hankige oma kinkekaart",
-      "title": "Sinu kinkekaart",
-      "use_giftcard": "Kinkekaardi salvestamine",
-      "use_giftcard_tip": "Saate sisestada oma kinkekaardi numbri kassas, et maha arvata"
     }
   },
   "reduction_code": {

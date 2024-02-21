@@ -233,12 +233,16 @@
       "phone": "Mobilais telefons",
       "reset_password_error_hint": "Lūdzu, vispirms saistiet e-pastu vai mobilo tālruni",
       "revoke": "Atcelt slēgšanu",
+      "revoke_btn": "",
       "revoke_message": "Šis konts tiek slēgts, konta dati tiks dzēsti {{time}}, jūs varat atcelt šo procesu pirms šī datuma",
       "save_btn": "saglabāt",
       "select__date": "Izvēlieties datumu",
       "subscribe_confirm_tip": "Paldies par abonementu.",
+      "subscribed": "",
       "timeout_tip": "Iestājies taimauts operācijai, lūdzu, pārbaudiet vēlreiz",
       "unknow_error_tip": "Pakalpojuma izņēmums, mēģiniet vēlreiz vēlāk",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Vārds",
       "verify_email_message": "Pirms konta slēgšanas mums ir jāpārbauda jūsu identitāte\nJūsu e-pasts {{email}} saņems verifikācijas e-pastu",
       "verify_phone_message": "Pirms konta slēgšanas mums ir jāpārbauda jūsu identitāte\nJūsu mobilais tālrunis {{phone}} saņems verifikācijas ziņojumu",
@@ -649,6 +653,20 @@
       "unavailable": "nav pieejams",
       "variant_property_color": "Krāsa"
     },
+    "giftcard": {
+      "seoTitle": "Jūsu {{ shop }} dāvanu kartes atlikums ir {{ value }}!",
+      "balance": "Balanss",
+      "buy_giftcard": "Pērciet dāvanu karti",
+      "description": "Šeit ir jūsu {{price}} dāvanu karti {{shop}}",
+      "expired_date": "Bezdzemdību",
+      "invalid_tip": "Jūsu dāvanu karti nav derīga, iegādājieties jaunu",
+      "permanent": "Pastāvīgs",
+      "receive_at": "Paplašināts plkst",
+      "receive_tip": "Iegūstiet dāvanu karti",
+      "title": "Jūsu dāvanu karti",
+      "use_giftcard": "Izmantojiet dāvanu karti",
+      "use_giftcard_tip": "Lai atņemtu, lodziņā varat ievadīt dāvanu karti numuru"
+    },
     "product_details": {
       "activity_toast_price_limit": "Maksimālais pieļaujamais daudzums šim ierobežotajam produktam ir {{num}}",
       "activity_toast_product__limit": "Pirkums ir ierobežots ar {{stock}} reklāmas produktu",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Jaunākie produkti, ar kuriem konsultējās"
-    },
-    "giftcard": {
-      "balance": "Balanss",
-      "buy_giftcard": "Pērciet dāvanu karti",
-      "description": "Šeit ir jūsu {{price}} dāvanu karti {{shop}}",
-      "expired_date": "Bezdzemdību",
-      "invalid_tip": "Jūsu dāvanu karti nav derīga, iegādājieties jaunu",
-      "permanent": "Pastāvīgs",
-      "receive_at": "Paplašināts plkst",
-      "receive_tip": "Iegūstiet dāvanu karti",
-      "title": "Jūsu dāvanu karti",
-      "use_giftcard": "Izmantojiet dāvanu karti",
-      "use_giftcard_tip": "Lai atņemtu, lodziņā varat ievadīt dāvanu karti numuru"
     }
   },
   "reduction_code": {

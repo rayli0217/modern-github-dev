@@ -233,12 +233,16 @@
       "phone": "Số Điện Thoại cố Định",
       "reset_password_error_hint": "Vui lòng liên kết email hoặc số điện thoại di động trước",
       "revoke": "Hủy đóng",
+      "revoke_btn": "",
       "revoke_message": "Tài khoản này đang được xử lý để đóng, dữ liệu tài khoản sẽ bị xóa vào lúc {{time}}, bạn có thể hủy quá trình này trước ngày đó",
       "save_btn": "LƯU",
       "select__date": "Chọn Ngày",
       "subscribe_confirm_tip": "Cảm ơn bạn đã đăng ký.",
+      "subscribed": "",
       "timeout_tip": "Đã quá thời gian thao tác, vui lòng xác minh lại",
       "unknow_error_tip": "Ngoại lệ dịch vụ, hãy thử lại sau",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Tên",
       "verify_email_message": "Trước khi đóng tài khoản, chúng tôi cần xác minh danh tính của bạn\nBạn sẽ nhận được email xác minh vào email {{email}}",
       "verify_phone_message": "Trước khi đóng tài khoản, chúng tôi cần xác minh danh tính của bạn\nBạn sẽ nhận được tin nhắn xác minh vào số điện thoại di động {{phone}}",
@@ -649,6 +653,20 @@
       "unavailable": "không có sẵn",
       "variant_property_color": "Màu sắc"
     },
+    "giftcard": {
+      "seoTitle": "",
+      "balance": "Số dư",
+      "buy_giftcard": "Mua thẻ quà tặng",
+      "description": "Đây là {{price}} thẻ quà tặng của bạn dành cho {{shop}}!",
+      "expired_date": "Ngày hết hạn",
+      "invalid_tip": "Thẻ quà tặng của bạn không hợp lệ, vui lòng mua thẻ khác",
+      "permanent": "Vĩnh viễn",
+      "receive_at": "Hết hạn vào",
+      "receive_tip": "Vui lòng nhận thẻ quà tặng của bạn",
+      "title": "Thẻ quà tặng của bạn",
+      "use_giftcard": "Sử dụng thẻ quà tặng",
+      "use_giftcard_tip": "Bạn có thể nhập mã số trên thẻ quà tặng khi thanh toán để được khấu trừ"
+    },
     "product_details": {
       "activity_toast_price_limit": "Bạn chỉ có thể mua {{num}} sản phẩm này với giá khuyến mãi",
       "activity_toast_product__limit": "Bạn có thể mua cùng lúc tối đa {{stock}} sản phẩm với giá khuyến mãi",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Sản phẩm đã xem gần đây"
-    },
-    "giftcard": {
-      "balance": "Số dư",
-      "buy_giftcard": "Mua thẻ quà tặng",
-      "description": "Đây là {{price}} thẻ quà tặng của bạn dành cho {{shop}}!",
-      "expired_date": "Ngày hết hạn",
-      "invalid_tip": "Thẻ quà tặng của bạn không hợp lệ, vui lòng mua thẻ khác",
-      "permanent": "Vĩnh viễn",
-      "receive_at": "Hết hạn vào",
-      "receive_tip": "Vui lòng nhận thẻ quà tặng của bạn",
-      "title": "Thẻ quà tặng của bạn",
-      "use_giftcard": "Sử dụng thẻ quà tặng",
-      "use_giftcard_tip": "Bạn có thể nhập mã số trên thẻ quà tặng khi thanh toán để được khấu trừ"
     }
   },
   "reduction_code": {

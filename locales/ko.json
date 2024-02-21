@@ -233,12 +233,16 @@
       "phone": "핸드폰",
       "reset_password_error_hint": "우선 이메일 혹인 핸드폰을 귀속하세요",
       "revoke": "로그아웃을 취소합니다",
+      "revoke_btn": "",
       "revoke_message": "계정이 로그아웃 중이고, 계정 데이터는 {{time}} 삭제되며, 해당 날짜까지 로그아웃을 취소할 수 있습니다.",
       "save_btn": "저장",
       "select__date": "날짜 선택",
       "subscribe_confirm_tip": "구독해 주셔서 감사합니다.",
+      "subscribed": "",
       "timeout_tip": "작업 시간이 초과되었습니다 재검증하십시오.",
       "unknow_error_tip": "서비스가 이상합니다. 나중에 다시 시도합니다.",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "이름",
       "verify_email_message": "로그아웃 작업을 진행하기 전에, 우리는 당신의 신원을 확인해야 합니다.메일박스 {{email}} 에서 인증번호 메일을 받을 것입니다",
       "verify_phone_message": "로그아웃 작업을 진행하기 전에, 우리는 당신의 신원을 확인해야 합니다.고객님의 핸드폰{{phone}} 에 인증 문자가 올 것입니다",
@@ -649,6 +653,20 @@
       "unavailable": "사용할 수 없음",
       "variant_property_color": "색깔"
     },
+    "giftcard": {
+      "seoTitle": "고객님 {{ shop }} 의 기프트 카드 잔액이 {{ value }}입니다!",
+      "balance": "균형",
+      "buy_giftcard": "기프트 카드 구입",
+      "description": "{{shop}}에 대한 {{price}} 기프트 카드입니다!",
+      "expired_date": "만료일",
+      "invalid_tip": "기프트 카드가 잘못되었습니다. 다른 기프트 카드를 구입하십시오",
+      "permanent": "영구적인",
+      "receive_at": "만료 날짜",
+      "receive_tip": "기프트 카드를 받으시기 바랍니다",
+      "title": "당신의 기프트 카드",
+      "use_giftcard": "기프트 카드 사용",
+      "use_giftcard_tip": "체크아웃 시 공제를 위해 기프트 카드 번호를 입력할 수 있습니다"
+    },
     "product_details": {
       "activity_toast_price_limit": "이 상품 혜택 가격은 {{num}}건을 구매할 때만 가능하고",
       "activity_toast_product__limit": "최다 동시에 {{stock}}건을 구매할 때의 혜택가격 상품",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "최근 둘러본 상품"
-    },
-    "giftcard": {
-      "balance": "균형",
-      "buy_giftcard": "기프트 카드 구입",
-      "description": "{{shop}}에 대한 {{price}} 기프트 카드입니다!",
-      "expired_date": "만료일",
-      "invalid_tip": "기프트 카드가 잘못되었습니다. 다른 기프트 카드를 구입하십시오",
-      "permanent": "영구적인",
-      "receive_at": "만료 날짜",
-      "receive_tip": "기프트 카드를 받으시기 바랍니다",
-      "title": "당신의 기프트 카드",
-      "use_giftcard": "기프트 카드 사용",
-      "use_giftcard_tip": "체크아웃 시 공제를 위해 기프트 카드 번호를 입력할 수 있습니다"
     }
   },
   "reduction_code": {

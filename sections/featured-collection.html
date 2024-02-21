@@ -26,6 +26,10 @@
 }}
 {{assign "product_limit" (multiply section.settings.products_to_show 1)}}
 
+{{#and (if (length section.blocks) "===" 1) (if (get "0.settings.collection_title" section.blocks) "==" "")}}
+  {{assign "is_hide_tab" true}}
+{{/and}}
+
 <div class="isolate">
   <div class="featured-collection section-padding" style="--mobile-cols:{{section.settings.columns_mobile}}">
     <div class="featured-collection__title page-width">
@@ -42,10 +46,9 @@
     {{#not (isEmpty section.blocks)}}
       <featured-collection-tabs>
         <div class="display-flex page-width">
-          <div class="featured-collection__tabs">
+          <div class="featured-collection__tabs {{#if is_hide_tab}}display-none{{/if}}">
             {{#each section.blocks}}
               {{assign "section" ../section}}
-              {{assign "collection_title" (get "title" settings.collection)}}
               <span
                 class="featured-collection__tabs-item body3
                   {{#if @index '===' 0}}featured-collection__tabs-item--active{{/if}}"
@@ -82,7 +85,9 @@
               <slide-pagination
                 class="slide-pagination display-none-tablet
                   slider-block--{{id}}
-                  {{#if @index '!==' 0}}display-none{{/if}}"
+                  {{#if @index '!==' 0}}display-none{{/if}}
+                  {{#if ../is_hide_tab}}display-none{{/if}}
+                  "
                 data-slider-id="Slider-{{unique_id}}"
                 style="
             --progress: {{multiply (divide 1 slider_total) 100}}% 

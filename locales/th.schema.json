@@ -1804,6 +1804,9 @@
             },
             "menu": {
               "label": "เมนูนำทาง"
+            },
+            "default_fold": {
+              "label": "ขยายตามค่าเริ่มต้น"
             }
           }
         },
@@ -1954,6 +1957,9 @@
             },
             "conact_text_5": {
               "label": "ข้อมูลติดต่อ 5 ข้อความ"
+            },
+            "default_fold": {
+              "label": "ขยายตามค่าเริ่มต้น"
             }
           }
         },
@@ -2070,6 +2076,9 @@
             },
             "text_4": {
               "label": "ไอคอนคำสั่ง 4 ข้อความ"
+            },
+            "default_fold": {
+              "label": "ขยายตามค่าเริ่มต้น"
             }
           }
         }
@@ -2125,6 +2134,30 @@
           },
           "options__3": {
             "label": "LOGO ตรงกลาง เมนูเปลี่ยนบรรทัด"
+          }
+        },
+        "body_pc_second_font_size": {
+          "label": "ขนาดตัวอักษรการนำทางรองบนพีซี",
+          "options__0": {
+            "label": "ใหญ่"
+          },
+          "options__1": {
+            "label": "กลาง"
+          },
+          "options__2": {
+            "label": "เล็ก"
+          }
+        },
+        "body_pc_thirdly_font_size": {
+          "label": "ขนาดตัวอักษรของการนำทางระดับที่สามบนพีซี",
+          "options__0": {
+            "label": "ใหญ่"
+          },
+          "options__1": {
+            "label": "กลาง"
+          },
+          "options__2": {
+            "label": "เล็ก"
           }
         },
         "mobile_top_menu": {
@@ -2214,6 +2247,15 @@
             "menu_title": {
               "label": "เมนูทริกเกอร์",
               "info": "กรุณากรอกชื่อเมนูระดับแรกในส่วนหัวและสามารถแสดงภาพได้เมื่อเมนูมีเมนูระดับล่าง"
+            },
+            "menu_img_style": {
+              "label": "รูปแบบภาพเมนู",
+              "options__0": {
+                "label": "สไตล์ 1"
+              },
+              "options__1": {
+                "label": "สไตล์ 2"
+              }
             },
             "text_color": {
               "label": "สีของข้อความ"
@@ -2851,6 +2893,16 @@
             "label": "รายการ"
           }
         },
+        "columns": {
+          "label": "จำนวนคอลัมน์บนคอมพิวเตอร์",
+          "info": "มีผลเฉพาะในรูปแบบกริดเท่านั้น",
+          "options__0": {
+            "label": "2 คอลัมน์"
+          },
+          "options__1": {
+            "label": "3 คอลัมน์"
+          }
+        },
         "is_show_cover": {
           "label": "แสดงภาพหน้าปก"
         },
@@ -3377,6 +3429,30 @@
             "label": "เล็ก"
           }
         },
+        "product_thumbnail_image_size": {
+          "label": "ขนาดภาพขนาดย่อของคอมพิวเตอร์",
+          "options__0": {
+            "label": "ใหญ่"
+          },
+          "options__1": {
+            "label": "กลาง"
+          },
+          "options__2": {
+            "label": "เล็ก"
+          }
+        },
+        "product_mobile_thumbnail_image_size": {
+          "label": "ขนาดภาพขนาดย่อบนมือถือ",
+          "options__0": {
+            "label": "ใหญ่"
+          },
+          "options__1": {
+            "label": "กลาง"
+          },
+          "options__2": {
+            "label": "เล็ก"
+          }
+        },
         "product_mobile_text_align": {
           "label": "การจัดตำแหน่งโดยรวมบนโทรศัพท์มือถือ",
           "options__0": {
@@ -3490,6 +3566,9 @@
             "dividing_line_color": {
               "label": "สีของเส้นแบ่ง"
             },
+            "desktop_dividing_line_height": {
+              "label": "ความหนาของเส้นแบ่งด้านคอมพิวเตอร์"
+            },
             "dividing_line_style": {
               "label": "รูปแบบเส้นแบ่งบนมือถือ",
               "options__0": {
@@ -3572,6 +3651,18 @@
               "options__3": {
                 "label": "ใหญ่มาก"
               }
+            },
+            "save_style": {
+              "label": "เสนอรูปแบบฉลาก",
+              "options__0": {
+                "label": "สไตล์ปุ่ม"
+              },
+              "options__1": {
+                "label": "สไตล์ข้อความ"
+              }
+            },
+            "save_radius": {
+              "label": "รัศมีมุมของแท็กส่วนลด"
             },
             "font_size_flexible": {
               "label": "การกำหนดค่าขนาดตัวอักษรที่ยืดหยุ่น",
@@ -5955,8 +6046,40 @@
     "product": {
       "name": "สินค้า",
       "settings": {
+        "group_header__0": {
+          "label": "ป้ายส่วนลดบัตรสินค้า",
+          "info": "มีผลกับฉลากส่วนลดบัตรสินค้าเท่านั้น ฉลากที่แสดง ในหน้ารายละเอียดสินค้าสามารถตั้งค่าได้ใน \"รายละเอียดสินค้า-ราคา\""
+        },
         "product_discount": {
           "label": "แสดงส่วนลด"
+        },
+        "product_discount_tag_style": {
+          "label": "ฉลากส่วนลด",
+          "options__0": {
+            "label": "ป้ายขาย"
+          },
+          "options__1": {
+            "label": "บันทึกแท็ก"
+          }
+        },
+        "product_discount_style": {
+          "label": "รูปแบบส่วนลด",
+          "info": "จะมีผลเมื่อมีการเลือกแท็กบันทึกสำหรับแท็กข้อเสนอ",
+          "options__0": {
+            "label": "แสดงยอดเงินส่วนลด"
+          },
+          "options__1": {
+            "label": "แสดงเปอร์เซ็นต์ส่วนลด"
+          }
+        },
+        "product_discount_size": {
+          "label": "เสนอขนาดฉลาก",
+          "options__0": {
+            "label": "กลาง"
+          },
+          "options__1": {
+            "label": "เล็ก"
+          }
         },
         "product_discount_position": {
           "label": "ตำแหน่งของแท็กส่วนลด",
@@ -5976,7 +6099,7 @@
         "product_discount_radius": {
           "label": "รัศมีมุมของแท็กส่วนลด"
         },
-        "group_header__0": {
+        "group_header__1": {
           "label": "รายการสินค้า"
         },
         "enable_quick_view": {
@@ -6015,7 +6138,7 @@
         "product_mobile_title_show": {
           "label": "แสดงหัวข้อสินค้าบนโทรศัพท์มือถือ"
         },
-        "group_header__1": {
+        "group_header__2": {
           "label": "ซื้อแถบสีด่วน",
           "info": "[คลิกเพื่อทราบ](https://help.shopline.com/hc/zh-cn/articles/18291247740825-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%BB%BA%E7%AB%99%E7%BC%96%E8%BE%91%E5%99%A8%E8%89%B2%E6%9D%BF%E5%8A%9F%E8%83%BD) รายละเอียดฟังก์ชั่นการซื้อแถบสีด่วน"
         },
@@ -6068,6 +6191,9 @@
       "settings": {
         "cart_type": {
           "label": "วิธีการซื้อเพิ่ม",
+          "options__0": {
+            "label": "ตะกร้าช้อปปิ้งแบบลิ้นชัก"
+          },
           "options__1": {
             "label": "เข้าสู่หน้าตะกร้าสินค้า"
           },

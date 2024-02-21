@@ -4,10 +4,12 @@
       "type": "main-product",
       "settings": {
         "product_info_sticky": true,
-        "product_image_pc_show_style": "columns",
-        "product_image_pc_thumbnail_postion": "beside",
+        "product_image_pc_show_style": "thumbnail_flatten",
+        "product_image_pc_thumbnail_postion": "bottom",
         "product_image_size": "large",
-        "product_mobile_thumbnail_image_hide": "hide",
+        "product_mobile_thumbnail_image_size": "medium",
+        "product_thumbnail_image_size": "medium",
+        "product_mobile_thumbnail_image_hide": "show",
         "pc_magnifier_type": "click",
         "video_loop": false,
         "padding_top": 0,
@@ -24,7 +26,7 @@
         "block_2": {
           "type": "price",
           "settings": {
-            "show_order": "sale_origin",
+            "show_order": "save_sale_origin",
             "sale_font_size": "font_size_small",
             "regular_font_size": "font_size_small",
             "sale_font_bold": true,
@@ -32,13 +34,16 @@
             "sale_price_pc_font_size": 20,
             "sale_price_mobile_font_size": 18,
             "regular_price_pc_font_size": 20,
-            "regular_price_mobile_font_size": 16
+            "regular_price_mobile_font_size": 16,
+            "save_style": "text",
+            "save_radius": 4
           }
         },
         "block_3": {
           "type": "dividing_line",
           "settings": {
             "dividing_line_color": "#000000",
+            "desktop_dividing_line_height": 1,
             "dividing_line_height": 1
           }
         },

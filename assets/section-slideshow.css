@@ -370,8 +370,9 @@ a.slideshow-slide__media {
 .control__dot {
   display: block;
   padding: 0;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
+  margin: 7px;
   border: none;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.5);

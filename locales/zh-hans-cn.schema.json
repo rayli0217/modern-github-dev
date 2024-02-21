@@ -1804,6 +1804,9 @@
             },
             "menu": {
               "label": "导航菜单"
+            },
+            "default_fold": {
+              "label": "默认展开"
             }
           }
         },
@@ -1954,6 +1957,9 @@
             },
             "conact_text_5": {
               "label": "联系方式5文案"
+            },
+            "default_fold": {
+              "label": "默认展开"
             }
           }
         },
@@ -2070,6 +2076,9 @@
             },
             "text_4": {
               "label": "图标申明4文本"
+            },
+            "default_fold": {
+              "label": "默认展开"
             }
           }
         }
@@ -2125,6 +2134,30 @@
           },
           "options__3": {
             "label": "LOGO居中，菜单换行"
+          }
+        },
+        "body_pc_second_font_size": {
+          "label": "电脑端二级导航字体大小",
+          "options__0": {
+            "label": "大"
+          },
+          "options__1": {
+            "label": "中"
+          },
+          "options__2": {
+            "label": "小"
+          }
+        },
+        "body_pc_thirdly_font_size": {
+          "label": "电脑端三级导航字体大小",
+          "options__0": {
+            "label": "大"
+          },
+          "options__1": {
+            "label": "中"
+          },
+          "options__2": {
+            "label": "小"
           }
         },
         "mobile_top_menu": {
@@ -2214,6 +2247,15 @@
             "menu_title": {
               "label": "触发菜单",
               "info": "请填写页头的一级菜单名称，当该菜单有下级菜单时可显示图片"
+            },
+            "menu_img_style": {
+              "label": "菜单图片样式",
+              "options__0": {
+                "label": "样式1"
+              },
+              "options__1": {
+                "label": "样式2"
+              }
             },
             "text_color": {
               "label": "文本颜色"
@@ -2851,6 +2893,16 @@
             "label": "列表"
           }
         },
+        "columns": {
+          "label": "电脑端列数",
+          "info": "仅在网格布局下生效",
+          "options__0": {
+            "label": "2列"
+          },
+          "options__1": {
+            "label": "3列"
+          }
+        },
         "is_show_cover": {
           "label": "显示封面图"
         },
@@ -3377,6 +3429,30 @@
             "label": "小"
           }
         },
+        "product_thumbnail_image_size": {
+          "label": "电脑端缩略图大小",
+          "options__0": {
+            "label": "大"
+          },
+          "options__1": {
+            "label": "中"
+          },
+          "options__2": {
+            "label": "小"
+          }
+        },
+        "product_mobile_thumbnail_image_size": {
+          "label": "移动端缩略图大小",
+          "options__0": {
+            "label": "大"
+          },
+          "options__1": {
+            "label": "中"
+          },
+          "options__2": {
+            "label": "小"
+          }
+        },
         "product_mobile_text_align": {
           "label": "移动端整体对齐方式",
           "options__0": {
@@ -3490,6 +3566,9 @@
             "dividing_line_color": {
               "label": "分割线颜色"
             },
+            "desktop_dividing_line_height": {
+              "label": "电脑端分割线粗细"
+            },
             "dividing_line_style": {
               "label": "移动端分割线样式",
               "options__0": {
@@ -3572,6 +3651,18 @@
               "options__3": {
                 "label": "超大"
               }
+            },
+            "save_style": {
+              "label": "优惠标签样式",
+              "options__0": {
+                "label": "按钮样式"
+              },
+              "options__1": {
+                "label": "文本样式"
+              }
+            },
+            "save_radius": {
+              "label": "优惠标签圆角半径"
             },
             "font_size_flexible": {
               "label": "字体大小灵活配置",
@@ -5955,8 +6046,40 @@
     "product": {
       "name": "商品",
       "settings": {
+        "group_header__0": {
+          "label": "商品卡片优惠标签",
+          "info": "仅影响商品卡片优惠标签，商品详情页标签展示可在「商品详情-价格」中设置。"
+        },
         "product_discount": {
           "label": "展示优惠"
+        },
+        "product_discount_tag_style": {
+          "label": "优惠标签",
+          "options__0": {
+            "label": "sale标签"
+          },
+          "options__1": {
+            "label": "save标签"
+          }
+        },
+        "product_discount_style": {
+          "label": "优惠样式",
+          "info": "当优惠标签选择save标签时生效",
+          "options__0": {
+            "label": "显示优惠金额"
+          },
+          "options__1": {
+            "label": "显示优惠比例"
+          }
+        },
+        "product_discount_size": {
+          "label": "优惠标签大小",
+          "options__0": {
+            "label": "中"
+          },
+          "options__1": {
+            "label": "小"
+          }
         },
         "product_discount_position": {
           "label": "优惠标签位置",
@@ -5976,7 +6099,7 @@
         "product_discount_radius": {
           "label": "优惠标签圆角半径"
         },
-        "group_header__0": {
+        "group_header__1": {
           "label": "商品列表"
         },
         "enable_quick_view": {
@@ -6015,7 +6138,7 @@
         "product_mobile_title_show": {
           "label": "手机端展示商品标题"
         },
-        "group_header__1": {
+        "group_header__2": {
           "label": "色板快速加购",
           "info": "[点击了解](https://help.shopline.com/hc/zh-cn/articles/18291247740825-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%BB%BA%E7%AB%99%E7%BC%96%E8%BE%91%E5%99%A8%E8%89%B2%E6%9D%BF%E5%8A%9F%E8%83%BD)色板快速加购功能详情"
         },
@@ -6068,6 +6191,9 @@
       "settings": {
         "cart_type": {
           "label": "加购方式",
+          "options__0": {
+            "label": "抽屉购物车"
+          },
           "options__1": {
             "label": "进入购物车页"
           },

@@ -233,12 +233,16 @@
       "phone": "Téléphone mobile",
       "reset_password_error_hint": "Veuillez d'abord lier votre adresse e-mail ou votre téléphone mobile",
       "revoke": "Annuler la déconnexion",
+      "revoke_btn": "",
       "revoke_message": "Le compte est en cours d’annulation et les données du compte seront supprimées à {{time}}, et vous pouvez révoquer ce processus d’annulation avant cette date",
       "save_btn": "ENREGISTRER",
       "select__date": "Sélectionner la date",
       "subscribe_confirm_tip": "Merci pour votre abonnement.",
+      "subscribed": "",
       "timeout_tip": "L'opération a expiré, veuillez vérifier à nouveau",
       "unknow_error_tip": "Exception de service, réessayer plus tard",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Nom",
       "verify_email_message": "Nous devons vérifier votre identité avant de vous déconnecter.Votre adresse é-mail {{email}} recevra un é-mail de code de vérification",
       "verify_phone_message": "Nous devons vérifier votre identité avant de vous déconnecter.Votre téléphone portable {{phone}} recevra un message de vérification",
@@ -649,6 +653,20 @@
       "unavailable": "Non disponible",
       "variant_property_color": "Couleur"
     },
+    "giftcard": {
+      "seoTitle": "Le solde de votre carte cadeau {{ shop }} est {{ value }} !",
+      "balance": "Balance",
+      "buy_giftcard": "Achetez une carte-cadeau",
+      "description": "Voici votre carte-cadeau {{price}} pour {{shop}}!",
+      "expired_date": "Délai d’expiration",
+      "invalid_tip": "Votre carte-cadeau n’est pas valide, veuillez en acheter une autre",
+      "permanent": "Effet perpétuel",
+      "receive_at": "Expiré à",
+      "receive_tip": "Veuillez recevoir votre carte-cadeau",
+      "title": "Votre carte cadeau",
+      "use_giftcard": "Utilisez des cartes-cadeaux",
+      "use_giftcard_tip": "Vous pouvez entrer le numéro de carte-cadeau à la caisse pour déduction"
+    },
     "product_details": {
       "activity_toast_price_limit": "Le prix réduit de cette marchandise ne prend en charge que l'achat de {{num}} pièces",
       "activity_toast_product__limit": "Vous pouvez acheter jusqu'à {{stock}} pièces à prix réduit en même temps",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Derniers produits consultés"
-    },
-    "giftcard": {
-      "balance": "Balance",
-      "buy_giftcard": "Achetez une carte-cadeau",
-      "description": "Voici votre carte-cadeau {{price}} pour {{shop}}!",
-      "expired_date": "Délai d’expiration",
-      "invalid_tip": "Votre carte-cadeau n’est pas valide, veuillez en acheter une autre",
-      "permanent": "Effet perpétuel",
-      "receive_at": "Expiré à",
-      "receive_tip": "Veuillez recevoir votre carte-cadeau",
-      "title": "Votre carte cadeau",
-      "use_giftcard": "Utilisez des cartes-cadeaux",
-      "use_giftcard_tip": "Vous pouvez entrer le numéro de carte-cadeau à la caisse pour déduction"
     }
   },
   "reduction_code": {

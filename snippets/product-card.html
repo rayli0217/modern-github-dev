@@ -61,7 +61,7 @@
       class="card__inner ratio global-product-card-border-shadow"
       style="--ratio-percent: {{image_ratio}}%; --image-fill-type: {{image_fill_type}}; --badge-border-radius: {{theme_settings.product_discount_radius}}px;"
     >
-      <a {{#if jump_link}}href="{{jump_link}}"{{else}}href="javascript:;"{{/if}} class="card__media media--hover-effect">
+      <a href="{{#if jump_link}}{{jump_link}}{{else}}javascript:;{{/if}}" class="card__media media--hover-effect">
         {{#if product_data.featured_media}}
           {{snippet
             "image"
@@ -88,13 +88,20 @@
           </div>
         {{/if}}
       </a>
+      {{#if theme_settings.product_discount_size "==" "mini"}}
+        {{assign "tag_class" "body5 fw-bold"}}
+        {{assign "card_badge_class" "card__badge--mini"}}
+      {{else}}
+        {{assign "tag_class" "body4 fw-bold"}}
+      {{/if}}
       <div
         class="card__badge
           {{theme_settings.product_discount_position}}
+          {{card_badge_class}}
           {{#unless product_data.available}}sold-out-message{{/unless}}"
       >
         {{~#unless product_data.available}}
-          <span class="body4 fw-bold">
+          <span class="{{tag_class}}">
             {{t "transaction.item.sold_out"}}
           </span>
         {{/unless~}}
@@ -103,8 +110,23 @@
           (if product_data.compare_at_price ">" product_data.price)
           theme_settings.product_discount
         }}
-          <span class="body4 fw-bold">
-            {{t "products.product_list.save"}}
+          <span class="{{tag_class}}">
+            {{#case theme_settings.product_discount_tag_style}}
+              {{#when "sale"}}
+                {{t "products.product_list.sale"}}
+              {{else}}
+                {{assign "discount_price" (minus product_data.compare_at_price product_data.price)}}
+                {{assign
+                  "discount_ratio"
+                  (divide (divided_by (times discount_price 10000) product_data.compare_at_price) 100)
+                }}
+                {{#if theme_settings.product_discount_style "===" "number"}}
+                  {{{t "products.product_list.save_byjs" priceDom=(money_with_currency discount_price)}}}
+                {{else}}
+                  {{t "products.product_list.save_ratio" price=discount_ratio}}
+                {{/if}}
+              {{/when}}
+            {{/case}}
           </span>
         {{/and~}}
       </div>
@@ -128,7 +150,6 @@
             {{#if (test option_info.name ../color_regex)}}
               {{#with global}}
                 {{assign "has_color_sku_option" true}}
-                {{assign "product_color_option" option_info}}
               {{/with}}
               <slider-component>
                 {{#if global.theme_settings.swatch_show_style "==" "horizontal_slide"}}
@@ -196,9 +217,12 @@
                               class="display-none"
                             }}
                           {{/if}}
-                          <a class="color-swatch__inner" {{#if global.current_option_first_sku.url}}href="{{global.current_option_first_sku.url}}"{{else}}href="javascript:;"{{/if}}><span
-                              class="visibility-hidden"
-                            >{{option}}</span></a>
+                          <a
+                            class="color-swatch__inner"
+                            {{#if
+                              global.current_option_first_sku.url
+                            }}href="{{global.current_option_first_sku.url}}"{{else}}href="javascript:;"{{/if}}
+                          ><span class="visibility-hidden">{{option}}</span></a>
                         </color-swatch>
                       {{/if}}
                     {{/if}}
@@ -244,9 +268,12 @@
                               class="display-none"
                             }}
                           {{/if}}
-                          <a class="color-swatch__inner" {{#if global.current_option_first_sku.url}}href="{{global.current_option_first_sku.url}}"{{else}}href="javascript:;"{{/if}}><span
-                              class="visibility-hidden"
-                            >{{option}}</span></a>
+                          <a
+                            class="color-swatch__inner"
+                            {{#if
+                              global.current_option_first_sku.url
+                            }}href="{{global.current_option_first_sku.url}}"{{else}}href="javascript:;"{{/if}}
+                          ><span class="visibility-hidden">{{option}}</span></a>
                         </color-swatch>
                       </li>
                     {{/if}}
@@ -290,16 +317,22 @@
                             class="display-none"
                           }}
                         {{/if}}
-                        <a class="color-swatch__inner" {{#if global.current_option_first_sku.url}}href="{{global.current_option_first_sku.url}}"{{else}}href="javascript:;"{{/if}}><span
-                            class="visibility-hidden"
-                          >{{option}}</span></a>
+                        <a
+                          class="color-swatch__inner"
+                          {{#if
+                            global.current_option_first_sku.url
+                          }}href="{{global.current_option_first_sku.url}}"{{else}}href="javascript:;"{{/if}}
+                        ><span class="visibility-hidden">{{option}}</span></a>
                       </color-swatch>
                     {{/if}}
                   {{/each}}
 
                   {{#if global.theme_settings.swatch_show_style "==" "show_one_row"}}
                     {{#gt (length option_info.values) global.theme_settings.swatch_max_show}}
-                      <a class="color-swatch__remain body3" {{#if ../product_data.url}}href="{{../product_data.url}}"{{else}}href="javascript:;"{{/if}}>
+                      <a
+                        class="color-swatch__remain body3"
+                        {{#if ../product_data.url}}href="{{../product_data.url}}"{{else}}href="javascript:;"{{/if}}
+                      >
                         +{{minus (length option_info.values) global.theme_settings.swatch_max_show}}
                       </a>
                     {{/gt}}

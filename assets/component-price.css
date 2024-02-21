@@ -20,6 +20,13 @@
   color: rgb(var(--color-discount));
 }
 
+.price .price__sale .price-item--save.price-item--save-button {
+  background: rgb(var(--color-discount-tag-background));
+  color: rgb(var(--color-discount-tag-text));
+  border-radius: var(--save-button-radius, 4px);
+  padding: 4px 12px;
+}
+
 .price .price__sale .price-item--sale {
   color: rgb(var(--color-sale));
 }

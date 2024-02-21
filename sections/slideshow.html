@@ -45,7 +45,8 @@
     <div id="Slider-{{section.id}}" class="slideshow__slider slider">
       {{#with section as |section|}}
         {{#each blocks}}
-          {{assign "firstLinkInImage" (and this.settings.link (if (length this.settings.link_text) "===" 0))}}
+          {{assign "first_link_in_image" (and this.settings.link (if (length this.settings.link_text) "===" 0))}}
+          {{assign "ele" (ternary first_link_in_image 'a' 'div')}}
           <div
             {{{shopline_attributes}}}
             id="Slide-{{id}}"
@@ -60,9 +61,9 @@
               "
           >
             
-            <a
+            <{{ele}}
+              {{#if first_link_in_image}}href="{{this.settings.link}}"{{/if}}
               class="slideshow-slide__media {{#if @index '>' 0}}slideshow-slide__media--adapt{{/if}} "
-              href="{{#if firstLinkInImage}}{{this.settings.link}}{{else}}javascript:;{{/if}}"
             >
               
               {{#if this.settings.image}}
@@ -93,7 +94,7 @@
                   {{placeholder_svg_tag "lifestyle-1"}}
                 </div>
               {{/if}}
-            </a>
+            </{{ele}}>
 
             <div class="slideshow-slide__text-wrapper">
               <div class="slideshow-slide__text">

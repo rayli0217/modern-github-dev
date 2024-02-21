@@ -233,12 +233,16 @@
       "phone": "Celular",
       "reset_password_error_hint": "Vincule o email ou celular primeiro",
       "revoke": "Cancelar a exclusão",
+      "revoke_btn": "",
       "revoke_message": "A conta está em processo de exclusão, os dados da conta serão apagados em {{time}} e você pode cancelar este processo de exclusão antes dessa data",
       "save_btn": "Salvar",
       "select__date": "Selecione a data",
       "subscribe_confirm_tip": "Obrigado pela sua subscrição.",
+      "subscribed": "",
       "timeout_tip": "A operação expirou, verifique novamente",
       "unknow_error_tip": "Erro de serviço, tente novamente mais tarde",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Nome",
       "verify_email_message": "Antes que você possa excluir sua conta, precisamos verificar sua identidade.Seu e-mail {{email}} receberá um e-mail de código de verificação",
       "verify_phone_message": "Antes que você possa excluir sua conta, precisamos verificar sua identidade.Seu telefone {{phone}} receberá uma mensagem de verificação",
@@ -649,6 +653,20 @@
       "unavailable": "Não disponível",
       "variant_property_color": "Cor"
     },
+    "giftcard": {
+      "seoTitle": "O saldo de seu cartão-presente {{ shop }} é {{ value }}!",
+      "balance": "Balanço",
+      "buy_giftcard": "Comprar um cartão-presente",
+      "description": "Aqui está seu cartão-presente {{price}} para {{shop}}!",
+      "expired_date": "Data de validade",
+      "invalid_tip": "Seu cartão-presente é inválido, por favor compre outro",
+      "permanent": "Permanente",
+      "receive_at": "Expirado em",
+      "receive_tip": "Por favor, receba seu cartão-presente",
+      "title": "Seu cartão-presente",
+      "use_giftcard": "Usar o cartão-presente",
+      "use_giftcard_tip": "Você pode inserir o número do cartão-presente no checkout para dedução"
+    },
     "product_details": {
       "activity_toast_price_limit": "O preço com desconto deste produto apenas suporta a compra de {{num}} unidades",
       "activity_toast_product__limit": "Pode comprar até {{stock}} unidades com desconto ao mesmo tempo",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Produtos vistos recentemente"
-    },
-    "giftcard": {
-      "balance": "Balanço",
-      "buy_giftcard": "Comprar um cartão-presente",
-      "description": "Aqui está seu cartão-presente {{price}} para {{shop}}!",
-      "expired_date": "Data de validade",
-      "invalid_tip": "Seu cartão-presente é inválido, por favor compre outro",
-      "permanent": "Permanente",
-      "receive_at": "Expirado em",
-      "receive_tip": "Por favor, receba seu cartão-presente",
-      "title": "Seu cartão-presente",
-      "use_giftcard": "Usar o cartão-presente",
-      "use_giftcard_tip": "Você pode inserir o número do cartão-presente no checkout para dedução"
     }
   },
   "reduction_code": {

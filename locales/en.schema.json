@@ -1804,6 +1804,9 @@
             },
             "menu": {
               "label": "Navigation menu"
+            },
+            "default_fold": {
+              "label": "Expand by default"
             }
           }
         },
@@ -1954,6 +1957,9 @@
             },
             "conact_text_5": {
               "label": "Contact E text"
+            },
+            "default_fold": {
+              "label": "Expand by default"
             }
           }
         },
@@ -2070,6 +2076,9 @@
             },
             "text_4": {
               "label": "Text of icon declaration 4"
+            },
+            "default_fold": {
+              "label": "Expand by default"
             }
           }
         }
@@ -2125,6 +2134,30 @@
           },
           "options__3": {
             "label": "Logo center, menu below"
+          }
+        },
+        "body_pc_second_font_size": {
+          "label": "Secondary navigation font size on PC",
+          "options__0": {
+            "label": "Large"
+          },
+          "options__1": {
+            "label": "Center"
+          },
+          "options__2": {
+            "label": "Small"
+          }
+        },
+        "body_pc_thirdly_font_size": {
+          "label": "Font size of third-level navigation on PC",
+          "options__0": {
+            "label": "Large"
+          },
+          "options__1": {
+            "label": "Center"
+          },
+          "options__2": {
+            "label": "Small"
           }
         },
         "mobile_top_menu": {
@@ -2214,6 +2247,15 @@
             "menu_title": {
               "label": "Trigger menu",
               "info": "Please enter the name for the first level menu on the page header so images will be displayed if there’s a sub-menu"
+            },
+            "menu_img_style": {
+              "label": "Menu picture style",
+              "options__0": {
+                "label": "Style 1"
+              },
+              "options__1": {
+                "label": "Style 2"
+              }
             },
             "text_color": {
               "label": "Font color"
@@ -2851,6 +2893,16 @@
             "label": "List"
           }
         },
+        "columns": {
+          "label": "No. of rows on PC",
+          "info": "Only takes effect in grid layout",
+          "options__0": {
+            "label": "2 columns"
+          },
+          "options__1": {
+            "label": "3 columns"
+          }
+        },
         "is_show_cover": {
           "label": "Display cover"
         },
@@ -3377,6 +3429,30 @@
             "label": "Small"
           }
         },
+        "product_thumbnail_image_size": {
+          "label": "Computer thumbnail size",
+          "options__0": {
+            "label": "Large"
+          },
+          "options__1": {
+            "label": "Center"
+          },
+          "options__2": {
+            "label": "Small"
+          }
+        },
+        "product_mobile_thumbnail_image_size": {
+          "label": "Mobile thumbnail size",
+          "options__0": {
+            "label": "Large"
+          },
+          "options__1": {
+            "label": "Center"
+          },
+          "options__2": {
+            "label": "Small"
+          }
+        },
         "product_mobile_text_align": {
           "label": "Overall alignment style on mobile device",
           "options__0": {
@@ -3490,6 +3566,9 @@
             "dividing_line_color": {
               "label": "Dividing line color"
             },
+            "desktop_dividing_line_height": {
+              "label": "The thickness of the dividing line on the computer side"
+            },
             "dividing_line_style": {
               "label": "Dividing line style on mobile device",
               "options__0": {
@@ -3572,6 +3651,18 @@
               "options__3": {
                 "label": "Extra large"
               }
+            },
+            "save_style": {
+              "label": "Offer label style",
+              "options__0": {
+                "label": "Button style"
+              },
+              "options__1": {
+                "label": "Text style"
+              }
+            },
+            "save_radius": {
+              "label": "Corner radius of discount tag"
             },
             "font_size_flexible": {
               "label": "Flexible font size configuration",
@@ -5955,8 +6046,40 @@
     "product": {
       "name": "Product",
       "settings": {
+        "group_header__0": {
+          "label": "Product card discount tag",
+          "info": "It only affects the product card discount label. The label display on the product details page can be set in \"Product Details-Price\"."
+        },
         "product_discount": {
           "label": "Display the discount"
+        },
+        "product_discount_tag_style": {
+          "label": "Discount tags",
+          "options__0": {
+            "label": "sale tag"
+          },
+          "options__1": {
+            "label": "save tag"
+          }
+        },
+        "product_discount_style": {
+          "label": "Discount style",
+          "info": "It takes effect when the save tag is selected for the offer tag.",
+          "options__0": {
+            "label": "Display the discount amount"
+          },
+          "options__1": {
+            "label": "Display the discount ratio"
+          }
+        },
+        "product_discount_size": {
+          "label": "Promotion tag size",
+          "options__0": {
+            "label": "Center"
+          },
+          "options__1": {
+            "label": "Small"
+          }
         },
         "product_discount_position": {
           "label": "Position of discount tag",
@@ -5976,7 +6099,7 @@
         "product_discount_radius": {
           "label": "Corner radius of discount tag"
         },
-        "group_header__0": {
+        "group_header__1": {
           "label": "Product list"
         },
         "enable_quick_view": {
@@ -6015,7 +6138,7 @@
         "product_mobile_title_show": {
           "label": "Display of product title on mobile phones"
         },
-        "group_header__1": {
+        "group_header__2": {
           "label": "Quick add to cart of palette",
           "info": "[Click here to learn more](https://help.shopline.com/hc/zh-cn/articles/18291247740825-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%BB%BA%E7%AB%99%E7%BC%96%E8%BE%91%E5%99%A8%E8%89%B2%E6%9D%BF%E5%8A%9F%E8%83%BD) quick add to cart of color palette"
         },
@@ -6068,6 +6191,9 @@
       "settings": {
         "cart_type": {
           "label": "Modes of adding products to the shopping cart",
+          "options__0": {
+            "label": "drawer shopping cart"
+          },
           "options__1": {
             "label": "Enter the shopping cart page"
           },

@@ -233,12 +233,16 @@
       "phone": "Telefon Bimbit",
       "reset_password_error_hint": "Sila ikat e-mel dan telefon bimbit dahulu",
       "revoke": "Membatalkan penutupan",
+      "revoke_btn": "",
       "revoke_message": "Akaun ini sedang dalam proses penutupan, data akaun akan dihapuskan pada {{time}}, anda masih boleh membatalkan proses sebelum tarikh tersebut",
       "save_btn": "SIMPAN",
       "select__date": "Pilih Tarikh",
       "subscribe_confirm_tip": "Terima kasih atas langganan anda.",
+      "subscribed": "",
       "timeout_tip": "Operasi habis waktunya, silakan autentikasi lagi",
       "unknow_error_tip": "Pengecualian perkhidmatan, sila cuba lagi kemudian",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Nama",
       "verify_email_message": "Sebelum menutup akaun, kami perlu mengesahkan identiti anda\nE-mel anda {{email}} akan menerima satu e-mel pengesahan",
       "verify_phone_message": "Sebelum menutup akaun, kami perlu mengesahkan identiti anda\nTelefon mudah alih anda {{phone}} akan menerima satu mesej pengesahan",
@@ -649,6 +653,20 @@
       "unavailable": "tidak tersedia",
       "variant_property_color": "Warna"
     },
+    "giftcard": {
+      "seoTitle": "Baki kad hadiah {{ shop }} anda adalah {{ value }}!",
+      "balance": "Baki",
+      "buy_giftcard": "Beli kad hadiah",
+      "description": "Ini adalah {{price}} kad hadiah anda untuk {{shop}}!",
+      "expired_date": "Tarikh tamat tempoh",
+      "invalid_tip": "Kad hadiah anda tidak sah, sila beli kad baharu",
+      "permanent": "Secara kekal",
+      "receive_at": "Tamat tempoh pada",
+      "receive_tip": "Sila terima kad hadiah anda",
+      "title": "Kad hadiah anda",
+      "use_giftcard": "Gunakan kad hadiah",
+      "use_giftcard_tip": "Anda boleh memasukkan nombor kad hadiah semasa pembayaran untuk mendapatkan potongan"
+    },
     "product_details": {
       "activity_toast_price_limit": "Kuantiti maksimum dibenarkan untuk produk terhad ini ialah {{num}}",
       "activity_toast_product__limit": "Pembelian dihadkan kepada {{stock}} produk promosi",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Produk Dipaparkan Baru-baru Ini"
-    },
-    "giftcard": {
-      "balance": "Baki",
-      "buy_giftcard": "Beli kad hadiah",
-      "description": "Ini adalah {{price}} kad hadiah anda untuk {{shop}}!",
-      "expired_date": "Tarikh tamat tempoh",
-      "invalid_tip": "Kad hadiah anda tidak sah, sila beli kad baharu",
-      "permanent": "Secara kekal",
-      "receive_at": "Tamat tempoh pada",
-      "receive_tip": "Sila terima kad hadiah anda",
-      "title": "Kad hadiah anda",
-      "use_giftcard": "Gunakan kad hadiah",
-      "use_giftcard_tip": "Anda boleh memasukkan nombor kad hadiah semasa pembayaran untuk mendapatkan potongan"
     }
   },
   "reduction_code": {

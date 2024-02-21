@@ -23,7 +23,8 @@
       <link rel="icon" type="image/png" href="{{settings.favicon_image}}" />
     {{/if}}
 
-    <title>{{t "Here's your price gift card for shop!"}}</title>
+    <title>{{t "products.giftcard.seoTitle" value=(money_with_currency gift_card.balance) shop=shop.name}}</title>
+
 
     <meta name="description" content="{{t 'products.giftcard.title'}}" />
 

@@ -123,7 +123,7 @@ defineCustomElement('media-gallery', () => {
       if (this.elements.thumbnails.isSlideVisible(thumbnail)) return;
 
       this.elements.thumbnails.slider.scrollTo(
-        this.elements.thumbnails.direction === 'horizontal'
+        this.elements.thumbnails.direction === 'vertical'
           ? { top: thumbnail.offsetTop }
           : { left: thumbnail.offsetLeft },
       );

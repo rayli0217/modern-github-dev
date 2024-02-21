@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="{{ asset_url 'section-main-order-list.css' }}" />
 <link rel="stylesheet" href="{{asset_url 'section-customer-nav-bar.css'}}" />
+<link rel="stylesheet" href="{{asset_url 'section-user-center-message.css'}}" />
 
 {{
   snippet "section-padding-creator"
@@ -9,6 +10,7 @@
 }}
 
 <div class="page-width section-padding">
+  {{snippet "user-center-message"}}
   {{snippet "user-center-navbar-container"}}
 
   <section class="customer-order-list-wrap">

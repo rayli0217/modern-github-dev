@@ -3,6 +3,8 @@
 
 <script src="{{asset_url 'section-main-cart-footer.js'}}" defer="defer"></script>
 
+{{assign "scene" "main-cart"}}
+
 <div
   class="page-width cart__footer-container {{#if cart.empty}}cart-empty{{/if}}"
   id="main-cart-footer"
@@ -44,7 +46,8 @@
               {{#if global.additional_checkout_buttons}}
                 {{{global.content_for_additional_checkout_buttons}}}
               {{/if}}
-              {{#form "cart"}}
+              {{assign "form_id" (append 'cart-form--' global.scene)}}
+              {{#form "cart" id=form_id}}
                 <button type="submit" id="checkout" class="cart__checkout-button button" name="checkout">
                   {{t "cart.checkout_proceeding.checkout"}}
                 </button>
@@ -71,7 +74,7 @@
     {{/with}}
   </div>
 
-  {{snippet "cart-fixed-checkout" cart=cart shop=shop className="cart-footer__fixed-checkout display-none-desktop"}}
+  {{snippet "cart-fixed-checkout" scene=scene cart=cart shop=shop className="cart-footer__fixed-checkout display-none-desktop"}}
 </div>
 
 {{#schema}}

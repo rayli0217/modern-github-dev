@@ -2,7 +2,7 @@
   {
     "name": "Modern",
     "theme_name": "Modern",
-    "theme_version": "1.4.35",
+    "theme_version": "1.4.60",
     "theme_author": "Shopline",
     "theme_documentation_url": "",
     "theme_support_url": "",
@@ -1340,10 +1340,64 @@
     "name": "t:settings_schema.product.name",
     "settings": [
       {
+        "type": "group_header",
+        "label": "t:settings_schema.product.settings.group_header__0.label",
+        "info": "t:settings_schema.product.settings.group_header__0.info"
+      },
+      {
         "id": "product_discount",
         "type": "switch",
         "label": "t:settings_schema.product.settings.product_discount.label",
         "default": true
+      },
+      {
+        "id": "product_discount_tag_style",
+        "type": "select",
+        "label": "t:settings_schema.product.settings.product_discount_tag_style.label",
+        "options": [
+          {
+            "value": "sale",
+            "label": "t:settings_schema.product.settings.product_discount_tag_style.options__0.label"
+          },
+          {
+            "value": "save",
+            "label": "t:settings_schema.product.settings.product_discount_tag_style.options__1.label"
+          }
+        ],
+        "default": "sale"
+      },
+      {
+        "id": "product_discount_style",
+        "type": "select",
+        "label": "t:settings_schema.product.settings.product_discount_style.label",
+        "info": "t:settings_schema.product.settings.product_discount_style.info",
+        "options": [
+          {
+            "value": "number",
+            "label": "t:settings_schema.product.settings.product_discount_style.options__0.label"
+          },
+          {
+            "value": "ratio",
+            "label": "t:settings_schema.product.settings.product_discount_style.options__1.label"
+          }
+        ],
+        "default": "number"
+      },
+      {
+        "id": "product_discount_size",
+        "type": "select",
+        "label": "t:settings_schema.product.settings.product_discount_size.label",
+        "options": [
+          {
+            "value": "medium",
+            "label": "t:settings_schema.product.settings.product_discount_size.options__0.label"
+          },
+          {
+            "value": "mini",
+            "label": "t:settings_schema.product.settings.product_discount_size.options__1.label"
+          }
+        ],
+        "default": "medium"
       },
       {
         "id": "product_discount_position",
@@ -1381,7 +1435,7 @@
       },
       {
         "type": "group_header",
-        "label": "t:settings_schema.product.settings.group_header__0.label"
+        "label": "t:settings_schema.product.settings.group_header__1.label"
       },
       {
         "id": "enable_quick_view",
@@ -1449,8 +1503,8 @@
       },
       {
         "type": "group_header",
-        "label": "t:settings_schema.product.settings.group_header__1.label",
-        "info": "t:settings_schema.product.settings.group_header__1.info"
+        "label": "t:settings_schema.product.settings.group_header__2.label",
+        "info": "t:settings_schema.product.settings.group_header__2.info"
       },
       {
         "id": "enabled_color_swatch",
@@ -1536,7 +1590,10 @@
         "type": "select",
         "label": "t:settings_schema.cart.settings.cart_type.label",
         "options": [
-          { "value": "drawer", "label": "抽屉购物车" },
+          {
+            "value": "drawer",
+            "label": "t:settings_schema.cart.settings.cart_type.options__0.label"
+          },
           {
             "value": "page",
             "label": "t:settings_schema.cart.settings.cart_type.options__1.label"

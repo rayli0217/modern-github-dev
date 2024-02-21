@@ -16,7 +16,7 @@
   justify-content: space-between;
   border-bottom: 1px solid rgb(var(--color-entry-line));
 }
-.card-container .card__title > p {
+.card-container .card__title p {
   margin: 0;
 }
 .card-container .card__title .edit-entry {
@@ -34,7 +34,11 @@
   }
 }
 
-.info-item + .info-item {
+.info-item:first-child {
+  margin-top: 0px;
+}
+
+.info-item {
   margin-top: 16px;
 }
 
@@ -70,6 +74,34 @@
 
 .info-item .info-value .bind-info span {
   margin-left: 4px;
+}
+
+.info-item.third .bind-info {
+  cursor: default;
+}
+
+.info-item.third .bind-info svg {
+  width: 20px;
+  height: 20px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.info-row:first-child {
+  padding-top: 0;
+}
+
+.info-row:last-child {
+  padding-bottom: 0;
+}
+
+.info-row + .info-row {
+  border-top: 1px solid rgb(var(--color-entry-line));
 }
 
 /* The ipad end responds to the mobile end in vertical screen */

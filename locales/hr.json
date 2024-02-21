@@ -233,12 +233,16 @@
       "phone": "Mobitel",
       "reset_password_error_hint": "Molimo prvo povežite email ili mobitel",
       "revoke": "Otkažite zatvaranje",
+      "revoke_btn": "",
       "revoke_message": "Ovaj račun je u postupku zatvaranja, podaci o računu bit će izbrisani u {{time}}, možete otkazati postupak prije tog datuma",
       "save_btn": "SAČUVAJ",
       "select__date": "Odaberi Datum",
       "subscribe_confirm_tip": "Hvala na pretplati.",
+      "subscribed": "",
       "timeout_tip": "Vrijeme operacije je isteklo, provjerite ponovo",
       "unknow_error_tip": "Iznimka usluge, pokušajte ponovo kasnije",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Ime",
       "verify_email_message": "Prije zatvaranja računa, trebamo potvrditi vaš identitet\nE-poruku za potvrdu ćete dobiti na vašu e-poštu {{email}}",
       "verify_phone_message": "Prije zatvaranja računa, trebamo potvrditi vaš identitet\nPoruku za potvrdu ćete dobiti na vaš mobitel {{phone}}",
@@ -649,6 +653,20 @@
       "unavailable": "nedostupno",
       "variant_property_color": "Boja"
     },
+    "giftcard": {
+      "seoTitle": "Saldo vaše darovne kartice za {{ shop }} iznosi {{ value }}!",
+      "balance": "Saldo",
+      "buy_giftcard": "Kupite poklon karticu",
+      "description": "Ovo je Vaša {{price}} poklon kartica za {{shop}}!",
+      "expired_date": "Datum isteka",
+      "invalid_tip": "Vaša poklon kartica nije važeća, kupite drugu.",
+      "permanent": "Trajna",
+      "receive_at": "Istekla",
+      "receive_tip": "Primite poklon karticu",
+      "title": "Vaša poklon kartica",
+      "use_giftcard": "Upotrebite poklon karticu",
+      "use_giftcard_tip": "Možete unijeti broj poklon kartice prilikom naplate za odbitak"
+    },
     "product_details": {
       "activity_toast_price_limit": "Maksimalna dozvoljena količina za ovaj ograničen proizvod je {{num}}",
       "activity_toast_product__limit": "Kupnja je ograničena na {{stock}} promotivnih proizvoda",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Nedavno Gledani Proizvodi"
-    },
-    "giftcard": {
-      "balance": "Saldo",
-      "buy_giftcard": "Kupite poklon karticu",
-      "description": "Ovo je Vaša {{price}} poklon kartica za {{shop}}!",
-      "expired_date": "Datum isteka",
-      "invalid_tip": "Vaša poklon kartica nije važeća, kupite drugu.",
-      "permanent": "Trajna",
-      "receive_at": "Istekla",
-      "receive_tip": "Primite poklon karticu",
-      "title": "Vaša poklon kartica",
-      "use_giftcard": "Upotrebite poklon karticu",
-      "use_giftcard_tip": "Možete unijeti broj poklon kartice prilikom naplate za odbitak"
     }
   },
   "reduction_code": {

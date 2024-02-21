@@ -233,12 +233,16 @@
       "phone": "Telefon mobil",
       "reset_password_error_hint": "Asociați mai întâi adresa de e-mail sau numărul de telefon mobil",
       "revoke": "Anula închidere",
+      "revoke_btn": "",
       "revoke_message": "Acest con teste sub procesare pentru închidere, datele contului vor fi șterse la {{time}}, puteți anula acest process înainte de acea dată",
       "save_btn": "ECONOMISEȘTE",
       "select__date": "Selectați dată",
       "subscribe_confirm_tip": "Vă mulțumim pentru abonare.",
+      "subscribed": "",
       "timeout_tip": "Operațiunea a expirat, vă rugăm să verificați din nou",
       "unknow_error_tip": "Întreruperea serviciului. Vă rugăm să încercați din nou mai târziu.",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Nume",
       "verify_email_message": "Înainte de a închide contul, trebuie să verificăm identitatea dvs. \nVeți primi pe e-mailul dvs. {{email}} un e-mail pentru verificare",
       "verify_phone_message": "Înainte de a închide contul, trebuie să verificăm identitatea dvs. \nTelefonul dvs. mobil {{phone}} va primi un mesaj de notificare",
@@ -649,6 +653,20 @@
       "unavailable": "indisponibil",
       "variant_property_color": "Culoare"
     },
+    "giftcard": {
+      "seoTitle": "Soldul cardului dvs. cadou {{ shop }} este {{ value }}!",
+      "balance": "Balanță",
+      "buy_giftcard": "Cumpără un card cadou",
+      "description": "Aici este {{price}} cardul tău cadou pentru {{shop}}!",
+      "expired_date": "Dată expirare",
+      "invalid_tip": "Cardul tău cadou nu este valid, cumpără altul",
+      "permanent": "Pemanent",
+      "receive_at": "Expiră la",
+      "receive_tip": "Primește cardul tău cadou",
+      "title": "Cardul tău cadou",
+      "use_giftcard": "Folosește cardul cadou",
+      "use_giftcard_tip": "Poți să introduci numărul cardului cadou la ieșire pentru reducere"
+    },
     "product_details": {
       "activity_toast_price_limit": "Cantitatea maximă pentru produsul limitat este de {{num}}",
       "activity_toast_product__limit": "Limita de achiziție pentru produsul promoțional {{stock}}",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Produse recent vizualizate"
-    },
-    "giftcard": {
-      "balance": "Balanță",
-      "buy_giftcard": "Cumpără un card cadou",
-      "description": "Aici este {{price}} cardul tău cadou pentru {{shop}}!",
-      "expired_date": "Dată expirare",
-      "invalid_tip": "Cardul tău cadou nu este valid, cumpără altul",
-      "permanent": "Pemanent",
-      "receive_at": "Expiră la",
-      "receive_tip": "Primește cardul tău cadou",
-      "title": "Cardul tău cadou",
-      "use_giftcard": "Folosește cardul cadou",
-      "use_giftcard_tip": "Poți să introduci numărul cardului cadou la ieșire pentru reducere"
     }
   },
   "reduction_code": {

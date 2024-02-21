@@ -1804,6 +1804,9 @@
             },
             "menu": {
               "label": "導航菜單"
+            },
+            "default_fold": {
+              "label": "預設展開"
             }
           }
         },
@@ -1954,6 +1957,9 @@
             },
             "conact_text_5": {
               "label": "聯繫方式5文案"
+            },
+            "default_fold": {
+              "label": "預設展開"
             }
           }
         },
@@ -2070,6 +2076,9 @@
             },
             "text_4": {
               "label": "圖標申明4文本"
+            },
+            "default_fold": {
+              "label": "預設展開"
             }
           }
         }
@@ -2125,6 +2134,30 @@
           },
           "options__3": {
             "label": "LOGO居中，菜單換行"
+          }
+        },
+        "body_pc_second_font_size": {
+          "label": "電腦端二級導航字體大小",
+          "options__0": {
+            "label": "大"
+          },
+          "options__1": {
+            "label": "中"
+          },
+          "options__2": {
+            "label": "小"
+          }
+        },
+        "body_pc_thirdly_font_size": {
+          "label": "電腦端三級導航字體大小",
+          "options__0": {
+            "label": "大"
+          },
+          "options__1": {
+            "label": "中"
+          },
+          "options__2": {
+            "label": "小"
           }
         },
         "mobile_top_menu": {
@@ -2214,6 +2247,15 @@
             "menu_title": {
               "label": "觸發目錄",
               "info": "請填寫頁頭的一級菜單名稱，當該菜單有下級菜單時可顯示圖片"
+            },
+            "menu_img_style": {
+              "label": "選單圖片樣式",
+              "options__0": {
+                "label": "樣式1"
+              },
+              "options__1": {
+                "label": "樣式2"
+              }
             },
             "text_color": {
               "label": "文本顏色"
@@ -2851,6 +2893,16 @@
             "label": "列表"
           }
         },
+        "columns": {
+          "label": "電腦端列數",
+          "info": "僅在網格佈局下生效",
+          "options__0": {
+            "label": "2列"
+          },
+          "options__1": {
+            "label": "3列"
+          }
+        },
         "is_show_cover": {
           "label": "顯示封面圖"
         },
@@ -3377,6 +3429,30 @@
             "label": "小"
           }
         },
+        "product_thumbnail_image_size": {
+          "label": "電腦端縮圖大小",
+          "options__0": {
+            "label": "大"
+          },
+          "options__1": {
+            "label": "中"
+          },
+          "options__2": {
+            "label": "小"
+          }
+        },
+        "product_mobile_thumbnail_image_size": {
+          "label": "行動端縮圖大小",
+          "options__0": {
+            "label": "大"
+          },
+          "options__1": {
+            "label": "中"
+          },
+          "options__2": {
+            "label": "小"
+          }
+        },
         "product_mobile_text_align": {
           "label": "移動端整體對齊方式",
           "options__0": {
@@ -3490,6 +3566,9 @@
             "dividing_line_color": {
               "label": "分割線顏色"
             },
+            "desktop_dividing_line_height": {
+              "label": "電腦端分割線粗細"
+            },
             "dividing_line_style": {
               "label": "移動端分割線樣式",
               "options__0": {
@@ -3572,6 +3651,18 @@
               "options__3": {
                 "label": "超大"
               }
+            },
+            "save_style": {
+              "label": "優惠標籤樣式",
+              "options__0": {
+                "label": "按鈕樣式"
+              },
+              "options__1": {
+                "label": "文本樣式"
+              }
+            },
+            "save_radius": {
+              "label": "優惠標籤圓角半徑"
             },
             "font_size_flexible": {
               "label": "字體大小靈活配置",
@@ -5955,8 +6046,40 @@
     "product": {
       "name": "商品",
       "settings": {
+        "group_header__0": {
+          "label": "商品卡片優惠標籤",
+          "info": "僅影響商品卡片優惠標籤，商品詳情頁標籤展示可在「商品詳情-價格」中設定。"
+        },
         "product_discount": {
           "label": "展示優惠"
+        },
+        "product_discount_tag_style": {
+          "label": "優惠標籤",
+          "options__0": {
+            "label": "sale標籤"
+          },
+          "options__1": {
+            "label": "save標籤"
+          }
+        },
+        "product_discount_style": {
+          "label": "優惠樣式",
+          "info": "當優惠標籤選擇save標籤時生效",
+          "options__0": {
+            "label": "顯示優惠金額"
+          },
+          "options__1": {
+            "label": "顯示優惠比例"
+          }
+        },
+        "product_discount_size": {
+          "label": "優惠標籤大小",
+          "options__0": {
+            "label": "中"
+          },
+          "options__1": {
+            "label": "小"
+          }
         },
         "product_discount_position": {
           "label": "優惠標籤位置",
@@ -5976,7 +6099,7 @@
         "product_discount_radius": {
           "label": "優惠標籤圓角半徑"
         },
-        "group_header__0": {
+        "group_header__1": {
           "label": "商品列表"
         },
         "enable_quick_view": {
@@ -6015,7 +6138,7 @@
         "product_mobile_title_show": {
           "label": "手機端展示商品標題"
         },
-        "group_header__1": {
+        "group_header__2": {
           "label": "色板快速加購",
           "info": "[點擊了解](https://help.shopline.com/hc/zh-cn/articles/18291247740825-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%BB%BA%E7%AB%99%E7%BC%96%E8%BE%91%E5%99%A8%E8%89%B2%E6%9D%BF%E5%8A%9F%E8%83%BD)色板快速加購功能詳情"
         },
@@ -6068,6 +6191,9 @@
       "settings": {
         "cart_type": {
           "label": "加購方式",
+          "options__0": {
+            "label": "抽屜購物車"
+          },
           "options__1": {
             "label": "進入購物車頁"
           },

@@ -33,7 +33,7 @@
 }}
 
 <div
-  style="{{#and (isFalsey is_fullscreen) (isTruthy background)}}background: {{background}}{{/and}};--title-font: {{title_font.family}};--title-font-style: {{ title_font.style }}"
+  style="{{#and (isFalsey is_fullscreen) (isTruthy background)}}background: {{background}}{{/and}};--title-font: {{title_font.family}};--title-font-style: {{ title_font.style }};--title-font-weight: {{title_font.weight}}"
   class="section-padding picture-floating-container
     picture-floating-container-{{section.id}}
     {{#if (isFalsey is_fullscreen)}}page-width{{/if}}"

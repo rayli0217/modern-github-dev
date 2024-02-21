@@ -28,6 +28,7 @@
   color: inherit;
   font-family: var(--title-font);
   font-style: var(--title-font-style);
+  font-weight: var(--title-font-weight);
 }
 
 @media (min-width: 960px) {
@@ -41,7 +42,7 @@
 }
 
 .picture-floating__text-wrapper .picture-floating__title--small {
-  font-size: 50px;
+  font-size: 36px;
 }
 
 @media (max-width: 959px) {
@@ -61,7 +62,7 @@
 }
 
 .picture-floating__text-wrapper .picture-floating__title--large {
-  font-size: 50px;
+  font-size: 70px;
 }
 
 @media (max-width: 959px) {

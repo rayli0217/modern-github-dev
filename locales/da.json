@@ -233,12 +233,16 @@
       "phone": "Mobiltelefon",
       "reset_password_error_hint": "bind først e-mail eller mobiltelefon",
       "revoke": "Annuller lukning",
+      "revoke_btn": "",
       "revoke_message": "Denne konto er under behandling til lukning. Kontodata slettes kl. {{time}}. Du kan annullere processen før denne dato",
       "save_btn": "GEM",
       "select__date": "Vælg dato",
       "subscribe_confirm_tip": "Tak for dit abonnement.",
+      "subscribed": "",
       "timeout_tip": "Operationen fik timeout, bekræft venligst igen",
       "unknow_error_tip": "Serviceundtagelse, prøv igen senere",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Navn",
       "verify_email_message": "Hvis du lukker kontoen før, skal vi bekræfte din identitet\nDin e-mail {{email}} modtager en bekræftelsesmail",
       "verify_phone_message": "Hvis du lukker kontoen før, skal vi bekræfte din identitet\nDin mobiltelefon {{phone}} modtager en bekræftelsesmeddelelse",
@@ -649,6 +653,20 @@
       "unavailable": "Ikke tilgængelig",
       "variant_property_color": "Farve"
     },
+    "giftcard": {
+      "seoTitle": "Saldoen på dit {{ shop }} -gavekort er {{ value }}!",
+      "balance": "Saldo",
+      "buy_giftcard": "Køb et gavekort",
+      "description": "Her er dit {{price}} gavekort {{shop}}!",
+      "expired_date": "Udløbsdato",
+      "invalid_tip": "Dit gavekort er ikke gyldigt, køb et nyt",
+      "permanent": "Permanente",
+      "receive_at": "Udløbet kl",
+      "receive_tip": "Få et gavekort",
+      "title": "Dit gavekort",
+      "use_giftcard": "Brug et gavekort",
+      "use_giftcard_tip": "For at trække fra kan du indtaste et gavekortnummer i feltet"
+    },
     "product_details": {
       "activity_toast_price_limit": "Det maksimale tilladte antal for dette begrænsede produkt er {{num}}",
       "activity_toast_product__limit": "Køb begrænset til {{stock}} kampagneprodukt",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Senest viste produkter"
-    },
-    "giftcard": {
-      "balance": "Saldo",
-      "buy_giftcard": "Køb et gavekort",
-      "description": "Her er dit {{price}} gavekort {{shop}}!",
-      "expired_date": "Udløbsdato",
-      "invalid_tip": "Dit gavekort er ikke gyldigt, køb et nyt",
-      "permanent": "Permanente",
-      "receive_at": "Udløbet kl",
-      "receive_tip": "Få et gavekort",
-      "title": "Dit gavekort",
-      "use_giftcard": "Brug et gavekort",
-      "use_giftcard_tip": "For at trække fra kan du indtaste et gavekortnummer i feltet"
     }
   },
   "reduction_code": {

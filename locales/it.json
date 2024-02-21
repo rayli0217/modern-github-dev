@@ -233,12 +233,16 @@
       "phone": "Cellulare",
       "reset_password_error_hint": "Associa prima l'e-mail o il cellulare per favore",
       "revoke": "Annulla l'eliminazione",
+      "revoke_btn": "",
       "revoke_message": "L'account è in fase di eliminazione, i dati dell'account verranno rimossi al giorno di {{time}}, puoi annullare questo processo di eliminazione prima di questa data",
       "save_btn": "Salva",
       "select__date": "Seleziona una data",
       "subscribe_confirm_tip": "Grazie per il tuo abbonamento.",
+      "subscribed": "",
       "timeout_tip": "L’operazione scaduta, verifica di nuovo per favore",
       "unknow_error_tip": "Errore del servizio, riprova più tardi",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Nome",
       "verify_email_message": "Dobbiamo verificare la tua identità prima di eliminare l'account.Riceverai un'email con il codice di verifica alla tua casella di posta {{email}}",
       "verify_phone_message": "Dobbiamo verificare la tua identità prima di eliminare l'account.Riceverai un messaggio di verifica sul tuo cellulare {{phone}}",
@@ -649,6 +653,20 @@
       "unavailable": "Indisponibile",
       "variant_property_color": "Colore"
     },
+    "giftcard": {
+      "seoTitle": "Il saldo della tua carta di regalo {{ shop }} è {{ value }}!",
+      "balance": "Valore",
+      "buy_giftcard": "Acquista una carta di regalo",
+      "description": "Ecco la tua carta di regalo di {{price}} per {{shop}}!",
+      "expired_date": "Data di scadenza",
+      "invalid_tip": "La tua carta regalo non è valida, acquistane un'altra",
+      "permanent": "Permanente",
+      "receive_at": "Scade il",
+      "receive_tip": "Ecco la tua carta di regalo da ricevere per favore",
+      "title": "La tua carta di regalo",
+      "use_giftcard": "Usa la carta di regalo",
+      "use_giftcard_tip": "Puoi inserire il numero della carta di regalo al momento del pagamento per la detrazione"
+    },
     "product_details": {
       "activity_toast_price_limit": "Con il prezzo promozionale dell'articolo puoi acquistare solo solo {{num}} pezzi",
       "activity_toast_product__limit": "Puoi acquistare fino a {{stock}} articoli scontati nello stesso tempo",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Prodotti visualizzati ultimamente"
-    },
-    "giftcard": {
-      "balance": "Valore",
-      "buy_giftcard": "Acquista una carta di regalo",
-      "description": "Ecco la tua carta di regalo di {{price}} per {{shop}}!",
-      "expired_date": "Data di scadenza",
-      "invalid_tip": "La tua carta regalo non è valida, acquistane un'altra",
-      "permanent": "Permanente",
-      "receive_at": "Scade il",
-      "receive_tip": "Ecco la tua carta di regalo da ricevere per favore",
-      "title": "La tua carta di regalo",
-      "use_giftcard": "Usa la carta di regalo",
-      "use_giftcard_tip": "Puoi inserire il numero della carta di regalo al momento del pagamento per la detrazione"
     }
   },
   "reduction_code": {

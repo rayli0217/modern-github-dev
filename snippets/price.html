@@ -6,6 +6,8 @@
   - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
   - price_class: {String} Adds a price class to the price element (optional)
   - show_save: {Boolean} Whether to render discount tags
+  - save_style: {'text_style'|'button_style'} save tag style. Default: text_style
+  - save_radius {Number} save tag border radius
 
   Usage:
   {{ snippet 'price' product=product }}
@@ -26,10 +28,11 @@
 
 {{assign "compare_at_price" target.compare_at_price}}
 {{assign "price" (default target.price 1999)}}
-{{assign "available" (default target.available false)}}
 {{assign "money_price" (money_with_currency price)}}
 {{assign 'money_price_min' (money_with_currency product.price_min)}}
 {{assign 'money_price_max' (money_with_currency product.price_max)}}
+{{assign "save_style" (default save_style "text")}}
+{{assign "save_radius" (default save_radius 4)}}
 
 <div class="price {{price_class}} ">
   <div class="price__container">
@@ -51,7 +54,7 @@
           {{#if show_save}}
             {{assign "save_price" (minus compare_at_price price)}}
             <span class="body5 price-position-save">
-              <span class="price-item--save {{#unless settings.font_size_flexible}}{{settings.save_font_size}}{{/unless}}">Save {{money_with_currency save_price}}</span>
+              <span style="--save-button-radius: {{save_radius}}px" class="price-item--save price-item--save-{{save_style}} {{#unless settings.font_size_flexible}}{{settings.save_font_size}}{{/unless}}">Save {{money_with_currency save_price}}</span>
             </span>
           {{/if}}
         </div>

@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="{{asset_url 'section-customer-card-container.css'}}" />
 <link rel="stylesheet" href="{{asset_url 'section-main-account.css'}}" />
 <link rel="stylesheet" href="{{asset_url 'section-customer-nav-bar.css'}}" />
+<link rel="stylesheet" href="{{asset_url 'section-user-center-message.css'}}" />
 
 
 <link rel="stylesheet" href="{{asset_url 'section-customer-datepicker.css'}}" />
@@ -23,11 +24,13 @@
 }}
 
 <div class="page-width section-padding">
+  {{snippet "user-center-message"}}
   {{snippet "user-center-navbar-container"}}
 
   <div class="account-section">
     <div>
       {{snippet "account-account"}}
+      {{snippet "account-subscription"}}
       {{snippet "account-personal"}}
     </div>
     <div>

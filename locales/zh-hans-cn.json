@@ -233,12 +233,16 @@
       "phone": "手机",
       "reset_password_error_hint": "请先绑定电子邮件或手机",
       "revoke": "取消注销",
+      "revoke_btn": "取消注销",
       "revoke_message": "账号处于注销中，账户数据将于{{time}}被删除，您可在该日期之前撤销此注销流程",
       "save_btn": "保存",
       "select__date": "请选择日期",
       "subscribe_confirm_tip": "感谢您的订阅。",
+      "subscribed": "",
       "timeout_tip": "操作超时，请重新验证",
       "unknow_error_tip": "服务异常，稍后重试",
+      "unregister": "账号注销",
+      "unsubscribe": "",
       "username": "姓名",
       "verify_email_message": "在进行注销操作前，我们需要验证您的身份\n您的邮箱{{email}}将收到验证码邮件",
       "verify_phone_message": "在进行注销操作前，我们需要验证您的身份\n您的手机{{phone}}将收到验证短信",
@@ -649,6 +653,20 @@
       "unavailable": "不可用的",
       "variant_property_color": "颜色"
     },
+    "giftcard": {
+      "seoTitle": "您的 {{ shop }} 的礼品卡余额为 {{ value }}！",
+      "balance": "面额",
+      "buy_giftcard": "购买一张礼品卡",
+      "description": "这是您在{{shop}}面额为{{price}}的礼品卡",
+      "expired_date": "失效时期",
+      "invalid_tip": "您的礼品卡不合法，请购买另外一个",
+      "permanent": "永久生效",
+      "receive_at": "失效时期",
+      "receive_tip": "请查收您的礼品卡",
+      "title": "您的礼品卡",
+      "use_giftcard": "使用礼品卡",
+      "use_giftcard_tip": "您可以在结账页面通过输入礼品卡卡号来使用"
+    },
     "product_details": {
       "activity_toast_price_limit": "此商品优惠价仅支持购买{{num}}件",
       "activity_toast_product__limit": "最多可同时购买{{stock}}件优惠价商品",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "最近浏览商品"
-    },
-    "giftcard": {
-      "balance": "面额",
-      "buy_giftcard": "购买一张礼品卡",
-      "description": "这是您在{{shop}}面额为{{price}}的礼品卡",
-      "expired_date": "失效时期",
-      "invalid_tip": "您的礼品卡不合法，请购买另外一个",
-      "permanent": "永久生效",
-      "receive_at": "失效时期",
-      "receive_tip": "请查收您的礼品卡",
-      "title": "您的礼品卡",
-      "use_giftcard": "使用礼品卡",
-      "use_giftcard_tip": "您可以在结账页面通过输入礼品卡卡号来使用"
     }
   },
   "reduction_code": {

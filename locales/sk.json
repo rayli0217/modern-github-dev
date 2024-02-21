@@ -233,12 +233,16 @@
       "phone": "Mobilný telefón",
       "reset_password_error_hint": "Najprv zadajte e-mail alebo mobilný telefón",
       "revoke": "Zrušiť zatvorenie",
+      "revoke_btn": "",
       "revoke_message": "Tento účet je v procese zatvárania, údaje o účte budú vymazané dňa {{time}}, proces môžete zrušiť pred týmto dátumom",
       "save_btn": "ULOŽIŤ",
       "select__date": "Vybrať dátum",
       "subscribe_confirm_tip": "Ďakujeme za predplatné.",
+      "subscribed": "",
       "timeout_tip": "Časový limit operácie vypršal, overte to znova",
       "unknow_error_tip": "Výnimka služby, skúste to znova neskôr",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Názov",
       "verify_email_message": "Pred zrušením účtu musíme overiť vašu totožnosť \nVáš e-mail {{email}} dostane overovací e-mail",
       "verify_phone_message": "Pred zrušením účtu musíme overiť vašu totožnosť \nVáš mobilný telefón {{phone}} dostane overovaciu správu",
@@ -649,6 +653,20 @@
       "unavailable": "nedostupné",
       "variant_property_color": "Farba"
     },
+    "giftcard": {
+      "seoTitle": "Zostatok na vašej darčekovej karte {{ shop }} je {{ value }}!",
+      "balance": "Zostatok",
+      "buy_giftcard": "Kúpte si darčekovú kartu",
+      "description": "Tu je vaša darčeková karta {{price}} na {{shop}}!",
+      "expired_date": "Dátum vypršania platnosti",
+      "invalid_tip": "Vaša darčeková karta je neplatná, kúpte si prosím inú",
+      "permanent": "Trvalý",
+      "receive_at": "Platnosť vypršala v",
+      "receive_tip": "Prijmite prosím darčekovú kartu",
+      "title": "Vaša darčeková karta",
+      "use_giftcard": "Použite darčekovú kartu",
+      "use_giftcard_tip": "Pri pokladni môžete zadať číslo darčekovej karty na odpočet"
+    },
     "product_details": {
       "activity_toast_price_limit": "Maximálne povolené množstvo pre tento obmedzený produkt je {{num}}",
       "activity_toast_product__limit": "Nákup je obmedzený na {{stock}} propagačných produktov",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Naposledy prezerané produkty"
-    },
-    "giftcard": {
-      "balance": "Zostatok",
-      "buy_giftcard": "Kúpte si darčekovú kartu",
-      "description": "Tu je vaša darčeková karta {{price}} na {{shop}}!",
-      "expired_date": "Dátum vypršania platnosti",
-      "invalid_tip": "Vaša darčeková karta je neplatná, kúpte si prosím inú",
-      "permanent": "Trvalý",
-      "receive_at": "Platnosť vypršala v",
-      "receive_tip": "Prijmite prosím darčekovú kartu",
-      "title": "Vaša darčeková karta",
-      "use_giftcard": "Použite darčekovú kartu",
-      "use_giftcard_tip": "Pri pokladni môžete zadať číslo darčekovej karty na odpočet"
     }
   },
   "reduction_code": {

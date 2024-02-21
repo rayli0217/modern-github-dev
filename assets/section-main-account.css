@@ -298,6 +298,11 @@
   border-top: 1px solid rgb(var(--color-entry-line));
 }
 
+.modify-info__button {
+  text-transform: capitalize;
+  padding: 8px 12px;
+}
+
 .modify-info__modal {
   width: 432px;
   max-height: max-content;
@@ -375,6 +380,10 @@
   margin-top: 0;
 }
 
+.modify-info__modal .modify-info__content .modify-info__input.disabled {
+  background-color: #efefef;
+}
+
 .modify-info__modal .modify-info__content .modify-info__input input {
   width: 100%;
   background: none;
@@ -384,6 +393,7 @@
   margin-right: 20px;
 }
 
+.modify-info__modal .modify-info__content .modify-info__input input:disabled,
 .modify-info__modal
   .modify-info__content
   .modify-info__input
@@ -507,7 +517,6 @@
 @media (max-width: 959px) {
   .modify-info__modal .modify-info__action-buttons {
     display: block;
-    margin-top: 40px;
   }
   .modify-info__modal .modify-info__action-buttons .button {
     width: 100%;
@@ -614,6 +623,62 @@
   padding: 0;
   border: none;
   cursor: pointer;
+}
+
+.unsubscribe-info:hover .unsubscribe-button__status:first-child {
+  display: none;
+}
+
+.unsubscribe-info:hover .unsubscribe-button__status:last-child {
+  display: flex;
+}
+
+.unsubscribe-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.unsubscribe-button__status {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  transition: opacity 0.2s;
+}
+
+.unsubscribe-button__status:last-child {
+  display: none;
+}
+
+.unsubscribe-reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.unsubscribe-reason {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.unsubscribe-reason[checked] .unsubscribe-reason__input {
+  display: block;
+}
+
+.unsubscribe-reason__input {
+  display: none;
+  grid-column: span 2;
+  -webkit-appearance: none;
+  background: none;
+  width: 100%;
+  border: 1px solid rgb(var(--color-entry-line));
+  border-radius: 4px;
+  padding: 5px 12px;
 }
 
 /* The ipad end responds to the mobile end in vertical screen */

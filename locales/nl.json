@@ -233,12 +233,16 @@
       "phone": "Telefoon",
       "reset_password_error_hint": "Verbind eerst e-mailadres of telefoon",
       "revoke": "Annuleren van een verwijdering",
+      "revoke_btn": "",
       "revoke_message": "De account wordt momenteel verwijderd, de accountgegevens worden op {{time}} verwijderd en u hebt tot die datum de tijd om het verwijderingsproces te annuleren",
       "save_btn": "Bewaren",
       "select__date": "Kies de datum",
       "subscribe_confirm_tip": "Bedankt voor uw inschrijving.",
+      "subscribed": "",
       "timeout_tip": "Het operatie is verlopen, controleer opnieuw a.u.b.",
       "unknow_error_tip": "Service uitzondering, probeer later opnieuw",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Naam",
       "verify_email_message": "Voordat u uw account kunt verwijderen, moeten wij uw identiteit verifiëren.Uw emailadres {{email}} zal een verificatiecode ontvangen",
       "verify_phone_message": "Wij moeten uw identiteit verifiëren voordat wij u kunnen verwijderen.Uw telefoon {{phone}} zal een verificatie-sms ontvangen",
@@ -649,6 +653,20 @@
       "unavailable": "Niet beschikbaar",
       "variant_property_color": "Kleur"
     },
+    "giftcard": {
+      "seoTitle": "Uw {{ shop }} cadeaukaartsaldo is {{ value }}!",
+      "balance": "Saldo",
+      "buy_giftcard": "Koop een cadeaubon",
+      "description": "Hier is uw {{price}} cadeaubon voor {{shop}}!",
+      "expired_date": "Vervaldatum",
+      "invalid_tip": "Uw cadeaubon is ongeldig, koop een andere a.u.b.",
+      "permanent": "Permanent",
+      "receive_at": "Verlopen op",
+      "receive_tip": "Gelieve uw cadeaubon te ontvangen",
+      "title": "Uw cadeaubon",
+      "use_giftcard": "Gebruik de cadeaubon",
+      "use_giftcard_tip": "U kunt het cadeaubonnummer invoeren bij het afrekenen"
+    },
     "product_details": {
       "activity_toast_price_limit": "Slechts {{num}} artikelen kunnen worden gekocht voor deze voorkeursprijs",
       "activity_toast_product__limit": "U kunt tot {{stock}} artikelen tegelijk met korting kopen",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Recent bekeken producten"
-    },
-    "giftcard": {
-      "balance": "Saldo",
-      "buy_giftcard": "Koop een cadeaubon",
-      "description": "Hier is uw {{price}} cadeaubon voor {{shop}}!",
-      "expired_date": "Vervaldatum",
-      "invalid_tip": "Uw cadeaubon is ongeldig, koop een andere a.u.b.",
-      "permanent": "Permanent",
-      "receive_at": "Verlopen op",
-      "receive_tip": "Gelieve uw cadeaubon te ontvangen",
-      "title": "Uw cadeaubon",
-      "use_giftcard": "Gebruik de cadeaubon",
-      "use_giftcard_tip": "U kunt het cadeaubonnummer invoeren bij het afrekenen"
     }
   },
   "reduction_code": {

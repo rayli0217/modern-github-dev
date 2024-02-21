@@ -233,12 +233,16 @@
       "phone": "Phone",
       "reset_password_error_hint": "Please bind email or mobile phone first",
       "revoke": "Cancel closing",
+      "revoke_btn": "Revoke account",
       "revoke_message": "This account is under process for closing, account data will be deleted at {{time}}, you can cancel the process before that date.",
       "save_btn": "SAVE",
       "select__date": "Select Date",
       "subscribe_confirm_tip": "Thanks for your subscription",
+      "subscribed": "Subscribed",
       "timeout_tip": "Operation timed out, please verify again",
       "unknow_error_tip": "Server error, please try again",
+      "unregister": "Delete your account",
+      "unsubscribe": "Unsubscribe",
       "username": "Name",
       "verify_email_message": "Before closing account, we need to verify your identity\nYour email {{email}} will receive a verification email",
       "verify_phone_message": "Before closing account, we need to verify your identity\nYour mobile phone {{phone}} will receive a verification message",
@@ -649,6 +653,20 @@
       "unavailable": "unavailable",
       "variant_property_color": "color"
     },
+    "giftcard": {
+      "seoTitle": "Here's your {{ value }} gift card balance for {{ shop }}!",
+      "balance": "Balance",
+      "buy_giftcard": "Buy a giftcard",
+      "description": "Here's your {{price}} gift card for {{shop}}!",
+      "expired_date": "Expiry date",
+      "invalid_tip": "Your giftcard is invalid, please buy another one",
+      "permanent": "Permanent",
+      "receive_at": "Expired at",
+      "receive_tip": "Please receive your giftcard",
+      "title": "Your gift card",
+      "use_giftcard": "Use the giftcard",
+      "use_giftcard_tip": "You can enter the giftcard number at checkout for deduction"
+    },
     "product_details": {
       "activity_toast_price_limit": "You can only buy {{num}} item(s) of this product with discount price",
       "activity_toast_product__limit": "You can buy at most {{stock}} product(s) with discount price at the same time",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Recently Viewed Products"
-    },
-    "giftcard": {
-      "balance": "Balance",
-      "buy_giftcard": "Buy a giftcard",
-      "description": "Here's your {{price}} gift card for {{shop}}!",
-      "expired_date": "Expiry date",
-      "invalid_tip": "Your giftcard is invalid, please buy another one",
-      "permanent": "Permanent",
-      "receive_at": "Expired at",
-      "receive_tip": "Please receive your giftcard",
-      "title": "Your gift card",
-      "use_giftcard": "Use the giftcard",
-      "use_giftcard_tip": "You can enter the giftcard number at checkout for deduction"
     }
   },
   "reduction_code": {

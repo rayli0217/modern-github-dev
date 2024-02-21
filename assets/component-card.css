@@ -1,4 +1,6 @@
 .card {
+  --tag-pc-gap: 8px;
+  --tag-mobile-gap: 8px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -68,12 +70,16 @@
 .card .card__badge:not(:empty) {
   z-index: 2;
   position: absolute;
-  padding: 4px 12px;
+  padding: 4px 8px;
   background-color: rgb(
     var(--card-badge-bg, var(--color-discount-tag-background))
   );
   color: rgb(var(--card-badge-text-color, var(--color-discount-tag-text)));
   border-radius: var(--badge-border-radius);
+}
+
+.card .card__badge:not(:empty).card__badge--mini {
+  padding: 2px 4px;
 }
 
 .card .card__badge.sold-out-message {
@@ -82,41 +88,41 @@
 }
 
 .card .card__badge.left_top {
-  top: 20px;
-  left: 20px;
+  top: var(--tag-pc-gap);
+  left: var(--tag-pc-gap);
 }
 
 .card .card__badge.left_bottom {
-  bottom: 20px;
-  left: 20px;
+  bottom: var(--tag-pc-gap);
+  left: var(--tag-pc-gap);
 }
 
 .card .card__badge.right_top {
-  top: 20px;
-  right: 20px;
+  top: var(--tag-pc-gap);
+  right: var(--tag-pc-gap);
 }
 
 .card .card__badge.right_bottom {
-  bottom: 20px;
-  right: 20px;
+  bottom: var(--tag-pc-gap);
+  right: var(--tag-pc-gap);
 }
 
 @media (max-width: 959px) {
   .card .card__badge.left_top {
-    top: 10px;
-    left: 10px;
+    top: var(--tag-mobile-gap);
+    left: var(--tag-mobile-gap);
   }
   .card .card__badge.left_bottom {
-    bottom: 10px;
-    left: 10px;
+    bottom: var(--tag-mobile-gap);
+    left: var(--tag-mobile-gap);
   }
   .card .card__badge.right_top {
-    top: 10px;
-    right: 10px;
+    top: var(--tag-mobile-gap);
+    right: var(--tag-mobile-gap);
   }
   .card .card__badge.right_bottom {
-    bottom: 10px;
-    right: 10px;
+    bottom: var(--tag-mobile-gap);
+    right: var(--tag-mobile-gap);
   }
 }
 

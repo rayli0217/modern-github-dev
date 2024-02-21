@@ -233,12 +233,16 @@
       "phone": "HP",
       "reset_password_error_hint": "Silakan mengikat email atau telepon dulu",
       "revoke": "Batalkan pembatalan",
+      "revoke_btn": "",
       "revoke_message": "Akun sedang dalam proses dibatalkan, data akun akan dihapus pada {{time}}, Anda dapat membatalkan proses pembatalan sebelum tanggal ini",
       "save_btn": "Simpan",
       "select__date": "Silakan pilih tanggal",
       "subscribe_confirm_tip": "Terima kasih bawah Anda telah berlangganan.",
+      "subscribed": "",
       "timeout_tip": "Operasi habis waktunya, silakan autentikasi lagi",
       "unknow_error_tip": "Layanan abnormal, silakan coba lagi nanti",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "Nama",
       "verify_email_message": "Kami perlu memverifikasi identitas Anda sebelum kami melakukan operasi penghapusan\nAlamat email Anda {{email}} akan menerima email kode verifikasi",
       "verify_phone_message": "Kami perlu memverifikasi identitas Anda sebelum kami melakukan operasi penghapusan\nTelepon Anda {{phone}} akan menerima email kode verifikasi",
@@ -649,6 +653,20 @@
       "unavailable": "Tidak tersedia",
       "variant_property_color": "रंग"
     },
+    "giftcard": {
+      "seoTitle": "Saldo kartu hadiah {{ shop }} Anda adalah {{ value }}！",
+      "balance": "Nilai",
+      "buy_giftcard": "Membeli kartu hadiah",
+      "description": "Nilai kartu hadiah {{price}} Anda untuk {{shop}}!",
+      "expired_date": "Tanggal kedaluwarsa",
+      "invalid_tip": "Kartu hadiah Anda tidak valid, silakan beli yang lain",
+      "permanent": "Abadi",
+      "receive_at": "Kedaluwarsa pada",
+      "receive_tip": "Silakan terima kartu hadiah Anda",
+      "title": "Kartu hadiah Anda",
+      "use_giftcard": "Menggunakan kartu hadiah",
+      "use_giftcard_tip": "Anda dapat memasukkan nomor kartu hadiah saat checkout untuk pengurangan"
+    },
     "product_details": {
       "activity_toast_price_limit": "Kupon produk ini hanya mendukung beli {{num}} buah",
       "activity_toast_product__limit": "Pada waktu bersamaan maksimum dapat beli {{stock}} produk dengan harga diskon",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "Produk yang baru dilihat"
-    },
-    "giftcard": {
-      "balance": "Nilai",
-      "buy_giftcard": "Membeli kartu hadiah",
-      "description": "Nilai kartu hadiah {{price}} Anda untuk {{shop}}!",
-      "expired_date": "Tanggal kedaluwarsa",
-      "invalid_tip": "Kartu hadiah Anda tidak valid, silakan beli yang lain",
-      "permanent": "Abadi",
-      "receive_at": "Kedaluwarsa pada",
-      "receive_tip": "Silakan terima kartu hadiah Anda",
-      "title": "Kartu hadiah Anda",
-      "use_giftcard": "Menggunakan kartu hadiah",
-      "use_giftcard_tip": "Anda dapat memasukkan nomor kartu hadiah saat checkout untuk pengurangan"
     }
   },
   "reduction_code": {

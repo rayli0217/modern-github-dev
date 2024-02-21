@@ -55,6 +55,8 @@
 
 {{assign "product_image_pc_thumbnail_postion" (default section.settings.product_image_pc_thumbnail_postion 'bottom')}}
 {{assign 'product_mobile_image_switch_style' (default section.settings.product_mobile_image_switch_style 'number')}}
+{{assign "product_thumbnail_image_size" (default section.settings.product_thumbnail_image_size 'large')}}
+{{assign "product_mobile_thumbnail_image_size" (default section.settings.product_mobile_thumbnail_image_size 'large')}}
 
 {{#with this as |global|}}
   <media-gallery
@@ -66,7 +68,7 @@
     data-pagination-type="{{ product_mobile_image_switch_style }}"
   >
     <div id="GalleryStatus-{{ section.id }}"></div>
-    <div class="product__thumbnail-slider-group product__thumbnail--{{product_image_pc_thumbnail_postion}}">
+    <div class="product__thumbnail-slider-group product__thumbnail--{{product_image_pc_thumbnail_postion}} product__thumbnail--{{product_thumbnail_image_size}} product__mobile-thumbnail--{{product_mobile_thumbnail_image_size}}">
       
       <slider-component id="GalleryViewer-{{ section.id }}{{ id_append }}" class="thumbnail-preview slider-mobile-gutter {{#unless product.selected_or_first_available_variant.featured_media}}no-featured-media{{/unless}}">
         <ul

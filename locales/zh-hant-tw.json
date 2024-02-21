@@ -233,12 +233,16 @@
       "phone": "行動電話",
       "reset_password_error_hint": "請先綁定電子郵件或行動電話",
       "revoke": "取消註銷",
+      "revoke_btn": "",
       "revoke_message": "賬號處於註銷中，賬戶數據將於{{time}}被刪除，您可在該日期之前撤銷此註銷流程",
       "save_btn": "儲存",
       "select__date": "選取日期",
       "subscribe_confirm_tip": "感謝您的訂閱。",
+      "subscribed": "",
       "timeout_tip": "操作超時，請重新驗證",
       "unknow_error_tip": "服務異常，稍後重試",
+      "unregister": "",
+      "unsubscribe": "",
       "username": "姓名",
       "verify_email_message": "在進行註銷操作前，我們需要驗證您的身份\n您的郵箱{{email}}將收到驗證碼郵件",
       "verify_phone_message": "在進行註銷操作前，我們需要驗證您的身份\n您的手機{{phone}}將收到驗證短信",
@@ -649,6 +653,20 @@
       "unavailable": "不可用的",
       "variant_property_color": "顏色"
     },
+    "giftcard": {
+      "seoTitle": "您的 {{ shop }} 的禮品卡餘額為 {{ value }}！",
+      "balance": "面額",
+      "buy_giftcard": "購買一張禮品卡",
+      "description": "這是您在{{shop}}面額為{{price}}的禮品卡",
+      "expired_date": "失效時期",
+      "invalid_tip": "您的禮品卡不合法，請購買另外一個",
+      "permanent": "永久生效",
+      "receive_at": "失效時期",
+      "receive_tip": "請查收您的禮品卡",
+      "title": "您的禮品卡",
+      "use_giftcard": "使用禮品卡",
+      "use_giftcard_tip": "您可以在結賬頁面通過輸入禮品卡卡號來使用"
+    },
     "product_details": {
       "activity_toast_price_limit": "此商品優惠價僅支持購買{{num}}件",
       "activity_toast_product__limit": "最多可同時購買{{stock}}件優惠價商品",
@@ -747,19 +765,6 @@
     },
     "recently_viewed_products": {
       "recently_viewed_products": "最近瀏覽商品"
-    },
-    "giftcard": {
-      "balance": "面額",
-      "buy_giftcard": "購買一張禮品卡",
-      "description": "這是您在{{shop}}面額為{{price}}的禮品卡",
-      "expired_date": "失效時期",
-      "invalid_tip": "您的禮品卡不合法，請購買另外一個",
-      "permanent": "永久生效",
-      "receive_at": "失效時期",
-      "receive_tip": "請查收您的禮品卡",
-      "title": "您的禮品卡",
-      "use_giftcard": "使用禮品卡",
-      "use_giftcard_tip": "您可以在結賬頁面通過輸入禮品卡卡號來使用"
     }
   },
   "reduction_code": {
