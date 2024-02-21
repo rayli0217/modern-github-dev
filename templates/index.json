@@ -6,7 +6,7 @@
       "settings": {
         "title": "Image with text",
         "title_font_size": "title3",
-        "content": "Pair text with an image to test22 focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.",
+        "content": "Pair text with an image to test focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.",
         "button_text": "Optional button",
         "show_image_line": true,
         "image_height": "lg",
