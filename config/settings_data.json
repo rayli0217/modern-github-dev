@@ -852,7 +852,7 @@
               "type" : "custom",
               "settings" : {
                 "title" : "Custom text",
-                "content" : "Add your own custom test text here."
+                "content" : "Add your own custom text here."
               }
             }
           },
