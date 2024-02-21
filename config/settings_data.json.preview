@@ -174,20 +174,16 @@
         ]
       },
       "header": {
-        "disabled": false,
         "type": "header",
+        "disabled": false,
         "settings": {
           "full_width": false,
           "transparent_header": false,
-          "transparent_image": "shopline://shop_images/ccee2ca6-9690-4f34-9602-284744f37ed8.png",
           "transparent_title_color": "#FFFFFF",
-          "main_menu_link_list": "main-menu",
-          "mobile_main_menu_link_list": "",
           "main_menu_style": "dropdown",
           "navigation_layout": "middle-line",
           "body_pc_second_font_size": "body3",
           "body_pc_thirdly_font_size": "body4",
-          "mobile_top_menu": "",
           "mobile_top_menu_show_home": false,
           "user_mobile_layout": "menu",
           "sticky_header_type": "always",
@@ -206,7 +202,11 @@
           "show_country_selector": false,
           "show_locale_selector": false,
           "padding_top": 8,
-          "padding_bottom": 8
+          "padding_bottom": 8,
+          "mobile_main_menu_link_list": "",
+          "mobile_top_menu": "",
+          "transparent_image": "shopline://shop_images/ccee2ca6-9690-4f34-9602-284744f37ed8.png",
+          "main_menu_link_list": "main-menu"
         },
         "blocks": {
           "menuImage1": {
@@ -256,8 +256,8 @@
         "custom_css": []
       },
       "footer": {
-        "type": "footer",
         "disabled": false,
+        "type": "footer",
         "settings": {
           "show_locale_selector": false,
           "show_country_selector": false,
@@ -277,9 +277,9 @@
           "footer-menu1": {
             "type": "menu",
             "settings": {
-              "title": "Menu title",
-              "default_fold": false,
-              "menu": "footer"
+              "title": "Menu title333",
+              "menu": "footer",
+              "default_fold": false
             }
           },
           "footer-menu2": {
@@ -302,7 +302,8 @@
           "footer-menu1",
           "footer-menu2",
           "footer-custom"
-        ]
+        ],
+        "custom_css": []
       }
     }
   }
