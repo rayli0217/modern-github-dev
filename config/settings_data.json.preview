@@ -174,27 +174,39 @@
         ]
       },
       "header": {
-        "type": "header",
         "disabled": false,
+        "type": "header",
         "settings": {
-          "show_locale_selector": false,
-          "show_country_selector": false,
-          "color_scheme": "none",
           "full_width": false,
           "transparent_header": false,
+          "transparent_image": "shopline://shop_images/ccee2ca6-9690-4f34-9602-284744f37ed8.png",
           "transparent_title_color": "#FFFFFF",
+          "main_menu_link_list": "main-menu",
+          "mobile_main_menu_link_list": "",
+          "main_menu_style": "dropdown",
           "navigation_layout": "middle-line",
           "body_pc_second_font_size": "body3",
           "body_pc_thirdly_font_size": "body4",
-          "enable_sticky_header": true,
+          "mobile_top_menu": "",
+          "mobile_top_menu_show_home": false,
+          "user_mobile_layout": "menu",
+          "sticky_header_type": "always",
           "show_line_separator": false,
           "show_search_entry": true,
           "enabled_tile_search": true,
           "show_user_entry": true,
+          "hover_show_user_menu": false,
+          "user_menu_text_1": "",
+          "user_menu_link_1": "",
+          "user_menu_text_2": "",
+          "user_menu_link_2": "",
+          "user_menu_text_3": "",
+          "user_menu_link_3": "",
           "show_cart_entry": true,
+          "show_country_selector": false,
+          "show_locale_selector": false,
           "padding_top": 8,
-          "padding_bottom": 8,
-          "main_menu_link_list": "main-menu"
+          "padding_bottom": 8
         },
         "blocks": {
           "menuImage1": {
@@ -240,7 +252,8 @@
         "block_order": [
           "menuImage1",
           "menuImage2"
-        ]
+        ],
+        "custom_css": []
       },
       "footer": {
         "type": "footer",
