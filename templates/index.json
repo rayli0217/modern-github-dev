@@ -38,23 +38,6 @@
       "blocks": {},
       "block_order": []
     },
-    "video": {
-      "disabled": false,
-      "type": "video",
-      "settings": {
-        "title": "",
-        "full_width": true,
-        "title_size": "title3",
-        "cover": "shopline://shop_images/ccee2ca6-9690-4f34-9602-284744f37ed8.png",
-        "internal_video": "",
-        "external_video": "",
-        "color_scheme": "none",
-        "padding_top": 0,
-        "padding_bottom": 0
-      },
-      "blocks": {},
-      "custom_css": []
-    },
     "featured-collection-2": {
       "type": "featured-collection",
       "disabled": false,
@@ -303,6 +286,23 @@
         "block-3",
         "block-4"
       ]
+    },
+    "video": {
+      "disabled": false,
+      "type": "video",
+      "settings": {
+        "title": "Test",
+        "title_size": "title3",
+        "cover": null,
+        "internal_video": "",
+        "external_video": "",
+        "full_width": true,
+        "color_scheme": "none",
+        "padding_top": 0,
+        "padding_bottom": 0
+      },
+      "blocks": {},
+      "custom_css": []
     }
   },
   "order": [
