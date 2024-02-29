@@ -7,7 +7,7 @@
         "show_collection_description": true,
         "show_collection_cover": true,
         "pc_collection_img_height":470,
-        "md_collection_img_height":2501,
+        "md_collection_img_height":250,
         "collection_cover_area": "center",
         "mask_color": "#000000",
         "mask_color_opacity": 20,
