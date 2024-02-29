@@ -41,7 +41,7 @@
         "label": "t:settings_schema.logo.settings.mobile_logo_width.label",
         "default": 145,
         "min": 60,
-        "max": 201,
+        "max": 200,
         "step": 10,
         "unit": "px"
       }
