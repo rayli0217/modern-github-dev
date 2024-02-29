@@ -174,8 +174,8 @@
         ]
       },
       "header": {
-        "disabled": false,
         "type": "header",
+        "disabled": false,
         "settings": {
           "show_locale_selector": false,
           "show_country_selector": false,
@@ -242,7 +242,6 @@
               "menu_title": "",
               "menu_img_style": "fill",
               "text_color": "#FFFFFF",
-              "image_1": "shopline://shop_images/c89a84f7-c043-4a9e-9f39-53fa735b1c50.png",
               "image_1_title": "Promotion heading",
               "image_1_link_text": "Shop",
               "image_1_position": "right",
@@ -251,7 +250,8 @@
               "image_2_position": "right",
               "image_3_title": "Promotion heading",
               "image_3_link_text": "Shop",
-              "image_3_position": "right"
+              "image_3_position": "right",
+              "image_1": "shopline://shop_images/c89a84f7-c043-4a9e-9f39-53fa735b1c50.png"
             }
           }
         },

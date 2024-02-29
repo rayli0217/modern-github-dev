@@ -131,8 +131,8 @@
       ]
     },
     "featured-collection": {
-      "disabled": false,
       "type": "featured-collection",
+      "disabled": false,
       "settings": {
         "title": "Featured collection",
         "heading_size": "title3",
@@ -217,8 +217,8 @@
       ]
     },
     "sign-up-and-save": {
-      "disabled": false,
       "type": "sign-up-and-save",
+      "disabled": false,
       "settings": {
         "full_screen_width": true,
         "color_scheme": "none",
@@ -255,8 +255,8 @@
       "custom_css": []
     },
     "collection-list": {
-      "type": "collection-list",
       "disabled": false,
+      "type": "collection-list",
       "settings": {
         "title": "Collection list",
         "collection_title_position": "left-center",
@@ -275,8 +275,8 @@
         "block-1": {
           "type": "collection",
           "settings": {
-            "image_display_area": "left",
-            "button_text": "SHOP NOW"
+            "button_text": "SHOP NOW",
+            "image_display_area": "left"
           }
         },
         "block-2": {
@@ -306,7 +306,8 @@
         "block-2",
         "block-3",
         "block-4"
-      ]
+      ],
+      "custom_css": []
     }
   },
   "order": [
