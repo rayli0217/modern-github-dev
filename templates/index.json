@@ -258,9 +258,10 @@
       "disabled": false,
       "type": "collection-list",
       "settings": {
-        "title": "Collection list",
-        "collection_title_position": "left-center",
+        "title": "Collection list1",
         "button_text": "View all",
+        "mask_opacity": 0,
+        "mask_color": "#FFFFFF",
         "color_scheme": "none",
         "show_collection_cover": true,
         "cover_image_size": "w_1_h_2",
@@ -268,6 +269,8 @@
         "cover_image_title": "Collection",
         "cover_image_title_color": "#000000",
         "desktop_grid_cols": 3,
+        "collection_title_position": "left-center",
+        "mb_collection_title_position": "center",
         "padding_top": 80,
         "padding_bottom": 80
       },
