@@ -258,7 +258,7 @@
       "disabled": false,
       "type": "collection-list",
       "settings": {
-        "title": "Collection list1",
+        "title": "Collection list",
         "button_text": "View all",
         "mask_opacity": 0,
         "mask_color": "#FFFFFF",
