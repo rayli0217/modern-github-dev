@@ -29,7 +29,7 @@
         "type": "range",
         "id": "desktop_logo_width",
         "label": "t:settings_schema.logo.settings.desktop_logo_width.label",
-        "default": 160,
+        "default": 150,
         "min": 100,
         "max": 400,
         "step": 10,
